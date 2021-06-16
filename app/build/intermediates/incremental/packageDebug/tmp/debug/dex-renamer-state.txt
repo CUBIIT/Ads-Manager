@@ -1,0 +1,10 @@
+#Wed Jun 16 16:38:45 PKT 2021
+path.2=classes3.dex
+path.1=classes2.dex
+path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
+renamed.0=classes.dex
+base.2=E\:\\Funprime\\Projects\\VCS Lib\\admanager\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes3.dex
+base.1=E\:\\Funprime\\Projects\\VCS Lib\\admanager\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
+base.0=E\:\\Funprime\\Projects\\VCS Lib\\admanager\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex

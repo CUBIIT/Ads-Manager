@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.google.ads.mediation:facebook:5.0.1.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5f333c8bea1ca5ea4a409b68214d7eac/jetified-facebook-5.0.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/52bc9e9f0b36638e339da034e54c0342/jetified-facebook-5.0.1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cca678a3ff6de912bff9cee5ba1a83b7/jetified-facebook-5.0.1.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cca678a3ff6de912bff9cee5ba1a83b7/jetified-facebook-5.0.1.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cca678a3ff6de912bff9cee5ba1a83b7/jetified-facebook-5.0.1.0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.ads.mediation/facebook/5.0.1.0/c77c02d129a64d81465a17dd2eccc17bd6dab3f6/facebook-5.0.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

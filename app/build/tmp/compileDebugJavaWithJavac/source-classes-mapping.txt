@@ -1,0 +1,4 @@
+org/cubiit/admanager/BuildConfig.java
+ org.cubiit.admanager.BuildConfig
+org/cubiit/admanager/MainActivity.java
+ org.cubiit.admanager.MainActivity
