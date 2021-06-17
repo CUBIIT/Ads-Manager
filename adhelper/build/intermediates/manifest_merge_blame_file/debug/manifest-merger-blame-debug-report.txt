@@ -1,0 +1,70 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="mediation.helper" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="17"
+6-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+7        android:targetSdkVersion="30" />
+7-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.INTERNET" />
+9-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:4:5-67
+9-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:4:22-64
+10
+11    <application>
+11-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:6:5-36:19
+12        <activity android:name="mediation.helper.backpress.MediationBackPressDialog" />
+12-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:7:9-8:82
+12-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:8:13-79
+13
+14        <!-- for ads -->
+15        <activity
+15-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:11:9-14:50
+16            android:name="com.facebook.ads.AudienceNetworkActivity"
+16-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:12:13-68
+17            android:configChanges="keyboardHidden|orientation|screenSize"
+17-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:13:13-74
+18            android:hardwareAccelerated="true" />
+18-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:14:13-47
+19
+20        <meta-data
+20-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:16:9-18:36
+21            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+21-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:17:13-69
+22            android:value="true" />
+22-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:18:13-33
+23
+24        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+25        <meta-data
+25-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:21:9-23:70
+26            android:name="com.google.android.gms.ads.APPLICATION_ID"
+26-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:22:13-69
+27            android:value="ca-app-pub-9579400493638621~6906548884" />
+27-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:23:13-67
+28        <meta-data
+28-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:25:9-27:69
+29            android:name="com.google.android.gms.version"
+29-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:26:13-58
+30            android:value="@integer/google_play_services_version" />
+30-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:27:13-66
+31
+32        <activity
+32-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:29:9-33:41
+33            android:name="com.google.android.gms.ads.AdActivity"
+33-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:30:13-65
+34            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+34-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:31:13-122
+35            android:multiprocess="true"
+35-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:32:13-40
+36            android:process=":remote" />
+36-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:33:13-38
+37        <activity
+37-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:34:9-35:53
+38            android:name="mediation.helper.interstitial.CubiInterstitialAdActivity"
+38-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:34:19-74
+39            android:theme="@style/FullscreenTheme" />
+39-->E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:35:13-51
+40    </application>
+41
+42</manifest>

@@ -1,0 +1,77 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:1:1-38:12
+INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:1:1-38:12
+INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:1:1-38:12
+	package
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:2:5-31
+		INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+		INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:4:22-64
+application
+ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:6:5-36:19
+activity#mediation.helper.backpress.MediationBackPressDialog
+ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:7:9-8:82
+	android:name
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:8:13-79
+activity#com.facebook.ads.AudienceNetworkActivity
+ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:11:9-14:50
+	android:hardwareAccelerated
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:14:13-47
+	android:configChanges
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:13:13-74
+	android:name
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:12:13-68
+meta-data#com.google.android.gms.ads.AD_MANAGER_APP
+ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:16:9-18:36
+	android:value
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:18:13-33
+	android:name
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:17:13-69
+meta-data#com.google.android.gms.ads.APPLICATION_ID
+ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:21:9-23:70
+	android:value
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:23:13-67
+	android:name
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:22:13-69
+meta-data#com.google.android.gms.version
+ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:25:9-27:69
+	android:value
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:27:13-66
+	android:name
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:26:13-58
+activity#com.google.android.gms.ads.AdActivity
+ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:29:9-33:41
+	android:process
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:33:13-38
+	android:multiprocess
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:32:13-40
+	android:configChanges
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:31:13-122
+	android:name
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:30:13-65
+activity#mediation.helper.interstitial.CubiInterstitialAdActivity
+ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:34:9-35:53
+	android:theme
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:35:13-51
+	android:name
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml:34:19-74
+uses-sdk
+INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+		INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+		ADDED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
+		INJECTED from E:\Funprime\Projects\VCS Lib\admanager\adhelper\src\main\AndroidManifest.xml
