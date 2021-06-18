@@ -363,8 +363,9 @@ MediationNativeAd nativeAd = new MediationNativeAd(ad_container, this, getString
         });
 ```
 # Contributors
-[CUBIIT.](https://github.com/CUBIIT)
-[Alamgir Jahanzaib.](https://github.com/Almgirjhanzaib)
+[@CUBIIT.](https://github.com/CUBIIT)
+
+[@Alamgir Jahanzaib.](https://github.com/Almgirjhanzaib)
 # License
 ``
 MIT License
