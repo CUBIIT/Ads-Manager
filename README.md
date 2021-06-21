@@ -189,13 +189,13 @@ NativeBanner ad looks like a banner but it customizes the native ad layout. Most
         nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeBannerListener() {
             @Override
             public void onError(String errorMessage) {
-                hideDialog();
+                
 
             }
 
             @Override
             public void onLoaded(int adType) {
-                hideDialog();
+                
 
             }
 
