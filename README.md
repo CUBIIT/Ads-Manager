@@ -154,12 +154,12 @@ To show banner ad.
             new OnBannerAdListener() {
                     @Override
                     public void onError(String errorMessage) {
-                        hideDialog();
+                        
                     }
 
                     @Override
                     public void onLoaded(int adType) {
-                        hideDialog();
+                       
                     }
 
                     @Override
@@ -173,7 +173,7 @@ To show banner ad.
 
 ```
 ### NativeBanner ad
-NativeBanner ad looks like a banner but it customizes the native ad layout. Mostly used in recycler view.
+NativeBanner ad looks like a banner but it customizes the native ad layout. Mostly used in recycleview data.
 
 ```java
 
@@ -208,6 +208,8 @@ NativeBanner ad looks like a banner but it customizes the native ad layout. Most
 ```
 ### Backpress Dialog:
 Backpress dialog ad used when user exit from the app. Just call below code **onBackPressed()**.
+> If you want to user review your app on exit then pass true in startDialog() method instead of false as given below
+
 
 ```java
 @Override
