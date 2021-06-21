@@ -314,7 +314,30 @@ new OnInterstitialAdListener() {
                         }
                     });
 
-//for Banner ad
+//for NativeBanner ad Listener
+
+new OnBannerAdListener() {
+                    @Override
+                    public void onError(String errorMessage) {
+                      
+                    }
+
+                    @Override
+                    public void onLoaded(int adType) {
+                        
+                    }
+
+                    @Override
+                    public void onAdClicked(int adType) {
+                    }
+
+                    @Override
+                    public void onFacebookAdCreated(com.facebook.ads.AdView facebookBanner) {
+                    }
+                }
+                
+                
+//for Banner ad Listener
 new OnNativeBannerListener() {
             @Override
             public void onError(String errorMessage) {
@@ -335,32 +358,22 @@ new OnNativeBannerListener() {
         });
 
 // Native ad listener
-MediationNativeAd nativeAd = new MediationNativeAd(ad_container, this, getString(R.string.app_name),
-                getString(R.string.fb_native_id),
-                getString(R.string.admob_native_id), new MediationAdHelper.ImageProvider() {
-            @Override
-            public void onProvideImage(ImageView imageView, String imageUrl) {
-                Glide.with(getApplicationContext())
-                        .load(imageUrl)
-                        .into(imageView);
-            }
-        });
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeAdListener() {
+       new OnNativeAdListener() {
             @Override
             public void onError(String errorMessage) {
-                hideDialog();
+               
             }
 
             @Override
             public void onLoaded(int adType) {
-                hideDialog();
+              
             }
 
             @Override
             public void onAdClicked(int adType) {
 
             }
-        });
+        }
 ```
 # Contributors
 [@CUBIIT.](https://github.com/CUBIIT)
