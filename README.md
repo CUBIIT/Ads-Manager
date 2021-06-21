@@ -253,6 +253,8 @@ Backpress dialog ad used when user exit from the app. Just call below code **onB
 * **boolean isAppPurchase:** 
 
 > pass true or false value, to check if a user purchases your app or not. Ads are not showing on true value.
+* **Framelayout adContainer:** 
+> framelayout container for native and banner ads.
 * **Context:**
 
 > pass current activity's/fragment  context.
