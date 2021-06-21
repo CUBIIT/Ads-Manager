@@ -1,9 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'com.github.dcendents.android-maven'
+    id 'com.google.gms.google-services'
 
 }
-group ='com.github.CUBIIT'
+group ='com.cubiit.admanager'
 
 android {
     compileSdkVersion 30
@@ -41,4 +42,13 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation('com.github.bumptech.glide:glide:4.11.0') {
+        exclude(group: "com.android.support")
+    }
+    //facebook audience
+    implementation 'com.facebook.android:audience-network-sdk:6.2.0'
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-config'
 }

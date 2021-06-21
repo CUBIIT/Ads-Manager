@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
@@ -32,7 +33,10 @@ public class AdHelperApplication extends Application {
        return AdHelperApplication.this;
     }
 
+
+
     public static void getValuesFromConfig(FirebaseRemoteConfig mFirebaseConfig, Context context) {
+
         FirebaseRemoteConfigSettings settings = new FirebaseRemoteConfigSettings.Builder()
                 .setMinimumFetchIntervalInSeconds(3600)
                 .build();

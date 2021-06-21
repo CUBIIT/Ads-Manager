@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">AdManager</string>
+    <string name="app_name_splash">Ad Manager V1.1</string>
+    <string name="author">CUBI-IT</string>
+
+    <string name="inters">Show interstitial Ad</string>
+    <string name="banner">Show Banner Ad</string>
+    <string name="nativeAd">Show Native Ad</string>
+    <string name="nativeBanner">Show Native Banner</string>
+    <string name="backPressDialog">Show Dialog Ad</string>
+    <string name="icon">Show Icon Ad</string>
+
+    <!--  test ads ids-->
+    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_native_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="fb_interstitial_id">IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</string>
+    <string name="fb_banner_id">IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</string>
+    <string name="fb_native_id">IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</string>
 </resources>
