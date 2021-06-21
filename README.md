@@ -23,7 +23,9 @@ dependencies {
   implementation 'com.github.CUBIIT:Ads-Manager:v1.0'
 }
 ```
-### Step3: Also add other dependencies
+### Step3: Connect App to Firebase
+> Add Firebase to your android project.Visit [how to add firebase.](https://firebase.google.com/docs/android/setup)
+### Step4: Also add other dependencies
 ```gradle
 dependencies {
   // Firebase
