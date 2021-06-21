@@ -283,6 +283,9 @@ Example:
             MediationAdHelper.AD_CUBI_IT};
 
 ```
+* **boolean appReview:(Only used in MediationBackpressedDialog )**
+> pass true value to show review button,so user can review your app,by default value is false.
+
 * **Listener:** 
 > Pass the listener object according to ad type.
 ```java
