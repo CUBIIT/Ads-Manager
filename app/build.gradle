@@ -5,6 +5,7 @@ plugins {
 
 }
 group ='com.cubiit.admanager'
+//hrtr
 
 android {
     compileSdkVersion 30
