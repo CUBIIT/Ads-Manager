@@ -4,7 +4,7 @@ plugins {
     id 'com.google.gms.google-services'
 
 }
-group ='com.cubiit.admanager'
+group ='com.github.CUBIIT'
 //hrtr
 
 android {
