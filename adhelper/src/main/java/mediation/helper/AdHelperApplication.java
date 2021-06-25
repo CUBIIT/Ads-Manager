@@ -6,22 +6,59 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.AdapterStatus;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
 import mediation.helper.cubiad.NativeAdView.CubiInterstitialAd;
 import mediation.helper.cubiad.NativeAdView.CubiNativeAd;
 import mediation.helper.cubiad.NativeAdView.GeneralInfo;
 
-import static mediation.helper.util.Constant.*;
+import static mediation.helper.util.Constant.BANNER_AD_PRIORITY_KEY;
+import static mediation.helper.util.Constant.BANNER_KEY_AD_ADVERTISER_NAME;
+import static mediation.helper.util.Constant.BANNER_KEY_AD_BODY;
+import static mediation.helper.util.Constant.BANNER_KEY_AD_CALL_TO_ACTION;
+import static mediation.helper.util.Constant.BANNER_KEY_AD_FEEDBACKS;
+import static mediation.helper.util.Constant.BANNER_KEY_AD_RATING;
+import static mediation.helper.util.Constant.BANNER_KEY_AD_TITLE;
+import static mediation.helper.util.Constant.BANNER_KEY_AD_URL;
+import static mediation.helper.util.Constant.BANNER_KEY_SQUARE_ICON_URL;
+import static mediation.helper.util.Constant.INTERSTITIAL_AD_FREQUENCY_KEY;
+import static mediation.helper.util.Constant.INTERSTITIAL_AD_PRIORITY_KEY;
+import static mediation.helper.util.Constant.INTERSTITIAL_AD_TIMER_KEY;
+import static mediation.helper.util.Constant.INTERSTITIAL_KEY_AD_ADVERTISER_NAME;
+import static mediation.helper.util.Constant.INTERSTITIAL_KEY_AD_BODY;
+import static mediation.helper.util.Constant.INTERSTITIAL_KEY_AD_CALL_TO_ACTION;
+import static mediation.helper.util.Constant.INTERSTITIAL_KEY_AD_FEEDBACKS;
+import static mediation.helper.util.Constant.INTERSTITIAL_KEY_AD_RATING;
+import static mediation.helper.util.Constant.INTERSTITIAL_KEY_AD_TITLE;
+import static mediation.helper.util.Constant.INTERSTITIAL_KEY_AD_URL;
+import static mediation.helper.util.Constant.INTERSTITIAL_KEY_FEATURE_ICON_URL;
+import static mediation.helper.util.Constant.INTERSTITIAL_KEY_SQUARE_ICON_URL;
+import static mediation.helper.util.Constant.KEY_PRIORITY_BANNER_AD;
+import static mediation.helper.util.Constant.KEY_PRIORITY_INTERSTITIAL_AD;
+import static mediation.helper.util.Constant.KEY_PRIORITY_NATIVE_AD;
+import static mediation.helper.util.Constant.NATIVE_AD_PRIORITY_KEY;
+import static mediation.helper.util.Constant.NATIVE_KEY_AD_ADVERTISER_NAME;
+import static mediation.helper.util.Constant.NATIVE_KEY_AD_BODY;
+import static mediation.helper.util.Constant.NATIVE_KEY_AD_CALL_TO_ACTION;
+import static mediation.helper.util.Constant.NATIVE_KEY_AD_FEEDBACKS;
+import static mediation.helper.util.Constant.NATIVE_KEY_AD_ICON_URL;
+import static mediation.helper.util.Constant.NATIVE_KEY_AD_IMAGE_URL;
+import static mediation.helper.util.Constant.NATIVE_KEY_AD_RATING;
+import static mediation.helper.util.Constant.NATIVE_KEY_AD_TITLE;
+import static mediation.helper.util.Constant.NATIVE_KEY_AD_URL;
 
 public class AdHelperApplication extends Application {
 
@@ -29,11 +66,34 @@ public class AdHelperApplication extends Application {
     private static CubiBannerAd cubiBannerAd;
     private static CubiInterstitialAd cubiInterstitialAd;
     private static CubiNativeAd cubiNativeAd;
-    public  Context getContext(){
-       return AdHelperApplication.this;
+
+    public static void initMediation(Context context) {
+        MobileAds.initialize(context, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
+                for (String adapterClass : statusMap.keySet()) {
+                    AdapterStatus status = statusMap.get(adapterClass);
+                    Log.d("MyApp", String.format(
+                            "Adapter name: %s, Description: %s, Latency: %d",
+                            adapterClass, status.getDescription(), status.getLatency()));
+                }
+
+                // Start loading ads here...
+            }
+        });
+    }
+
+    public Context getContext() {
+        return AdHelperApplication.this;
     }
 
 
+//    @Override
+//    public void onCreate() {
+//        super.onCreate();
+//        initMediation();
+//    }
 
     public static void getValuesFromConfig(FirebaseRemoteConfig mFirebaseConfig, Context context) {
 

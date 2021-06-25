@@ -47,7 +47,7 @@ dependencies {
         exclude(group: "com.android.support")
     }
     //facebook audience
-    implementation 'com.facebook.android:audience-network-sdk:6.2.0'
+    implementation 'com.facebook.android:audience-network-sdk:6.5.0'
     implementation platform('com.google.firebase:firebase-bom:26.2.0')
     implementation 'com.google.firebase:firebase-messaging'
     implementation 'com.google.firebase:firebase-analytics'
