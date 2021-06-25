@@ -1,6 +1,7 @@
 # Introduction
 AdManager is an Admob and Facebook and custom ads mediation library. AdManager supports Interstitial ad, native ad, Banner ad, icon ad, and exit dialog ad.AdManager support custom ad using firebase remote config.
 
+
 AdManager is a fast, smooth, reliable, and easy-to-use ads mediation library.
 # Download
 you can download the sample app and source code from [release page.](https://github.com/CUBIIT/Ads-Manager/releases/tag/v1.0)
@@ -42,6 +43,37 @@ dependencies {
 
 }
 ```
+# AdMob mediation(Optional)
+You can use admob mediation with other different ads source network like facebook, unity etc.
+
+Visit [admob mediation overview](https://developers.google.com/admob/android/mediate).
+
+For facebook visit [Integrating Facebook Audience Network with Admob Mediation](https://developers.google.com/admob/android/mediation/facebook)
+
+> **Note: Don't need to add any code in your app. Our library will handle this for you.**
+
+### Change ads priority (Important!)
+
+Now after setup every thing then change you ads priorities for all ads like this.
+
+```java
+   public static Integer[] KEY_PRIORITY_BANNER_AD = new Integer[]{
+
+             MediationAdHelper.AD_ADMOB,
+             MediationAdHelper.AD_FACEBOOK,
+             MediationAdHelper.AD_CUBI_IT};
+
+    public static Integer[] KEY_PRIORITY_INTERSTITIAL_AD = new Integer[]{
+            MediationAdHelper.AD_ADMOB,
+            MediationAdHelper.AD_FACEBOOK,
+            MediationAdHelper.AD_CUBI_IT};
+
+    public static Integer[] KEY_PRIORITY_NATIVE_AD = new Integer[]{
+            MediationAdHelper.AD_ADMOB,
+            MediationAdHelper.AD_FACEBOOK,
+            MediationAdHelper.AD_CUBI_IT};
+```
+
 # Implementation
 ### Initialization
 add these lines in your Application **onCreate** methode.
