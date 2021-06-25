@@ -54,7 +54,7 @@ For facebook visit [Integrating Facebook Audience Network with Admob Mediation](
 
 ### Change ads priority (Important!)
 
-Now after setup every thing then change you ads priorities for all ads like this.
+Now after setup every thing then change your priorities for all ads like this.
 
 ```java
    public static Integer[] KEY_PRIORITY_BANNER_AD = new Integer[]{
