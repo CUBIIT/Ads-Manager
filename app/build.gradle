@@ -1,11 +1,7 @@
 plugins {
     id 'com.android.application'
-//    id 'com.github.dcendents.android-maven'
     id 'com.google.gms.google-services'
-//    id 'maven-publish'
 }
-//group = 'com.github.CUBIIT'
-//hrtr
 
 
 
