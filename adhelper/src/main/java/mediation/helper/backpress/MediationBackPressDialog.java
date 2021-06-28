@@ -1,18 +1,15 @@
 package mediation.helper.backpress;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Insets;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowInsets;
-import android.view.WindowManager;
 import android.view.WindowMetrics;
 import android.widget.TextView;
 
@@ -28,7 +25,6 @@ import mediation.helper.R;
 import mediation.helper.nativead.MediationNativeAd;
 import mediation.helper.nativead.OnNativeAdListener;
 import mediation.helper.util.AppUtil;
-import mediation.helper.util.ConvertUtil;
 import mediation.helper.util.SharedPreferenceUtil;
 
 
@@ -40,6 +36,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
     private static final String EXTRA_AD_PRIORITY_LIST = "ad_priority_list";
     private static final String EXTRA_SHOW_REVIEW_BUTTON = "show_review_button";
     private static final String EXTRA_ADMOB_NATIVE_TYPE = "admob_native_type";
+    private static final String EXTRA_IS_PURCHASE = "is_purchase";
 
     private static OnBackPressListener onBackPressListener;
     private static MediationAdHelper.ImageProvider imageProvider;
@@ -55,16 +52,17 @@ public class MediationBackPressDialog extends AppCompatActivity {
     int admobNativeAdType;
     MediationNativeAd adViewNativeAd;
     ArrayList<Integer> adPriorityList;
+    static boolean isPurchase;
 
-    public static void startFacebookDialog(Activity activity, String appName, String facebookKey, OnBackPressListener onBackPressListener) {
-        startDialog(activity, appName, facebookKey, null, MediationAdHelper.AD_FACEBOOK, onBackPressListener);
+    public static void startFacebookDialog(boolean b, Activity activity, String appName, String facebookKey, OnBackPressListener onBackPressListener) {
+        startDialog(b, activity, appName, facebookKey, null, MediationAdHelper.AD_FACEBOOK, onBackPressListener);
     }
 
-    public static void startDialog(Activity activity, String appName, String facebookKey, String admobKey, int adPriority, OnBackPressListener onBackPressListener) {
-        startDialog(activity, appName, facebookKey, admobKey, adPriority, true, onBackPressListener);
+    public static void startDialog(boolean b, Activity activity, String appName, String facebookKey, String admobKey, int adPriority, OnBackPressListener onBackPressListener) {
+        startDialog(b, activity, appName, facebookKey, admobKey, adPriority, true, onBackPressListener);
     }
 
-    public static void startDialog(Activity activity, String appName, String facebookKey, String admobKey, int adPriority, boolean showReviewButton, OnBackPressListener onBackPressListener) {
+    public static void startDialog(boolean b, Activity activity, String appName, String facebookKey, String admobKey, int adPriority, boolean showReviewButton, OnBackPressListener onBackPressListener) {
         Integer[] tempAdPriorityList = new Integer[2];
         tempAdPriorityList[0] = adPriority;
         if (adPriority == MediationAdHelper.AD_FACEBOOK) {
@@ -72,21 +70,22 @@ public class MediationBackPressDialog extends AppCompatActivity {
         } else {
             tempAdPriorityList[1] = MediationAdHelper.AD_FACEBOOK;
         }
-        startDialog(activity, appName, facebookKey, admobKey, tempAdPriorityList, showReviewButton, onBackPressListener);
+        startDialog(b, activity, appName, facebookKey, admobKey, tempAdPriorityList, showReviewButton, onBackPressListener);
 
     }
 
-    public static void startDialog(Activity activity, String appName, String facebookKey, String admobKey, Integer[] adPriorityList, boolean showReviewButton, OnBackPressListener onBackPressListener) {
-        startDialog(activity, appName, facebookKey, admobKey, adPriorityList, showReviewButton, onBackPressListener, null);
+    public static void startDialog(boolean b, Activity activity, String appName, String facebookKey, String admobKey, Integer[] adPriorityList, boolean showReviewButton, OnBackPressListener onBackPressListener) {
+        startDialog(b, activity, appName, facebookKey, admobKey, adPriorityList, showReviewButton, onBackPressListener, null);
     }
 
-    public static void startDialog(Activity activity, String appName, String facebookKey, String admobKey, Integer[] adPriorityList, boolean showReviewButton, OnBackPressListener onBackPressListener, MediationAdHelper.ImageProvider imageProvider) {
+    public static void startDialog(boolean b, Activity activity, String appName, String facebookKey, String admobKey, Integer[] adPriorityList, boolean showReviewButton, OnBackPressListener onBackPressListener, MediationAdHelper.ImageProvider imageProvider) {
         Intent intent = new Intent(activity, MediationBackPressDialog.class);
         intent.putExtra(EXTRA_APP_NAME, appName);
         intent.putExtra(EXTRA_FACEBOOK_KEY, facebookKey);
         intent.putExtra(EXTRA_ADMOB_KEY, admobKey);
         intent.putExtra(EXTRA_SHOW_REVIEW_BUTTON, showReviewButton);
         intent.putExtra(EXTRA_AD_PRIORITY_LIST, new ArrayList<>(Arrays.asList(adPriorityList)));
+        intent.putExtra(EXTRA_IS_PURCHASE, b);
 
         if (onBackPressListener == null) {
             throw new RuntimeException("OnBackPressListener can not null");
@@ -98,8 +97,8 @@ public class MediationBackPressDialog extends AppCompatActivity {
         activity.overridePendingTransition(0, 0);
     }
 
-    public static void startAdmobDialog(Activity activity, String appName, String admobKey, OnBackPressListener onBackPressListener) {
-        startDialog(activity, appName, null, admobKey, MediationAdHelper.AD_ADMOB, onBackPressListener);
+    public static void startAdmobDialog(boolean isPurchase, Activity activity, String appName, String admobKey, OnBackPressListener onBackPressListener) {
+        startDialog(isPurchase, activity, appName, null, admobKey, MediationAdHelper.AD_ADMOB, onBackPressListener);
     }
 
     public static int getScreenWidth(@NonNull Activity activity) {
@@ -131,7 +130,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
         showReviewButton();
         checkReview();
         //provide null overads
-        adViewNativeAd = new MediationNativeAd(adViewContainer, this, appName, facebookKey, admobKey, imageProvider);
+        adViewNativeAd = new MediationNativeAd(isPurchase, adViewContainer, this, appName, facebookKey, admobKey, imageProvider);
 
         MediationNativeAd.loadAD(adPriorityList, new OnNativeAdListener() {
             @Override
@@ -179,12 +178,14 @@ public class MediationBackPressDialog extends AppCompatActivity {
             admobKey = savedInstanceState.getString(EXTRA_ADMOB_KEY);
             adPriorityList = savedInstanceState.getIntegerArrayList(EXTRA_AD_PRIORITY_LIST);
             showReviewButton = savedInstanceState.getBoolean(EXTRA_SHOW_REVIEW_BUTTON);
+            isPurchase = savedInstanceState.getBoolean(EXTRA_IS_PURCHASE);
         } else {
             appName = getIntent().getStringExtra(EXTRA_APP_NAME);
             facebookKey = getIntent().getStringExtra(EXTRA_FACEBOOK_KEY);
             admobKey = getIntent().getStringExtra(EXTRA_ADMOB_KEY);
             adPriorityList = getIntent().getIntegerArrayListExtra(EXTRA_AD_PRIORITY_LIST);
             showReviewButton = getIntent().getBooleanExtra(EXTRA_SHOW_REVIEW_BUTTON, false);
+            isPurchase = getIntent().getBooleanExtra(EXTRA_IS_PURCHASE, false);
         }
     }
 
@@ -230,6 +231,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
         savedInstanceState.putString(EXTRA_FACEBOOK_KEY, facebookKey);
         savedInstanceState.putString(EXTRA_ADMOB_KEY, admobKey);
         savedInstanceState.putIntegerArrayList(EXTRA_AD_PRIORITY_LIST, adPriorityList);
+        savedInstanceState.putBoolean(EXTRA_IS_PURCHASE, isPurchase);
     }
 
     @Override

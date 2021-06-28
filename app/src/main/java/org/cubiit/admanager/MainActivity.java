@@ -1,19 +1,17 @@
 package org.cubiit.admanager;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         };
     }
     private void loadBackPressedDialog(){
-        MediationBackPressDialog.startDialog(MainActivity.this, getResources().getString(R.string.app_name)
+        MediationBackPressDialog.startDialog(false, MainActivity.this, getResources().getString(R.string.app_name)
                 , getString(R.string.fb_native_id)
                 , getString(R.string.admob_native_id)
                 , KEY_PRIORITY_NATIVE_AD

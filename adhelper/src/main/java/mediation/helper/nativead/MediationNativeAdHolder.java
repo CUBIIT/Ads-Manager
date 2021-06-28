@@ -8,27 +8,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import mediation.helper.MediationAdHelper;
-import mediation.helper.cubiad.NativeAdView.CubiNativeAd;
-import mediation.helper.cubiad.NativeAdView.NativeCubiAd;
 
 
 /**
- * Created by TedPark on 16. 5. 19..
+ * Created by cubiit
  */
 
 public class MediationNativeAdHolder extends RecyclerView.ViewHolder {
 
     public MediationNativeAd mediationNativeAd;
 
-    public MediationNativeAdHolder(ViewGroup itemView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
+    public MediationNativeAdHolder(Boolean b, ViewGroup itemView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
         super(itemView);
-        mediationNativeAd = new MediationNativeAd(itemView, context, app_name, facebook_ad_key, admob_ad_key);
+        mediationNativeAd = new MediationNativeAd(b, itemView, context, app_name, facebook_ad_key, admob_ad_key);
     }
 
 
-    public MediationNativeAdHolder(ViewGroup itemView, Context context, String app_name, String facebook_ad_key, String admob_ad_key,MediationAdHelper.ImageProvider imageProvider) {
+    public MediationNativeAdHolder(boolean b, ViewGroup itemView, Context context, String app_name, String facebook_ad_key, String admob_ad_key, MediationAdHelper.ImageProvider imageProvider) {
         super(itemView);
-        mediationNativeAd = new MediationNativeAd(itemView, context, app_name, facebook_ad_key, admob_ad_key, imageProvider);
+        mediationNativeAd = new MediationNativeAd(b, itemView, context, app_name, facebook_ad_key, admob_ad_key, imageProvider);
     }
 
     public void loadFacebookAD(OnNativeAdListener onNativeAdListener) {
