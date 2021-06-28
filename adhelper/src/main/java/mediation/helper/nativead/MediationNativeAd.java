@@ -66,14 +66,16 @@ public class MediationNativeAd {
     static OnNativeAdListener onNativeAdListener;
     static String TAG = "TAG1_mediationnativead";
     MediationAdHelper.ImageProvider imageProvider;
+    static boolean isPurchase = false;
 
     static ViewGroup containerView;
 
-    public MediationNativeAd(ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
-        this(containerView, context, app_name, facebook_ad_key, admob_ad_key, null);
+    public MediationNativeAd(boolean isPurchase, ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
+        this(isPurchase, containerView, context, app_name, facebook_ad_key, admob_ad_key, null);
     }
 
-    public MediationNativeAd(ViewGroup itemView, Context context, String app_name, String facebook_ad_key, String admob_ad_key, MediationAdHelper.ImageProvider imageProvider) {
+    public MediationNativeAd(boolean isPurchase, ViewGroup itemView, Context context, String app_name, String facebook_ad_key, String admob_ad_key, MediationAdHelper.ImageProvider imageProvider) {
+        this.isPurchase = isPurchase;
         MediationNativeAd.containerView = itemView;
         MediationNativeAd.context = context;
         MediationNativeAd.app_name = app_name;
@@ -124,6 +126,10 @@ public class MediationNativeAd {
     }
 
     public static void loadAD(Integer[] tempAdPriorityList, OnNativeAdListener onNativeAdListener) {
+        if (isPurchase) {
+            onNativeAdListener.onError("You have pro version!");
+            return;
+        }
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             if (onNativeAdListener != null) {
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/TNK");

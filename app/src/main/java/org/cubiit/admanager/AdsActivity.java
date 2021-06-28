@@ -1,12 +1,11 @@
 package org.cubiit.admanager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 
@@ -81,7 +80,7 @@ public class AdsActivity extends AppCompatActivity {
     }
 
     private void loadNativeAds() {
-        MediationNativeAd nativeAd = new MediationNativeAd(ad_container, this, getString(R.string.app_name),
+        MediationNativeAd nativeAd = new MediationNativeAd(false, ad_container, this, getString(R.string.app_name),
                 getString(R.string.fb_native_id),
                 getString(R.string.admob_native_id), new MediationAdHelper.ImageProvider() {
             @Override
