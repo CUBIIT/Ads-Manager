@@ -11,9 +11,6 @@ org/cubiit/admanager/AdManager.java
  org.cubiit.admanager.AdManager
 org/cubiit/admanager/Item.java
  org.cubiit.admanager.Item
-org/cubiit/admanager/SplashScreen.java
- org.cubiit.admanager.SplashScreen
- org.cubiit.admanager.SplashScreen$1
 org/cubiit/admanager/MainActivity.java
  org.cubiit.admanager.MainActivity
  org.cubiit.admanager.MainActivity$1
@@ -23,3 +20,6 @@ org/cubiit/admanager/MainActivity.java
  org.cubiit.admanager.MainActivity$AdsAdapter$1
  org.cubiit.admanager.MainActivity$AdsAdapter$AdsHolder
  org.cubiit.admanager.MainActivity$OnItemClickListener
+org/cubiit/admanager/SplashScreen.java
+ org.cubiit.admanager.SplashScreen
+ org.cubiit.admanager.SplashScreen$1
