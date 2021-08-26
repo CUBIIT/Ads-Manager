@@ -101,14 +101,13 @@ public class MediationNativeBanner {
         initView();
     }
 
-    public MediationNativeBanner(ViewGroup itemView, Context context, String app_name, String facebook_ad_key, String admob_ad_key, boolean showIconAds, CubiBannerAd cubiBannerAd, MediationAdHelper.ImageProvider imageProvider) {
+    public MediationNativeBanner(ViewGroup itemView, Context context, String app_name, String facebook_ad_key, String admob_ad_key, boolean showIconAds, MediationAdHelper.ImageProvider imageProvider) {
         this.containerView = itemView;
         this.context = context;
         this.app_name = app_name;
         this.facebook_ad_key = facebook_ad_key;
         this.admob_ad_key = admob_ad_key;
         this.imageProvider = imageProvider;
-        this.cubiBannerAd = cubiBannerAd;
         if (showIconAds) {
             initViewForIconAd();
         } else
