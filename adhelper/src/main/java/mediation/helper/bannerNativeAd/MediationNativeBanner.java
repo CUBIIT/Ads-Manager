@@ -101,9 +101,44 @@ public class MediationNativeBanner {
         initView();
     }
 
-//    public MediationNativeBanner(ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
+    public MediationNativeBanner(ViewGroup itemView, Context context, String app_name, String facebook_ad_key, String admob_ad_key, boolean showIconAds, CubiBannerAd cubiBannerAd, MediationAdHelper.ImageProvider imageProvider) {
+        this.containerView = itemView;
+        this.context = context;
+        this.app_name = app_name;
+        this.facebook_ad_key = facebook_ad_key;
+        this.admob_ad_key = admob_ad_key;
+        this.imageProvider = imageProvider;
+        this.cubiBannerAd = cubiBannerAd;
+        if (showIconAds) {
+            initViewForIconAd();
+        } else
+            initView();
+    }
+
+    //    public MediationNativeBanner(ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
 //        this(containerView, context, app_name, facebook_ad_key, admob_ad_key);
 //    }
+    private void initViewForIconAd() {
+        containerView.removeAllViews();
+        View nativeView = LayoutInflater.from(context).inflate(R.layout.icon_ad_layout, containerView, false);
+        parentConstraintView = (ConstraintLayout) nativeView.findViewById(R.id.parent_native_banner_constraint_layout);
+        admobAppInstallRootView = (NativeAdView) nativeView.findViewById(R.id.ad_mob_banner_native_ad_view);
+        view_container = (ConstraintLayout) nativeView.findViewById(R.id.view_container_native_banner);
+        // Create native UI using the ad metadata.
+        native_banner_ad_calltoaction = (Button) nativeView.findViewById(R.id.ad_call_to_action);
+        native_banner_ad_title = (TextView) nativeView.findViewById(R.id.native_ad_title);
+        native_banner_ad_body = (TextView) nativeView.findViewById(R.id.native_banner_ad_body_text);
+        native_banner_icon_view = (ImageView) nativeView.findViewById(R.id.cubi_banner_square_icon);
+//        tvName = (TextView) nativeView.findViewById(R.id.tv_name);
+        native_banner_ad_sponser_label = (TextView) nativeView.findViewById(R.id.native_ad_sponsored_label);
+//        tvBody = (TextView) nativeView.findViewById(R.id.tv_body);
+        native_banner_fb_media_view = (MediaView) nativeView.findViewById(R.id.fb_ad_media_view);
+//        tvEtc = (TextView) nativeView.findViewById(R.id.tv_etc);
+        /* tvCallToAction = (TextView) nativeView.findViewById(R.id.tv_call_to_action);*/
+        view_ad_choice = (ViewGroup) nativeView.findViewById(R.id.ad_choices_container);
+        relativeLayout_adchoices = (RelativeLayout) nativeView.findViewById(R.id.ad_choices_container);
+        containerView.addView(nativeView);
+    }
 
     private void initView() {
         Log.d("DEBUG", "initView");

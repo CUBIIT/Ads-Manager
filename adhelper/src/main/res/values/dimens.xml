@@ -33,5 +33,6 @@
 
 
     <dimen name="recommend_icon_size">48dp</dimen>
+    <dimen name="dp8">8dp</dimen>
 
 </resources>

@@ -31,7 +31,6 @@ import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
 import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
-import mediation.helper.interstitial.MediationAdInterstitial;
 import mediation.helper.util.Constant;
 
 import static mediation.helper.AdHelperApplication.getCubiBannerAd;
@@ -278,7 +277,7 @@ public class MediationAdBanner {
 
     private static void showAdmobBanner() {
         final com.google.android.gms.ads.AdView admobBanner = new AdView(bannerContainer.getContext());
-        admobBanner.setAdSize(com.google.android.gms.ads.AdSize.SMART_BANNER);
+        admobBanner.setAdSize(com.google.android.gms.ads.AdSize.BANNER);
         admobBanner.setAdUnitId(admobKey);
 
         admobBanner.loadAd(MediationAdHelper.getAdRequest());
