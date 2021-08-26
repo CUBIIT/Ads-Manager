@@ -118,7 +118,11 @@ public class MediationBackPressDialog extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-        Objects.requireNonNull(getSupportActionBar()).hide();
+      try{
+            getSupportActionBar().hide();
+        }catch (Exception ignore){
+            ignore.printStackTrace();
+        }
 
         setupFromSavedInstanceState(savedInstanceState);
 
