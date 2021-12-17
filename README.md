@@ -21,7 +21,7 @@ Add dependency in your build.gradle(App level) file.
 
 ```gradle
 dependencies {
-  implementation 'com.github.CUBIIT:Ads-Manager:v1.4.7'
+  implementation 'com.github.CUBIIT:Ads-Manager:1.4.8'
 }
 ```
 ### Step3: Connect App to Firebase
@@ -75,6 +75,9 @@ Now after setup every thing then change your priorities for all ads like this.
 ```
 
 # Implementation
+### Update 1.4.8
+In this update library automatically update the ADMob app ID in manifest by fetching values from remote.
+> **Note: Adding Admob app id in manifest is must, otherwise your app may be crash.**
 ### Menifest
 Add your AdMob app ID to your app's AndroidManifest.xml file by adding a <meta-data> tag with **android:name="com.google.android.gms.ads.APPLICATION_ID"**
 >  For android:value, insert your own AdMob app ID in quotes.
@@ -100,7 +103,47 @@ public class AdManager extends Application {
     public void onCreate() {
         super.onCreate();
         //Important 
-       AdHelperApplication.getValuesFromConfig(FirebaseRemoteConfig.getInstance(),AdManager.this);
+       AdHelperApplication.getValuesFromConfig(true,FirebaseRemoteConfig.getInstance(),AdManager.this,new OnFetchRemoteCallback() {
+            @Override
+            public void onFetchValuesSuccess() {
+            /*
+             * called when received success responce from remote config
+            */
+                Log.d(TAG, "onFetchValuesSuccess: ");
+            }
+
+            @Override
+            public void onFetchValuesFailed() {
+                Log.d(TAG, "onFetchValuesFailed: ");
+            /*
+             * called when  responce is failed from remote config
+            */
+            }
+
+            @Override
+            public void onUpdateSuccess(String appid) {
+         /* always called,get default or last update values 
+           */
+                Log.d(TAG, "onUpdateSuccess: ");
+                updateManifest(appid);
+            }
+        });
+    }
+   //add this method to update the admob app id in manifest
+    private void updateManifest(String app_id) {
+        try {
+            ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            Bundle bundle = ai.metaData;
+            String myApiKey = bundle.getString("com.google.android.gms.ads.APPLICATION_ID");
+            Log.d(TAG, "Name Found: " + myApiKey);
+            ai.metaData.putString("com.google.android.gms.ads.APPLICATION_ID", app_id);
+            String ApiKey = bundle.getString("com.google.android.gms.ads.APPLICATION_ID");
+            Log.d(TAG, "ReNamed Found: " + ApiKey);
+        } catch (PackageManager.NameNotFoundException e) {
+            Log.e(TAG, "Failed to load meta-data, NameNotFound: " + e.getMessage());
+        } catch (NullPointerException e) {
+            Log.e(TAG, "Failed to load meta-data, NullPointer: " + e.getMessage());
+        }
     }
 }
 ```
@@ -123,8 +166,7 @@ Add the following code in your launcher activity( mostly splash screen) to initi
 ### Interstitial Ad
 To load and show interstitial ads.
 ```java
-  MediationAdInterstitial.showInterstitialAd(false, this, getString(R.string.fb_interstitial_id),
-                    getString(R.string.admob_interstitial_id),
+  MediationAdInterstitial.showInterstitialAd(false, this, 
                     KEY_PRIORITY_INTERSTITIAL_AD,
                     new OnInterstitialAdListener() {
                         @Override
@@ -165,8 +207,7 @@ To show native add.
 
 ```java
   MediationNativeAd nativeAd = new MediationNativeAd(ad_container, this, getString(R.string.app_name),
-                getString(R.string.fb_native_id),
-                getString(R.string.admob_native_id), new MediationAdHelper.ImageProvider() {
+                new MediationAdHelper.ImageProvider() {
             @Override
             public void onProvideImage(ImageView imageView, String imageUrl) {
                 Glide.with(getApplicationContext())
