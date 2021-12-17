@@ -2,8 +2,8 @@
 AdManager is an Admob and Facebook and custom ads mediation library. AdManager supports Interstitial ad, native ad, Banner ad, icon ad, and exit dialog ad.AdManager support custom ad using firebase remote config.
 AdManager is a fast, smooth, reliable, and easy-to-use ads mediation library.
 # What's new in version 1.4.9
-   -> All the Ad ids get from remote config. You don't need to pass any Ad ids in methods.
-   -> Update admob app id in manifest(Beta version- Don't forget to add metadata in manifest of admob app id)
+   * All the Ad ids get from remote config. You don't need to pass any Ad ids in methods.
+   * Update admob app id in manifest(Beta version, Don't forget to add metadata in manifest of admob app id)
 # Download
 you can download the sample app and source code from [release page.](https://github.com/CUBIIT/Ads-Manager/releases/tag/v1.0)
 # Get Started
