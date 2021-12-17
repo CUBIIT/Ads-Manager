@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">TedAdHelper</string>
+
+
+    <string name="review_go">Go review</string>
+    <string name="review_cancel">Do not disturb</string>
+    <string name="finish">Exit</string>
+    <string name="imageview">ad image</string>
+    <string name="ad_native">Ad type</string>
+    <string name="advertiser_name">advertiser name</string>
+    <string name="exit">exit</string>
+    <string name="ad_text">Ad</string>
+    <string name="advertiser_title">CUBI-IT Apps</string>
+    <string name="ad_button">Install</string>
+    <string name="title">Testad-DualSpace</string>
+    <string name="body_text">Testad_DualSapce for everyone. Click to install it</string>
+    <string name="test_feedback_num">(53,434)</string>
+    <string name="install_calltoaction">Install</string>
+    <string name="google_play">Google Play</string>
+    <string name="install_desc">Install app</string>
+
+</resources>

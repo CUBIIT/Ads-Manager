@@ -1,0 +1,69 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="mediation.helper" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="17"
+6-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml
+7        android:targetSdkVersion="30" />
+7-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.INTERNET" />
+9-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:4:5-67
+9-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:4:22-64
+10
+11    <application>
+11-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:6:5-35:19
+12        <activity android:name="mediation.helper.backpress.MediationBackPressDialog" />
+12-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:7:9-8:82
+12-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:8:13-79
+13
+14        <!-- for ads -->
+15        <meta-data
+15-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:11:9-13:70
+16            android:name="com.google.android.gms.ads.APPLICATION_ID"
+16-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:12:13-69
+17            android:value="ca-app-pub-9579400493638621~6906548884" />
+17-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:13:13-67
+18
+19        <activity
+19-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:14:9-17:50
+20            android:name="com.facebook.ads.AudienceNetworkActivity"
+20-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:15:13-68
+21            android:configChanges="keyboardHidden|orientation|screenSize"
+21-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:16:13-74
+22            android:hardwareAccelerated="true" />
+22-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:17:13-47
+23
+24        <meta-data
+24-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:19:9-21:36
+25            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+25-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:20:13-69
+26            android:value="true" />
+26-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:21:13-33
+27        <meta-data
+27-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:24:9-26:69
+28            android:name="com.google.android.gms.version"
+28-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:25:13-58
+29            android:value="@integer/google_play_services_version" />
+29-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:26:13-66
+30
+31        <activity
+31-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:28:9-32:41
+32            android:name="com.google.android.gms.ads.AdActivity"
+32-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:29:13-65
+33            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+33-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:30:13-122
+34            android:multiprocess="true"
+34-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:31:13-40
+35            android:process=":remote" />
+35-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:32:13-38
+36        <activity
+36-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:33:9-34:53
+37            android:name="mediation.helper.interstitial.CubiInterstitialAdActivity"
+37-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:33:19-74
+38            android:theme="@style/FullscreenTheme" />
+38-->/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/adhelper/src/main/AndroidManifest.xml:34:13-51
+39    </application>
+40
+41</manifest>
