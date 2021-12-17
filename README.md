@@ -208,7 +208,7 @@ To show native add.
 
 
 ```java
-  MediationNativeAd nativeAd = new MediationNativeAd(ad_container, this, getString(R.string.app_name),
+  MediationNativeAd nativeAd = new MediationNativeAd(false,ad_container, this, getString(R.string.app_name),
                 new MediationAdHelper.ImageProvider() {
             @Override
             public void onProvideImage(ImageView imageView, String imageUrl) {
@@ -267,7 +267,7 @@ NativeBanner ad looks like a banner but it customizes the native ad layout. Most
 
 ```java
 
-   MediationNativeBanner nativeAd = new MediationNativeBanner(ad_container, AdsActivity.this, getString(R.string.app_name), new MediationAdHelper.ImageProvider() {
+   MediationNativeBanner nativeAd = new MediationNativeBanner(false,ad_container, AdsActivity.this, getString(R.string.app_name), new MediationAdHelper.ImageProvider() {
             @Override
             public void onProvideImage(ImageView imageView, String imageUrl) {
                 Glide.with(AdsActivity.this)
