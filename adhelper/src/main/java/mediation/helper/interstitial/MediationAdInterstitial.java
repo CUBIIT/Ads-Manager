@@ -155,7 +155,7 @@ public class MediationAdInterstitial {
 
     }
 
-    public static void initInterstitialAd(boolean isPurchased, Activity activity, String facebookKey, final String admobKey, Integer[] tempAdPriorityList, OnInterstitialAdListener onInterstitialAdListener) {
+    public static void initInterstitialAd(boolean isPurchased, Activity activity, Integer[] tempAdPriorityList, OnInterstitialAdListener onInterstitialAdListener) {
         if (isPurchased) {
             return;
         }
@@ -163,13 +163,20 @@ public class MediationAdInterstitial {
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             throw new RuntimeException("You have to select priority type ADMOB/FACEBOOK/TNK");
         }
+        MediationAdInterstitial.facebookKey = TEST_FB_NATIVE_ID;
+        MediationAdInterstitial.admobKey = TEST_ADMOB_NATIVE_ID;
+        if (!AdHelperApplication.getTestMode()) {
+            //check if ids or test skip
+            if (AdHelperApplication.getAdIDs() != null) {
+                MediationAdInterstitial.facebookKey = AdHelperApplication.getAdIDs().getFb_interstitial_id();
+                MediationAdInterstitial.admobKey = AdHelperApplication.getAdIDs().getAdmob_interstitial_id();
 
+            }
+
+        }
         MediationAdInterstitial.initAdPriorityList = new ArrayList <>(Arrays.asList(tempAdPriorityList));
         Log.d("TAG1", "showInterstitialAd: " + initAdPriorityList.size());
         MediationAdInterstitial.activityRef = new WeakReference <>(activity);
-        MediationAdInterstitial.facebookKey = facebookKey;
-        MediationAdInterstitial.admobKey = admobKey;
-
         initSelectedAd();
     }
 

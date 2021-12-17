@@ -32,8 +32,7 @@ public class SplashScreen extends AppCompatActivity {
         }, 2000);
     }
     private void initAds(){
-        MediationAdInterstitial.initInterstitialAd(false, this, getString(R.string.fb_interstitial_id),
-                getString(R.string.admob_interstitial_id),
+        MediationAdInterstitial.initInterstitialAd(false, this,
                 KEY_PRIORITY_INTERSTITIAL_AD, null);
     }
 }

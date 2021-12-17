@@ -12,9 +12,6 @@
         <activity android:name="mediation.helper.backpress.MediationBackPressDialog" />
 
         <!-- for ads -->
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-9579400493638621~6906548884" />
 
         <activity
             android:name="com.facebook.ads.AudienceNetworkActivity"
