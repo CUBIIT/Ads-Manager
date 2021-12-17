@@ -1,4 +1,4 @@
 package org.cubiit.admanager;
 
-public class test {
+public class TestGit {
 }
