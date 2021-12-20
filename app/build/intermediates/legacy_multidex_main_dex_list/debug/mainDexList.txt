@@ -718,11 +718,15 @@ javax/inject/Singleton.class
 mediation/helper/AdHelperApplication$1.class
 mediation/helper/AdHelperApplication$2.class
 mediation/helper/AdHelperApplication.class
+mediation/helper/AdIDs.class
 mediation/helper/MediationAdHelper$ADMOB_NATIVE_AD_TYPE.class
 mediation/helper/R$xml.class
+mediation/helper/callbacks/OnFetchRemoteCallback.class
 mediation/helper/cubiad/NativeAdView/CubiBannerAd.class
 mediation/helper/cubiad/NativeAdView/CubiInterstitialAd.class
 mediation/helper/cubiad/NativeAdView/CubiNativeAd.class
 mediation/helper/cubiad/NativeAdView/GeneralInfo.class
 mediation/helper/util/Constant.class
+mediation/helper/util/PrefManager.class
+org/cubiit/admanager/AdManager$1.class
 org/cubiit/admanager/AdManager.class

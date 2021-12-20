@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import mediation.helper.MediationAdHelper;
 import mediation.helper.interstitial.MediationAdInterstitial;
+import mediation.helper.interstitial.OnInterstitialAdListener;
 import mediation.helper.nativead.MediationNativeAd;
 import mediation.helper.nativead.OnNativeAdListener;
 
@@ -36,10 +37,55 @@ public class SplashScreen extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
+                showInterstitalAds();
                 startActivity(new Intent(SplashScreen.this,MainActivity.class));
                 finish();
             }
         }, 6000);
+    }
+    private void showInterstitalAds() {
+
+        try {
+            MediationAdInterstitial.showInterstitialAd(false, this,
+                    KEY_PRIORITY_INTERSTITIAL_AD,
+                    new OnInterstitialAdListener() {
+                        @Override
+                        public void onDismissed(int adType) {
+
+
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+                            Log.d("de", "onError: " + errorMessage);
+
+
+
+                        }
+
+                        @Override
+                        public void onLoaded(int adType) {
+
+
+                        }
+
+                        @Override
+                        public void onBeforeAdShow() {
+                        }
+
+                        @Override
+                        public void onAdClicked(int adType) {
+
+                        }
+
+                        @Override
+                        public void onFacebookAdCreated(com.facebook.ads.InterstitialAd facebookFrontAD) {
+                        }
+                    });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
     private void initAds(){
         MediationAdInterstitial.initInterstitialAd(false, this,

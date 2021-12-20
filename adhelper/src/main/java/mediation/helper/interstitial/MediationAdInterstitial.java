@@ -160,7 +160,19 @@ public class MediationAdInterstitial {
 
     }
 
-    public static void initInterstitialAd(boolean isPurchased, Activity activity, Integer[] tempAdPriorityList, OnInterstitialAdListener onInterstitialAdListener) {
+    public static void initInterstitialAd(final boolean isPurchased, final Activity activity, final Integer[] tempAdPriorityList, final OnInterstitialAdListener onInterstitialAdListener) {
+        Log.d(TAG, "loadAD: before check");
+        if(!AdHelperApplication.isInit){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d(TAG, "not init ads");
+                    initInterstitialAd(isPurchased,activity,tempAdPriorityList,onInterstitialAdListener);
+                }
+            }, 1500);
+            return;
+        }
+        Log.d(TAG, "pass success");
         if (isPurchased) {
             return;
         }
