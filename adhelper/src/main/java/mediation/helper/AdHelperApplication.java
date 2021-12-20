@@ -140,11 +140,13 @@ public class AdHelperApplication extends Application {
                 if (task.isSuccessful()) {
                     Log.d("TAG1", "onComplete: success ");
                     onFetchRemoteCallbackListener.onFetchValuesSuccess();
+                    updateData(mFirebaseConfig, context);
                 } else {
                     onFetchRemoteCallbackListener.onFetchValuesFailed();
                     Log.d("TAG1", "onComplete: faile");
+                    updateData(mFirebaseConfig, context);
                 }
-                updateData(mFirebaseConfig, context);
+
             }
 
         });

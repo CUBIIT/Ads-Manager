@@ -1,4 +1,4 @@
-#Mon Dec 20 11:05:59 PKT 2021
+#Mon Dec 20 15:05:18 PKT 2021
 path.3=classes_0.dex
 path.2=classes2.dex
 path.1=classes.dex
@@ -7,7 +7,7 @@ renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.3=/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/app/build/intermediates/dex/debug/mergeLibDexDebug/classes_0.dex
-base.2=/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
-base.1=/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
-base.0=/Users/apple/Desktop/CUBIIT-Projects/Ads-Manager-Lib/Ads-Manager-main/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
+base.3=/Users/apple/AndroidStudioProjects/update/Ads-Manager/app/build/intermediates/dex/debug/mergeLibDexDebug/classes_0.dex
+base.2=/Users/apple/AndroidStudioProjects/update/Ads-Manager/app/build/intermediates/dex/debug/mergeExtDexDebug/classes2.dex
+base.1=/Users/apple/AndroidStudioProjects/update/Ads-Manager/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex
+base.0=/Users/apple/AndroidStudioProjects/update/Ads-Manager/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
