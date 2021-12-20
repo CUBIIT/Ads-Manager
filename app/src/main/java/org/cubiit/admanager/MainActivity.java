@@ -1,5 +1,8 @@
 package org.cubiit.admanager;
 
+import static mediation.helper.util.Constant.KEY_PRIORITY_INTERSTITIAL_AD;
+import static mediation.helper.util.Constant.KEY_PRIORITY_NATIVE_AD;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,18 +20,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import mediation.helper.MediationAdHelper;
 import mediation.helper.backpress.MediationBackPressDialog;
 import mediation.helper.backpress.OnBackPressListener;
 import mediation.helper.interstitial.MediationAdInterstitial;
 import mediation.helper.interstitial.OnInterstitialAdListener;
 
-import static mediation.helper.util.Constant.KEY_PRIORITY_INTERSTITIAL_AD;
-import static mediation.helper.util.Constant.KEY_PRIORITY_NATIVE_AD;
-
 public class MainActivity extends AppCompatActivity {
     OnItemClickListener onItemClickListener;
     RecyclerView recyclerView;
-    List<Item> adsList;
+    List <Item> adsList;
     AdsAdapter adsAdapter;
     public final static String interstitial = "interstitial";
     public final static String banner = "banner";
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void startAction() {
         recyclerView = findViewById(R.id.recycler_view);
-        adsList = new ArrayList<>();
+        adsList = new ArrayList <>();
         adsList.add(new Item(interstitial, getString(R.string.inters)));
         adsList.add(new Item(banner, getString(R.string.banner)));
         adsList.add(new Item(nativeAds, getString(R.string.nativeAd)));
@@ -71,16 +72,16 @@ public class MainActivity extends AppCompatActivity {
                 switch (id) {
                     case interstitial:
                         showDialog();
-                            showInterstitalAds();
+                        showInterstitalAds();
                         break;
                     case nativeAds:
-                        startActivity(item,"Native Ad");
+                        startActivity(item, "Native Ad");
                         break;
                     case banner:
-                        startActivity(item,"Banner ad");
+                        startActivity(item, "Banner ad");
                         break;
                     case nativeBanner:
-                        startActivity(item,"Native Banner Ad");
+                        startActivity(item, "Native Banner Ad");
                         break;
                     case backPressDialog:
                         loadBackPressedDialog();
@@ -92,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
             }
         };
     }
-    private void loadBackPressedDialog(){
+
+    private void loadBackPressedDialog() {
         MediationBackPressDialog.startDialog(false, MainActivity.this, getResources().getString(R.string.app_name)
                 , KEY_PRIORITY_NATIVE_AD
                 , false
@@ -123,20 +125,26 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-    private void startActivity(Item item,String name){
+
+    private void startActivity(Item item, String name) {
         Bundle bundle = new Bundle();
-        bundle.putString("name",name);
-        bundle.putString("id",item.getId());
-        Intent intent = new Intent(MainActivity.this,AdsActivity.class);
+        bundle.putString("name", name);
+        bundle.putString("id", item.getId());
+        Intent intent = new Intent(MainActivity.this, AdsActivity.class);
         intent.putExtras(bundle);
         startActivity(intent);
     }
-String TAG = "de_main";
-    private void showInterstitalAds(){
+
+    String TAG = "de_main";
+    public static Integer[] KEY_PRIORITY_CUBI_AD = new Integer[]{
+            MediationAdHelper.AD_CUBI_IT,
+            MediationAdHelper.AD_ADMOB,
+            MediationAdHelper.AD_FACEBOOK};
+    private void showInterstitalAds() {
 
         try {
             MediationAdInterstitial.showInterstitialAd(false, this,
-                    KEY_PRIORITY_INTERSTITIAL_AD,
+                    KEY_PRIORITY_CUBI_AD,
                     new OnInterstitialAdListener() {
                         @Override
                         public void onDismissed(int adType) {
@@ -153,7 +161,7 @@ String TAG = "de_main";
                         }
 
                         @Override
-                        public void onLoaded(int adType){
+                        public void onLoaded(int adType) {
                             hideDialog();
 
                         }
@@ -178,11 +186,11 @@ String TAG = "de_main";
     }
 
     //adapter class
-    public class AdsAdapter extends RecyclerView.Adapter<AdsAdapter.AdsHolder> {
-        List<Item> itemsList;
+    public class AdsAdapter extends RecyclerView.Adapter <AdsAdapter.AdsHolder> {
+        List <Item> itemsList;
         OnItemClickListener onItemClickListener;
 
-        public AdsAdapter(List<Item> itemsList, OnItemClickListener onItemClickListener) {
+        public AdsAdapter(List <Item> itemsList, OnItemClickListener onItemClickListener) {
             this.itemsList = itemsList;
             this.onItemClickListener = onItemClickListener;
         }
@@ -235,7 +243,9 @@ String TAG = "de_main";
         super.onBackPressed();
         loadBackPressedDialog();
     }
+
     ProgressDialog dialog;
+
     private void showDialog() {
         dialog = new ProgressDialog(this);
 

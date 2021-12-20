@@ -8,7 +8,6 @@
         <key>test_mode</key>
         <value>true</value>
     </entry>
-    <!--here 3 condition that helps us to identify the default and latest update data-->
     <!--    admob test ids by default-->
     <entry>
         <!--        @0 for defualt file value,mostly use for first time

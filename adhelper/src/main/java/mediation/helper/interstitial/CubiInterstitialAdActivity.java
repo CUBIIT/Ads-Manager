@@ -1,5 +1,6 @@
 package mediation.helper.interstitial;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -131,8 +132,27 @@ public class CubiInterstitialAdActivity extends AppCompatActivity {
             finish();
             return;
         }
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        getApplicationContext().startActivity(intent);
+        String packageName = "";
+        //split package name
+        if(url.contains("play.google.com/store/apps")){
+            Log.d("de_", "actionOnCubiAdClicked: contains");
+            String[] a = url.split("=");
+            packageName = a[1];
+        }else{
+            packageName = url;
+        }
+
+        Uri uri = Uri.parse("market://details?id=" + packageName);
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+                Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+        try {
+            getApplicationContext().startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
+        } catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
 }
