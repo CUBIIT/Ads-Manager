@@ -158,7 +158,19 @@ public class MediationNativeAd {
         }
     }
 
-    public static void loadAD(ArrayList tempAdPriorityList, OnNativeAdListener onNativeAdListener) {
+    public static void loadAD(final ArrayList tempAdPriorityList, final OnNativeAdListener onNativeAdListener) {
+        Log.d(TAG, "loadAD: before check");
+        if(!AdHelperApplication.isInit){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Log.d(TAG, "not init ads");
+                    loadAD(tempAdPriorityList,onNativeAdListener);
+                }
+            }, 2000);
+            return;
+        }
+        Log.d(TAG, "loadAD: pass successful");
         MediationNativeAd.onNativeAdListener = onNativeAdListener;
 
         if (tempAdPriorityList == null || tempAdPriorityList.size() == 0) {

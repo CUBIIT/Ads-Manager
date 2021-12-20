@@ -2107,6 +2107,7 @@ id native_ad_social_context
 id native_ad_sponsored_label
 id native_ad_title
 id native_banner_ad_body_text
+id native_fram
 id navigation_header_container
 id never
 id noScroll

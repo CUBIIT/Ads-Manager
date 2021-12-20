@@ -108,6 +108,7 @@ public class AdHelperApplication extends Application {
 //        initMediation();
 //    }
     static boolean testMode = false;
+    public static boolean isInit = false;
 
     public static boolean getTestMode() {
         return testMode;
@@ -131,6 +132,9 @@ public class AdHelperApplication extends Application {
 //            KEY_PRIORITY_INTERSTITIAL_AD = new Integer[]{MediationAdHelper.AD_CUBI_IT};
 //            KEY_PRIORITY_NATIVE_AD = new Integer[]{MediationAdHelper.AD_CUBI_IT};
         }
+
+        //init admob
+        initMediation(context);
     }
 
     private static void fetchValues(final FirebaseRemoteConfig mFirebaseConfig, final Context context) {
@@ -283,6 +287,7 @@ public class AdHelperApplication extends Application {
         } else {
             Log.d(TAG, "updateData: wrong values");
         }
+        isInit = true;
 
     }
 
