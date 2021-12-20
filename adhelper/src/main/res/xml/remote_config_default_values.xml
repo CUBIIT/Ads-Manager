@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<defaultsMap xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingDefaultResource">
+<defaultsMap xmlns:tools="http://schemas.android.com/tools">
     <!--    boolean value for test mode-->
     <!--    @true for test ads
             @false for real ads-->
@@ -10,7 +9,7 @@
     </entry>
     <!--    admob test ids by default-->
     <entry>
-        <!--        @0 for defualt file value,mostly use for first time
+        <!--        @0 for default file value,mostly use for first time
                     @1 value for last update values
 
         -->

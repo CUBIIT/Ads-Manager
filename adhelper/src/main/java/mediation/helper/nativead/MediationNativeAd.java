@@ -144,11 +144,18 @@ public class MediationNativeAd {
     }
 
     private static boolean checkTestIds(OnNativeAdListener onBannerAdListener) {
-        if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
-            onBannerAdListener.onError("Found Test IDS..");
+        if(!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty()) {
+            if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
+                onBannerAdListener.onError("Found Test IDS..");
+                return false;
+            } else {
+
+                return true;
+            }
+        }else{
+            onBannerAdListener.onError("No ID found..");
             return false;
         }
-        return true;
     }
 
     public static void loadAD(ArrayList tempAdPriorityList, OnNativeAdListener onNativeAdListener) {
