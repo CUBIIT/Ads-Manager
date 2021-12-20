@@ -107,11 +107,19 @@ public class MediationAdBanner {
     }
 
     private static boolean checkTestIds(OnBannerAdListener onBannerAdListener) {
-        if (AdHelperApplication.getAdIDs().getFb_banner_id().equals(TEST_FB_BANNER_ID) || AdHelperApplication.getAdIDs().getAdmob_banner_id().equals(TEST_ADMOB_BANNER_ID)) {
-            onBannerAdListener.onError("Found Test IDS..");
+        if(!(AdHelperApplication.getAdIDs().getFb_banner_id().isEmpty() || AdHelperApplication.getAdIDs().getAdmob_banner_id().isEmpty()))
+        {
+            if (AdHelperApplication.getAdIDs().getFb_banner_id().equals(TEST_FB_BANNER_ID) || AdHelperApplication.getAdIDs().getAdmob_banner_id().equals(TEST_ADMOB_BANNER_ID)) {
+                onBannerAdListener.onError("Found Test IDS..");
+                return false;
+            }else {
+                return true;
+            }
+        }else{
+            onBannerAdListener.onError("No ids found");
             return false;
         }
-        return true;
+
     }
 
     public static void showBanner(ViewGroup bannerContainer, Integer[] tempAdPriorityList, final OnBannerAdListener onBannerAdListener) {

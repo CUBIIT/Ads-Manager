@@ -1,8 +1,6 @@
 package mediation.helper.bannerNativeAd;
 
-import static mediation.helper.TestAdIDs.TEST_ADMOB_BANNER_ID;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_NATIVE_ID;
-import static mediation.helper.TestAdIDs.TEST_FB_BANNER_ID;
 import static mediation.helper.TestAdIDs.TEST_FB_NATIVE_ID;
 
 import android.annotation.SuppressLint;
@@ -48,14 +46,13 @@ import mediation.helper.AdHelperApplication;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
-import mediation.helper.banner.OnBannerAdListener;
 import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
 import mediation.helper.util.Constant;
 
 public class MediationNativeBanner {
 
 
-    ArrayList<Integer> adPriorityList;
+    ArrayList <Integer> adPriorityList;
     String app_name;
     String facebook_ad_key;
     String admob_ad_key;
@@ -84,15 +81,15 @@ public class MediationNativeBanner {
     private com.google.android.gms.ads.nativead.NativeAd nativeAd;
     private Object NativeAd;
     private static CubiBannerAd cubiBannerAd;
-    private  boolean purchase;
+    private boolean purchase;
 
 //    public MediationNativeBanner(ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
 //        this(containerView, context, app_name, facebook_ad_key, admob_ad_key);
 //    }
 
-    public MediationNativeBanner(boolean purchased,ViewGroup itemView, Context context, String app_name, MediationAdHelper.ImageProvider imageProvider) {
-      this.purchase = purchased;
-      this.containerView = itemView;
+    public MediationNativeBanner(boolean purchased, ViewGroup itemView, Context context, String app_name, MediationAdHelper.ImageProvider imageProvider) {
+        this.purchase = purchased;
+        this.containerView = itemView;
         this.context = context;
         this.app_name = app_name;
 //        this.facebook_ad_key = facebook_ad_key;
@@ -100,16 +97,25 @@ public class MediationNativeBanner {
         this.imageProvider = imageProvider;
         initView();
     }
+
     private static boolean checkTestIds(OnNativeBannerListener onBannerAdListener) {
-        if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
-            onBannerAdListener.onError("Found Test IDS..");
+        if (!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()) {
+            if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
+                onBannerAdListener.onError("Found Test IDS..");
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            onBannerAdListener.onError("No IDs found..");
             return false;
         }
-        return true;
     }
-    public MediationNativeBanner(boolean purchased,ViewGroup itemView, Context context, String app_name, CubiBannerAd cubiBannerAd, MediationAdHelper.ImageProvider imageProvider) {
 
-        this.purchase = purchased;this.containerView = itemView;
+    public MediationNativeBanner(boolean purchased, ViewGroup itemView, Context context, String app_name, CubiBannerAd cubiBannerAd, MediationAdHelper.ImageProvider imageProvider) {
+
+        this.purchase = purchased;
+        this.containerView = itemView;
         this.context = context;
         this.app_name = app_name;
 //        this.facebook_ad_key = facebook_ad_key;
@@ -119,8 +125,9 @@ public class MediationNativeBanner {
         initView();
     }
 
-    public MediationNativeBanner(boolean purchased,ViewGroup itemView, Context context, String app_name,  boolean showIconAds, MediationAdHelper.ImageProvider imageProvider) {
-        this.purchase = purchased; this.containerView = itemView;
+    public MediationNativeBanner(boolean purchased, ViewGroup itemView, Context context, String app_name, boolean showIconAds, MediationAdHelper.ImageProvider imageProvider) {
+        this.purchase = purchased;
+        this.containerView = itemView;
         this.context = context;
         this.app_name = app_name;
 //        this.facebook_ad_key = facebook_ad_key;
@@ -228,7 +235,7 @@ public class MediationNativeBanner {
             return;
         }
 
-        ArrayList resultTempAdPriorityList = new ArrayList<>(Arrays.asList(tempAdPriorityList));
+        ArrayList resultTempAdPriorityList = new ArrayList <>(Arrays.asList(tempAdPriorityList));
         loadAD(resultTempAdPriorityList, onNativeAdListener);
 
     }
@@ -241,7 +248,7 @@ public class MediationNativeBanner {
             }
             return;
         }
-        ArrayList resultTempAdPriorityList = new ArrayList<>(Arrays.asList(tempAdPriorityList));
+        ArrayList resultTempAdPriorityList = new ArrayList <>(Arrays.asList(tempAdPriorityList));
         loadAD(resultTempAdPriorityList, cubiBannerAd, onNativeAdListener);
 
     }
@@ -256,18 +263,18 @@ public class MediationNativeBanner {
             return;
         }
         adPriorityList = tempAdPriorityList;
-        if(!AdHelperApplication.getTestMode()){
+        if (!AdHelperApplication.getTestMode()) {
             //check if ids or test skip
-            if(AdHelperApplication.getAdIDs() != null){
-                if(!checkTestIds(onNativeAdListener))
+            if (AdHelperApplication.getAdIDs() != null) {
+                if (!checkTestIds(onNativeAdListener))
                     return;
                 this.facebook_ad_key = AdHelperApplication.getAdIDs().getFb_native_id();
                 this.admob_ad_key = AdHelperApplication.getAdIDs().getAdmob_native_id();
             }
 
-        }else{
-                this.facebook_ad_key = TEST_FB_NATIVE_ID;
-                this.admob_ad_key = TEST_ADMOB_NATIVE_ID;
+        } else {
+            this.facebook_ad_key = TEST_FB_NATIVE_ID;
+            this.admob_ad_key = TEST_ADMOB_NATIVE_ID;
         }
 
         try {
@@ -587,7 +594,7 @@ public class MediationNativeBanner {
         NativeAdLayout nativeAdLayout = new NativeAdLayout(context);
         AdOptionsView adOptionsView = new AdOptionsView(context, facebookAd, nativeAdLayout);
         view_ad_choice.addView(adOptionsView);
-        List<View> clickableViews = new ArrayList<>();
+        List <View> clickableViews = new ArrayList <>();
         clickableViews.add(native_banner_icon_view);
         clickableViews.add(native_banner_ad_sponser_label);
         clickableViews.add(native_banner_ad_body);

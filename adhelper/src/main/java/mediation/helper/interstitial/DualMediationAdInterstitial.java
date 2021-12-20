@@ -65,11 +65,16 @@ public class DualMediationAdInterstitial {
     }
     private static boolean checkTestIds(OnInterstitialAdListener listener) {
         Log.d(TAG, "checkTestIds: ");
-        if (AdHelperApplication.getAdIDs().getAdmob_interstitial_id().equals(TEST_ADMOB_INTERSTITIAL_ID) || AdHelperApplication.getAdIDs().getFb_interstitial_id().equals(TEST_FB_INTERSTITIAL_ID)) {
-            listener.onError("Found Test IDS..");
+        if(!AdHelperApplication.getAdIDs().getAdmob_interstitial_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_interstitial_id().isEmpty()) {
+            if (AdHelperApplication.getAdIDs().getAdmob_interstitial_id().equals(TEST_ADMOB_INTERSTITIAL_ID) || AdHelperApplication.getAdIDs().getFb_interstitial_id().equals(TEST_FB_INTERSTITIAL_ID)) {
+                listener.onError("Found Test IDS..");
+                return false;
+            }else
+                return true;
+        }else{
+            listener.onError("No IDs found..");
             return false;
         }
-        return true;
     }
     static String TAG = "de_intes";
     public static void showInterstitialAd(boolean isPurchased, Activity activity, Integer[] tempAdPriorityList, OnInterstitialAdListener onInterstitialAdListener) {

@@ -84,12 +84,17 @@ public class MediationAdInterstitial {
     static String TAG = "de_inters";
 
     private static boolean checkTestIds(OnInterstitialAdListener listener) {
-
-        if (AdHelperApplication.getAdIDs().getAdmob_interstitial_id().equals(TEST_ADMOB_INTERSTITIAL_ID) || AdHelperApplication.getAdIDs().getFb_interstitial_id().equals(TEST_FB_INTERSTITIAL_ID)) {
-            listener.onError("Found Test IDS..");
+        if (!(AdHelperApplication.getAdIDs().getAdmob_interstitial_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_interstitial_id().isEmpty())) {
+            if (AdHelperApplication.getAdIDs().getAdmob_interstitial_id().equals(TEST_ADMOB_INTERSTITIAL_ID) || AdHelperApplication.getAdIDs().getFb_interstitial_id().equals(TEST_FB_INTERSTITIAL_ID)) {
+                listener.onError("Found Test IDS..");
+                return false;
+            }else
+                return true;
+        } else {
+            listener.onError("No IDS found..");
             return false;
         }
-        return true;
+
     }
 
     //for cubiads
