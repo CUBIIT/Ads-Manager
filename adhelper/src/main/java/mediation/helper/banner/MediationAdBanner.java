@@ -229,7 +229,6 @@ public class MediationAdBanner {
             onBannerAdListener.onLoaded(3);
 
         } catch (Exception e) {
-            onBannerAdListener.onError(e.getMessage());
             MediationAdBanner.onError(e.getMessage());
             e.printStackTrace();
         }
