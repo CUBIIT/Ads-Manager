@@ -107,7 +107,7 @@ public class AdHelperApplication extends Application {
 //        super.onCreate();
 //        initMediation();
 //    }
-    static boolean testMode = true;
+    static boolean testMode = false;
 
     public static boolean getTestMode() {
         return testMode;
@@ -264,7 +264,7 @@ public class AdHelperApplication extends Application {
         //check test-mode
         adIDs.setTest_mode(mFirebaseConfig.getBoolean(TEST_MODE_KEY));
         adIDs.setRelease(mFirebaseConfig.getString(RELEASE_KEY));
-
+        Log.d(TAG, "Release key: " + mFirebaseConfig.getString(RELEASE_KEY));
         //UPDATE SHARED PREF
         if (mFirebaseConfig.getString(RELEASE_KEY).equals("0")) {
             Log.d(TAG, "updateData: defual value 0:");
@@ -328,6 +328,7 @@ public class AdHelperApplication extends Application {
             prefManager.setString(RELEASE_KEY, adIDs.getRelease());
             loadSharedPrefValues();
             onFetchRemoteCallbackListener.onUpdateSuccess(adIDs.getAdmob_app_id());
+            //logger
         } else {
             Log.d(TAG, "updateSharedPreference: pref manager is null");
         }

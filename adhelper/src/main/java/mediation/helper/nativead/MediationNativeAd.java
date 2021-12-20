@@ -163,6 +163,7 @@ public class MediationNativeAd {
         adPriorityList = tempAdPriorityList;
         MediationNativeAd.facebook_ad_key = TEST_FB_NATIVE_ID;
         MediationNativeAd.admob_ad_key = TEST_ADMOB_NATIVE_ID;
+        Log.d(TAG, "Test Mode is: " +AdHelperApplication.getTestMode());
         if (!AdHelperApplication.getTestMode()) {
             //check if ids or test skip
             if (AdHelperApplication.getAdIDs() != null) {
@@ -173,6 +174,7 @@ public class MediationNativeAd {
             }
         }
         try {
+            Log.d(TAG, "loadAD: selec ads");
             fbOnErrorCalled = false;
             selectAd();
         } catch (Exception e) {

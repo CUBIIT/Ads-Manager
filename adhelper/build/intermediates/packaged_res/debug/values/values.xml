@@ -65,7 +65,7 @@
     </style>
     <style name="AppTheme.DialogTheme" parent="Theme.AppCompat.Light.Dialog">
 
-        
+        <!-- app abar color in Activties Task manager -->
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowCloseOnTouchOutside">false</item>
