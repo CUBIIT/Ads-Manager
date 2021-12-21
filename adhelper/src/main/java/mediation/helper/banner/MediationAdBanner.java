@@ -91,11 +91,15 @@ public class MediationAdBanner {
         if (isPurchased)
             return;
         mActivity = activity;
+        MediationAdBanner.facebookKey = TEST_FB_BANNER_ID;
+        MediationAdBanner.admobKey = TEST_ADMOB_BANNER_ID;
         if (!AdHelperApplication.getTestMode()) {
             //check if ids or test skip
             if (AdHelperApplication.getAdIDs() != null) {
                 if (!checkTestIds(onBannerAdListener))
                     return;
+                MediationAdBanner.facebookKey = AdHelperApplication.getAdIDs().getFb_banner_id();
+                MediationAdBanner.admobKey = AdHelperApplication.getAdIDs().getAdmob_banner_id();
             }
         }
         Log.d("de_", "showBanner:move forward :)) ");
@@ -126,8 +130,7 @@ public class MediationAdBanner {
         try {
 
             MediationAdBanner.adPriorityList = new ArrayList <>(Arrays.asList(tempAdPriorityList));
-            MediationAdBanner.facebookKey = AdHelperApplication.getAdIDs().getFb_banner_id();
-            MediationAdBanner.admobKey = AdHelperApplication.getAdIDs().getFb_banner_id();
+
             MediationAdBanner.onBannerAdListener = onBannerAdListener;
             MediationAdBanner.bannerContainer = bannerContainer;
             if (bannerContainer == null) {
