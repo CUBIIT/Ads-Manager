@@ -88,7 +88,7 @@ public class MediationAdInterstitial {
             if (AdHelperApplication.getAdIDs().getAdmob_interstitial_id().equals(TEST_ADMOB_INTERSTITIAL_ID) || AdHelperApplication.getAdIDs().getFb_interstitial_id().equals(TEST_FB_INTERSTITIAL_ID)) {
                 listener.onError("Found Test IDS..");
                 return false;
-            }else
+            } else
                 return true;
         } else {
             listener.onError("No IDS found..");
@@ -125,7 +125,7 @@ public class MediationAdInterstitial {
         interstitialAdDialog.setTitle("Loading");
         interstitialAdDialog.setMessage("Wait while ad is loading...");
         interstitialAdDialog.setCancelable(false); // disable dismiss by tapping outside of the dialog
-        interstitialAdDialog.show();
+      try{  interstitialAdDialog.show();}catch (Exception e){e.printStackTrace();}
 
         MediationAdInterstitial.adPriorityList = new ArrayList <>(Arrays.asList(tempAdPriorityList));
         MediationAdInterstitial.initAdPriorityList = new ArrayList <>(Arrays.asList(tempAdPriorityList));
@@ -136,6 +136,7 @@ public class MediationAdInterstitial {
             MediationAdInterstitial.onInterstitialAdListener = onInterstitialAdListener;
             MediationAdInterstitial.cubiInterstitialAd = getCubiInterstitialAd();
             showAds = true;
+            Log.d(TAG, String.format("Interstitial Ad Ids----facebook: %s ----Admob: %s",MediationAdInterstitial.facebookKey,MediationAdInterstitial.admobKey));
             showSelectedAd();
             //only run looper  if we show admob and facebook ad
             Log.d("TAG1", "showInterstitialAd: enter in loop");
@@ -144,7 +145,11 @@ public class MediationAdInterstitial {
                     Log.d(MediationAdHelper.TAG, "Delay Time is Finished!");
                     if (showAds && MediationAdInterstitial.onInterstitialAdListener != null) {
                         MediationAdInterstitial.onInterstitialAdListener.onError("Delay Time is Finished!");
-                        interstitialAdDialog.dismiss();
+                        try {
+                            if (interstitialAdDialog.isShowing()) interstitialAdDialog.dismiss();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                         showAds = false;
                         timer = 2000;
                     }
@@ -162,12 +167,12 @@ public class MediationAdInterstitial {
 
     public static void initInterstitialAd(final boolean isPurchased, final Activity activity, final Integer[] tempAdPriorityList, final OnInterstitialAdListener onInterstitialAdListener) {
         Log.d(TAG, "loadAD: before check");
-        if(!AdHelperApplication.isInit){
+        if (!AdHelperApplication.isInit) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     Log.d(TAG, "not init ads");
-                    initInterstitialAd(isPurchased,activity,tempAdPriorityList,onInterstitialAdListener);
+                    initInterstitialAd(isPurchased, activity, tempAdPriorityList, onInterstitialAdListener);
                 }
             }, 1500);
             return;
@@ -191,6 +196,7 @@ public class MediationAdInterstitial {
             }
 
         }
+        Log.d(TAG, String.format("Interstitial Ad Ids----facebook: %s ----Admob: %s",MediationAdInterstitial.facebookKey,MediationAdInterstitial.admobKey));
         MediationAdInterstitial.initAdPriorityList = new ArrayList <>(Arrays.asList(tempAdPriorityList));
         Log.d("TAG1", "showInterstitialAd: " + initAdPriorityList.size());
         MediationAdInterstitial.activityRef = new WeakReference <>(activity);

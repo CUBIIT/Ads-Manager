@@ -134,6 +134,7 @@ public class MediationAdBanner {
                 onBannerAdListener.onError("BannerContainer can not null");
                 return;
             }
+            Log.d("de_banner", String.format("Banner Ids:----Facebook: %s -------Admob: %s",facebookKey,admobKey));
             selectAd();
         } catch (Exception e) {
             if (onBannerAdListener != null) {

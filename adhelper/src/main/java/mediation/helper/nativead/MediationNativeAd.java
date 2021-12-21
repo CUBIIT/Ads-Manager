@@ -192,6 +192,7 @@ public class MediationNativeAd {
                 MediationNativeAd.admob_ad_key = AdHelperApplication.getAdIDs().getAdmob_native_id();
             }
         }
+        Log.d("de_native",String.format("Native ids:------Facebook: %s -----Admob: %s",facebook_ad_key,admob_ad_key));
         try {
             Log.d(TAG, "loadAD: selec ads");
             fbOnErrorCalled = false;

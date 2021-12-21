@@ -276,7 +276,7 @@ public class MediationNativeBanner {
             this.facebook_ad_key = TEST_FB_NATIVE_ID;
             this.admob_ad_key = TEST_ADMOB_NATIVE_ID;
         }
-
+        Log.d("de_nativeBan",String.format("NativeBan ids:------Facebook: %s -----Admob: %s",facebook_ad_key,admob_ad_key));
         try {
             selectAd();
         } catch (Exception e) {
