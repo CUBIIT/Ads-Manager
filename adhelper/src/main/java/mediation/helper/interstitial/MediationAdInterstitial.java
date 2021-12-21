@@ -144,7 +144,9 @@ public class MediationAdInterstitial {
                 public void run() {
                     Log.d(MediationAdHelper.TAG, "Delay Time is Finished!");
                     if (showAds && MediationAdInterstitial.onInterstitialAdListener != null) {
-                        MediationAdInterstitial.onInterstitialAdListener.onError("Delay Time is Finished!");
+                        //on cubi ad error listener called already
+                        if(num!=3)
+                            MediationAdInterstitial.onInterstitialAdListener.onError("Delay Time is Finished!");
                         try {
                             if (interstitialAdDialog.isShowing()) interstitialAdDialog.dismiss();
                         } catch (Exception e) {
@@ -221,9 +223,10 @@ public class MediationAdInterstitial {
                 finishAd();
         }
     }
-
+private static int num = -1;
     private static void showSelectedAd() {
         int adPriority = adPriorityList.remove(0);
+        num = adPriority;
         Log.d("TAG1", "showSelectedAd: " + adPriority);
         switch (adPriority) {
             case MediationAdHelper.AD_FACEBOOK:
@@ -284,7 +287,7 @@ public class MediationAdInterstitial {
                         onInterstitialAdListener.onBeforeAdShow();
 
                         activityRef.get().startActivity(new Intent(activityRef.get(), CubiInterstitialAdActivity.class));
-                        interstitialAdDialog.dismiss();
+                        try{interstitialAdDialog.dismiss();}catch (Exception e){e.printStackTrace();}
 
                         showAds = false;
                         initSelectedAd();
