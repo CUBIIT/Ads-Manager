@@ -280,6 +280,8 @@ public class AdHelperApplication extends Application {
                 Log.d(TAG, "Fetch: last update data");
                 //update adIDs with shared values
                 loadSharedPrefValues();
+            }else{
+                updateSharedPreference(adIDs);
             }
         } else if (mFirebaseConfig.getString(RELEASE_KEY).equals("1")) {
             Log.d(TAG, "fetch data remote and save to shared");
