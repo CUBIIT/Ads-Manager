@@ -412,25 +412,29 @@ private static int num = -1;
     private static com.google.android.gms.ads.interstitial.InterstitialAd admobInterstitialAD = null;
 
     private static void initAdmobInterstitialAd() {
-        InterstitialAd.load(activityRef.get(), admobKey, MediationAdHelper.getAdRequest(), new InterstitialAdLoadCallback() {
-            @Override
-            public void onAdLoaded(@NonNull com.google.android.gms.ads.interstitial.InterstitialAd interstitialAd) {
-                admobInterstitialAD = interstitialAd;
-                // The mInterstitialAd reference will be null until
-                // an ad is loaded.
-                Log.d(MediationAdHelper.TAG, "[ADMOB FRONT AD]Loaded");
-                if (onInterstitialAdListener != null) {
-                    onInterstitialAdListener.onLoaded(MediationAdHelper.AD_ADMOB);
+        try {
+            InterstitialAd.load(activityRef.get(), admobKey, MediationAdHelper.getAdRequest(), new InterstitialAdLoadCallback() {
+                @Override
+                public void onAdLoaded(@NonNull com.google.android.gms.ads.interstitial.InterstitialAd interstitialAd) {
+                    admobInterstitialAD = interstitialAd;
+                    // The mInterstitialAd reference will be null until
+                    // an ad is loaded.
+                    Log.d(MediationAdHelper.TAG, "[ADMOB FRONT AD]Loaded");
+                    if (onInterstitialAdListener != null) {
+                        onInterstitialAdListener.onLoaded(MediationAdHelper.AD_ADMOB);
+                    }
                 }
-            }
 
-            @Override
-            public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                Log.e(MediationAdHelper.TAG, "[ADMOB FRONT AD]Error: " + loadAdError.getMessage());
-                MediationAdInterstitial.onLoadError(loadAdError.getMessage());
-                admobInterstitialAD = null;
-            }
-        });
+                @Override
+                public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                    Log.e(MediationAdHelper.TAG, "[ADMOB FRONT AD]Error: " + loadAdError.getMessage());
+                    MediationAdInterstitial.onLoadError(loadAdError.getMessage());
+                    admobInterstitialAD = null;
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private static void showAdmobInterstitialAd() {

@@ -226,16 +226,22 @@ public class MediationAdBanner {
             native_banner_ad_calltoaction.setText(cubiBannerAd.getBannerAdcallToActionData());
             native_banner_ad_calltoaction.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View v) {try{
                     onBannerAdListener.onAdClicked(3);
-                    actionOnCubiAdClicked();
+                    actionOnCubiAdClicked();}catch (Exception e){
+                    e.printStackTrace();
+                }
                 }
             });
             cubi_banner_square_icon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onBannerAdListener.onAdClicked(3);
-                    actionOnCubiAdClicked();
+                    try {
+                        onBannerAdListener.onAdClicked(3);
+                        actionOnCubiAdClicked();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
             });
             native_banner_ad_sponser_label.setText(cubiBannerAd.getBannerAdadvertiserName());

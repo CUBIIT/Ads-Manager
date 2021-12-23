@@ -9,6 +9,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="adhelper/src/main/res/layout/dialog_backpress.xml" value="0.4036458333333333" />
+        <entry key="adhelper/src/main/res/layout/layout_native_banner_ad.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_ads.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.17592592592592593" />

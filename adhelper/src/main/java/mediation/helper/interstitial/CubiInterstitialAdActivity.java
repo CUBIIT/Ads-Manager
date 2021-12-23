@@ -83,22 +83,31 @@ public class CubiInterstitialAdActivity extends AppCompatActivity {
             callToAction.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onInterstitialAdListener.onAdClicked(3);
-                    actionOnCubiAdClicked();
+                    try {
+                        onInterstitialAdListener.onAdClicked(3);
+                        actionOnCubiAdClicked();
+                    }catch (Exception e){e.printStackTrace();}
                 }
             });
             floatingActionButton.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View v) {try {
                     onInterstitialAdListener.onAdClicked(3);
                     actionOnCubiAdClicked();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
                 }
             });
             mediaContent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onInterstitialAdListener.onAdClicked(3);
-                    actionOnCubiAdClicked();
+                    try {
+                        onInterstitialAdListener.onAdClicked(3);
+                        actionOnCubiAdClicked();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
             });
             onInterstitialAdListener.onLoaded(3);
