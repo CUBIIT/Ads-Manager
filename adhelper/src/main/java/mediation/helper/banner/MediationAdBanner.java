@@ -148,6 +148,7 @@ public class MediationAdBanner {
     }
 
     private static void selectAd() {
+        Log.d(MediationAdHelper.TAG, "selectAd: ");
         int adPriority = adPriorityList.remove(0);
         switch (adPriority) {
             case MediationAdHelper.AD_FACEBOOK:
@@ -283,6 +284,7 @@ public class MediationAdBanner {
     }
 
     private static void showFacebookBanner() {
+        Log.d(MediationAdHelper.TAG, "show faaceboookBanner");
         if (MediationAdHelper.isSkipFacebookAd(bannerContainer.getContext())) {
             onBannerAdListener.onError(Constant.ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED);
             MediationAdBanner.onError(Constant.ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED);
@@ -300,6 +302,7 @@ public class MediationAdBanner {
             @Override
             public void onError(Ad ad, AdError adError) {
                 MediationAdBanner.onError(adError.getErrorMessage());
+                Log.d(MediationAdHelper.TAG, "[FACEBOOK BANNER]error: " + adError.getErrorMessage());
             }
 
             @Override
@@ -348,6 +351,7 @@ public class MediationAdBanner {
             @Override
             public void onAdFailedToLoad(LoadAdError adError) {
                 MediationAdBanner.onError(adError.getMessage());
+                Log.d(MediationAdHelper.TAG, "[ADMOB BANNER]ERROR: " + adError.getMessage());
             }
 
             @Override

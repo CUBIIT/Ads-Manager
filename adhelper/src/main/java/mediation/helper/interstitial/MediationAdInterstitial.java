@@ -107,8 +107,8 @@ public class MediationAdInterstitial {
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             throw new RuntimeException("You have to select priority type ADMOB/FACEBOOK/TNK");
         }
-        MediationAdInterstitial.facebookKey = TEST_FB_NATIVE_ID;
-        MediationAdInterstitial.admobKey = TEST_ADMOB_NATIVE_ID;
+        MediationAdInterstitial.facebookKey = TEST_FB_INTERSTITIAL_ID;
+        MediationAdInterstitial.admobKey = TEST_ADMOB_INTERSTITIAL_ID;
         if (!AdHelperApplication.getTestMode()) {
             //check if ids or test skip
             if (AdHelperApplication.getAdIDs() != null) {
@@ -187,8 +187,8 @@ public class MediationAdInterstitial {
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             throw new RuntimeException("You have to select priority type ADMOB/FACEBOOK/TNK");
         }
-        MediationAdInterstitial.facebookKey = TEST_FB_NATIVE_ID;
-        MediationAdInterstitial.admobKey = TEST_ADMOB_NATIVE_ID;
+        MediationAdInterstitial.facebookKey = TEST_FB_INTERSTITIAL_ID;
+        MediationAdInterstitial.admobKey = TEST_ADMOB_INTERSTITIAL_ID;
         if (!AdHelperApplication.getTestMode()) {
             //check if ids or test skip
             if (AdHelperApplication.getAdIDs() != null) {

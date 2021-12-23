@@ -87,8 +87,9 @@ public class DualMediationAdInterstitial {
             throw new RuntimeException("You have to select priority type ADMOB/FACEBOOK/TNK");
         }
         //by defualt test ids
-        DualMediationAdInterstitial.facebookKey = TEST_FB_NATIVE_ID;
-        DualMediationAdInterstitial.admobKey = TEST_ADMOB_NATIVE_ID;
+
+        DualMediationAdInterstitial.facebookKey = TEST_FB_INTERSTITIAL_ID;
+        DualMediationAdInterstitial.admobKey = TEST_ADMOB_INTERSTITIAL_ID;
         if(!AdHelperApplication.getTestMode()){
             //check if ids or test skip
             if(AdHelperApplication.getAdIDs() != null){
