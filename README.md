@@ -22,7 +22,7 @@ Add dependency in your build.gradle(App level) file.
 
 ```gradle
 dependencies {
-  implementation 'com.github.CUBIIT:Ads-Manager:1.5.2'
+  implementation 'com.github.CUBIIT:Ads-Manager:1.5.2.3'
 }
 ```
 ### Step3: Connect App to Firebase
