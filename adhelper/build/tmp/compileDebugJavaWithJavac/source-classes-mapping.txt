@@ -1,10 +1,5 @@
-mediation/helper/interstitial/MediationAdInterstitial.java
- mediation.helper.interstitial.MediationAdInterstitial
- mediation.helper.interstitial.MediationAdInterstitial$1
- mediation.helper.interstitial.MediationAdInterstitial$2
- mediation.helper.interstitial.MediationAdInterstitial$3
- mediation.helper.interstitial.MediationAdInterstitial$4
- mediation.helper.interstitial.MediationAdInterstitial$5
+mediation/helper/TestAdIDs.java
+ mediation.helper.TestAdIDs
 mediation/helper/nativead/MediationNativeAdHolder.java
  mediation.helper.nativead.MediationNativeAdHolder
 mediation/helper/DataBindingTriggerClass.java
@@ -13,12 +8,8 @@ mediation/helper/util/AppUtil.java
  mediation.helper.util.AppUtil
 mediation/helper/BuildConfig.java
  mediation.helper.BuildConfig
-mediation/helper/interstitial/CubiInterstitialAdActivity.java
- mediation.helper.interstitial.CubiInterstitialAdActivity
- mediation.helper.interstitial.CubiInterstitialAdActivity$1
- mediation.helper.interstitial.CubiInterstitialAdActivity$2
- mediation.helper.interstitial.CubiInterstitialAdActivity$3
- mediation.helper.interstitial.CubiInterstitialAdActivity$4
+mediation/helper/util/Constant.java
+ mediation.helper.util.Constant
 mediation/helper/backpress/MediationBackPressDialog.java
  mediation.helper.backpress.MediationBackPressDialog
  mediation.helper.backpress.MediationBackPressDialog$1
@@ -69,12 +60,8 @@ mediation/helper/cubiad/NativeAdView/CubiInterstitialAd.java
 mediation/helper/AdIDs.java
  mediation.helper.AdIDs
  mediation.helper.AdIDs$1
-mediation/helper/banner/MediationAdBanner.java
- mediation.helper.banner.MediationAdBanner
- mediation.helper.banner.MediationAdBanner$1
- mediation.helper.banner.MediationAdBanner$2
- mediation.helper.banner.MediationAdBanner$3
- mediation.helper.banner.MediationAdBanner$4
+mediation/helper/bannerNativeAd/MediationNativeBannerAdHolder.java
+ mediation.helper.bannerNativeAd.MediationNativeBannerAdHolder
 mediation/helper/bannerNativeAd/OnNativeBannerListener.java
  mediation.helper.bannerNativeAd.OnNativeBannerListener
 mediation/helper/bannerNativeAd/MediationNativeBanner.java
@@ -101,9 +88,22 @@ mediation/helper/nativead/MediationNativeAd.java
  mediation.helper.nativead.MediationNativeAd$MyNativeAd
 mediation/helper/cubiad/NativeAdView/GeneralInfo.java
  mediation.helper.cubiad.NativeAdView.GeneralInfo
-mediation/helper/bannerNativeAd/MediationNativeBannerAdHolder.java
- mediation.helper.bannerNativeAd.MediationNativeBannerAdHolder
-mediation/helper/util/Constant.java
- mediation.helper.util.Constant
-mediation/helper/TestAdIDs.java
- mediation.helper.TestAdIDs
+mediation/helper/interstitial/MediationAdInterstitial.java
+ mediation.helper.interstitial.MediationAdInterstitial
+ mediation.helper.interstitial.MediationAdInterstitial$1
+ mediation.helper.interstitial.MediationAdInterstitial$2
+ mediation.helper.interstitial.MediationAdInterstitial$3
+ mediation.helper.interstitial.MediationAdInterstitial$4
+ mediation.helper.interstitial.MediationAdInterstitial$5
+mediation/helper/interstitial/CubiInterstitialAdActivity.java
+ mediation.helper.interstitial.CubiInterstitialAdActivity
+ mediation.helper.interstitial.CubiInterstitialAdActivity$1
+ mediation.helper.interstitial.CubiInterstitialAdActivity$2
+ mediation.helper.interstitial.CubiInterstitialAdActivity$3
+ mediation.helper.interstitial.CubiInterstitialAdActivity$4
+mediation/helper/banner/MediationAdBanner.java
+ mediation.helper.banner.MediationAdBanner
+ mediation.helper.banner.MediationAdBanner$1
+ mediation.helper.banner.MediationAdBanner$2
+ mediation.helper.banner.MediationAdBanner$3
+ mediation.helper.banner.MediationAdBanner$4

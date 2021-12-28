@@ -136,15 +136,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     String TAG = "de_main";
-    public static Integer[] KEY_PRIORITY_CUBI_AD = new Integer[]{
-            MediationAdHelper.AD_CUBI_IT,
-            MediationAdHelper.AD_ADMOB,
-            MediationAdHelper.AD_FACEBOOK};
+
     private void showInterstitalAds() {
 
         try {
             MediationAdInterstitial.showInterstitialAd(false, this,
-                    KEY_PRIORITY_CUBI_AD,
+                    KEY_PRIORITY_INTERSTITIAL_AD,
                     new OnInterstitialAdListener() {
                         @Override
                         public void onDismissed(int adType) {

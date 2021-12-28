@@ -157,9 +157,10 @@ public class CubiInterstitialAdActivity extends AppCompatActivity {
                 Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
                 Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         try {
-            getApplicationContext().startActivity(new Intent(Intent.ACTION_VIEW,
+            this.startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
         } catch (ActivityNotFoundException e) {
+            onInterstitialAdListener.onError("Action OnClick: " + e.getMessage());
             e.printStackTrace();
         }
 

@@ -345,6 +345,7 @@ public class MediationNativeAd {
             context.startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
         } catch (ActivityNotFoundException e) {
+            onNativeAdListener.onError("onClick:" + e.getMessage());
             e.printStackTrace();
         }
     }
