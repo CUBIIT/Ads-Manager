@@ -43,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         startAction();
     }
-
+    public static Integer[] KEY_PRIORITY_INTERSTITIAL_AD_test = new Integer[]{
+            MediationAdHelper.AD_CUBI_IT
+           };
     public void startAction() {
         recyclerView = findViewById(R.id.recycler_view);
         adsList = new ArrayList <>();
@@ -141,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             MediationAdInterstitial.showInterstitialAd(false, this,
-                    KEY_PRIORITY_INTERSTITIAL_AD,
+                    KEY_PRIORITY_INTERSTITIAL_AD_test,
                     new OnInterstitialAdListener() {
                         @Override
                         public void onDismissed(int adType) {

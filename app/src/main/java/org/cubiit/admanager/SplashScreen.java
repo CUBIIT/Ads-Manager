@@ -1,6 +1,7 @@
 package org.cubiit.admanager;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static mediation.helper.util.Constant.KEY_PRIORITY_INTERSTITIAL_AD;
+import static mediation.helper.util.Constant.KEY_PRIORITY_NATIVE_AD;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,16 +11,15 @@ import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
+
 import mediation.helper.MediationAdHelper;
 import mediation.helper.interstitial.MediationAdInterstitial;
 import mediation.helper.interstitial.OnInterstitialAdListener;
 import mediation.helper.nativead.MediationNativeAd;
 import mediation.helper.nativead.OnNativeAdListener;
-
-import static mediation.helper.util.Constant.KEY_PRIORITY_INTERSTITIAL_AD;
-import static mediation.helper.util.Constant.KEY_PRIORITY_NATIVE_AD;
-
-import com.bumptech.glide.Glide;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -27,9 +27,9 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        try{
+        try {
             getSupportActionBar().hide();
-        }catch (Exception ignore){
+        } catch (Exception ignore) {
             ignore.printStackTrace();
         }
         loadNative();
@@ -38,16 +38,21 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 showInterstitalAds();
-                startActivity(new Intent(SplashScreen.this,MainActivity.class));
+                startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 finish();
             }
         }, 6000);
     }
-    private void showInterstitalAds() {
 
+    public static Integer[] KEY_PRIORITY_INTERSTITIAL_AD_test = new Integer[]{
+            MediationAdHelper.AD_CUBI_IT,
+            MediationAdHelper.AD_FACEBOOK,
+            MediationAdHelper.AD_ADMOB};
+
+    private void showInterstitalAds() {
         try {
             MediationAdInterstitial.showInterstitialAd(false, this,
-                    KEY_PRIORITY_INTERSTITIAL_AD,
+                    KEY_PRIORITY_INTERSTITIAL_AD_test,
                     new OnInterstitialAdListener() {
                         @Override
                         public void onDismissed(int adType) {
@@ -58,7 +63,6 @@ public class SplashScreen extends AppCompatActivity {
                         @Override
                         public void onError(String errorMessage) {
                             Log.d("de", "onError: " + errorMessage);
-
 
 
                         }
@@ -87,10 +91,12 @@ public class SplashScreen extends AppCompatActivity {
         }
 
     }
-    private void initAds(){
+
+    private void initAds() {
         MediationAdInterstitial.initInterstitialAd(false, this,
                 KEY_PRIORITY_INTERSTITIAL_AD, null);
     }
+
     private void loadNative() {
         MediationNativeAd nativeAd = new MediationNativeAd(false, (FrameLayout) findViewById(R.id.native_fram), this, getString(R.string.app_name),
                 new MediationAdHelper.ImageProvider() {

@@ -144,7 +144,7 @@ public class MediationNativeAd {
     }
 
     private static boolean checkTestIds(OnNativeAdListener onBannerAdListener) {
-        if(!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty()) {
+        if(!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()) {
             if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
                 onBannerAdListener.onError("Found Test IDS..");
                 return false;
@@ -367,7 +367,12 @@ public class MediationNativeAd {
 
 
     private static void loadAdmobAdvanceAD() {
-        Log.d("DEBUG", "lOADaDmOBAdvancedAD");
+        Log.d(TAG, "lOADaDmOBAdvancedAD");
+        if(AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty()){
+            Log.e(TAG, "[FACEBOOK NATIVE AD]Error: empty id found ");
+            onLoadAdError("Empty id found");
+            return;
+        }
         AdLoader.Builder builder = new AdLoader.Builder(context, admob_ad_key);
         builder.forNativeAd(new com.google.android.gms.ads.nativead.NativeAd.OnNativeAdLoadedListener() {
             @Override
@@ -436,6 +441,12 @@ public class MediationNativeAd {
         if (MediationAdHelper.isSkipFacebookAd(context)) {
             Log.e(MediationAdHelper.TAG, "[FACEBOOK NATIVE AD]Error: " + Constant.ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED);
             onLoadAdError(Constant.ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED);
+            return;
+        }
+        //individual check to empty ids
+        if(AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()){
+            Log.e(TAG, "[FACEBOOK NATIVE AD]Error: empty id found ");
+            onLoadAdError("Empty id found");
             return;
         }
 
