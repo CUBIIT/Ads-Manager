@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:id="@+id/parent_native_banner_constraint_layout"
     android:background="@color/lightGray" >
 
@@ -21,8 +21,9 @@
                 android:id="@+id/right_constriant"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                app:layout_constraintStart_toEndOf="@id/center_constraint"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/adchoses_layout"
                 app:layout_constraintBottom_toBottomOf="parent">
 
                 <Button
@@ -44,16 +45,17 @@
                 android:id="@+id/left_constraint"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                app:layout_constraintEnd_toStartOf="@id/center_constraint"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/cubi_banner_square_icon"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    app:layout_constraintDimensionRatio="H,1:1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:contentDescription="@string/imageview"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -62,6 +64,9 @@
                 android:id="@+id/center_constraint"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/right_constriant"
                 app:layout_constraintStart_toEndOf="@+id/left_constraint"
                 app:layout_constraintTop_toTopOf="parent">
@@ -94,45 +99,46 @@
                     tools:ignore="SmallSp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/adchoses_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@id/right_constriant"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <TextView
+                    android:id="@+id/ad_choices_container"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/AdAttribution"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/native_ad_sponsored_label"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/native_ad_sponsored_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:padding="2dp"
+                    android:paddingStart="2dp"
+                    android:paddingEnd="2dp"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/ad_choices_container"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/adchoses_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/ad_choices_container"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/AdAttribution"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/native_ad_sponsored_label"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/native_ad_sponsored_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:lines="1"
-                android:padding="2dp"
-                android:paddingStart="2dp"
-                android:paddingEnd="2dp"
-                android:textColor="@android:color/darker_gray"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/ad_choices_container"
-                app:layout_constraintTop_toTopOf="parent" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
