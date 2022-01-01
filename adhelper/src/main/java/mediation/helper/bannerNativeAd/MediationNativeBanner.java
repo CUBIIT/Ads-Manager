@@ -46,7 +46,7 @@ import mediation.helper.AdHelperApplication;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
-import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
+import mediation.helper.cubiad.NativeAdView.CubiNativeAd;
 import mediation.helper.util.Constant;
 
 public class MediationNativeBanner {
@@ -80,7 +80,7 @@ public class MediationNativeBanner {
     String TEST = "DEBUG-AD";
     private com.google.android.gms.ads.nativead.NativeAd nativeAd;
     private Object NativeAd;
-    private static CubiBannerAd cubiBannerAd;
+    private static CubiNativeAd cubiNativeAd;
     private boolean purchase;
 
 //    public MediationNativeBanner(ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
@@ -95,6 +95,7 @@ public class MediationNativeBanner {
 //        this.facebook_ad_key = facebook_ad_key;
 //        this.admob_ad_key = admob_ad_key;
         this.imageProvider = imageProvider;
+        cubiNativeAd = AdHelperApplication.getCubiNativeAd();
         initView();
     }
 
@@ -112,7 +113,7 @@ public class MediationNativeBanner {
         }
     }
 
-    public MediationNativeBanner(boolean purchased, ViewGroup itemView, Context context, String app_name, CubiBannerAd cubiBannerAd, MediationAdHelper.ImageProvider imageProvider) {
+    public MediationNativeBanner(boolean purchased, ViewGroup itemView, Context context, String app_name, CubiNativeAd cubiNativeAd, MediationAdHelper.ImageProvider imageProvider) {
 
         this.purchase = purchased;
         this.containerView = itemView;
@@ -121,7 +122,7 @@ public class MediationNativeBanner {
 //        this.facebook_ad_key = facebook_ad_key;
 //        this.admob_ad_key = admob_ad_key;
         this.imageProvider = imageProvider;
-        this.cubiBannerAd = cubiBannerAd;
+        this.cubiNativeAd = cubiNativeAd;
         initView();
     }
 
@@ -241,7 +242,7 @@ public class MediationNativeBanner {
     }
 
     //for cubiBanner ads
-    public void loadAD(Integer[] tempAdPriorityList, CubiBannerAd cubiBannerAd, OnNativeBannerListener onNativeAdListener) {
+    public void loadAD(Integer[] tempAdPriorityList, CubiNativeAd CubiNativeAd, OnNativeBannerListener onNativeAdListener) {
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             if (onNativeAdListener != null) {
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/TNK");
@@ -249,7 +250,7 @@ public class MediationNativeBanner {
             return;
         }
         ArrayList resultTempAdPriorityList = new ArrayList <>(Arrays.asList(tempAdPriorityList));
-        loadAD(resultTempAdPriorityList, cubiBannerAd, onNativeAdListener);
+        loadAD(resultTempAdPriorityList, CubiNativeAd, onNativeAdListener);
 
     }
 
@@ -276,7 +277,7 @@ public class MediationNativeBanner {
             this.facebook_ad_key = TEST_FB_NATIVE_ID;
             this.admob_ad_key = TEST_ADMOB_NATIVE_ID;
         }
-        Log.d("de_nativeBan",String.format("NativeBan ids:------Facebook: %s -----Admob: %s",facebook_ad_key,admob_ad_key));
+        Log.d("de_nativeBan", String.format("NativeBan ids:------Facebook: %s -----Admob: %s", facebook_ad_key, admob_ad_key));
         try {
             selectAd();
         } catch (Exception e) {
@@ -289,9 +290,9 @@ public class MediationNativeBanner {
     }
 
     //cubi ads
-    public void loadAD(ArrayList tempAdPriorityList, CubiBannerAd cubiBannerAd, OnNativeBannerListener onNativeAdListener) {
+    public void loadAD(ArrayList tempAdPriorityList, CubiNativeAd CubiNativeAd, OnNativeBannerListener onNativeAdListener) {
         this.onNativeAdListener = onNativeAdListener;
-        this.cubiBannerAd = cubiBannerAd;
+        this.cubiNativeAd = CubiNativeAd;
         if (tempAdPriorityList == null || tempAdPriorityList.size() == 0) {
             if (onNativeAdListener != null) {
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/TNK");
@@ -331,12 +332,12 @@ public class MediationNativeBanner {
     }
 
     private boolean isPkgInstalledAlready() {
-        if (cubiBannerAd == null || context == null) {
-            Log.d("TAG1_NativeBanner", "isPkgInstalledAlready: context or cubiBannerad are null");
+        if (cubiNativeAd == null || context == null) {
+            Log.d("TAG1_NativeBanner", "isPkgInstalledAlready: context or CubiNativeAd are null");
             return true;//
         }
-        if (IUtils.isContainPkg(cubiBannerAd.getBannerAdUrlLink())) {
-            if (IUtils.isPackageInstalled(IUtils.getPackageName(cubiBannerAd.getBannerAdUrlLink()), context))
+        if (IUtils.isContainPkg(cubiNativeAd.getNativeAdUrlLink())) {
+            if (IUtils.isPackageInstalled(IUtils.getPackageName(cubiNativeAd.getNativeAdUrlLink()), context))
                 return true;
             else
                 return false;
@@ -348,7 +349,7 @@ public class MediationNativeBanner {
     @SuppressLint("UseCompatLoadingForDrawables")
     private void selectCubiAd() {
         try {
-            if (cubiBannerAd == null) {
+            if (cubiNativeAd == null) {
                 parentConstraintView.setVisibility(View.GONE);
                 onNativeAdListener.onError("CubiAd is null");
                 onLoadAdError("CubiAd is null");
@@ -365,14 +366,14 @@ public class MediationNativeBanner {
                 return;
             }
             Log.d("TAG1_bannerAd", "selectCubiAd: pkg not installed already ");
-            native_banner_ad_title.setText(cubiBannerAd.getBannerAdtitle());
-            native_banner_ad_body.setText(cubiBannerAd.getBannerAdbodyText());
-            native_banner_ad_calltoaction.setText(cubiBannerAd.getBannerAdcallToActionData());
+            native_banner_ad_title.setText(cubiNativeAd.getNativeAdtitle());
+            native_banner_ad_body.setText(cubiNativeAd.getNativeAdbodyText());
+            native_banner_ad_calltoaction.setText(cubiNativeAd.getNativeAdcallToActionData());
             Glide.with(context.getApplicationContext())
-                    .load(cubiBannerAd.getBannerSquareIconUrl())
+                    .load(cubiNativeAd.getNativeAdIconUrl())
                     .centerCrop()
                     .into(native_banner_icon_view);
-            native_banner_ad_calltoaction.setText(cubiBannerAd.getBannerAdcallToActionData());
+            native_banner_ad_calltoaction.setText(cubiNativeAd.getNativeAdcallToActionData());
             native_banner_ad_calltoaction.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -387,7 +388,7 @@ public class MediationNativeBanner {
                     actionOnCubiAdClicked();
                 }
             });
-            native_banner_ad_sponser_label.setText(cubiBannerAd.getBannerAdadvertiserName());
+            native_banner_ad_sponser_label.setText(cubiNativeAd.getNativeAdadvertiserName());
             relativeLayout_adchoices.setBackground(context.getResources().getDrawable(R.drawable.ic_ads_view));
             onNativeAdListener.onLoaded(3);
 
@@ -399,7 +400,7 @@ public class MediationNativeBanner {
     }
 
     private void actionOnCubiAdClicked() {
-        String url = cubiBannerAd.getBannerAdUrlLink();
+        String url = cubiNativeAd.getNativeAdUrlLink();
         if (url.isEmpty()) {
             onNativeAdListener.onError("Url is empty");
             return;

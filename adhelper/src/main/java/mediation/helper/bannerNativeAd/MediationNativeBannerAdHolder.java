@@ -28,7 +28,7 @@ public class MediationNativeBannerAdHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public MediationNativeBannerAdHolder(boolean isPurchase,ViewGroup itemView, Context context, String app_name,  CubiBannerAd cubiBannerAd, MediationAdHelper.ImageProvider imageProvider) {
+    public MediationNativeBannerAdHolder(boolean isPurchase,ViewGroup itemView, Context context, String app_name,  CubiNativeAd cubiBannerAd, MediationAdHelper.ImageProvider imageProvider) {
         super(itemView);
         nativeBanner = new MediationNativeBanner( isPurchase,itemView, context, app_name,  cubiBannerAd, imageProvider);
 
