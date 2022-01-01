@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bumptech.glide.Glide;
 
@@ -22,7 +23,7 @@ import static mediation.helper.util.Constant.KEY_PRIORITY_BANNER_AD;
 import static mediation.helper.util.Constant.KEY_PRIORITY_NATIVE_AD;
 
 public class AdsActivity extends AppCompatActivity {
-    FrameLayout ad_container;
+    ConstraintLayout ad_container;
     ProgressDialog dialog;
 
     @Override
@@ -115,7 +116,7 @@ public class AdsActivity extends AppCompatActivity {
                         .into(imageView);
             }
         });
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_Banner_Test_AD, new OnNativeBannerListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeBannerListener() {
             @Override
             public void onError(String errorMessage) {
                 hideDialog();

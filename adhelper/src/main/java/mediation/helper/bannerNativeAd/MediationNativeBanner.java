@@ -367,6 +367,7 @@ public class MediationNativeBanner {
                 return;
             }
             Log.d("TAG1_bannerAd", "selectCubiAd: pkg not installed already ");
+            parentConstraintView.setVisibility(View.VISIBLE);
             native_banner_ad_title.setText(cubiNativeAd.getNativeAdtitle());
             native_banner_ad_body.setText(cubiNativeAd.getNativeAdbodyText());
             native_banner_ad_calltoaction.setText(cubiNativeAd.getNativeAdcallToActionData());

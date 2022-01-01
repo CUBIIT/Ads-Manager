@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#DDDDDD"
     tools:context=".AdsActivity">
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
 
         android:id="@+id/ad_container"
         android:layout_width="match_parent"
