@@ -133,6 +133,7 @@ public class MediationNativeBanner {
         this.app_name = app_name;
 //        this.facebook_ad_key = facebook_ad_key;
 //        this.admob_ad_key = admob_ad_key;
+        cubiNativeAd = AdHelperApplication.getCubiNativeAd();
         this.imageProvider = imageProvider;
         if (showIconAds) {
             initViewForIconAd();

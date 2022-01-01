@@ -20,7 +20,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/right_constriant"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent">
@@ -55,8 +55,7 @@
                     app:layout_constraintDimensionRatio="H,1:1"
                     android:contentDescription="@string/imageview"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,7 +73,6 @@
                     android:layout_marginStart="5dp"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    android:text="@string/title"
                     android:textColor="@color/black87"
                     android:textSize="12sp"
                     android:textStyle="bold"
@@ -89,7 +87,6 @@
                     android:layout_marginStart="5dp"
                     android:ellipsize="end"
                     android:maxLines="2"
-                    android:text="@string/body_text"
                     android:textColor="@color/black54"
                     android:textSize="10sp"
                     app:layout_constraintStart_toStartOf="parent"

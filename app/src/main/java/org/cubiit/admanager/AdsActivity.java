@@ -108,7 +108,9 @@ public class AdsActivity extends AppCompatActivity {
 
     }
 
-
+    public static Integer[] KEY_PRIORITY_NATIVE_Banner_Test_AD = new Integer[]{
+            MediationAdHelper.AD_CUBI_IT
+            };
     private void loadNativeBanner() {
         MediationNativeBanner nativeAd = new MediationNativeBanner(false,ad_container, AdsActivity.this, getString(R.string.app_name), new MediationAdHelper.ImageProvider() {
             @Override
@@ -118,10 +120,11 @@ public class AdsActivity extends AppCompatActivity {
                         .into(imageView);
             }
         });
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeBannerListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_Banner_Test_AD, new OnNativeBannerListener() {
             @Override
             public void onError(String errorMessage) {
                 hideDialog();
+               // Log.d(TAG, "onError: ");
 
             }
 
