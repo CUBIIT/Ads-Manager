@@ -81,14 +81,9 @@ public class AdsActivity extends AppCompatActivity {
 
     private void loadNativeAds() {
         MediationNativeAd nativeAd = new MediationNativeAd(false, ad_container, this, getString(R.string.app_name),
-                new MediationAdHelper.ImageProvider() {
-            @Override
-            public void onProvideImage(ImageView imageView, String imageUrl) {
-                Glide.with(getApplicationContext())
+                (imageView, imageUrl) -> Glide.with(getApplicationContext())
                         .load(imageUrl)
-                        .into(imageView);
-            }
-        });
+                        .into(imageView));
         nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeAdListener() {
             @Override
             public void onError(String errorMessage) {
