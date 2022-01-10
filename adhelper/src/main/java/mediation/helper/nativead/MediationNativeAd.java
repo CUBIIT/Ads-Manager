@@ -44,6 +44,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import mediation.helper.AdHelperApplication;
+import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
@@ -132,8 +133,10 @@ public class MediationNativeAd {
             onNativeAdListener.onError("You have pro version!");
             return;
         }
+        MediationEvents.onNativeAdCalledEvents();
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             if (onNativeAdListener != null) {
+                MediationEvents.onNativeAdErrorEvents();
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/TNK");
             }
             return;
@@ -175,6 +178,7 @@ public class MediationNativeAd {
 
         if (tempAdPriorityList == null || tempAdPriorityList.size() == 0) {
             if (onNativeAdListener != null) {
+                MediationEvents.onNativeAdErrorEvents();
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/CUBI-IT");
             }
             return;
@@ -200,6 +204,7 @@ public class MediationNativeAd {
         } catch (Exception e) {
             e.printStackTrace();
             if (onNativeAdListener != null) {
+                MediationEvents.onNativeAdErrorEvents();
                 onNativeAdListener.onError(e.toString());
             }
         }
@@ -239,6 +244,7 @@ public class MediationNativeAd {
                 Log.d(TAG, "selectAd: cbui-it");
                 bindCubiAd();
             default:
+                MediationEvents.onNativeAdErrorEvents();
                 onNativeAdListener.onError("You have to select priority type ADMOB or FACEBOOK");
         }
     }
@@ -296,6 +302,7 @@ public class MediationNativeAd {
         adIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MediationEvents.onNativeAdAdClickedEvents();
                 onNativeAdListener.onAdClicked(3);
                 actionOnCubiAdClicked();
             }
@@ -303,6 +310,7 @@ public class MediationNativeAd {
         calltoAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MediationEvents.onNativeAdAdClickedEvents();
                 onNativeAdListener.onAdClicked(3);
                 actionOnCubiAdClicked();
             }
@@ -310,16 +318,19 @@ public class MediationNativeAd {
         medicontent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MediationEvents.onNativeAdAdClickedEvents();
                 onNativeAdListener.onAdClicked(3);
                 actionOnCubiAdClicked();
             }
         });
+        MediationEvents.onNativeAdSuccessEvents(3);
         onNativeAdListener.onLoaded(3);
     }
 
     public static void actionOnCubiAdClicked() {
         String url = cubiNativeAd.getNativeAdUrlLink();
         if (url.isEmpty()) {
+            MediationEvents.onNativeAdErrorEvents();
             onNativeAdListener.onError("Url is empty");
             return;
         }
@@ -345,6 +356,7 @@ public class MediationNativeAd {
             context.startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
         } catch (ActivityNotFoundException e) {
+            MediationEvents.onNativeAdErrorEvents();
             onNativeAdListener.onError("onClick:" + e.getMessage());
             e.printStackTrace();
         }
@@ -359,6 +371,7 @@ public class MediationNativeAd {
             selectAd();
         } else {
             if (onNativeAdListener != null) {
+                MediationEvents.onNativeAdErrorEvents();
                 onNativeAdListener.onError(errorMessage);
             }
 
@@ -409,6 +422,7 @@ public class MediationNativeAd {
                 Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE EXPRESS AD]Loaded");
 
                 if (onNativeAdListener != null) {
+                    MediationEvents.onNativeAdSuccessEvents(2);
                     onNativeAdListener.onLoaded(MediationAdHelper.AD_ADMOB);
                 }
             }
@@ -418,6 +432,7 @@ public class MediationNativeAd {
                 super.onAdOpened();
                 Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE EXPRESS AD]Opend");
                 if (onNativeAdListener != null) {
+                    MediationEvents.onNativeAdAdClickedEvents();
                     onNativeAdListener.onAdClicked(MediationAdHelper.AD_ADMOB);
                 }
             }
@@ -427,6 +442,7 @@ public class MediationNativeAd {
                 super.onAdClicked();
                 Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE AD]Clicked");
                 if (onNativeAdListener != null) {
+                    MediationEvents.onNativeAdAdClickedEvents();
                     onNativeAdListener.onAdClicked(MediationAdHelper.AD_ADMOB);
                 }
             }
@@ -471,6 +487,7 @@ public class MediationNativeAd {
                 bindFacebookAD(ad);
 
                 if (onNativeAdListener != null) {
+                    MediationEvents.onNativeAdSuccessEvents(1);
                     onNativeAdListener.onLoaded(MediationAdHelper.AD_FACEBOOK);
                 }
             }
@@ -479,6 +496,7 @@ public class MediationNativeAd {
             public void onAdClicked(Ad ad) {
                 Log.d(MediationAdHelper.TAG, "[FACEBOOK NATIVE AD]Clicked");
                 if (onNativeAdListener != null) {
+                    MediationEvents.onNativeAdAdClickedEvents();
                     onNativeAdListener.onAdClicked(MediationAdHelper.AD_FACEBOOK);
                 }
             }

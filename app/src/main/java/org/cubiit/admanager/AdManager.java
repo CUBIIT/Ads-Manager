@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
 import mediation.helper.AdHelperApplication;
@@ -13,12 +14,13 @@ import mediation.helper.callbacks.OnFetchRemoteCallback;
 
 public class AdManager extends Application {
     String TAG = "de_admanager";
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     public void onCreate() {
         super.onCreate();
         //this call is must
-        AdHelperApplication.getValuesFromConfig(true, FirebaseRemoteConfig.getInstance(), AdManager.this, new OnFetchRemoteCallback() {
+        AdHelperApplication.getValuesFromConfig( FirebaseRemoteConfig.getInstance(), AdManager.this, new OnFetchRemoteCallback() {
             @Override
             public void onFetchValuesSuccess() {
                 Log.d(TAG, "onFetchValuesSuccess: ");
@@ -36,6 +38,8 @@ public class AdManager extends Application {
             }
         });
         AdHelperApplication.initMediation(AdManager.this);
+        AdHelperApplication.setFirebaseAnalytics(FirebaseAnalytics.getInstance(this));
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
     }

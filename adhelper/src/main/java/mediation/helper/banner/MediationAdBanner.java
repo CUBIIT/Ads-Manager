@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import mediation.helper.AdHelperApplication;
+import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
@@ -65,6 +66,7 @@ public class MediationAdBanner {
     public static void showBanner(boolean isPurchased, ViewGroup bannerContainer, int adPriority, OnBannerAdListener onBannerAdListener) {
         if (isPurchased)
             return;
+        MediationEvents.onBannerAdCalledEvents();
         MediationAdBanner.cubiBannerAd = getCubiBannerAd();
         Integer[] tempAdPriorityList = new Integer[3];
         tempAdPriorityList[0] = adPriority;
@@ -90,6 +92,7 @@ public class MediationAdBanner {
     public static void showBanner(boolean isPurchased, Activity activity, ViewGroup bannerContainer, Integer[] tempAdPriorityList, OnBannerAdListener onBannerAdListener) {
         if (isPurchased)
             return;
+        MediationEvents.onBannerAdCalledEvents();
         mActivity = activity;
         MediationAdBanner.facebookKey = TEST_FB_BANNER_ID;
         MediationAdBanner.admobKey = TEST_ADMOB_BANNER_ID;
@@ -115,11 +118,13 @@ public class MediationAdBanner {
         {
             if (AdHelperApplication.getAdIDs().getFb_banner_id().equals(TEST_FB_BANNER_ID) || AdHelperApplication.getAdIDs().getAdmob_banner_id().equals(TEST_ADMOB_BANNER_ID)) {
                 onBannerAdListener.onError("Found Test IDS..");
+                MediationEvents.onBannerAdErrorEvents();
                 return false;
             }else {
                 return true;
             }
         }else{
+            MediationEvents.onBannerAdErrorEvents();
             onBannerAdListener.onError("No ids found");
             return false;
         }
@@ -135,12 +140,14 @@ public class MediationAdBanner {
             MediationAdBanner.bannerContainer = bannerContainer;
             if (bannerContainer == null) {
                 onBannerAdListener.onError("BannerContainer can not null");
+                MediationEvents.onBannerAdErrorEvents();
                 return;
             }
             Log.d("de_banner", String.format("Banner Ids:----Facebook: %s -------Admob: %s",facebookKey,admobKey));
             selectAd();
         } catch (Exception e) {
             if (onBannerAdListener != null) {
+                MediationEvents.onBannerAdErrorEvents();
                 onBannerAdListener.onError("");
             }
 
@@ -160,14 +167,18 @@ public class MediationAdBanner {
             case MediationAdHelper.AD_CUBI_IT:
                 selectCubiAd();
                 break;
-            default:
+            default: {
+                MediationEvents.onBannerAdErrorEvents();
                 onBannerAdListener.onError("You have to select priority type ADMOB or FACEBOOK");
+            }
 
         }
     }
 
     private static boolean isPkgInstalledAlready() {
-        cubiBannerAd = getCubiBannerAd();
+        //test send null
+       //  cubiBannerAd = null;
+      cubiBannerAd = getCubiBannerAd();
         Context context = new AdHelperApplication().getContext();
         if (cubiBannerAd == null || context == null) {
             Log.d("TAG1_NativeBanner", "isPkgInstalledAlready: context or cubiBannerad are null");
@@ -189,7 +200,7 @@ public class MediationAdBanner {
 
     private static void selectCubiAd() {
         Log.d("DEBUG", "initView");
-
+//for test
         try {
             if (isPkgInstalledAlready()) {
                 onBannerAdListener.onError("CubiBannerAd already installed");
@@ -227,6 +238,7 @@ public class MediationAdBanner {
             native_banner_ad_calltoaction.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {try{
+                    MediationEvents.onBannerAdAdClickedEvents();
                     onBannerAdListener.onAdClicked(3);
                     actionOnCubiAdClicked();}catch (Exception e){
                     e.printStackTrace();
@@ -237,6 +249,7 @@ public class MediationAdBanner {
                 @Override
                 public void onClick(View v) {
                     try {
+                        MediationEvents.onBannerAdAdClickedEvents();
                         onBannerAdListener.onAdClicked(3);
                         actionOnCubiAdClicked();
                     }catch (Exception e){
@@ -246,6 +259,7 @@ public class MediationAdBanner {
             });
             native_banner_ad_sponser_label.setText(cubiBannerAd.getBannerAdadvertiserName());
             onBannerAdListener.onLoaded(3);
+            MediationEvents.onBannerAdSuccessEvents(3);
 
         } catch (Exception e) {
             MediationAdBanner.onError(e.getMessage());
@@ -292,6 +306,7 @@ public class MediationAdBanner {
     private static void showFacebookBanner() {
         Log.d(MediationAdHelper.TAG, "show faaceboookBanner");
         if (MediationAdHelper.isSkipFacebookAd(bannerContainer.getContext())) {
+            MediationEvents.onBannerAdErrorEvents();
             onBannerAdListener.onError(Constant.ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED);
             MediationAdBanner.onError(Constant.ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED);
             return;
@@ -307,6 +322,7 @@ public class MediationAdBanner {
         AdListener adListener = new AdListener() {
             @Override
             public void onError(Ad ad, AdError adError) {
+                MediationEvents.onBannerAdErrorEvents();
                 MediationAdBanner.onError(adError.getErrorMessage());
                 Log.d(MediationAdHelper.TAG, "[FACEBOOK BANNER]error: " + adError.getErrorMessage());
             }
@@ -323,6 +339,7 @@ public class MediationAdBanner {
                 bannerContainer.addView(facebookBanner);
 
                 if (onBannerAdListener != null) {
+                    MediationEvents.onBannerAdSuccessEvents(MediationAdHelper.AD_FACEBOOK);
                     onBannerAdListener.onLoaded(MediationAdHelper.AD_FACEBOOK);
                 }
 
@@ -332,6 +349,7 @@ public class MediationAdBanner {
             public void onAdClicked(Ad ad) {
                 Log.d(MediationAdHelper.TAG, "[FACEBOOK BANNER]Clicked");
                 if (onBannerAdListener != null) {
+                    MediationEvents.onBannerAdAdClickedEvents();
                     onBannerAdListener.onAdClicked(MediationAdHelper.AD_FACEBOOK);
                 }
             }
@@ -357,6 +375,7 @@ public class MediationAdBanner {
             @Override
             public void onAdFailedToLoad(LoadAdError adError) {
                 MediationAdBanner.onError(adError.getMessage());
+                MediationEvents.onBannerAdErrorEvents();
                 Log.d(MediationAdHelper.TAG, "[ADMOB BANNER]ERROR: " + adError.getMessage());
             }
 
@@ -371,7 +390,9 @@ public class MediationAdBanner {
                 bannerContainer.addView(admobBanner);
 
                 if (onBannerAdListener != null) {
+                    MediationEvents.onBannerAdSuccessEvents(2);
                     onBannerAdListener.onLoaded(MediationAdHelper.AD_ADMOB);
+                    MediationEvents.onBannerAdSuccessEvents(MediationAdHelper.AD_ADMOB);
                 }
             }
 
@@ -379,6 +400,7 @@ public class MediationAdBanner {
             public void onAdOpened() {
                 super.onAdOpened();
                 if (onBannerAdListener != null) {
+                    MediationEvents.onBannerAdAdClickedEvents();
                     onBannerAdListener.onAdClicked(MediationAdHelper.AD_ADMOB);
                 }
             }
@@ -392,6 +414,7 @@ public class MediationAdBanner {
             selectAd();
         } else {
             if (onBannerAdListener != null) {
+                MediationEvents.onBannerAdErrorEvents();
                 onBannerAdListener.onError(errorMessage);
             }
             finishAd();

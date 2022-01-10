@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.R;
 
 import static mediation.helper.interstitial.MediationAdInterstitial.cubiInterstitialAd;
@@ -30,7 +31,7 @@ public class CubiInterstitialAdActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cubit_interstitial_ad);
         Log.d("TAG1_cubiact", "onCreate: ");
-
+        MediationEvents.onInterstitialAdClickedEvent();
         ImageView cancel = findViewById(R.id.image_view_cancel);
         TextView title = findViewById(R.id.native_ad_title);
         RatingBar adRatingBar = findViewById(R.id.ad_stars);
@@ -84,6 +85,7 @@ public class CubiInterstitialAdActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     try {
+                        MediationEvents.onInterstitialAdClickedEvent();
                         onInterstitialAdListener.onAdClicked(3);
                         actionOnCubiAdClicked();
                     }catch (Exception e){e.printStackTrace();}
@@ -92,6 +94,7 @@ public class CubiInterstitialAdActivity extends AppCompatActivity {
             floatingActionButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {try {
+                    MediationEvents.onInterstitialAdClickedEvent();
                     onInterstitialAdListener.onAdClicked(3);
                     actionOnCubiAdClicked();
                 }catch (Exception e){
@@ -103,6 +106,7 @@ public class CubiInterstitialAdActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     try {
+                        MediationEvents.onInterstitialAdClickedEvent();
                         onInterstitialAdListener.onAdClicked(3);
                         actionOnCubiAdClicked();
                     }catch (Exception e){
@@ -110,6 +114,7 @@ public class CubiInterstitialAdActivity extends AppCompatActivity {
                     }
                 }
             });
+            MediationEvents.onInterstitialAdSuccessEvent(3);
             onInterstitialAdListener.onLoaded(3);
         } catch (Exception e) {
             Log.d("TAG1", "initCubiITIntersitialAd:11 " + e.getMessage());
@@ -136,6 +141,7 @@ public class CubiInterstitialAdActivity extends AppCompatActivity {
     public void actionOnCubiAdClicked() {
         String url = cubiInterstitialAd.getInterstitialAdUrlLink();
         if (url.isEmpty()) {
+            MediationEvents.onInterstitialAdClickedEvent();
             onInterstitialAdListener.onAdClicked(3);
             onInterstitialAdListener.onBeforeAdShow();
             finish();
@@ -160,6 +166,7 @@ public class CubiInterstitialAdActivity extends AppCompatActivity {
             this.startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
         } catch (ActivityNotFoundException e) {
+            MediationEvents.onInterstitialAdErrorEvent();
             onInterstitialAdListener.onError("Action OnClick: " + e.getMessage());
             e.printStackTrace();
         }

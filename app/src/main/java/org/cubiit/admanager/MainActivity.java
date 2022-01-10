@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,11 +43,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         startAction();
+
     }
     public static Integer[] KEY_PRIORITY_INTERSTITIAL_AD_test = new Integer[]{
             MediationAdHelper.AD_CUBI_IT
            };
+    FirebaseAnalytics firebaseAnalytics ;
     public void startAction() {
         recyclerView = findViewById(R.id.recycler_view);
         adsList = new ArrayList <>();
@@ -97,6 +102,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadBackPressedDialog() {
+
+
+
+
         MediationBackPressDialog.startDialog(false, MainActivity.this, getResources().getString(R.string.app_name)
                 , KEY_PRIORITY_NATIVE_AD
                 , false
@@ -108,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFinish() {
+
                         finish();
                     }
 
@@ -126,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+
     }
 
     private void startActivity(Item item, String name) {
@@ -143,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             MediationAdInterstitial.showInterstitialAd(false, this,
-                    KEY_PRIORITY_INTERSTITIAL_AD_test,
+                    KEY_PRIORITY_INTERSTITIAL_AD,
                     new OnInterstitialAdListener() {
                         @Override
                         public void onDismissed(int adType) {

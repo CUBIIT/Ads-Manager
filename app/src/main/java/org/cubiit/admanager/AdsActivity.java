@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import mediation.helper.MediationAdHelper;
 import mediation.helper.banner.MediationAdBanner;
@@ -56,6 +57,8 @@ public class AdsActivity extends AppCompatActivity {
     }
 
     private void loadBannerAds() {
+
+
         MediationAdBanner.showBanner(false, AdsActivity.this, ad_container,
                 KEY_PRIORITY_BANNER_AD,
                 new OnBannerAdListener() {
@@ -63,24 +66,30 @@ public class AdsActivity extends AppCompatActivity {
                     public void onError(String errorMessage) {
                         Log.d("de_t", "onError: " + errorMessage);
                         hideDialog();
+
                     }
 
                     @Override
                     public void onLoaded(int adType) {
                         hideDialog();
+
                     }
 
                     @Override
                     public void onAdClicked(int adType) {
+
                     }
 
                     @Override
                     public void onFacebookAdCreated(com.facebook.ads.AdView facebookBanner) {
                     }
                 });
+
     }
 
     private void loadNativeAds() {
+
+
         MediationNativeAd nativeAd = new MediationNativeAd(false, ad_container, this, getString(R.string.app_name),
                 (imageView, imageUrl) -> Glide.with(getApplicationContext())
                         .load(imageUrl)
@@ -88,26 +97,29 @@ public class AdsActivity extends AppCompatActivity {
         nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeAdListener() {
             @Override
             public void onError(String errorMessage) {
+
                 hideDialog();
             }
 
             @Override
             public void onLoaded(int adType) {
+
                 hideDialog();
             }
 
             @Override
             public void onAdClicked(int adType) {
 
+
             }
         });
 
+
     }
 
-    public static Integer[] KEY_PRIORITY_NATIVE_Banner_Test_AD = new Integer[]{
-            MediationAdHelper.AD_CUBI_IT
-            };
+
     private void loadNativeBanner() {
+
         MediationNativeBanner nativeAd = new MediationNativeBanner(false,ad_container, AdsActivity.this, getString(R.string.app_name), new MediationAdHelper.ImageProvider() {
             @Override
             public void onProvideImage(ImageView imageView, String imageUrl) {

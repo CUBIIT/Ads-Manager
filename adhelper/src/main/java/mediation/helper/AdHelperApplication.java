@@ -47,6 +47,7 @@ import static mediation.helper.util.Constant.TEST_MODE_KEY;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -57,6 +58,7 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
@@ -109,6 +111,15 @@ public class AdHelperApplication extends Application {
 //    }
     static boolean testMode = false;
     public static boolean isInit = false;
+    static FirebaseAnalytics firebaseAnalytics = null;
+
+    public static FirebaseAnalytics getFirebaseAnalytics() {
+        return firebaseAnalytics;
+    }
+
+    public static void setFirebaseAnalytics(@NonNull FirebaseAnalytics analytics) {
+        firebaseAnalytics = analytics;
+    }
 
     public static boolean getTestMode() {
         return testMode;
@@ -116,9 +127,10 @@ public class AdHelperApplication extends Application {
 
     static OnFetchRemoteCallback onFetchRemoteCallbackListener;
 
-    public static void getValuesFromConfig(boolean testMod, FirebaseRemoteConfig mFirebaseConfig, Context context, OnFetchRemoteCallback onFetchRemoteCallback) {
+    public static void getValuesFromConfig(FirebaseRemoteConfig mFirebaseConfig, Context context, OnFetchRemoteCallback onFetchRemoteCallback) {
+        testMode =  ( 0 != ( context.getApplicationContext().getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE ) );
+        Log.d(TAG, "testMode: "+ testMode);
         prefManager = new PrefManager(context);
-        testMode = testMod;
         onFetchRemoteCallbackListener = onFetchRemoteCallback;
         FirebaseRemoteConfigSettings settings = new FirebaseRemoteConfigSettings.Builder()
                 .setMinimumFetchIntervalInSeconds(3600)
@@ -126,17 +138,14 @@ public class AdHelperApplication extends Application {
         mFirebaseConfig.setConfigSettingsAsync(settings);
         mFirebaseConfig.setDefaultsAsync(R.xml.remote_config_default_values);
         fetchValues(mFirebaseConfig, context);
-
         if (!verifyInstallerId(context)) {
 //            KEY_PRIORITY_BANNER_AD = new Integer[]{MediationAdHelper.AD_CUBI_IT};
 //            KEY_PRIORITY_INTERSTITIAL_AD = new Integer[]{MediationAdHelper.AD_CUBI_IT};
 //            KEY_PRIORITY_NATIVE_AD = new Integer[]{MediationAdHelper.AD_CUBI_IT};
         }
-
         //init admob
         initMediation(context);
     }
-
     private static void fetchValues(final FirebaseRemoteConfig mFirebaseConfig, final Context context) {
         mFirebaseConfig.fetchAndActivate().addOnCompleteListener(new OnCompleteListener <Boolean>() {
             @Override
@@ -155,7 +164,6 @@ public class AdHelperApplication extends Application {
 
         });
     }
-
     private static void updateData(FirebaseRemoteConfig mFirebaseConfig, Context context) {
         //GENERAL INFO
         generalInfo = new GeneralInfo();

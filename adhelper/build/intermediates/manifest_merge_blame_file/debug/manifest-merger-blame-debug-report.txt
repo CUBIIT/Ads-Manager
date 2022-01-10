@@ -3,7 +3,7 @@
 3    package="mediation.helper" >
 4
 5    <uses-sdk
-6        android:minSdkVersion="17"
+6        android:minSdkVersion="19"
 6-->/Users/apple/AndroidStudioProjects/update/Ads-Manager/adhelper/src/main/AndroidManifest.xml
 7        android:targetSdkVersion="30" />
 7-->/Users/apple/AndroidStudioProjects/update/Ads-Manager/adhelper/src/main/AndroidManifest.xml
