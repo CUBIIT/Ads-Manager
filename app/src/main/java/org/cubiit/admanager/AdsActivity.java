@@ -94,7 +94,7 @@ public class AdsActivity extends AppCompatActivity {
                 (imageView, imageUrl) -> Glide.with(getApplicationContext())
                         .load(imageUrl)
                         .into(imageView));
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeAdListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD_TEST, new OnNativeAdListener() {
             @Override
             public void onError(String errorMessage) {
 
@@ -116,7 +116,8 @@ public class AdsActivity extends AppCompatActivity {
 
 
     }
-
+    public static Integer[] KEY_PRIORITY_NATIVE_AD_TEST = new Integer[]{
+            MediationAdHelper.AD_ADMOB};
 
     private void loadNativeBanner() {
 
@@ -128,7 +129,7 @@ public class AdsActivity extends AppCompatActivity {
                         .into(imageView);
             }
         });
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeBannerListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD_TEST, new OnNativeBannerListener() {
             @Override
             public void onError(String errorMessage) {
                 hideDialog();

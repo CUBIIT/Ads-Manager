@@ -359,6 +359,7 @@ public class MediationNativeBanner {
     @SuppressLint("UseCompatLoadingForDrawables")
     private void selectCubiAd() {
         try {
+            //for testing
             if (cubiNativeAd == null) {
                 parentConstraintView.setVisibility(View.GONE);
                 MediationEvents.onNativeBannerAdCalledEvents();

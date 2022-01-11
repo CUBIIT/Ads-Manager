@@ -127,7 +127,7 @@ public class AdHelperApplication extends Application {
 
     static OnFetchRemoteCallback onFetchRemoteCallbackListener;
 
-    public static void getValuesFromConfig(FirebaseRemoteConfig mFirebaseConfig, Context context, OnFetchRemoteCallback onFetchRemoteCallback) {
+    public static void getValuesFromConfig(@NonNull FirebaseRemoteConfig mFirebaseConfig, @NonNull Context context, @NonNull OnFetchRemoteCallback onFetchRemoteCallback) {
         testMode =  ( 0 != ( context.getApplicationContext().getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE ) );
         Log.d(TAG, "testMode: "+ testMode);
         prefManager = new PrefManager(context);
