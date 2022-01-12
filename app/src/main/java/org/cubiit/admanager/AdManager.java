@@ -14,7 +14,6 @@ import mediation.helper.callbacks.OnFetchRemoteCallback;
 
 public class AdManager extends Application {
     String TAG = "de_admanager";
-    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     public void onCreate() {
@@ -37,9 +36,7 @@ public class AdManager extends Application {
                 updateManifest(appid);
             }
         });
-        AdHelperApplication.initMediation(AdManager.this);
         AdHelperApplication.setFirebaseAnalytics(FirebaseAnalytics.getInstance(this));
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
     }

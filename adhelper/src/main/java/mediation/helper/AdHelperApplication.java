@@ -276,11 +276,12 @@ public class AdHelperApplication extends Application {
         adIDs.setAdmob_native_id(mFirebaseConfig.getString(ADMOB_NATIVE_ID_KEY));
         adIDs.setAdmob_interstitial_id(mFirebaseConfig.getString(ADMOB_INTERSTITIAL_ID_KEY));
         //check test-mode
-        adIDs.setTest_mode(mFirebaseConfig.getBoolean(TEST_MODE_KEY));
-        adIDs.setRelease(mFirebaseConfig.getString(RELEASE_KEY));
-        Log.d(TAG, "Release key: " + mFirebaseConfig.getString(RELEASE_KEY));
+       /* adIDs.setTest_mode(mFirebaseConfig.getBoolean(TEST_MODE_KEY));
+        adIDs.setRelease(mFirebaseConfig.getString(RELEASE_KEY));*/
+//        Log.d(TAG, "Release key: " + mFirebaseConfig.getString(RELEASE_KEY));
+        updateSharedPreference(adIDs);
         //UPDATE SHARED PREF
-        if (mFirebaseConfig.getString(RELEASE_KEY).equals("0")) {
+      /*  if (mFirebaseConfig.getString(RELEASE_KEY).equals("0")) {
             Log.d(TAG, "updateData: defual value 0:");
             //try to get sharedpref values may be updated
             if (prefManager.getString(RELEASE_KEY, "0").equals("1")) {
@@ -296,7 +297,7 @@ public class AdHelperApplication extends Application {
             updateSharedPreference(adIDs);
         } else {
             Log.d(TAG, "updateData: wrong values");
-        }
+        }*/
         isInit = true;
 
     }
@@ -313,13 +314,13 @@ public class AdHelperApplication extends Application {
         adIDs.setAdmob_banner_id(prefManager.getString(ADMOB_BANNER_ID_KEY, ""));
         adIDs.setAdmob_app_id(prefManager.getString(ADMOB_APP_ID_KEY, ""));
 
-        adIDs.setTest_mode(prefManager.getBooleanTestMode(TEST_MODE_KEY));
-        adIDs.setRelease(prefManager.getString(RELEASE_KEY, ""));
+       /* adIDs.setTest_mode(prefManager.getBooleanTestMode(TEST_MODE_KEY));
+        adIDs.setRelease(prefManager.getString(RELEASE_KEY, ""));*/
 
         //show log here
-        Log.d("DE_AdManager", String.format("FB_Banner: %s\nFB_Native: %s\nFB_INTERSTITIAL: %s\nAdM_Banner: %s\nADM_Native: %s\nADM_INTERSTITIAL: %s\nAdbAppId: %s\nRelease: %s ",
+        Log.d("DE_AdManager", String.format("FB_Banner: %s\nFB_Native: %s\nFB_INTERSTITIAL: %s\nAdM_Banner: %s\nADM_Native: %s\nADM_INTERSTITIAL: %s\nAdbAppId: %s ",
                 adIDs.getFb_banner_id(), adIDs.getFb_native_id(), adIDs.getFb_interstitial_id(), adIDs.getAdmob_banner_id(), adIDs.getAdmob_native_id(), adIDs.getAdmob_interstitial_id(), adIDs.getAdmob_app_id()
-                , adIDs.getRelease()));
+                ));
 
 
     }
@@ -341,8 +342,8 @@ public class AdHelperApplication extends Application {
             prefManager.setString(ADMOB_NATIVE_ID_KEY, adIDs.getAdmob_native_id());
             prefManager.setString(ADMOB_INTERSTITIAL_ID_KEY, adIDs.getAdmob_interstitial_id());
             //testmod
-            prefManager.setBoolean(TEST_MODE_KEY, adIDs.isTest_mode());
-            prefManager.setString(RELEASE_KEY, adIDs.getRelease());
+            /*prefManager.setBoolean(TEST_MODE_KEY, adIDs.isTest_mode());
+            prefManager.setString(RELEASE_KEY, adIDs.getRelease());*/
             loadSharedPrefValues();
             onFetchRemoteCallbackListener.onUpdateSuccess(adIDs.getAdmob_app_id());
             //logger

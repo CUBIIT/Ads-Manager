@@ -203,6 +203,7 @@ public class MediationAdBanner {
 //for test
         try {
             if (isPkgInstalledAlready()) {
+                MediationEvents.onBannerAdErrorEvents();
                 onBannerAdListener.onError("CubiBannerAd already installed");
                 MediationAdBanner.onError("CubiBannerAd already installed");
                 Log.d("TAG1_banner", "selectCubiAdBanner:  pkg already installed");
@@ -224,6 +225,7 @@ public class MediationAdBanner {
             if (cubiBannerAd == null || cubiBannerAd.getBannerAdUrlLink() == null || cubiBannerAd.getBannerAdUrlLink().isEmpty()) {
                 parentConstraintView.setVisibility(View.GONE);
                 MediationAdBanner.onError("CubiAd is null");
+                MediationEvents.onBannerAdErrorEvents();
                 onBannerAdListener.onError("CubiAd is null");
                 return;
             }
@@ -271,6 +273,7 @@ public class MediationAdBanner {
     private static void actionOnCubiAdClicked() {
         String url = cubiBannerAd.getBannerAdUrlLink();
         if (url.isEmpty()) {
+            MediationEvents.onBannerAdErrorEvents();
             onBannerAdListener.onError("Url is empty");
             return;
         }

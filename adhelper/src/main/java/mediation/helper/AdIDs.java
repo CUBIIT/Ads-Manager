@@ -4,20 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class AdIDs implements Parcelable {
-    boolean test_mode;
-    String release;
 
-    public String getRelease() {
-        return release;
-    }
 
-    public void setRelease(String release) {
-        this.release = release;
-    }
+
+
+//    public void setRelease(String release) {
+//        this.release = release;
+//    }
 
     protected AdIDs(Parcel in) {
-        test_mode = in.readByte() != 0;
-        release = in.readString();
+        /*test_mode = in.readByte() != 0;
+        release = in.readString();*/
         fb_banner_id = in.readString();
         fb_native_id = in.readString();
         fb_interstitial_id = in.readString();
@@ -30,7 +27,7 @@ public class AdIDs implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeByte((byte) (test_mode ? 1 : 0));
+
         dest.writeString(fb_banner_id);
         dest.writeString(fb_native_id);
         dest.writeString(fb_interstitial_id);
@@ -38,7 +35,7 @@ public class AdIDs implements Parcelable {
         dest.writeString(admob_native_id);
         dest.writeString(admob_app_id);
         dest.writeString(admob_banner_id);
-        dest.writeString(release);
+
     }
 
     @Override
@@ -58,13 +55,13 @@ public class AdIDs implements Parcelable {
         }
     };
 
-    public boolean isTest_mode() {
+    /*public boolean isTest_mode() {
         return test_mode;
     }
 
     public void setTest_mode(boolean test_mode) {
         this.test_mode = test_mode;
-    }
+    }*/
 
     public AdIDs(String fb_banner_id, String fb_native_id, String fb_interstitial_id) {
         this.fb_banner_id = fb_banner_id;

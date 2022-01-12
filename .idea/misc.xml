@@ -8,11 +8,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="adhelper/src/main/res/layout/admob_native_ad_layout.xml" value="0.43194444444444446" />
+        <entry key="adhelper/src/main/res/drawable/ic_ads_view.xml" value="0.6296875" />
+        <entry key="adhelper/src/main/res/layout/admob_native_ad_layout.xml" value="0.67" />
         <entry key="adhelper/src/main/res/layout/dialog_backpress.xml" value="0.4036458333333333" />
         <entry key="adhelper/src/main/res/layout/facebook_native_ad_layout.xml" value="0.33" />
         <entry key="adhelper/src/main/res/layout/layout_cubi_banner_ad.xml" value="0.4036458333333333" />
-        <entry key="adhelper/src/main/res/layout/layout_native_banner_ad.xml" value="0.4036458333333333" />
+        <entry key="adhelper/src/main/res/layout/layout_native_banner_ad.xml" value="0.75" />
         <entry key="app/src/main/res/layout/activity_ads.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.17592592592592593" />

@@ -272,6 +272,7 @@ public class DualMediationAdInterstitial {
             @Override
             public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                 Log.e(MediationAdHelper.TAG, "[ADMOB FRONT AD]Error: " + loadAdError.getMessage());
+
                 DualMediationAdInterstitial.onError(loadAdError.getMessage());
             }
         });
