@@ -1,6 +1,13 @@
 # Introduction
 AdManager is an Admob and Facebook and custom ads mediation library. AdManager supports Interstitial ad, native ad, Banner ad, icon ad, and exit dialog ad.AdManager support custom ad using firebase remote config.
 AdManager is a fast, smooth, reliable, and easy-to-use ads mediation library.
+# Version 1.6
+  Now in version 1.6 support to monitor user events on ad's load, success,error and clicked by using Firebase Events.
+  Some other changes:
+  * Remove release key values from remote config.
+  * Remove test parameter on initliazing method.
+  * Now app library remove test ids in release mode.
+  * fix some UI/UX issue and code bugs.
 # What's new in version 1.5.2
    * All the Ad ids get from remote config. You don't need to pass any Ad ids in methods.
    * Update admob app id in manifest(Beta version, Don't forget to add metadata in manifest of admob app id)
@@ -22,7 +29,7 @@ Add dependency in your build.gradle(App level) file.
 
 ```gradle
 dependencies {
-  implementation 'com.github.CUBIIT:Ads-Manager:1.5.2.6'
+  implementation 'com.github.CUBIIT:Ads-Manager:1.6'
 }
 ```
 ### Step3: Connect App to Firebase
@@ -95,9 +102,12 @@ Add your AdMob app ID to your app's AndroidManifest.xml file by adding a <meta-d
    
    ```
 ### Initialization
-add these lines in your Application **onCreate** methode.
- > **Important: Please set "false" value in AdHelperApplication.getValuesFromConfig(false,...,...,...) method before release.**  
-   
+  > **Activate Events**
+To monitor ads events pass the FirebaseAnalytics object.
+ ```java
+  AdHelperApplication.setFirebaseAnalytics(FirebaseAnalytics.getInstance(this));
+  ```
+> Below is full code
 
 **Important to fetch the values from remote config file.Without this AdManager does not work properly**
 ```java
@@ -131,6 +141,8 @@ public class AdManager extends Application {
                 updateManifest(appid);
             }
         });
+  //to support events
+  AdHelperApplication.setFirebaseAnalytics(FirebaseAnalytics.getInstance(this));
     }
    //add this method to update the admob app id in manifest
     private void updateManifest(String app_id) {
