@@ -55,12 +55,16 @@ public class AdsActivity extends AppCompatActivity {
         }
 
     }
+    public static Integer[] KEY_PRIORITY_BANNER_AD_TEST = new Integer[]{
+
+            MediationAdHelper.AD_CUBI_IT};
+
 
     private void loadBannerAds() {
 
 
         MediationAdBanner.showBanner(false, AdsActivity.this, ad_container,
-                KEY_PRIORITY_BANNER_AD,
+                KEY_PRIORITY_BANNER_AD_TEST,
                 new OnBannerAdListener() {
                     @Override
                     public void onError(String errorMessage) {

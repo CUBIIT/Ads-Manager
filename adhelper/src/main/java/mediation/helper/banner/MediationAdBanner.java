@@ -277,7 +277,7 @@ public class MediationAdBanner {
             onBannerAdListener.onError("Url is empty");
             return;
         }
-        String packageName = "";
+       /* String packageName = "";
         //split package name
         if (url.contains("play.google.com/store/apps")) {
             Log.d("de_", "actionOnCubiAdClicked: contains");
@@ -291,14 +291,21 @@ public class MediationAdBanner {
         Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
         goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
                 Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
-                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);*/
+
         try {
             if (mActivity != null) {
-                mActivity.startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                mActivity.startActivity(i);
+//                mActivity.startActivity(new Intent(Intent.ACTION_VIEW,
+//                        Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
             } else {
-                bannerContainer.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                bannerContainer.getContext().startActivity(i);
+//                bannerContainer.getContext().startActivity(new Intent(Intent.ACTION_VIEW,
+//                        Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
             }
         } catch (ActivityNotFoundException e) {
             e.printStackTrace();

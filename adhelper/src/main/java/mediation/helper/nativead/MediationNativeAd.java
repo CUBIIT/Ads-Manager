@@ -334,27 +334,31 @@ public class MediationNativeAd {
             onNativeAdListener.onError("Url is empty");
             return;
         }
+
         /*Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);*/
-        String packageName = "";
-        //split package name
-        if (url.contains("play.google.com/store/apps")) {
-            Log.d("de_", "actionOnCubiAdClicked: contains");
-            String[] a = url.split("=");
-            packageName = a[1];
-        } else {
-            packageName = url;
-        }
-
-        Uri uri = Uri.parse("market://details?id=" + packageName);
-        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
-                Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
-                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+//        String packageName = "";
+//        //split package name
+//        if (url.contains("play.google.com/store/apps")) {
+//            Log.d("de_", "actionOnCubiAdClicked: contains");
+//            String[] a = url.split("=");
+//            packageName = a[1];
+//        } else {
+//            packageName = url;
+//        }
+//
+//        Uri uri = Uri.parse("market://details?id=" + packageName);
+//        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+//        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
+//                Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
+//                Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
         try {
-            context.startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            context.startActivity(i);
+//            context.startActivity(new Intent(Intent.ACTION_VIEW,
+//                    Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
         } catch (ActivityNotFoundException e) {
             MediationEvents.onNativeAdErrorEvents();
             onNativeAdListener.onError("onClick:" + e.getMessage());
