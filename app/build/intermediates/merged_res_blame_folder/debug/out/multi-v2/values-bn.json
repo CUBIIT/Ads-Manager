@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Intellix_Projects\\Freelancer\\Upwork\\Ads-Manager\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bn\\values-bn.xml",
+            "outputFile": "/Users/apple/AndroidStudioProjects/update/Ads-Manager/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-bn/values-bn.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Alam\\.gradle\\caches\\transforms-2\\files-2.1\\8960c22878ca740d3cd9ac637e14a91d\\material-1.3.0\\res\\values-bn\\values-bn.xml",
+                    "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/3c0f6e530da557c2dfc3b8c634b38b0f/jetified-play-services-basement-18.0.0/res/values-bn/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "147",
+                        "endOffsets": "342"
+                    },
+                    "to": {
+                        "startLines": "45",
+                        "startColumns": "4",
+                        "startOffsets": "4531",
+                        "endColumns": "151",
+                        "endOffsets": "4678"
+                    }
+                },
+                {
+                    "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/8960c22878ca740d3cd9ac637e14a91d/material-1.3.0/res/values-bn/values-bn.xml",
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,24 +40,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Alam\\.gradle\\caches\\transforms-2\\files-2.1\\bbc45234c01867878b7c90cbebcdc71a\\jetified-play-services-ads-20.2.0\\res\\values-bn\\values.xml",
-                    "from": {
-                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
-                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
-                        "startOffsets": "199,310,437,521,649,733,866,993,1062,1177,1245,1320,1406,1522",
-                        "endColumns": "110,126,83,127,83,132,126,68,114,67,74,85,115,77",
-                        "endOffsets": "309,436,520,648,732,865,992,1061,1176,1244,1319,1405,1521,1599"
-                    },
-                    "to": {
-                        "startLines": "105,106,107,108,109,110,111,113,114,115,116,117,118,119",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "9926,10041,10172,10260,10392,10480,10617,10828,10901,11020,11092,11171,11261,11381",
-                        "endColumns": "114,130,87,131,87,136,130,72,118,71,78,89,119,81",
-                        "endOffsets": "10036,10167,10255,10387,10475,10612,10743,10896,11015,11087,11166,11256,11376,11458"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Alam\\.gradle\\caches\\transforms-2\\files-2.1\\71ed9248dca1c147ffcf72d9386d5565\\core-1.5.0\\res\\values-bn\\values-bn.xml",
+                    "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/71ed9248dca1c147ffcf72d9386d5565/core-1.5.0/res/values-bn/values-bn.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -57,7 +57,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Alam\\.gradle\\caches\\transforms-2\\files-2.1\\22ea36877dc38308b65437e541033e8a\\jetified-play-services-base-17.0.0\\res\\values-bn\\values.xml",
+                    "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/22ea36877dc38308b65437e541033e8a/jetified-play-services-base-17.0.0/res/values-bn/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -74,24 +74,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Alam\\.gradle\\caches\\transforms-2\\files-2.1\\3c0f6e530da557c2dfc3b8c634b38b0f\\jetified-play-services-basement-18.0.0\\res\\values-bn\\values.xml",
+                    "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/bbc45234c01867878b7c90cbebcdc71a/jetified-play-services-ads-20.2.0/res/values-bn/values.xml",
                     "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "147",
-                        "endOffsets": "342"
+                        "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17",
+                        "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0",
+                        "startOffsets": "199,310,437,521,649,733,866,993,1062,1177,1245,1320,1406,1522",
+                        "endColumns": "110,126,83,127,83,132,126,68,114,67,74,85,115,77",
+                        "endOffsets": "309,436,520,648,732,865,992,1061,1176,1244,1319,1405,1521,1599"
                     },
                     "to": {
-                        "startLines": "45",
-                        "startColumns": "4",
-                        "startOffsets": "4531",
-                        "endColumns": "151",
-                        "endOffsets": "4678"
+                        "startLines": "105,106,107,108,109,110,111,113,114,115,116,117,118,119",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "9926,10041,10172,10260,10392,10480,10617,10828,10901,11020,11092,11171,11261,11381",
+                        "endColumns": "114,130,87,131,87,136,130,72,118,71,78,89,119,81",
+                        "endOffsets": "10036,10167,10255,10387,10475,10612,10743,10896,11015,11087,11166,11256,11376,11458"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Alam\\.gradle\\caches\\transforms-2\\files-2.1\\75ba2bdc366e6fac3b14b90fb13b9e6d\\appcompat-1.3.0\\res\\values-bn\\values-bn.xml",
+                    "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/75ba2bdc366e6fac3b14b90fb13b9e6d/appcompat-1.3.0/res/values-bn/values-bn.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -108,7 +108,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Alam\\.gradle\\caches\\transforms-2\\files-2.1\\03c575394e82a186c484cd4e4a28121b\\jetified-firebase-messaging-21.0.1\\res\\values-bn\\values.xml",
+                    "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/03c575394e82a186c484cd4e4a28121b/jetified-firebase-messaging-21.0.1/res/values-bn/values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",

@@ -113,6 +113,10 @@ public class MediationNativeAd {
     }
 
     public static void loadAD(int adPriority, OnNativeAdListener onNativeAdListener) {
+        if (isPurchase) {
+            onNativeAdListener.onError("You have pro version!");
+            return;
+        }
         Integer[] tempAdPriorityList = new Integer[3];
         tempAdPriorityList[0] = adPriority;
         if (adPriority == MediationAdHelper.AD_FACEBOOK) {
@@ -162,6 +166,10 @@ public class MediationNativeAd {
     }
 
     public static void loadAD(final ArrayList tempAdPriorityList, final OnNativeAdListener onNativeAdListener) {
+        if (isPurchase) {
+            onNativeAdListener.onError("You have pro version!");
+            return;
+        }
         Log.d(TAG, "loadAD: before check");
         if(!AdHelperApplication.isInit){
             new Handler().postDelayed(new Runnable() {

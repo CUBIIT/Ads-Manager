@@ -54,7 +54,10 @@ public class DualMediationAdInterstitial {
     }
 
     public static void showInterstitialAd(boolean isPurchased, Activity activity,  int adPriority, OnInterstitialAdListener onInterstitialAdListener) {
-        Integer[] tempAdPriorityList = new Integer[2];
+        if (isPurchased) {
+            onInterstitialAdListener.onError("You have pro version!");
+            return;
+        } Integer[] tempAdPriorityList = new Integer[2];
         tempAdPriorityList[0] = adPriority;
         if (adPriority == MediationAdHelper.AD_FACEBOOK) {
             tempAdPriorityList[1] = MediationAdHelper.AD_ADMOB;

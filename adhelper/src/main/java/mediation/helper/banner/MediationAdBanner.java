@@ -64,8 +64,11 @@ public class MediationAdBanner {
     }
 
     public static void showBanner(boolean isPurchased, ViewGroup bannerContainer, int adPriority, OnBannerAdListener onBannerAdListener) {
-        if (isPurchased)
+        if (isPurchased) {
+            onBannerAdListener.onError("You have pro version");
+            MediationEvents.onBannerAdErrorEvents();
             return;
+        }
         MediationEvents.onBannerAdCalledEvents();
         MediationAdBanner.cubiBannerAd = getCubiBannerAd();
         Integer[] tempAdPriorityList = new Integer[3];
@@ -90,8 +93,11 @@ public class MediationAdBanner {
     private static Activity mActivity;
 
     public static void showBanner(boolean isPurchased, Activity activity, ViewGroup bannerContainer, Integer[] tempAdPriorityList, OnBannerAdListener onBannerAdListener) {
-        if (isPurchased)
+        if (isPurchased) {
+            onBannerAdListener.onError("You have pro version");
+            MediationEvents.onBannerAdErrorEvents();
             return;
+        }
         MediationEvents.onBannerAdCalledEvents();
         mActivity = activity;
         MediationAdBanner.facebookKey = TEST_FB_BANNER_ID;

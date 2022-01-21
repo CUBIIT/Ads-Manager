@@ -67,6 +67,10 @@ public class MediationAdInterstitial {
     }
 
     public static void showInterstitialAd(boolean isPurchased, Activity activity, int adPriority, OnInterstitialAdListener onInterstitialAdListener) {
+        if (isPurchased) {
+            onInterstitialAdListener.onError("You have pro version!");
+            return;
+        }
         Integer[] tempAdPriorityList = new Integer[3];
         tempAdPriorityList[0] = adPriority;
         if (adPriority == MediationAdHelper.AD_FACEBOOK) {

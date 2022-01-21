@@ -101,10 +101,10 @@ public class MediationNativeBanner {
         initView();
     }
 
-    private  boolean checkTestIds(OnNativeBannerListener onBannerAdListener) {
+    private boolean checkTestIds(OnNativeBannerListener onBannerAdListener) {
         if (!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()) {
             if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
-               parentConstraintView.setVisibility(View.GONE);
+                parentConstraintView.setVisibility(View.GONE);
                 onBannerAdListener.onError("Found Test IDS..");
                 return false;
             } else {
@@ -218,6 +218,14 @@ public class MediationNativeBanner {
     }
 
     public void loadAD(int adPriority, OnNativeBannerListener onNativeAdListener) {
+        if (purchase) {
+            if(parentConstraintView!= null){
+                parentConstraintView.setVisibility(View.GONE);
+            }
+            MediationEvents.onNativeBannerAdErrorEvents();
+            onNativeAdListener.onError("You have pro version");
+            return;
+        }
         Integer[] tempAdPriorityList = new Integer[3];
         tempAdPriorityList[0] = adPriority;
         if (adPriority == MediationAdHelper.AD_FACEBOOK) {
@@ -235,7 +243,14 @@ public class MediationNativeBanner {
     }
 
     public void loadAD(Integer[] tempAdPriorityList, OnNativeBannerListener onNativeAdListener) {
-
+        if (purchase) {
+            if(parentConstraintView!= null){
+                parentConstraintView.setVisibility(View.GONE);
+            }
+            MediationEvents.onNativeBannerAdErrorEvents();
+            onNativeAdListener.onError("You have pro version");
+            return;
+        }
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             if (onNativeAdListener != null) {
                 MediationEvents.onNativeBannerAdErrorEvents();
@@ -251,7 +266,11 @@ public class MediationNativeBanner {
 
     //for cubiBanner ads
     public void loadAD(Integer[] tempAdPriorityList, CubiNativeAd CubiNativeAd, OnNativeBannerListener onNativeAdListener) {
-
+        if (purchase) {
+            MediationEvents.onNativeBannerAdErrorEvents();
+            onNativeAdListener.onError("You have pro version");
+            return;
+        }
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             if (onNativeAdListener != null) {
                 MediationEvents.onNativeBannerAdErrorEvents();
@@ -265,6 +284,8 @@ public class MediationNativeBanner {
     }
 
     public void loadAD(ArrayList tempAdPriorityList, OnNativeBannerListener onNativeAdListener) {
+        if(purchase)
+            return;
         this.onNativeAdListener = onNativeAdListener;
 
         if (tempAdPriorityList == null || tempAdPriorityList.size() == 0) {
