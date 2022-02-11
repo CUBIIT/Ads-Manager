@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
     android:layout_height="wrap_content"
+    android:layout_margin="3dp"
     android:id="@+id/parent_native_banner_constraint_layout"
-    android:background="@color/lightGray" >
+    android:background="@drawable/bg_border" >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/view_container_native_banner"

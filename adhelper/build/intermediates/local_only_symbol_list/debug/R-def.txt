@@ -34,6 +34,7 @@ dimen list_item_text_margin
 dimen recommend_icon_size
 dimen tool_bar_height
 dimen toolbar_elevation
+drawable bg_border
 drawable bg_calltoaction
 drawable bg_floating_button
 drawable bg_native_layout

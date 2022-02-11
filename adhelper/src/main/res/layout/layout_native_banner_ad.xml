@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_margin="3dp"
+    android:background="@drawable/bg_border"
     android:layout_height="90dp">
 
     <com.google.android.gms.ads.nativead.NativeAdView
@@ -18,7 +20,7 @@
             android:id="@+id/parent_native_banner_constraint_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#fff">
+           >
 
             <LinearLayout
                 android:id="@+id/adchoses_layout"

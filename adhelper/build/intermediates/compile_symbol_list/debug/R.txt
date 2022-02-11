@@ -1684,6 +1684,7 @@ int drawable abc_textfield_search_material 0x0
 int drawable abc_vector_test 0x0
 int drawable avd_hide_password 0x0
 int drawable avd_show_password 0x0
+int drawable bg_border 0x0
 int drawable bg_calltoaction 0x0
 int drawable bg_floating_button 0x0
 int drawable bg_native_layout 0x0
