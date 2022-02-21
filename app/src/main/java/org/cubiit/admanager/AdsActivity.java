@@ -125,7 +125,7 @@ public class AdsActivity extends AppCompatActivity {
 
     private void loadNativeBanner() {
 
-        MediationNativeBanner nativeAd = new MediationNativeBanner(true,ad_container, AdsActivity.this, getString(R.string.app_name), new MediationAdHelper.ImageProvider() {
+        MediationNativeBanner nativeAd = new MediationNativeBanner(false,ad_container, AdsActivity.this, getString(R.string.app_name), new MediationAdHelper.ImageProvider() {
             @Override
             public void onProvideImage(ImageView imageView, String imageUrl) {
                 Glide.with(AdsActivity.this)
@@ -133,7 +133,7 @@ public class AdsActivity extends AppCompatActivity {
                         .into(imageView);
             }
         });
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD_TEST, new OnNativeBannerListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeBannerListener() {
             @Override
             public void onError(String errorMessage) {
                 hideDialog();

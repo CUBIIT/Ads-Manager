@@ -651,11 +651,11 @@ public class MediationNativeBanner {
         AdOptionsView adOptionsView = new AdOptionsView(context, facebookAd, nativeAdLayout);
         view_ad_choice.addView(adOptionsView);
         List <View> clickableViews = new ArrayList <>();
-        clickableViews.add(native_banner_icon_view);
+       // clickableViews.add(native_banner_icon_view);
         clickableViews.add(native_banner_ad_sponser_label);
-        clickableViews.add(native_banner_ad_body);
+      // clickableViews.add(native_banner_ad_body);
         clickableViews.add(native_banner_ad_calltoaction);
-        clickableViews.add(native_banner_fb_media_view);
+       // clickableViews.add(native_banner_fb_media_view);
 
         facebookAd.unregisterView();
         facebookAd.registerViewForInteraction(parentConstraintView, native_banner_fb_media_view, native_banner_icon_view, clickableViews);
