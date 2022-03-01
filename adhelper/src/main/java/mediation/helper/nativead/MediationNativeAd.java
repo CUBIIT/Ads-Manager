@@ -558,7 +558,7 @@ public class MediationNativeAd {
 
             // Create a list of clickable views
             List <View> clickableViews = new ArrayList <>();
-            clickableViews.add(nativeAdTitle);
+           // clickableViews.add(nativeAdTitle);
             clickableViews.add(nativeAdCallToAction);
 
             // Register the Title and CTA button to listen for clicks.

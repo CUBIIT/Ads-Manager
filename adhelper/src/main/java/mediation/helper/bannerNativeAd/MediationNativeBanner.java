@@ -652,8 +652,8 @@ public class MediationNativeBanner {
         view_ad_choice.addView(adOptionsView);
         List <View> clickableViews = new ArrayList <>();
        // clickableViews.add(native_banner_icon_view);
-        clickableViews.add(native_banner_ad_sponser_label);
-      // clickableViews.add(native_banner_ad_body);
+       // clickableViews.add(native_banner_ad_sponser_label);
+       //clickableViews.add(native_banner_ad_body);
         clickableViews.add(native_banner_ad_calltoaction);
        // clickableViews.add(native_banner_fb_media_view);
 

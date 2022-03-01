@@ -98,7 +98,7 @@ public class AdsActivity extends AppCompatActivity {
                 (imageView, imageUrl) -> Glide.with(getApplicationContext())
                         .load(imageUrl)
                         .into(imageView));
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD_TEST, new OnNativeAdListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeAdListener() {
             @Override
             public void onError(String errorMessage) {
 
