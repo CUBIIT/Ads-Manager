@@ -53,6 +53,7 @@ import mediation.helper.util.Constant;
 public class MediationNativeBanner {
 
 
+    private static CubiNativeAd cubiNativeAd;
     ArrayList <Integer> adPriorityList;
     String app_name;
     String facebook_ad_key;
@@ -69,9 +70,7 @@ public class MediationNativeBanner {
     ViewGroup view_ad_choice;
     ConstraintLayout parentConstraintView;
     MediationAdHelper.ImageProvider imageProvider;
-
     ViewGroup containerView;
-
     RelativeLayout relativeLayout_adchoices;
     int admobNativeAdType;
     TextView adType;
@@ -81,7 +80,6 @@ public class MediationNativeBanner {
     String TEST = "DEBUG-AD";
     private com.google.android.gms.ads.nativead.NativeAd nativeAd;
     private Object NativeAd;
-    private static CubiNativeAd cubiNativeAd;
     private boolean purchase;
 
 //    public MediationNativeBanner(ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
@@ -99,22 +97,6 @@ public class MediationNativeBanner {
         this.imageProvider = imageProvider;
         cubiNativeAd = AdHelperApplication.getCubiNativeAd();
         initView();
-    }
-
-    private boolean checkTestIds(OnNativeBannerListener onBannerAdListener) {
-        if (!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()) {
-            if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
-                parentConstraintView.setVisibility(View.GONE);
-                onBannerAdListener.onError("Found Test IDS..");
-                return false;
-            } else {
-                return true;
-            }
-        } else {
-            parentConstraintView.setVisibility(View.GONE);
-            onBannerAdListener.onError("No IDs found..");
-            return false;
-        }
     }
 
     public MediationNativeBanner(boolean purchased, ViewGroup itemView, Context context, String app_name, CubiNativeAd cubiNativeAd, MediationAdHelper.ImageProvider imageProvider) {
@@ -144,6 +126,22 @@ public class MediationNativeBanner {
             initViewForIconAd();
         } else
             initView();
+    }
+
+    private boolean checkTestIds(OnNativeBannerListener onBannerAdListener) {
+        if (!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()) {
+            if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
+                parentConstraintView.setVisibility(View.GONE);
+                onBannerAdListener.onError("Found Test IDS..");
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            parentConstraintView.setVisibility(View.GONE);
+            onBannerAdListener.onError("No IDs found..");
+            return false;
+        }
     }
 
     //    public MediationNativeBanner(ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
@@ -219,7 +217,7 @@ public class MediationNativeBanner {
 
     public void loadAD(int adPriority, OnNativeBannerListener onNativeAdListener) {
         if (purchase) {
-            if(parentConstraintView!= null){
+            if (parentConstraintView != null) {
                 parentConstraintView.setVisibility(View.GONE);
             }
             MediationEvents.onNativeBannerAdErrorEvents();
@@ -244,7 +242,7 @@ public class MediationNativeBanner {
 
     public void loadAD(Integer[] tempAdPriorityList, OnNativeBannerListener onNativeAdListener) {
         if (purchase) {
-            if(parentConstraintView!= null){
+            if (parentConstraintView != null) {
                 parentConstraintView.setVisibility(View.GONE);
             }
             MediationEvents.onNativeBannerAdErrorEvents();
@@ -284,7 +282,7 @@ public class MediationNativeBanner {
     }
 
     public void loadAD(ArrayList tempAdPriorityList, OnNativeBannerListener onNativeAdListener) {
-        if(purchase)
+        if (purchase)
             return;
         this.onNativeAdListener = onNativeAdListener;
 
@@ -651,12 +649,18 @@ public class MediationNativeBanner {
         AdOptionsView adOptionsView = new AdOptionsView(context, facebookAd, nativeAdLayout);
         view_ad_choice.addView(adOptionsView);
         List <View> clickableViews = new ArrayList <>();
-       // clickableViews.add(native_banner_icon_view);
-       // clickableViews.add(native_banner_ad_sponser_label);
-       //clickableViews.add(native_banner_ad_body);
+        // clickableViews.add(native_banner_icon_view);
+        // clickableViews.add(native_banner_ad_sponser_label);
+        //clickableViews.add(native_banner_ad_body);
+        if (AdHelperApplication.isCATEnable) {
+            Log.d("log_d", "bindFacebookAD: cat enable");
+            native_banner_ad_calltoaction.setEnabled(true);
+        } else {
+            native_banner_ad_calltoaction.setEnabled(false);
+            Log.d("log_d", "bindFacebookAD: cat not enable");
+        }
+        // clickableViews.add(native_banner_fb_media_view);
         clickableViews.add(native_banner_ad_calltoaction);
-       // clickableViews.add(native_banner_fb_media_view);
-
         facebookAd.unregisterView();
         facebookAd.registerViewForInteraction(parentConstraintView, native_banner_fb_media_view, native_banner_icon_view, clickableViews);
     }
@@ -764,6 +768,16 @@ public class MediationNativeBanner {
             return;
         }
         MyNativeBannerAds myNativeAd = new MyNativeBannerAds();
+        //disable other view to click
+        native_banner_icon_view.setEnabled(false);
+        native_banner_ad_title.setEnabled(false);
+        native_banner_ad_sponser_label.setEnabled(false);
+        native_banner_ad_body.setEnabled(false);
+        if(AdHelperApplication.isCATEnable) {
+            native_banner_ad_calltoaction.setEnabled(true);
+        }else{
+            native_banner_ad_calltoaction.setEnabled(false);
+        }
 
         if (nativeAd.getIcon() != null) {
             myNativeAd.setAdImageIcon(nativeAd.getIcon().getDrawable());

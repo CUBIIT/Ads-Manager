@@ -13,6 +13,7 @@ import static mediation.helper.util.Constant.BANNER_KEY_AD_RATING;
 import static mediation.helper.util.Constant.BANNER_KEY_AD_TITLE;
 import static mediation.helper.util.Constant.BANNER_KEY_AD_URL;
 import static mediation.helper.util.Constant.BANNER_KEY_SQUARE_ICON_URL;
+import static mediation.helper.util.Constant.ENABLE_CAT;
 import static mediation.helper.util.Constant.FB_BANNER_ID_KEY;
 import static mediation.helper.util.Constant.FB_INTERSTITIAL_ID_KEY;
 import static mediation.helper.util.Constant.FB_NATIVE_ID_KEY;
@@ -110,6 +111,7 @@ public class AdHelperApplication extends Application {
 //        initMediation();
 //    }
     static boolean testMode = false;
+   public static boolean isCATEnable = true;
     public static boolean isInit = false;
     static FirebaseAnalytics firebaseAnalytics = null;
 
@@ -231,6 +233,19 @@ public class AdHelperApplication extends Application {
                 }
             }
         }
+        //Enable or disable Call to Action button
+        try {
+            int val = Integer.parseInt(mFirebaseConfig.getString(ENABLE_CAT));
+            if(val==0){
+                isCATEnable = false;
+            }else{
+                isCATEnable = true;
+            }
+            Log.d(TAG, "isCATEnable: " + isCATEnable);
+        }catch (Exception e){
+            Log.d(TAG, "updateData: " + e.getMessage());
+
+        }
 
         //BANNER AD
         cubiBannerAd = new CubiBannerAd();
@@ -276,28 +291,8 @@ public class AdHelperApplication extends Application {
         adIDs.setAdmob_native_id(mFirebaseConfig.getString(ADMOB_NATIVE_ID_KEY));
         adIDs.setAdmob_interstitial_id(mFirebaseConfig.getString(ADMOB_INTERSTITIAL_ID_KEY));
         //check test-mode
-       /* adIDs.setTest_mode(mFirebaseConfig.getBoolean(TEST_MODE_KEY));
-        adIDs.setRelease(mFirebaseConfig.getString(RELEASE_KEY));*/
-//        Log.d(TAG, "Release key: " + mFirebaseConfig.getString(RELEASE_KEY));
         updateSharedPreference(adIDs);
-        //UPDATE SHARED PREF
-      /*  if (mFirebaseConfig.getString(RELEASE_KEY).equals("0")) {
-            Log.d(TAG, "updateData: defual value 0:");
-            //try to get sharedpref values may be updated
-            if (prefManager.getString(RELEASE_KEY, "0").equals("1")) {
-                //get values from sharefpref
-                Log.d(TAG, "Fetch: last update data");
-                //update adIDs with shared values
-                loadSharedPrefValues();
-            }else{
-                updateSharedPreference(adIDs);
-            }
-        } else if (mFirebaseConfig.getString(RELEASE_KEY).equals("1")) {
-            Log.d(TAG, "fetch data remote and save to shared");
-            updateSharedPreference(adIDs);
-        } else {
-            Log.d(TAG, "updateData: wrong values");
-        }*/
+
         isInit = true;
 
     }

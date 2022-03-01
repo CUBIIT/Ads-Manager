@@ -121,7 +121,7 @@ public class AdsActivity extends AppCompatActivity {
 
     }
     public static Integer[] KEY_PRIORITY_NATIVE_AD_TEST = new Integer[]{
-            MediationAdHelper.AD_CUBI_IT};
+            MediationAdHelper.AD_ADMOB};
 
     private void loadNativeBanner() {
 

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <defaultsMap xmlns:tools="http://schemas.android.com/tools">
+    //by defualt CAT: call to action button is enable
+    //if we pass value 0 then it off automatically
+    <entry>
+        <key>enable_CAT</key>
+        <value>2</value>
+    </entry>
+
     <entry>
         <key>admob_app_id</key>
         <value>ca-app-pub-3940256099942544~3347511713</value>

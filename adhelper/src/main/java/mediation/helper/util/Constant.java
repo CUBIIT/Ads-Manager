@@ -52,6 +52,8 @@ public class Constant {
     public static String BANNER_KEY_AD_FEEDBACKS = "banner_ad_feedbacks";
     public static String BANNER_KEY_AD_RATING = "banner_ad_rating";
 
+    //cat key
+    public static String ENABLE_CAT = "enable_CAT";
 
     public static Integer[] KEY_PRIORITY_BANNER_AD = new Integer[]{
 

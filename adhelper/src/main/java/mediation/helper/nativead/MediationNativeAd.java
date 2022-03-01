@@ -559,6 +559,14 @@ public class MediationNativeAd {
             // Create a list of clickable views
             List <View> clickableViews = new ArrayList <>();
            // clickableViews.add(nativeAdTitle);
+            if(AdHelperApplication.isCATEnable){
+                nativeAdCallToAction.setEnabled(true);
+
+            }else{
+                nativeAdCallToAction.setEnabled(false);
+                Log.d(TAG, "bindFacebookAD: CAT is not Enable");
+            }
+
             clickableViews.add(nativeAdCallToAction);
 
             // Register the Title and CTA button to listen for clicks.
@@ -585,6 +593,16 @@ public class MediationNativeAd {
 
             // Set the media view.
             nativeView.setMediaView((com.google.android.gms.ads.nativead.MediaView) nativeView.findViewById(R.id.ad_media));
+                //DISABLE CLICK ON
+            nativeView.findViewById(R.id.ad_headline).setEnabled(false);
+            nativeView.findViewById(R.id.ad_body).setEnabled(false);
+            nativeView.findViewById(R.id.cubi_interstitial_square_icon).setEnabled(false);
+            nativeView.findViewById(R.id.ad_media).setEnabled(false);
+            if(AdHelperApplication.isCATEnable){
+                nativeView.findViewById(R.id.ad_call_to_action).setEnabled(true);
+            }else{
+                nativeView.findViewById(R.id.ad_call_to_action).setEnabled(false);
+            }
 
             // Set other ad assets.
             nativeView.setHeadlineView(nativeView.findViewById(R.id.ad_headline));
