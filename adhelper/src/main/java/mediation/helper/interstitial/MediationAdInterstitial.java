@@ -3,6 +3,7 @@ package mediation.helper.interstitial;
 import static mediation.helper.AdHelperApplication.getCubiInterstitialAd;
 import static mediation.helper.AdHelperApplication.getGeneralInfo;
 import static mediation.helper.MediationAdHelper.timer;
+import static mediation.helper.TestAdIDs.TEST_ADMOB_BANNER_ID;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_INTERSTITIAL_ID;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_NATIVE_ID;
 import static mediation.helper.TestAdIDs.TEST_FB_INTERSTITIAL_ID;
@@ -90,6 +91,8 @@ public class MediationAdInterstitial {
     static String TAG = "de_inters";
 
     private static boolean checkTestIds(OnInterstitialAdListener listener) {
+        Log.d("de_ch", "checkTestIds: ad" + AdHelperApplication.getAdIDs().getAdmob_interstitial_id() + " Fac: " + AdHelperApplication.getAdIDs().getFb_interstitial_id());
+
         if (!(AdHelperApplication.getAdIDs().getAdmob_interstitial_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_interstitial_id().isEmpty())) {
             if (AdHelperApplication.getAdIDs().getAdmob_interstitial_id().equals(TEST_ADMOB_INTERSTITIAL_ID) || AdHelperApplication.getAdIDs().getFb_interstitial_id().equals(TEST_FB_INTERSTITIAL_ID)) {
                 listener.onError("Found Test IDS..");
@@ -338,6 +341,11 @@ private static int num = -1;
             onError(Constant.ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED);
             return;
         }
+        if(facebookKey.isEmpty() || facebookKey.equals(TEST_FB_INTERSTITIAL_ID)){
+            Log.e(MediationAdHelper.TAG, "[FACEBOOK FRONT AD]Error: NULL OR TEST IDS FOUND");
+            onError("NULL OR TEST IDS FOUND");
+            return;
+        }
         facebookInterstitialAD = new com.facebook.ads.InterstitialAd(activityRef.get(), facebookKey);
 
         if (onInterstitialAdListener != null) {
@@ -428,6 +436,11 @@ private static int num = -1;
 
     private static void initAdmobInterstitialAd() {
         try {
+            if(admobKey.isEmpty() || admobKey.equals(TEST_ADMOB_INTERSTITIAL_ID)){
+                Log.e(MediationAdHelper.TAG, "[ADMOB FRONT AD]Error: NULL OR TEST IDS FOUND");
+                onError("NULL OR TEST IDS FOUND");
+                return;
+            }
             InterstitialAd.load(activityRef.get(), admobKey, MediationAdHelper.getAdRequest(), new InterstitialAdLoadCallback() {
                 @Override
                 public void onAdLoaded(@NonNull com.google.android.gms.ads.interstitial.InterstitialAd interstitialAd) {

@@ -129,8 +129,10 @@ public class MediationNativeBanner {
     }
 
     private boolean checkTestIds(OnNativeBannerListener onBannerAdListener) {
-        if (!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()) {
-            if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
+        Log.d("de_ch", "checkTestIds: ad" + AdHelperApplication.getAdIDs().getAdmob_banner_id() + " Fac: " + AdHelperApplication.getAdIDs().getFb_banner_id());
+
+        if (!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() && AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()) {
+            if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) && AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
                 parentConstraintView.setVisibility(View.GONE);
                 onBannerAdListener.onError("Found Test IDS..");
                 return false;
@@ -498,6 +500,11 @@ public class MediationNativeBanner {
 
 
     private void loadAdmobNativeBannerAd() {
+        if(AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() || AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID)){
+            Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load"); Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]Error:  IDS null or test found");
+            onLoadAdError("null or test native ids found!");
+            return;
+        }
         parentConstraintView.setVisibility(View.INVISIBLE);
 
         AdLoader.Builder builder = new AdLoader.Builder(context, admob_ad_key);
@@ -579,7 +586,11 @@ public class MediationNativeBanner {
             onLoadAdError(Constant.ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED);
             return;
         }
-
+        if(AdHelperApplication.getAdIDs().getFb_native_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)){
+            Log.e(MediationAdHelper.TAG, "[FACEBOOK NATIVE AD]Error:  IDS null or test found");
+            onLoadAdError("null or test native ids found!");
+            return;
+        }
         parentConstraintView.setVisibility(View.INVISIBLE);
 
 

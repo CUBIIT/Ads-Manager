@@ -6,6 +6,30 @@
         <key>enable_CAT</key>
         <value>1</value>
     </entry>
+    <entry>
+        <key>can_skip</key>
+        <value>0</value>
+    </entry>
+    <entry>
+        //second
+        <key>banner_ad_time</key>
+        <value>60</value>
+    </entry>
+    <entry>
+
+        <key>native_ad_time</key>
+        <value>60</value>
+    </entry>
+    <entry>
+
+        <key>interstitial_ad_time</key>
+        <value>60</value>
+    </entry>
+    <entry>
+
+        <key>native_banner_ad_time</key>
+        <value>60</value>
+    </entry>
 
     <entry>
         <key>admob_app_id</key>

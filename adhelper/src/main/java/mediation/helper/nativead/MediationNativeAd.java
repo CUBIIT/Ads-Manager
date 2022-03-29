@@ -151,6 +151,8 @@ public class MediationNativeAd {
     }
 
     private static boolean checkTestIds(OnNativeAdListener onBannerAdListener) {
+        Log.d("de_ch", "checkTestIds: ad" + AdHelperApplication.getAdIDs().getAdmob_native_id() + " Fac: " + AdHelperApplication.getAdIDs().getFb_native_id());
+
         if(!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()) {
             if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
                 onBannerAdListener.onError("Found Test IDS..");
@@ -393,7 +395,7 @@ public class MediationNativeAd {
 
     private static void loadAdmobAdvanceAD() {
         Log.d(TAG, "lOADaDmOBAdvancedAD");
-        if(AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty()){
+        if(admob_ad_key.isEmpty() || admob_ad_key.equals(TEST_ADMOB_NATIVE_ID)){
             Log.e(TAG, "[FACEBOOK NATIVE AD]Error: empty id found ");
             onLoadAdError("Empty id found");
             return;
@@ -472,7 +474,7 @@ public class MediationNativeAd {
             return;
         }
         //individual check to empty ids
-        if(AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()){
+        if(facebook_ad_key.isEmpty() || facebook_ad_key.equals(TEST_FB_NATIVE_ID)){
             Log.e(TAG, "[FACEBOOK NATIVE AD]Error: empty id found ");
             onLoadAdError("Empty id found");
             return;

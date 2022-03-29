@@ -129,9 +129,9 @@ public class AdHelperApplication extends Application {
 
     static OnFetchRemoteCallback onFetchRemoteCallbackListener;
 
-    public static void getValuesFromConfig(@NonNull FirebaseRemoteConfig mFirebaseConfig, @NonNull Context context, @NonNull OnFetchRemoteCallback onFetchRemoteCallback) {
+    public static void getValuesFromConfig(@NonNull FirebaseRemoteConfig mFirebaseConfig, @NonNull Context context,@NonNull OnFetchRemoteCallback onFetchRemoteCallback) {
         testMode =  ( 0 != ( context.getApplicationContext().getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE ) );
-        Log.d(TAG, "testMode: "+ testMode);
+        Log.e(TAG, "testMode: "+ testMode);
         prefManager = new PrefManager(context);
         onFetchRemoteCallbackListener = onFetchRemoteCallback;
         FirebaseRemoteConfigSettings settings = new FirebaseRemoteConfigSettings.Builder()
@@ -166,6 +166,7 @@ public class AdHelperApplication extends Application {
 
         });
     }
+    static AdTimeLimits adTimeLimits ;
     private static void updateData(FirebaseRemoteConfig mFirebaseConfig, Context context) {
         //GENERAL INFO
         generalInfo = new GeneralInfo();
@@ -279,6 +280,18 @@ public class AdHelperApplication extends Application {
         cubiNativeAd.setNativeAdcallToActionData(mFirebaseConfig.getString(NATIVE_KEY_AD_CALL_TO_ACTION));
         cubiNativeAd.setNativeAdrating(mFirebaseConfig.getString(NATIVE_KEY_AD_RATING));
         cubiNativeAd.setNativeAdfeedBack(mFirebaseConfig.getString(NATIVE_KEY_AD_FEEDBACKS));
+        //set ad time limist
+       adTimeLimits = new AdTimeLimits();
+       String b = mFirebaseConfig.getString("can_skip");
+        adTimeLimits.setCan_skip(!b.contains("0"));
+        Log.d(TAG, "banner_ad_time: "+(mFirebaseConfig.getString("banner_ad_time")));
+        Log.d(TAG, "native_ad_time: "+(mFirebaseConfig.getString("native_ad_time")));
+        Log.d(TAG, "interstitial_ad_time: "+(mFirebaseConfig.getString("interstitial_ad_time")));
+
+        adTimeLimits.setBanner_ad_time(Long.parseLong(mFirebaseConfig.getString("banner_ad_time")));
+        adTimeLimits.setNative_ad_time(Long.parseLong(mFirebaseConfig.getString("native_ad_time")));
+        adTimeLimits.setInterstitial_ad_time(Long.parseLong(mFirebaseConfig.getString("interstitial_ad_time")));
+        adTimeLimits.setInterstitial_ad_time(Long.parseLong(mFirebaseConfig.getString("native_banner_ad_time")));
         //IDS
         adIDs = new AdIDs();
         //set fb ids
@@ -297,20 +310,25 @@ public class AdHelperApplication extends Application {
 
     }
 
-    private static void loadSharedPrefValues() {
+    /*private static void loadSharedPrefValues() {
         adIDs = new AdIDs();
 
-        adIDs.setFb_native_id(prefManager.getString(FB_NATIVE_ID_KEY, ""));
+       adIDs.setFb_native_id(prefManager.getString(FB_NATIVE_ID_KEY, ""));
         adIDs.setFb_banner_id(prefManager.getString(FB_BANNER_ID_KEY, ""));
         adIDs.setFb_interstitial_id(prefManager.getString(FB_INTERSTITIAL_ID_KEY, ""));
 
-        adIDs.setAdmob_interstitial_id(prefManager.getString(ADMOB_INTERSTITIAL_ID_KEY, ""));
+      *//*   adIDs.setAdmob_interstitial_id(prefManager.getString(ADMOB_INTERSTITIAL_ID_KEY, ""));
         adIDs.setAdmob_native_id(prefManager.getString(ADMOB_NATIVE_ID_KEY, ""));
         adIDs.setAdmob_banner_id(prefManager.getString(ADMOB_BANNER_ID_KEY, ""));
+        adIDs.setAdmob_app_id(prefManager.getString(ADMOB_APP_ID_KEY, "")); *//*
+
+        adIDs.setAdmob_interstitial_id("");
+        adIDs.setAdmob_native_id("");
+        adIDs.setAdmob_banner_id("");
         adIDs.setAdmob_app_id(prefManager.getString(ADMOB_APP_ID_KEY, ""));
 
-       /* adIDs.setTest_mode(prefManager.getBooleanTestMode(TEST_MODE_KEY));
-        adIDs.setRelease(prefManager.getString(RELEASE_KEY, ""));*/
+       *//* adIDs.setTest_mode(prefManager.getBooleanTestMode(TEST_MODE_KEY));
+        adIDs.setRelease(prefManager.getString(RELEASE_KEY, ""));*//*
 
         //show log here
         Log.d("DE_AdManager", String.format("FB_Banner: %s\nFB_Native: %s\nFB_INTERSTITIAL: %s\nAdM_Banner: %s\nADM_Native: %s\nADM_INTERSTITIAL: %s\nAdbAppId: %s ",
@@ -318,7 +336,7 @@ public class AdHelperApplication extends Application {
                 ));
 
 
-    }
+    }*/
 
     static String TAG = "de_adtest";
     @SuppressLint("StaticFieldLeak")
@@ -339,7 +357,7 @@ public class AdHelperApplication extends Application {
             //testmod
             /*prefManager.setBoolean(TEST_MODE_KEY, adIDs.isTest_mode());
             prefManager.setString(RELEASE_KEY, adIDs.getRelease());*/
-            loadSharedPrefValues();
+          //  loadSharedPrefValues();
             onFetchRemoteCallbackListener.onUpdateSuccess(adIDs.getAdmob_app_id());
             //logger
         } else {

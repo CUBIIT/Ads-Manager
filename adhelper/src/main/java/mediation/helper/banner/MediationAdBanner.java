@@ -2,6 +2,7 @@ package mediation.helper.banner;
 
 import static mediation.helper.AdHelperApplication.getCubiBannerAd;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_BANNER_ID;
+import static mediation.helper.TestAdIDs.TEST_ADMOB_NATIVE_ID;
 import static mediation.helper.TestAdIDs.TEST_FB_BANNER_ID;
 
 import android.annotation.SuppressLint;
@@ -120,9 +121,10 @@ public class MediationAdBanner {
     }
 
     private static boolean checkTestIds(OnBannerAdListener onBannerAdListener) {
-        if(!(AdHelperApplication.getAdIDs().getFb_banner_id().isEmpty() || AdHelperApplication.getAdIDs().getAdmob_banner_id().isEmpty()))
+        Log.d("de_ch", "checkTestIds: ad" + AdHelperApplication.getAdIDs().getAdmob_banner_id() + " Fac: " + AdHelperApplication.getAdIDs().getFb_banner_id());
+        if(!(AdHelperApplication.getAdIDs().getFb_banner_id().isEmpty() && AdHelperApplication.getAdIDs().getAdmob_banner_id().isEmpty()))
         {
-            if (AdHelperApplication.getAdIDs().getFb_banner_id().equals(TEST_FB_BANNER_ID) || AdHelperApplication.getAdIDs().getAdmob_banner_id().equals(TEST_ADMOB_BANNER_ID)) {
+            if (AdHelperApplication.getAdIDs().getFb_banner_id().equals(TEST_FB_BANNER_ID) && AdHelperApplication.getAdIDs().getAdmob_banner_id().equals(TEST_ADMOB_BANNER_ID)) {
                 onBannerAdListener.onError("Found Test IDS..");
                 MediationEvents.onBannerAdErrorEvents();
                 return false;
@@ -206,7 +208,7 @@ public class MediationAdBanner {
 
     private static void selectCubiAd() {
         Log.d("DEBUG", "initView");
-//for test
+        //for test
         try {
             if (isPkgInstalledAlready()) {
                 MediationEvents.onBannerAdErrorEvents();
@@ -327,6 +329,13 @@ public class MediationAdBanner {
             MediationAdBanner.onError(Constant.ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED);
             return;
         }
+        if(AdHelperApplication.getAdIDs().getFb_banner_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_banner_id().equals(TEST_FB_BANNER_ID)){
+            Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load"); Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]Error:  IDS null or test found");
+            MediationEvents.onBannerAdErrorEvents();
+            onBannerAdListener.onError("NULL OR TEST IDS FOUND");
+            MediationAdBanner.onError("NULL OR TEST IDS FOUND");
+            return;
+        }
 
 
         final com.facebook.ads.AdView facebookBanner = new com.facebook.ads.AdView(bannerContainer.getContext(), facebookKey, AdSize.BANNER_HEIGHT_50);
@@ -381,6 +390,14 @@ public class MediationAdBanner {
     }
 
     private static void showAdmobBanner() {
+        if(admobKey.isEmpty() || admobKey.equals(TEST_ADMOB_BANNER_ID)){
+            Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load"); Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]Error:  IDS null or test found");
+            MediationEvents.onBannerAdErrorEvents();
+            onBannerAdListener.onError("NULL OR TEST IDS FOUND");
+            MediationAdBanner.onError("NULL OR TEST IDS FOUND");
+            return;
+        }
+
         final com.google.android.gms.ads.AdView admobBanner = new AdView(bannerContainer.getContext());
         admobBanner.setAdSize(com.google.android.gms.ads.AdSize.BANNER);
         admobBanner.setAdUnitId(admobKey);

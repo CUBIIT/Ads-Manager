@@ -15,6 +15,9 @@ public class PrefManager {
     private static final String PREF_NAME = "cubiit_adsmanager";
 
     private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
+    private static final String BANNER_AD= "banner_ad";
+    private static final String NATIVE_BANNER_AD= "NATIVE_BANNER_AD";
+    private static final String INTERSTITIAL_AD= "INTERSTITIAL_AD";
 
     public PrefManager(Context context) {
         this._context = context;
@@ -59,5 +62,18 @@ public class PrefManager {
             return pref.getString(PREF_NAME,defaultValue);
         }
         return  defaultValue;
+    }
+    private  long getTime(Context context,String key) {
+
+        return pref.getLong(key,0);
+    }
+    public  void setTime(Context context,String key) {
+        editor.putLong(key,System.currentTimeMillis());
+    }
+
+
+    public  Boolean canShowAd(Context context,String key,long delaySeconds) {
+
+        return System.currentTimeMillis() >= getTime(context,key) + delaySeconds * 1000;
     }
 }
