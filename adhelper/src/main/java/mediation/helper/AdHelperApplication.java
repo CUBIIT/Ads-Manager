@@ -314,7 +314,7 @@ public class AdHelperApplication extends Application {
         cubiNativeAd.setNativeAdrating(mFirebaseConfig.getString(NATIVE_KEY_AD_RATING));
         cubiNativeAd.setNativeAdfeedBack(mFirebaseConfig.getString(NATIVE_KEY_AD_FEEDBACKS));
         //set ad time limist
-        adTimeLimits = new AdTimeLimits();
+      /*  adTimeLimits = new AdTimeLimits();
         String b = mFirebaseConfig.getString("can_skip");
         adTimeLimits.setCan_skip(!b.contains("0"));
         Log.d(TAG, "banner_ad_time: " + (mFirebaseConfig.getString("banner_ad_time")));
@@ -337,7 +337,7 @@ public class AdHelperApplication extends Application {
         adTimeLimits.setBanner_ad_time(Long.parseLong(banner));
         adTimeLimits.setNative_ad_time(Long.parseLong(native_ad_time));
         adTimeLimits.setInterstitial_ad_time(Long.parseLong(interstitial_ad_time));
-        adTimeLimits.setInterstitial_ad_time(Long.parseLong(native_banner_ad_time));
+        adTimeLimits.setInterstitial_ad_time(Long.parseLong(native_banner_ad_time));*/
         //IDS
         adIDs = new AdIDs();
         //set fb ids
