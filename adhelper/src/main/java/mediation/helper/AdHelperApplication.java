@@ -65,6 +65,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 import mediation.helper.callbacks.OnFetchRemoteCallback;
 import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
@@ -94,6 +96,7 @@ public class AdHelperApplication extends Application {
     private static CubiInterstitialAd cubiInterstitialAd;
     private static CubiNativeAd cubiNativeAd;
     private static AdIDs adIDs;
+    static  android.os.Handler handler = new android.os.Handler();
 
     public static void initMediation(Context context) {
         MobileAds.initialize(context, new OnInitializationCompleteListener() {
@@ -124,7 +127,8 @@ public class AdHelperApplication extends Application {
         return testMode;
     }
 
-    public static void getValuesFromConfig(@NonNull FirebaseRemoteConfig mFirebaseConfig, @NonNull Context context, @NonNull OnFetchRemoteCallback onFetchRemoteCallback) {
+
+    public static void getValuesFromConfig(@NonNull final FirebaseRemoteConfig mFirebaseConfig, @NonNull final Context context, @NonNull OnFetchRemoteCallback onFetchRemoteCallback) {
         testMode = (0 != (context.getApplicationContext().getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
         Log.e(TAG, "testMode: " + testMode);
         prefManager = new PrefManager(context);
@@ -134,7 +138,13 @@ public class AdHelperApplication extends Application {
                 .build();
         mFirebaseConfig.setConfigSettingsAsync(settings);
         mFirebaseConfig.setDefaultsAsync(R.xml.remote_config_default_values);
-        fetchValues(mFirebaseConfig, context);
+       handler.postDelayed(new Runnable() {
+           @Override
+           public void run() {
+               fetchValues(mFirebaseConfig, context);
+           }
+       }, 0);
+
         if (!verifyInstallerId(context)) {
 //            KEY_PRIORITY_BANNER_AD = new Integer[]{MediationAdHelper.AD_CUBI_IT};
 //            KEY_PRIORITY_INTERSTITIAL_AD = new Integer[]{MediationAdHelper.AD_CUBI_IT};
@@ -271,7 +281,6 @@ public class AdHelperApplication extends Application {
             Log.d(TAG, "updateData: " + e.getMessage());
 
         }
-
         //BANNER AD
         cubiBannerAd = new CubiBannerAd();
         cubiBannerAd.setBannerAdtitle(mFirebaseConfig.getString(BANNER_KEY_AD_TITLE));
