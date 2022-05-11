@@ -3,7 +3,7 @@ AdManager is an Admob and Facebook and custom ads mediation library. AdManager s
 AdManager is a fast, smooth, reliable, and easy-to-use ads mediation library.
 # Version 1.6.8 (Stable Release)
   This version is more stable and error free. Also support new Ads IDs only for latest version of android app.
-  (Optional ) You can also skip native ad first time on splash screen for voiletion of Ads Policy.
+  (Optional ) You can also skip native ad first time on splash screen to avoid violation of Ads Policy.
 # Version 1.6
   Now in version 1.6 support to monitor user events on ad's load, success,error and clicked by using Firebase Events.
   Some other changes:
