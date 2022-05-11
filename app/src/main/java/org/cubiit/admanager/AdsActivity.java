@@ -64,11 +64,11 @@ public class AdsActivity extends AppCompatActivity {
 
 
         MediationAdBanner.showBanner(false, AdsActivity.this, ad_container,
-                KEY_PRIORITY_BANNER_AD_TEST,
+                KEY_PRIORITY_NATIVE_AD_TEST,
                 new OnBannerAdListener() {
                     @Override
                     public void onError(String errorMessage) {
-                        Log.d("de_t", "onError: " + errorMessage);
+                        Log.e("de_t", "onError: " + errorMessage);
                         hideDialog();
 
                     }
@@ -98,10 +98,10 @@ public class AdsActivity extends AppCompatActivity {
                 (imageView, imageUrl) -> Glide.with(getApplicationContext())
                         .load(imageUrl)
                         .into(imageView));
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeAdListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD_TEST, new OnNativeAdListener() {
             @Override
             public void onError(String errorMessage) {
-
+                Log.e("ads_act", "onError: "+ errorMessage);
                 hideDialog();
             }
 
@@ -133,11 +133,11 @@ public class AdsActivity extends AppCompatActivity {
                         .into(imageView);
             }
         });
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeBannerListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD_TEST, new OnNativeBannerListener() {
             @Override
             public void onError(String errorMessage) {
                 hideDialog();
-               // Log.d(TAG, "onError: ");
+                Log.e("ads_act", "onError: "+ errorMessage);
 
             }
 

@@ -83,6 +83,14 @@ public class Constant {
     public static String ADMOB_INTERSTITIAL_ID_KEY="admob_interstitial_id";
     public static String ADMOB_NATIVE_ID_KEY="admob_native_id";
     public static String ADMOB_APP_ID_KEY="admob_app_id";
+    public static String NEW_FB_BANNER_ID_KEY="new_fb_banner_id";
+    public static String NEW_FB_NATIVE_ID_KEY="new_fb_native_id";
+    public static String NEW_FB_INTERSTITIAL_ID_KEY="new_fb_interstitial_id";
+    public static String NEW_ADMOB_BANNER_ID_KEY="new_admob_banner_id";
+    public static String NEW_ADMOB_INTERSTITIAL_ID_KEY="new_admob_interstitial_id";
+    public static String NEW_ADMOB_NATIVE_ID_KEY="new_admob_native_id";
+    public static String NEW_ADMOB_APP_ID_KEY="new_admob_app_id";
+    public static String NEW_APP_VERSION="new_app_version";
     public static String TEST_MODE_KEY="test_mode";
     public static String RELEASE_KEY="release";
 

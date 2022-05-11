@@ -19,7 +19,7 @@ public class AdManager extends Application {
     public void onCreate() {
         super.onCreate();
         //this call is must
-        AdHelperApplication.getValuesFromConfig( FirebaseRemoteConfig.getInstance(), AdManager.this, new OnFetchRemoteCallback() {
+        AdHelperApplication.getValuesFromConfig( FirebaseRemoteConfig.getInstance(), BuildConfig.VERSION_CODE,AdManager.this, new OnFetchRemoteCallback() {
             @Override
             public void onFetchValuesSuccess() {
                 Log.d(TAG, "onFetchValuesSuccess: ");

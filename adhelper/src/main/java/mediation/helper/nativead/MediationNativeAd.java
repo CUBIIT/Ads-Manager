@@ -1,5 +1,6 @@
 package mediation.helper.nativead;
 
+import static mediation.helper.AdHelperApplication.adTimeLimits;
 import static mediation.helper.AdHelperApplication.getCubiNativeAd;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_NATIVE_ID;
 import static mediation.helper.TestAdIDs.TEST_FB_NATIVE_ID;
@@ -238,6 +239,13 @@ public class MediationNativeAd {
     }
 
     private static void selectAd() {
+        if(adTimeLimits.isCan_skip()){
+            adTimeLimits.setCan_skip(false);
+            MediationEvents.onNativeAdErrorEvents();
+            onNativeAdListener.onError("Native can skip firstly");
+            Log.e(TAG, "selectAd: Native can skip first time" );
+            return;
+        }
         int adPriority = adPriorityList.remove(0);
         switch (adPriority) {
             case MediationAdHelper.AD_FACEBOOK:
@@ -396,9 +404,11 @@ public class MediationNativeAd {
     private static void loadAdmobAdvanceAD() {
         Log.d(TAG, "lOADaDmOBAdvancedAD");
         if(admob_ad_key.isEmpty() || admob_ad_key.equals(TEST_ADMOB_NATIVE_ID)){
-            Log.e(TAG, "[FACEBOOK NATIVE AD]Error: empty id found ");
-            onLoadAdError("Empty id found");
-            return;
+            if(!AdHelperApplication.getTestMode()) {
+                Log.e(TAG, "[lOADaDmOBAdvancedAD NATIVE AD]Error: empty id found ");
+                onLoadAdError("Empty id found");
+                return;
+            }
         }
         AdLoader.Builder builder = new AdLoader.Builder(context, admob_ad_key);
         builder.forNativeAd(new com.google.android.gms.ads.nativead.NativeAd.OnNativeAdLoadedListener() {
@@ -475,9 +485,11 @@ public class MediationNativeAd {
         }
         //individual check to empty ids
         if(facebook_ad_key.isEmpty() || facebook_ad_key.equals(TEST_FB_NATIVE_ID)){
-            Log.e(TAG, "[FACEBOOK NATIVE AD]Error: empty id found ");
-            onLoadAdError("Empty id found");
-            return;
+            if(!AdHelperApplication.getTestMode()) {
+                Log.e(TAG, "[lOADaDmOBAdvancedAD NATIVE AD]Error: empty id found ");
+                onLoadAdError("Empty id found");
+                return;
+            }
         }
 
         facebookAd = new com.facebook.ads.NativeAd(context, facebook_ad_key);

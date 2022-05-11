@@ -330,11 +330,14 @@ public class MediationAdBanner {
             return;
         }
         if(AdHelperApplication.getAdIDs().getFb_banner_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_banner_id().equals(TEST_FB_BANNER_ID)){
-            Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load"); Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]Error:  IDS null or test found");
-            MediationEvents.onBannerAdErrorEvents();
-            onBannerAdListener.onError("NULL OR TEST IDS FOUND");
-            MediationAdBanner.onError("NULL OR TEST IDS FOUND");
-            return;
+            if(!AdHelperApplication.getTestMode()) {
+                Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load");
+                Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]Error:  IDS null or test found");
+                MediationEvents.onBannerAdErrorEvents();
+                onBannerAdListener.onError("NULL OR TEST IDS FOUND");
+                MediationAdBanner.onError("NULL OR TEST IDS FOUND");
+                return;
+            }
         }
 
 
@@ -391,11 +394,14 @@ public class MediationAdBanner {
 
     private static void showAdmobBanner() {
         if(admobKey.isEmpty() || admobKey.equals(TEST_ADMOB_BANNER_ID)){
-            Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load"); Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]Error:  IDS null or test found");
-            MediationEvents.onBannerAdErrorEvents();
-            onBannerAdListener.onError("NULL OR TEST IDS FOUND");
-            MediationAdBanner.onError("NULL OR TEST IDS FOUND");
-            return;
+            if(!AdHelperApplication.getTestMode()) {
+                Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load");
+                Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]Error:  IDS null or test found");
+                MediationEvents.onBannerAdErrorEvents();
+                onBannerAdListener.onError("NULL OR TEST IDS FOUND");
+                MediationAdBanner.onError("NULL OR TEST IDS FOUND");
+                return;
+            }
         }
 
         final com.google.android.gms.ads.AdView admobBanner = new AdView(bannerContainer.getContext());

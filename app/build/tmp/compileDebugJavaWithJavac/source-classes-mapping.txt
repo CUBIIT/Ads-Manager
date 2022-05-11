@@ -19,6 +19,7 @@ org/cubiit/admanager/SplashScreen.java
  org.cubiit.admanager.SplashScreen$2
  org.cubiit.admanager.SplashScreen$3
  org.cubiit.admanager.SplashScreen$4
+ org.cubiit.admanager.SplashScreen$5
 org/cubiit/admanager/MainActivity.java
  org.cubiit.admanager.MainActivity
  org.cubiit.admanager.MainActivity$1

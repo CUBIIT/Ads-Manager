@@ -8,7 +8,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="adhelper/src/main/res/drawable/bg_border.xml" value="0.6296875" />
+        <entry key="adhelper/src/main/res/drawable/bg_border.xml" value="0.2" />
         <entry key="adhelper/src/main/res/drawable/bg_native_layout.xml" value="0.6296875" />
         <entry key="adhelper/src/main/res/drawable/ic_ads_view.xml" value="0.6296875" />
         <entry key="adhelper/src/main/res/layout/admob_native_ad_layout.xml" value="0.5" />
@@ -21,10 +21,10 @@
         <entry key="adhelper/src/main/res/layout/facebook_native_ad_layout.xml" value="0.5" />
         <entry key="adhelper/src/main/res/layout/icon_ad_layout.xml" value="0.60546875" />
         <entry key="adhelper/src/main/res/layout/layout_cubi_banner_ad.xml" value="0.4036458333333333" />
-        <entry key="adhelper/src/main/res/layout/layout_native_banner_ad.xml" value="0.5" />
+        <entry key="adhelper/src/main/res/layout/layout_native_banner_ad.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_ads.xml" value="0.4036458333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
-        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.17592592592592593" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.5" />
       </map>
     </option>
   </component>

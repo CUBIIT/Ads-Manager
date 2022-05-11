@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
@@ -37,11 +38,17 @@ public class SplashScreen extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
-                showInterstitalAds();
-                startActivity(new Intent(SplashScreen.this, MainActivity.class));
-                finish();
+                findViewById(R.id.progressbar).setVisibility(View.GONE);
+                findViewById(R.id.getstarted).setVisibility(View.VISIBLE);
             }
         }, 6000);
+        findViewById(R.id.getstarted).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SplashScreen.this,MainActivity.class));
+                finish();
+            }
+        });
     }
 
     public static Integer[] KEY_PRIORITY_INTERSTITIAL_AD_test = new Integer[]{
@@ -96,7 +103,8 @@ public class SplashScreen extends AppCompatActivity {
         MediationAdInterstitial.initInterstitialAd(false, this,
                 KEY_PRIORITY_INTERSTITIAL_AD, null);
     }
-
+    public static Integer[] KEY_PRIORITY_NATIVE_AD_TEST = new Integer[]{
+            MediationAdHelper.AD_ADMOB};
     private void loadNative() {
         MediationNativeAd nativeAd = new MediationNativeAd(false, (FrameLayout) findViewById(R.id.native_fram), this, getString(R.string.app_name),
                 new MediationAdHelper.ImageProvider() {
@@ -107,7 +115,7 @@ public class SplashScreen extends AppCompatActivity {
                                 .into(imageView);
                     }
                 });
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeAdListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD_TEST, new OnNativeAdListener() {
             @Override
             public void onError(String errorMessage) {
                 Log.d("de_", "onError: " + errorMessage);

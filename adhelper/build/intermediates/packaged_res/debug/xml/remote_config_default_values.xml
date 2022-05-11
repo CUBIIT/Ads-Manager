@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <defaultsMap xmlns:tools="http://schemas.android.com/tools">
-    //by defualt CAT: call to action button is enable
-    //if we pass value 0 then it off automatically
+    <!--SET APP IDS FOR NEW VERSION-->
+    <entry>
+        <key>new_admob_app_id</key>
+        <value>ca-app-pub-3940256099942544~3347511713</value>
+    </entry>
+    <entry>
+        <key>new_app_version</key>
+        <value>3</value>
+    </entry>
+    <entry>
+        <key>new_admob_banner_id</key>
+        <value>ca-app-pub-3940256099942544/6300978111</value>
+    </entry>
+    <entry>
+        <key>new_admob_native_id</key>
+        <value>ca-app-pub-3940256099942544/2247696110</value>
+    </entry>
+    <entry>
+        <key>new_admob_interstitial_id</key>
+        <value>ca-app-pub-3940256099942544/1033173712</value>
+    </entry>
+    <!--    by default test fb ids-->
+    <entry>
+        <key>new_fb_banner_id</key>
+        <value>IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</value>
+    </entry>
+    <entry>
+        <key>new_fb_interstitial_id</key>
+        <value>IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</value>
+    </entry>
+    <entry>
+        <key>new_fb_native_id</key>
+        <value>IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</value>
+    </entry>
+   <!-- //by defualt CAT: call to action button is enable
+    //if we pass value 0 then it off automatically-->
     <entry>
         <key>enable_CAT</key>
         <value>1</value>
     </entry>
     <entry>
         <key>can_skip</key>
-        <value>0</value>
+        <value>1</value>
     </entry>
     <entry>
         <key>banner_ad_time</key>

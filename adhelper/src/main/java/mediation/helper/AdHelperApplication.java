@@ -42,11 +42,20 @@ import static mediation.helper.util.Constant.NATIVE_KEY_AD_IMAGE_URL;
 import static mediation.helper.util.Constant.NATIVE_KEY_AD_RATING;
 import static mediation.helper.util.Constant.NATIVE_KEY_AD_TITLE;
 import static mediation.helper.util.Constant.NATIVE_KEY_AD_URL;
+import static mediation.helper.util.Constant.NEW_ADMOB_APP_ID_KEY;
+import static mediation.helper.util.Constant.NEW_ADMOB_BANNER_ID_KEY;
+import static mediation.helper.util.Constant.NEW_ADMOB_INTERSTITIAL_ID_KEY;
+import static mediation.helper.util.Constant.NEW_ADMOB_NATIVE_ID_KEY;
+import static mediation.helper.util.Constant.NEW_APP_VERSION;
+import static mediation.helper.util.Constant.NEW_FB_BANNER_ID_KEY;
+import static mediation.helper.util.Constant.NEW_FB_INTERSTITIAL_ID_KEY;
+import static mediation.helper.util.Constant.NEW_FB_NATIVE_ID_KEY;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -87,7 +96,7 @@ public class AdHelperApplication extends Application {
     static boolean testMode = false;
     static FirebaseAnalytics firebaseAnalytics = null;
     static OnFetchRemoteCallback onFetchRemoteCallbackListener;
-    static AdTimeLimits adTimeLimits;
+    public static AdTimeLimits adTimeLimits;
     static String TAG = "de_adtest";
     @SuppressLint("StaticFieldLeak")
     static PrefManager prefManager;
@@ -128,9 +137,12 @@ public class AdHelperApplication extends Application {
     }
 
 
-    public static void getValuesFromConfig(@NonNull final FirebaseRemoteConfig mFirebaseConfig, @NonNull final Context context, @NonNull OnFetchRemoteCallback onFetchRemoteCallback) {
+static int APP_CURRENT_VERSION = -1;
+
+    public static void getValuesFromConfig(@NonNull final FirebaseRemoteConfig mFirebaseConfig,int app_current_version, @NonNull final Context context, @NonNull OnFetchRemoteCallback onFetchRemoteCallback) {
         testMode = (0 != (context.getApplicationContext().getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
         Log.e(TAG, "testMode: " + testMode);
+        APP_CURRENT_VERSION = app_current_version;
         prefManager = new PrefManager(context);
         onFetchRemoteCallbackListener = onFetchRemoteCallback;
         FirebaseRemoteConfigSettings settings = new FirebaseRemoteConfigSettings.Builder()
@@ -152,6 +164,9 @@ public class AdHelperApplication extends Application {
         }
         //init admob
         initMediation(context);
+
+
+
     }
 
     private static void fetchValues(final FirebaseRemoteConfig mFirebaseConfig, final Context context) {
@@ -283,6 +298,7 @@ public class AdHelperApplication extends Application {
         }
         //BANNER AD
         cubiBannerAd = new CubiBannerAd();
+
         cubiBannerAd.setBannerAdtitle(mFirebaseConfig.getString(BANNER_KEY_AD_TITLE));
         cubiBannerAd.setBannerAdbodyText(mFirebaseConfig.getString(BANNER_KEY_AD_BODY));
         cubiBannerAd.setBannerSquareIconUrl(mFirebaseConfig.getString(BANNER_KEY_SQUARE_ICON_URL));
@@ -314,9 +330,11 @@ public class AdHelperApplication extends Application {
         cubiNativeAd.setNativeAdrating(mFirebaseConfig.getString(NATIVE_KEY_AD_RATING));
         cubiNativeAd.setNativeAdfeedBack(mFirebaseConfig.getString(NATIVE_KEY_AD_FEEDBACKS));
         //set ad time limist
-      /*  adTimeLimits = new AdTimeLimits();
+        adTimeLimits = new AdTimeLimits();
         String b = mFirebaseConfig.getString("can_skip");
-        adTimeLimits.setCan_skip(!b.contains("0"));
+        Log.i(TAG, "updateData: can skip check "+b+" : "+ !b.equals("0"));
+        adTimeLimits.setCan_skip(!b.equals("0"));
+        Log.i(TAG, "updateData: can skip "+ adTimeLimits.isCan_skip());
         Log.d(TAG, "banner_ad_time: " + (mFirebaseConfig.getString("banner_ad_time")));
         Log.d(TAG, "native_ad_time: " + (mFirebaseConfig.getString("native_ad_time")));
         Log.d(TAG, "interstitial_ad_time: " + (mFirebaseConfig.getString("interstitial_ad_time")));
@@ -337,18 +355,41 @@ public class AdHelperApplication extends Application {
         adTimeLimits.setBanner_ad_time(Long.parseLong(banner));
         adTimeLimits.setNative_ad_time(Long.parseLong(native_ad_time));
         adTimeLimits.setInterstitial_ad_time(Long.parseLong(interstitial_ad_time));
-        adTimeLimits.setInterstitial_ad_time(Long.parseLong(native_banner_ad_time));*/
+        adTimeLimits.setInterstitial_ad_time(Long.parseLong(native_banner_ad_time));
         //IDS
         adIDs = new AdIDs();
-        //set fb ids
-        adIDs.setFb_banner_id(mFirebaseConfig.getString(FB_BANNER_ID_KEY));
-        adIDs.setFb_interstitial_id(mFirebaseConfig.getString(FB_INTERSTITIAL_ID_KEY));
-        adIDs.setFb_native_id(mFirebaseConfig.getString(FB_NATIVE_ID_KEY));
-        //SET ADMOB
-        adIDs.setAdmob_app_id(mFirebaseConfig.getString(ADMOB_APP_ID_KEY));
-        adIDs.setAdmob_banner_id(mFirebaseConfig.getString(ADMOB_BANNER_ID_KEY));
-        adIDs.setAdmob_native_id(mFirebaseConfig.getString(ADMOB_NATIVE_ID_KEY));
-        adIDs.setAdmob_interstitial_id(mFirebaseConfig.getString(ADMOB_INTERSTITIAL_ID_KEY));
+
+        int newAppVersion = Integer.parseInt(mFirebaseConfig.getString(NEW_APP_VERSION));
+        Log.d(TAG, "newAppVersion: "+ newAppVersion);
+        Log.d(TAG, "CurrentVersion: "+ APP_CURRENT_VERSION);
+        if((newAppVersion !=-1 && APP_CURRENT_VERSION!=-1 )&&(newAppVersion > APP_CURRENT_VERSION)){
+            Log.d(TAG, "loading ids for new update version: ");
+
+            adIDs.setFb_banner_id(mFirebaseConfig.getString(NEW_FB_BANNER_ID_KEY));
+            adIDs.setFb_interstitial_id(mFirebaseConfig.getString(NEW_FB_INTERSTITIAL_ID_KEY));
+            adIDs.setFb_native_id(mFirebaseConfig.getString(NEW_FB_NATIVE_ID_KEY));
+            //SET NEW ADMOB
+            adIDs.setAdmob_app_id(mFirebaseConfig.getString(NEW_ADMOB_APP_ID_KEY));
+            adIDs.setAdmob_banner_id(mFirebaseConfig.getString(NEW_ADMOB_BANNER_ID_KEY));
+            adIDs.setAdmob_native_id(mFirebaseConfig.getString(NEW_ADMOB_NATIVE_ID_KEY));
+            adIDs.setAdmob_interstitial_id(mFirebaseConfig.getString(NEW_ADMOB_INTERSTITIAL_ID_KEY));
+
+        }else {
+            Log.d(TAG, "loading for current/old version ");
+            //set fb ids
+            adIDs.setFb_banner_id(mFirebaseConfig.getString(FB_BANNER_ID_KEY));
+            adIDs.setFb_interstitial_id(mFirebaseConfig.getString(FB_INTERSTITIAL_ID_KEY));
+            adIDs.setFb_native_id(mFirebaseConfig.getString(FB_NATIVE_ID_KEY));
+            //SET ADMOB
+            adIDs.setAdmob_app_id(mFirebaseConfig.getString(ADMOB_APP_ID_KEY));
+            adIDs.setAdmob_banner_id(mFirebaseConfig.getString(ADMOB_BANNER_ID_KEY));
+            adIDs.setAdmob_native_id(mFirebaseConfig.getString(ADMOB_NATIVE_ID_KEY));
+            adIDs.setAdmob_interstitial_id(mFirebaseConfig.getString(ADMOB_INTERSTITIAL_ID_KEY));
+        }
+        Log.d(TAG, String.format("FB_Banner: %s\nFB_Native: %s\nFB_INTERSTITIAL: %s\nAdM_Banner: %s\nADM_Native: %s\nADM_INTERSTITIAL: %s\nAdbAppId: %s ",
+                adIDs.getFb_banner_id(), adIDs.getFb_native_id(), adIDs.getFb_interstitial_id(), adIDs.getAdmob_banner_id(), adIDs.getAdmob_native_id(), adIDs.getAdmob_interstitial_id(), adIDs.getAdmob_app_id()
+        ));
+
         //check test-mode
         updateSharedPreference(adIDs);
 

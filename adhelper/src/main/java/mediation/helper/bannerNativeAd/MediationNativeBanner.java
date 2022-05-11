@@ -501,9 +501,12 @@ public class MediationNativeBanner {
 
     private void loadAdmobNativeBannerAd() {
         if(AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() || AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID)){
-            Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load"); Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]Error:  IDS null or test found");
-            onLoadAdError("null or test native ids found!");
-            return;
+            if(!AdHelperApplication.getTestMode()) {
+                Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load");
+                Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]Error:  IDS null or test found");
+                onLoadAdError("null or test native ids found!");
+                return;
+            }
         }
         parentConstraintView.setVisibility(View.INVISIBLE);
 
@@ -587,9 +590,11 @@ public class MediationNativeBanner {
             return;
         }
         if(AdHelperApplication.getAdIDs().getFb_native_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)){
-            Log.e(MediationAdHelper.TAG, "[FACEBOOK NATIVE AD]Error:  IDS null or test found");
-            onLoadAdError("null or test native ids found!");
-            return;
+            if(!AdHelperApplication.getTestMode()) {
+                Log.e(MediationAdHelper.TAG, "[FACEBOOK NATIVE AD]Error:  IDS null or test found");
+                onLoadAdError("null or test native ids found!");
+                return;
+            }
         }
         parentConstraintView.setVisibility(View.INVISIBLE);
 

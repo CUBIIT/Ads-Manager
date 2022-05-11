@@ -100,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
             }
         };
     }
-
+    public static Integer[] KEY_PRIORITY_NATIVE_AD_TEST = new Integer[]{
+            MediationAdHelper.AD_ADMOB};
     private void loadBackPressedDialog() {
 
 
@@ -154,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             MediationAdInterstitial.showInterstitialAd(false, this,
-                    KEY_PRIORITY_INTERSTITIAL_AD,
+                    KEY_PRIORITY_NATIVE_AD_TEST,
                     new OnInterstitialAdListener() {
                         @Override
                         public void onDismissed(int adType) {
@@ -164,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
                         @Override
                         public void onError(String errorMessage) {
-                            Log.d(TAG, "onError: " + errorMessage);
+                            Log.e(TAG, "onError: " + errorMessage);
                             hideDialog();
 
 
