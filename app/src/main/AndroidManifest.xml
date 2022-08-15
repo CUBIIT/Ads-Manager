@@ -8,9 +8,9 @@
     <application
         android:name=".AdManager"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/cubiit_logo"
+        android:logo="@drawable/cubiit_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdManager">
         <activity

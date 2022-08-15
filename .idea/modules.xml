@@ -4,7 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/AdManager.iml" filepath="$PROJECT_DIR$/.idea/modules/AdManager.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.main.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.unitTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdManager.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdManager.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdManager.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdManager.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdManager.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdManager.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdManager.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdManager.app.unitTest.iml" />
     </modules>
   </component>
 </project>

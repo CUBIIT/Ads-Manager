@@ -32,12 +32,15 @@ import com.google.android.gms.ads.LoadAdError;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
+import java.util.Map;
 
 import mediation.helper.AdHelperApplication;
 import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
+import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
 import mediation.helper.util.Constant;
 
@@ -56,15 +59,15 @@ public class MediationAdBanner {
 
     private static CubiBannerAd cubiBannerAd;
 
-    public static void showFacebookBanner(boolean isPurchased, Activity activity, ViewGroup bannerContainer, OnBannerAdListener onBannerAdListener) {
-        showBanner(isPurchased, activity, bannerContainer, new Integer[]{MediationAdHelper.AD_FACEBOOK}, onBannerAdListener);
+    public static void showFacebookBanner(boolean isPurchased,PLACEHOLDER placeholder, Activity activity, ViewGroup bannerContainer, OnBannerAdListener onBannerAdListener) {
+        showBanner(isPurchased,placeholder, activity, bannerContainer, new Integer[]{MediationAdHelper.AD_FACEBOOK}, onBannerAdListener);
     }
 
-    public static void showAdmobBanner(boolean isPurchased, Activity activity, ViewGroup bannerContainer, OnBannerAdListener onBannerAdListener) {
-        showBanner(isPurchased, activity, bannerContainer, new Integer[]{MediationAdHelper.AD_ADMOB}, onBannerAdListener);
+    public static void showAdmobBanner(boolean isPurchased,PLACEHOLDER placeholder, Activity activity, ViewGroup bannerContainer, OnBannerAdListener onBannerAdListener) {
+        showBanner(isPurchased,placeholder, activity, bannerContainer, new Integer[]{MediationAdHelper.AD_ADMOB}, onBannerAdListener);
     }
 
-    public static void showBanner(boolean isPurchased, ViewGroup bannerContainer, int adPriority, OnBannerAdListener onBannerAdListener) {
+    public static void showBanner(boolean isPurchased,PLACEHOLDER placeholder, ViewGroup bannerContainer, int adPriority, OnBannerAdListener onBannerAdListener) {
         if (isPurchased) {
             onBannerAdListener.onError("You have pro version");
             MediationEvents.onBannerAdErrorEvents();
@@ -87,13 +90,13 @@ public class MediationAdBanner {
         }
 
         //showBanner(bannerContainer, facebookKey, admobKey, tempAdPriorityList, onBannerAdListener);
-        showBanner(bannerContainer, tempAdPriorityList, onBannerAdListener);
+        showBanner(bannerContainer, placeholder,tempAdPriorityList, onBannerAdListener);
     }
 
     @SuppressLint("StaticFieldLeak")
     private static Activity mActivity;
 
-    public static void showBanner(boolean isPurchased, Activity activity, ViewGroup bannerContainer, Integer[] tempAdPriorityList, OnBannerAdListener onBannerAdListener) {
+    public static void showBanner(boolean isPurchased,PLACEHOLDER placeholder, Activity activity, ViewGroup bannerContainer, Integer[] tempAdPriorityList, OnBannerAdListener onBannerAdListener) {
         if (isPurchased) {
             onBannerAdListener.onError("You have pro version");
             MediationEvents.onBannerAdErrorEvents();
@@ -117,7 +120,58 @@ public class MediationAdBanner {
         MediationAdBanner.cubiBannerAd = getCubiBannerAd();
 
         // showBanner(bannerContainer, facebookKey, admobKey, tempAdPriorityList, onBannerAdListener);
-        showBanner(bannerContainer, tempAdPriorityList, onBannerAdListener);
+        showBanner(bannerContainer,placeholder, tempAdPriorityList, onBannerAdListener);
+    }
+    private static String findValueInMap(String key, Map<String, String> map) {
+        key = key.toUpperCase(Locale.ROOT);
+        Log.d(TAG_, "findValueInMap: key "+ key);
+        String value = "default";
+        if(map==null){
+            Log.e(TAG_, "findValueInMapInterstitial: map is null" );
+        }else {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                Log.i(TAG_, "findValueInMap: "+ entry.getKey());
+                if (entry.getKey().equals(key.toUpperCase(Locale.ROOT))) {
+                    value = entry.getValue();
+                    Log.d(TAG_, "findValueInMap:find "+ value);
+                    break;
+
+                }
+            }
+        }
+        Log.d(TAG_, "findValueInMap:value  " + value);
+        return value;
+
+    }
+static String TAG = "de_banner";
+static String TAG_ = "de_banner";
+    private static Integer[] getPriorityAgainstPlaceHolder(PLACEHOLDER placeholder, Integer[] tempAdPriorityList) {
+        Log.d(TAG, "getPriorityAgainstPlaceHolder:size "+tempAdPriorityList.length);
+        if (placeholder.toString().toUpperCase(Locale.ROOT).equals(PLACEHOLDER.DEFAULT)) {
+
+            return tempAdPriorityList;
+        } else {
+            if(AdHelperApplication.placeholderConfig!=null) {
+                Integer[] rearrange = new Integer[3];
+                String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.banner);
+
+                if (value.equals("admob") || value.equals("1") || value.equals("01")) {
+                    rearrange[0] = MediationAdHelper.AD_ADMOB;
+                    rearrange[1] = MediationAdHelper.AD_FACEBOOK;
+                    rearrange[2] = MediationAdHelper.AD_CUBI_IT;
+                } else if (value.equals("fb") || value.equals("facebook") || value.equals("2") || value.equals("02")) {
+                    rearrange[0] = MediationAdHelper.AD_FACEBOOK;
+                    rearrange[1] = MediationAdHelper.AD_ADMOB;
+                    rearrange[2] = MediationAdHelper.AD_CUBI_IT;
+                } else if(value.equals("default") || value.equals("DEFAULT") || value.equals("-1")){
+                    rearrange = tempAdPriorityList;
+                }
+                // Log.d(TAG_, "getPriorityAgainstPlaceHolder: " + rearrange);
+                return rearrange;
+            }else{
+                return tempAdPriorityList;
+            }
+        }
     }
 
     private static boolean checkTestIds(OnBannerAdListener onBannerAdListener) {
@@ -139,10 +193,10 @@ public class MediationAdBanner {
 
     }
 
-    public static void showBanner(ViewGroup bannerContainer, Integer[] tempAdPriorityList, final OnBannerAdListener onBannerAdListener) {
+    public static void showBanner(ViewGroup bannerContainer,PLACEHOLDER placeholder, Integer[] tempAdPriorityList, final OnBannerAdListener onBannerAdListener) {
         try {
 
-            MediationAdBanner.adPriorityList = new ArrayList <>(Arrays.asList(tempAdPriorityList));
+            MediationAdBanner.adPriorityList = new ArrayList <>(Arrays.asList(getPriorityAgainstPlaceHolder(placeholder,tempAdPriorityList)));
 
             MediationAdBanner.onBannerAdListener = onBannerAdListener;
             MediationAdBanner.bannerContainer = bannerContainer;

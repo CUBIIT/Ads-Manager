@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 
 import mediation.helper.MediationAdHelper;
+import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.interstitial.MediationAdInterstitial;
 import mediation.helper.interstitial.OnInterstitialAdListener;
 import mediation.helper.nativead.MediationNativeAd;
@@ -58,7 +59,7 @@ public class SplashScreen extends AppCompatActivity {
 
     private void showInterstitalAds() {
         try {
-            MediationAdInterstitial.showInterstitialAd(false, this,
+            MediationAdInterstitial.showInterstitialAd(false, PLACEHOLDER.DEFAULT, this,
                     KEY_PRIORITY_INTERSTITIAL_AD_test,
                     new OnInterstitialAdListener() {
                         @Override
@@ -106,7 +107,7 @@ public class SplashScreen extends AppCompatActivity {
     public static Integer[] KEY_PRIORITY_NATIVE_AD_TEST = new Integer[]{
             MediationAdHelper.AD_ADMOB};
     private void loadNative() {
-        MediationNativeAd nativeAd = new MediationNativeAd(false, (FrameLayout) findViewById(R.id.native_fram), this, getString(R.string.app_name),
+        MediationNativeAd nativeAd = new MediationNativeAd(false,PLACEHOLDER.SPLASH_ACTIVITY, (FrameLayout) findViewById(R.id.native_fram), this, getString(R.string.app_name),
                 new MediationAdHelper.ImageProvider() {
                     @Override
                     public void onProvideImage(ImageView imageView, String imageUrl) {

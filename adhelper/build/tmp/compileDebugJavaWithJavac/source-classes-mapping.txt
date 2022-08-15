@@ -1,24 +1,19 @@
-mediation/helper/interstitial/MediationAdInterstitial.java
- mediation.helper.interstitial.MediationAdInterstitial
- mediation.helper.interstitial.MediationAdInterstitial$1
- mediation.helper.interstitial.MediationAdInterstitial$2
- mediation.helper.interstitial.MediationAdInterstitial$3
- mediation.helper.interstitial.MediationAdInterstitial$4
- mediation.helper.interstitial.MediationAdInterstitial$5
+mediation/helper/TestAdIDs.java
+ mediation.helper.TestAdIDs
 mediation/helper/nativead/MediationNativeAdHolder.java
  mediation.helper.nativead.MediationNativeAdHolder
 mediation/helper/DataBindingTriggerClass.java
  mediation.helper.DataBindingTriggerClass
+mediation/helper/config/NativePlaceholder.java
+ mediation.helper.config.NativePlaceholder
+mediation/helper/config/AdType.java
+ mediation.helper.config.AdType
 mediation/helper/util/AppUtil.java
  mediation.helper.util.AppUtil
 mediation/helper/BuildConfig.java
  mediation.helper.BuildConfig
-mediation/helper/interstitial/CubiInterstitialAdActivity.java
- mediation.helper.interstitial.CubiInterstitialAdActivity
- mediation.helper.interstitial.CubiInterstitialAdActivity$1
- mediation.helper.interstitial.CubiInterstitialAdActivity$2
- mediation.helper.interstitial.CubiInterstitialAdActivity$3
- mediation.helper.interstitial.CubiInterstitialAdActivity$4
+mediation/helper/util/Constant.java
+ mediation.helper.util.Constant
 mediation/helper/backpress/MediationBackPressDialog.java
  mediation.helper.backpress.MediationBackPressDialog
  mediation.helper.backpress.MediationBackPressDialog$1
@@ -31,6 +26,10 @@ mediation/helper/AdHelperApplication.java
  mediation.helper.AdHelperApplication$1
  mediation.helper.AdHelperApplication$2
  mediation.helper.AdHelperApplication$3
+mediation/helper/config/PlaceholderConfig.java
+ mediation.helper.config.PlaceholderConfig
+mediation/helper/config/PLACEHOLDER.java
+ mediation.helper.config.PLACEHOLDER
 mediation/helper/util/PrefManager.java
  mediation.helper.util.PrefManager
 mediation/helper/nativead/OnNativeAdListener.java
@@ -51,6 +50,8 @@ mediation/helper/cubiad/NativeAdView/NativeCubiAd.java
  mediation.helper.cubiad.NativeAdView.NativeCubiAd$Image
  mediation.helper.cubiad.NativeAdView.NativeCubiAd$OnNativeAdLoadedListener
  mediation.helper.cubiad.NativeAdView.NativeCubiAd$UnconfirmedClickListener
+mediation/helper/config/NatveBannerPlaceholder.java
+ mediation.helper.config.NatveBannerPlaceholder
 mediation/helper/MediationAdHelper.java
  mediation.helper.MediationAdHelper
  mediation.helper.MediationAdHelper$ADMOB_NATIVE_AD_TYPE
@@ -65,6 +66,10 @@ mediation/helper/AnalyticsEvents/MediationEvents.java
  mediation.helper.AnalyticsEvents.MediationEvents
 mediation/helper/backpress/OnBackPressListener.java
  mediation.helper.backpress.OnBackPressListener
+mediation/helper/config/InterstitialPlaceholder.java
+ mediation.helper.config.InterstitialPlaceholder
+mediation/helper/config/BannerPlaceHolder.java
+ mediation.helper.config.BannerPlaceHolder
 mediation/helper/callbacks/OnFetchRemoteCallback.java
  mediation.helper.callbacks.OnFetchRemoteCallback
 mediation/helper/cubiad/NativeAdView/CubiInterstitialAd.java
@@ -108,7 +113,16 @@ mediation/helper/cubiad/NativeAdView/GeneralInfo.java
  mediation.helper.cubiad.NativeAdView.GeneralInfo
 mediation/helper/bannerNativeAd/MediationNativeBannerAdHolder.java
  mediation.helper.bannerNativeAd.MediationNativeBannerAdHolder
-mediation/helper/util/Constant.java
- mediation.helper.util.Constant
-mediation/helper/TestAdIDs.java
- mediation.helper.TestAdIDs
+mediation/helper/interstitial/MediationAdInterstitial.java
+ mediation.helper.interstitial.MediationAdInterstitial
+ mediation.helper.interstitial.MediationAdInterstitial$1
+ mediation.helper.interstitial.MediationAdInterstitial$2
+ mediation.helper.interstitial.MediationAdInterstitial$3
+ mediation.helper.interstitial.MediationAdInterstitial$4
+ mediation.helper.interstitial.MediationAdInterstitial$5
+mediation/helper/interstitial/CubiInterstitialAdActivity.java
+ mediation.helper.interstitial.CubiInterstitialAdActivity
+ mediation.helper.interstitial.CubiInterstitialAdActivity$1
+ mediation.helper.interstitial.CubiInterstitialAdActivity$2
+ mediation.helper.interstitial.CubiInterstitialAdActivity$3
+ mediation.helper.interstitial.CubiInterstitialAdActivity$4

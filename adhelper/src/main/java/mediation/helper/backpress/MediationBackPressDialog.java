@@ -9,6 +9,7 @@ import android.graphics.Insets;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -21,11 +22,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
+import java.util.Map;
 
 import mediation.helper.AdHelperApplication;
 import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
+import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.nativead.MediationNativeAd;
 import mediation.helper.nativead.OnNativeAdListener;
 import mediation.helper.util.AppUtil;
@@ -55,31 +59,86 @@ public class MediationBackPressDialog extends AppCompatActivity {
     @MediationAdHelper.ADMOB_NATIVE_AD_TYPE
     int admobNativeAdType;
     MediationNativeAd adViewNativeAd;
-    ArrayList <Integer> adPriorityList;
+    ArrayList<Integer> adPriorityList;
     static boolean isPurchase;
+    static String TAG = "de_exitdialgo";
+    static String TAG_ = "de_exitdialgo";
+    static PLACEHOLDER placeholder = PLACEHOLDER.DEFAULT;
 
-    public static void startFacebookDialog(boolean b, Activity activity, String appName, OnBackPressListener onBackPressListener) {
-        startDialog(b, activity, appName, 0, onBackPressListener);
+    private static String findValueInMap(String key, Map<String, String> map) {
+        key = key.toUpperCase(Locale.ROOT);
+        Log.d(TAG_, "findValueInMap: key " + key);
+        String value = "default";
+        if (map == null) {
+            Log.e(TAG_, "findValueInMapInterstitial: map is null");
+        } else {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                Log.i(TAG_, "findValueInMap: " + entry.getKey());
+                if (entry.getKey().equals(key.toUpperCase(Locale.ROOT))) {
+                    value = entry.getValue();
+                    Log.d(TAG_, "findValueInMap:find " + value);
+                    break;
+
+                }
+            }
+        }
+        Log.d(TAG_, "findValueInMap:value  " + value);
+        return value;
+
     }
 
-    public static void startDialog(boolean b, Activity activity, String appName, int adPriority, OnBackPressListener onBackPressListener) {
-        startDialog(b, activity, appName, adPriority, true, onBackPressListener);
+    private static Integer[] getPriorityAgainstPlaceHolder(PLACEHOLDER placeholder, Integer[] tempAdPriorityList) {
+
+        if (placeholder.toString().toUpperCase(Locale.ROOT).equals(PLACEHOLDER.DEFAULT)) {
+            Log.d(TAG, "getPriorityAgainstPlaceHolder: find default");
+            return tempAdPriorityList;
+        } else {
+            if (AdHelperApplication.placeholderConfig != null) {
+                Integer[] rearrange = new Integer[3];
+                String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.exit_dialog);
+
+                if (value.equals("admob") || value.equals("1") || value.equals("01")) {
+                    rearrange[0] = MediationAdHelper.AD_ADMOB;
+                    rearrange[1] = MediationAdHelper.AD_FACEBOOK;
+                    rearrange[2] = MediationAdHelper.AD_CUBI_IT;
+                } else if (value.equals("fb") || value.equals("facebook") || value.equals("2") || value.equals("02")) {
+                    rearrange[0] = MediationAdHelper.AD_FACEBOOK;
+                    rearrange[1] = MediationAdHelper.AD_ADMOB;
+                    rearrange[2] = MediationAdHelper.AD_CUBI_IT;
+                } else if (value.equals("default") || value.equals("DEFAULT") || value.equals("-1")) {
+                    rearrange = tempAdPriorityList;
+                }
+                // Log.d(TAG_, "getPriorityAgainstPlaceHolder: " + rearrange);
+                return rearrange;
+            } else {
+                return tempAdPriorityList;
+            }
+        }
     }
 
-    public static void startDialog(boolean b, Activity activity, String appName, int adPriority, boolean showReviewButton, OnBackPressListener onBackPressListener) {
+    public static void startFacebookDialog(boolean b, PLACEHOLDER placeholder, Activity activity, String appName, OnBackPressListener onBackPressListener) {
+        startDialog(b, placeholder, activity, appName, 0, onBackPressListener);
+    }
+
+    public static void startDialog(boolean b, PLACEHOLDER placeholder, Activity activity, String appName, int adPriority, OnBackPressListener onBackPressListener) {
+        startDialog(b, placeholder, activity, appName, adPriority, true, onBackPressListener);
+    }
+
+    public static void startDialog(boolean b, PLACEHOLDER p, Activity activity, String appName, int adPriority, boolean showReviewButton, OnBackPressListener onBackPressListener) {
         Integer[] tempAdPriorityList = new Integer[2];
         tempAdPriorityList[0] = adPriority;
+        placeholder = p;
         if (adPriority == MediationAdHelper.AD_FACEBOOK) {
             tempAdPriorityList[1] = MediationAdHelper.AD_ADMOB;
         } else {
             tempAdPriorityList[1] = MediationAdHelper.AD_FACEBOOK;
         }
-        startDialog(b, activity, appName, tempAdPriorityList, showReviewButton, onBackPressListener);
+        startDialog(b, p, activity, appName, getPriorityAgainstPlaceHolder(p, tempAdPriorityList), showReviewButton, onBackPressListener);
 
     }
 
-    public static void startDialog(boolean b, Activity activity, String appName, Integer[] adPriorityList, boolean showReviewButton, OnBackPressListener onBackPressListener) {
-        startDialog(b, activity, appName, adPriorityList, showReviewButton, onBackPressListener, null);
+    public static void startDialog(boolean b, PLACEHOLDER placeholder, Activity activity, String appName, Integer[] adPriorityList, boolean showReviewButton, OnBackPressListener onBackPressListener) {
+        startDialog(b, placeholder, activity, appName, adPriorityList, showReviewButton, onBackPressListener, null);
     }
 
     private static boolean checkTestIds(OnBackPressListener listener) {
@@ -90,7 +149,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
         return true;
     }
 
-    public static void startDialog(boolean b, Activity activity, String appName, Integer[] adPriorityList, boolean showReviewButton, OnBackPressListener onBackPressListener, MediationAdHelper.ImageProvider imageProvider) {
+    public static void startDialog(boolean b, PLACEHOLDER placeholder, Activity activity, String appName, Integer[] adPriorityList, boolean showReviewButton, OnBackPressListener onBackPressListener, MediationAdHelper.ImageProvider imageProvider) {
        /* if (!AdHelperApplication.getTestMode()) {
             //check if ids or test skip
             if (AdHelperApplication.getAdIDs() != null) {
@@ -104,7 +163,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
         intent.putExtra(EXTRA_FACEBOOK_KEY, TEST_FB_NATIVE_ID);
         intent.putExtra(EXTRA_ADMOB_KEY, TEST_ADMOB_NATIVE_ID);
         intent.putExtra(EXTRA_SHOW_REVIEW_BUTTON, showReviewButton);
-        intent.putExtra(EXTRA_AD_PRIORITY_LIST, new ArrayList <>(Arrays.asList(adPriorityList)));
+        intent.putExtra(EXTRA_AD_PRIORITY_LIST, new ArrayList<>(Arrays.asList(getPriorityAgainstPlaceHolder(placeholder, adPriorityList))));
         intent.putExtra(EXTRA_IS_PURCHASE, b);
 
         if (onBackPressListener == null) {
@@ -117,8 +176,8 @@ public class MediationBackPressDialog extends AppCompatActivity {
         activity.overridePendingTransition(0, 0);
     }
 
-    public static void startAdmobDialog(boolean isPurchase, Activity activity, String appName, String admobKey, OnBackPressListener onBackPressListener) {
-        startDialog(isPurchase, activity, appName, 0, onBackPressListener);
+    public static void startAdmobDialog(boolean isPurchase, PLACEHOLDER placeholder, Activity activity, String appName, String admobKey, OnBackPressListener onBackPressListener) {
+        startDialog(isPurchase, placeholder, activity, appName, 0, onBackPressListener);
     }
 
     public static int getScreenWidth(@NonNull Activity activity) {
@@ -154,7 +213,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
         showReviewButton();
         checkReview();
         //provide null overads
-        adViewNativeAd = new MediationNativeAd(isPurchase, adViewContainer, this, appName, imageProvider);
+        adViewNativeAd = new MediationNativeAd(isPurchase, placeholder, adViewContainer, this, appName, imageProvider);
 
         MediationNativeAd.loadAD(adPriorityList, new OnNativeAdListener() {
             @Override

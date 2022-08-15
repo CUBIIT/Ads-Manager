@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/apple/AndroidStudioProjects/update/Ads-Manager/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "/Users/apple/StudioProjects/Ads-Manager/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/b2711f3e7f68484de5dabbec63d5f8a8/jetified-firebase-messaging-22.0.0/res/values-en-rGB/values.xml",

@@ -43,12 +43,15 @@ import com.google.android.gms.ads.nativead.NativeAdOptions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import mediation.helper.AdHelperApplication;
 import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
+import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.cubiad.NativeAdView.CubiNativeAd;
 import mediation.helper.cubiad.NativeAdView.NativeCubiAd;
 import mediation.helper.util.Constant;
@@ -75,13 +78,14 @@ public class MediationNativeAd {
     static boolean isPurchase = false;
 
     static ViewGroup containerView;
-
-    public MediationNativeAd(boolean isPurchase, ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
-        this(isPurchase, containerView, context, app_name, null);
+ static PLACEHOLDER placeholder;
+    public MediationNativeAd(boolean isPurchase,PLACEHOLDER placeholder, ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
+        this(isPurchase,placeholder, containerView, context, app_name, null);
     }
 
-    public MediationNativeAd(boolean isPurchase, ViewGroup itemView, Context context, String app_name, MediationAdHelper.ImageProvider imageProvider) {
+    public MediationNativeAd(boolean isPurchase, PLACEHOLDER placeholder,ViewGroup itemView, Context context, String app_name, MediationAdHelper.ImageProvider imageProvider) {
         this.isPurchase = isPurchase;
+        this.placeholder = placeholder;
         MediationNativeAd.containerView = itemView;
         MediationNativeAd.context = context;
         MediationNativeAd.app_name = app_name;
@@ -146,11 +150,61 @@ public class MediationNativeAd {
             }
             return;
         }
-        ArrayList resultTempAdPriorityList = new ArrayList <>(Arrays.asList(tempAdPriorityList));
+        ArrayList resultTempAdPriorityList = new ArrayList <>(Arrays.asList(getPriorityAgainstPlaceHolder(placeholder,tempAdPriorityList)));
         loadAD(resultTempAdPriorityList, onNativeAdListener);
 
     }
+    static String TAG_= "de_native";
+    private static String findValueInMap(String key, Map<String, String> map) {
+        key = key.toUpperCase(Locale.ROOT);
+        Log.d(TAG_, "findValueInMap: key "+ key);
+        String value = "default";
+        if(map==null){
+            Log.e(TAG_, "findValueInMapInterstitial: map is null" );
+        }else {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                Log.i(TAG_, "findValueInMap: "+ entry.getKey());
+                if (entry.getKey().equals(key.toUpperCase(Locale.ROOT))) {
+                    value = entry.getValue();
+                    Log.d(TAG_, "findValueInMap:find "+ value);
+                    break;
 
+                }
+            }
+        }
+        Log.d(TAG_, "findValueInMap:value  " + value);
+        return value;
+
+    }
+
+    private static Integer[] getPriorityAgainstPlaceHolder(PLACEHOLDER placeholder, Integer[] tempAdPriorityList) {
+
+        if (placeholder.toString().toUpperCase(Locale.ROOT).equals(PLACEHOLDER.DEFAULT)) {
+            Log.d(TAG, "getPriorityAgainstPlaceHolder: find default");
+            return tempAdPriorityList;
+        } else {
+            if(AdHelperApplication.placeholderConfig!=null) {
+                Integer[] rearrange = new Integer[3];
+                String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.native_placeholder);
+
+                if (value.equals("admob") || value.equals("1") || value.equals("01")) {
+                    rearrange[0] = MediationAdHelper.AD_ADMOB;
+                    rearrange[1] = MediationAdHelper.AD_FACEBOOK;
+                    rearrange[2] = MediationAdHelper.AD_CUBI_IT;
+                } else if (value.equals("fb") || value.equals("facebook") || value.equals("2") || value.equals("02")) {
+                    rearrange[0] = MediationAdHelper.AD_FACEBOOK;
+                    rearrange[1] = MediationAdHelper.AD_ADMOB;
+                    rearrange[2] = MediationAdHelper.AD_CUBI_IT;
+                } else if(value.equals("default") || value.equals("DEFAULT") || value.equals("-1")){
+                    rearrange = tempAdPriorityList;
+                }
+                // Log.d(TAG_, "getPriorityAgainstPlaceHolder: " + rearrange);
+                return rearrange;
+            }else{
+                return tempAdPriorityList;
+            }
+        }
+    }
     private static boolean checkTestIds(OnNativeAdListener onBannerAdListener) {
         Log.d("de_ch", "checkTestIds: ad" + AdHelperApplication.getAdIDs().getAdmob_native_id() + " Fac: " + AdHelperApplication.getAdIDs().getFb_native_id());
 

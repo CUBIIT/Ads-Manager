@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import mediation.helper.MediationAdHelper;
+import mediation.helper.config.PLACEHOLDER;
 
 
 /**
@@ -18,15 +19,15 @@ public class MediationNativeAdHolder extends RecyclerView.ViewHolder {
 
     public MediationNativeAd mediationNativeAd;
 
-    public MediationNativeAdHolder(Boolean b, ViewGroup itemView, Context context, String app_name) {
+    public MediationNativeAdHolder(Boolean b, PLACEHOLDER placeholder, ViewGroup itemView, Context context, String app_name) {
         super(itemView);
-        mediationNativeAd = new MediationNativeAd(b, itemView, context, app_name,null,null);
+        mediationNativeAd = new MediationNativeAd(b,placeholder, itemView, context, app_name,null,null);
     }
 
 
-    public MediationNativeAdHolder(boolean b, ViewGroup itemView, Context context, String app_name, MediationAdHelper.ImageProvider imageProvider) {
+    public MediationNativeAdHolder(boolean b, PLACEHOLDER placeholder,ViewGroup itemView, Context context, String app_name, MediationAdHelper.ImageProvider imageProvider) {
         super(itemView);
-        mediationNativeAd = new MediationNativeAd(b, itemView, context, app_name,  imageProvider);
+        mediationNativeAd = new MediationNativeAd(b,placeholder, itemView, context, app_name,  imageProvider);
     }
 
     public void loadFacebookAD(OnNativeAdListener onNativeAdListener) {

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/apple/AndroidStudioProjects/update/Ads-Manager/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mn/values-mn.xml",
+            "outputFile": "/Users/apple/StudioProjects/Ads-Manager/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mn/values-mn.xml",
             "map": [
                 {
                     "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/3c0f6e530da557c2dfc3b8c634b38b0f/jetified-play-services-basement-18.0.0/res/values-mn/values.xml",

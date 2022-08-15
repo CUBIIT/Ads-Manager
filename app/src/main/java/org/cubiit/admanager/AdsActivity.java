@@ -17,6 +17,7 @@ import mediation.helper.banner.MediationAdBanner;
 import mediation.helper.banner.OnBannerAdListener;
 import mediation.helper.bannerNativeAd.MediationNativeBanner;
 import mediation.helper.bannerNativeAd.OnNativeBannerListener;
+import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.nativead.MediationNativeAd;
 import mediation.helper.nativead.OnNativeAdListener;
 
@@ -63,8 +64,8 @@ public class AdsActivity extends AppCompatActivity {
     private void loadBannerAds() {
 
 
-        MediationAdBanner.showBanner(false, AdsActivity.this, ad_container,
-                KEY_PRIORITY_NATIVE_AD_TEST,
+        MediationAdBanner.showBanner(false, PLACEHOLDER.MAIN_ACTIVITY, AdsActivity.this, ad_container,
+                KEY_PRIORITY_NATIVE_AD,
                 new OnBannerAdListener() {
                     @Override
                     public void onError(String errorMessage) {
@@ -94,11 +95,11 @@ public class AdsActivity extends AppCompatActivity {
     private void loadNativeAds() {
 
 
-        MediationNativeAd nativeAd = new MediationNativeAd(false, ad_container, this, getString(R.string.app_name),
+        MediationNativeAd nativeAd = new MediationNativeAd(false,PLACEHOLDER.MAIN_ACTIVITY, ad_container, this, getString(R.string.app_name),
                 (imageView, imageUrl) -> Glide.with(getApplicationContext())
                         .load(imageUrl)
                         .into(imageView));
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD_TEST, new OnNativeAdListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeAdListener() {
             @Override
             public void onError(String errorMessage) {
                 Log.e("ads_act", "onError: "+ errorMessage);
@@ -120,12 +121,11 @@ public class AdsActivity extends AppCompatActivity {
 
 
     }
-    public static Integer[] KEY_PRIORITY_NATIVE_AD_TEST = new Integer[]{
-            MediationAdHelper.AD_ADMOB};
+
 
     private void loadNativeBanner() {
 
-        MediationNativeBanner nativeAd = new MediationNativeBanner(false,ad_container, AdsActivity.this, getString(R.string.app_name), new MediationAdHelper.ImageProvider() {
+        MediationNativeBanner nativeAd = new MediationNativeBanner(false,PLACEHOLDER.MAIN_ACTIVITY,ad_container, AdsActivity.this, getString(R.string.app_name), new MediationAdHelper.ImageProvider() {
             @Override
             public void onProvideImage(ImageView imageView, String imageUrl) {
                 Glide.with(AdsActivity.this)
@@ -133,7 +133,7 @@ public class AdsActivity extends AppCompatActivity {
                         .into(imageView);
             }
         });
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD_TEST, new OnNativeBannerListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeBannerListener() {
             @Override
             public void onError(String errorMessage) {
                 hideDialog();

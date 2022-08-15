@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import mediation.helper.MediationAdHelper;
+import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
 import mediation.helper.cubiad.NativeAdView.CubiNativeAd;
 
@@ -22,15 +23,15 @@ public class MediationNativeBannerAdHolder extends RecyclerView.ViewHolder {
 //
 //
 //    }
-    public MediationNativeBannerAdHolder(boolean isPurchase,ViewGroup itemView, Context context, String app_name,  MediationAdHelper.ImageProvider imageProvider) {
+    public MediationNativeBannerAdHolder(boolean isPurchase, PLACEHOLDER placeholder,ViewGroup itemView, Context context, String app_name, MediationAdHelper.ImageProvider imageProvider) {
         super(itemView);
-        nativeBanner = new MediationNativeBanner(isPurchase,itemView, context, app_name,  imageProvider);
+        nativeBanner = new MediationNativeBanner(isPurchase,placeholder,itemView, context, app_name,  imageProvider);
 
     }
 
-    public MediationNativeBannerAdHolder(boolean isPurchase,ViewGroup itemView, Context context, String app_name,  CubiNativeAd cubiBannerAd, MediationAdHelper.ImageProvider imageProvider) {
+    public MediationNativeBannerAdHolder(boolean isPurchase,PLACEHOLDER placeholder,ViewGroup itemView, Context context, String app_name,  CubiNativeAd cubiBannerAd, MediationAdHelper.ImageProvider imageProvider) {
         super(itemView);
-        nativeBanner = new MediationNativeBanner( isPurchase,itemView, context, app_name,  cubiBannerAd, imageProvider);
+        nativeBanner = new MediationNativeBanner( isPurchase,placeholder,itemView, context, app_name,  cubiBannerAd, imageProvider);
 
     }
 

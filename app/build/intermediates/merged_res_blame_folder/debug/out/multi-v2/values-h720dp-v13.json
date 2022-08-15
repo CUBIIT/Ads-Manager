@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/apple/AndroidStudioProjects/update/Ads-Manager/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
+            "outputFile": "/Users/apple/StudioProjects/Ads-Manager/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml",
             "map": [
                 {
                     "source": "/Users/apple/.gradle/caches/transforms-2/files-2.1/75ba2bdc366e6fac3b14b90fb13b9e6d/appcompat-1.3.0/res/values-h720dp-v13/values-h720dp-v13.xml",

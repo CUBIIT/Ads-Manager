@@ -25,13 +25,14 @@ import java.util.List;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.backpress.MediationBackPressDialog;
 import mediation.helper.backpress.OnBackPressListener;
+import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.interstitial.MediationAdInterstitial;
 import mediation.helper.interstitial.OnInterstitialAdListener;
 
 public class MainActivity extends AppCompatActivity {
     OnItemClickListener onItemClickListener;
     RecyclerView recyclerView;
-    List <Item> adsList;
+    List<Item> adsList;
     AdsAdapter adsAdapter;
     public final static String interstitial = "interstitial";
     public final static String banner = "banner";
@@ -47,13 +48,15 @@ public class MainActivity extends AppCompatActivity {
         startAction();
 
     }
+
     public static Integer[] KEY_PRIORITY_INTERSTITIAL_AD_test = new Integer[]{
             MediationAdHelper.AD_CUBI_IT
-           };
-    FirebaseAnalytics firebaseAnalytics ;
+    };
+    FirebaseAnalytics firebaseAnalytics;
+
     public void startAction() {
         recyclerView = findViewById(R.id.recycler_view);
-        adsList = new ArrayList <>();
+        adsList = new ArrayList<>();
         adsList.add(new Item(interstitial, getString(R.string.inters)));
         adsList.add(new Item(banner, getString(R.string.banner)));
         adsList.add(new Item(nativeAds, getString(R.string.nativeAd)));
@@ -100,14 +103,11 @@ public class MainActivity extends AppCompatActivity {
             }
         };
     }
-    public static Integer[] KEY_PRIORITY_NATIVE_AD_TEST = new Integer[]{
-            MediationAdHelper.AD_ADMOB};
+
     private void loadBackPressedDialog() {
 
 
-
-
-        MediationBackPressDialog.startDialog(false, MainActivity.this, getResources().getString(R.string.app_name)
+        MediationBackPressDialog.startDialog(false, PLACEHOLDER.EXIT_ACTIVITY, MainActivity.this, getResources().getString(R.string.app_name)
                 , KEY_PRIORITY_NATIVE_AD
                 , false
                 , new OnBackPressListener() {
@@ -154,8 +154,8 @@ public class MainActivity extends AppCompatActivity {
     private void showInterstitalAds() {
 
         try {
-            MediationAdInterstitial.showInterstitialAd(false, this,
-                    KEY_PRIORITY_NATIVE_AD_TEST,
+            MediationAdInterstitial.showInterstitialAd(false, PLACEHOLDER.ACTIVITY_1, this,
+                    KEY_PRIORITY_NATIVE_AD,
                     new OnInterstitialAdListener() {
                         @Override
                         public void onDismissed(int adType) {
@@ -197,11 +197,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //adapter class
-    public class AdsAdapter extends RecyclerView.Adapter <AdsAdapter.AdsHolder> {
-        List <Item> itemsList;
+    public class AdsAdapter extends RecyclerView.Adapter<AdsAdapter.AdsHolder> {
+        List<Item> itemsList;
         OnItemClickListener onItemClickListener;
 
-        public AdsAdapter(List <Item> itemsList, OnItemClickListener onItemClickListener) {
+        public AdsAdapter(List<Item> itemsList, OnItemClickListener onItemClickListener) {
             this.itemsList = itemsList;
             this.onItemClickListener = onItemClickListener;
         }
