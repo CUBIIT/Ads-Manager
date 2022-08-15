@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AdManager.iml" filepath="$PROJECT_DIR$/.idea/modules/AdManager.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.main.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdManager.adhelper.unitTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdManager.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdManager.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdManager.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdManager.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdManager.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdManager.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdManager.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdManager.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AdsMediationManager.iml" filepath="$PROJECT_DIR$/.idea/modules/AdsMediationManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdsMediationManager.adhelper.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdsMediationManager.adhelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdsMediationManager.adhelper.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdsMediationManager.adhelper.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdsMediationManager.adhelper.main.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdsMediationManager.adhelper.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/adhelper/AdsMediationManager.adhelper.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/adhelper/AdsMediationManager.adhelper.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdsMediationManager.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdsMediationManager.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdsMediationManager.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdsMediationManager.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdsMediationManager.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdsMediationManager.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AdsMediationManager.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AdsMediationManager.app.unitTest.iml" />
     </modules>
   </component>
 </project>
