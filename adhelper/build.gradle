@@ -1,8 +1,7 @@
 plugins {
     id 'com.android.library'
-    id 'com.github.dcendents.android-maven'
+    id 'maven-publish'
 }
-group = 'com.github.CUBIIT'
 
 android {
     compileSdkVersion 30
@@ -61,4 +60,17 @@ dependencies {
     api "com.google.ads.mediation:facebook:6.8.0.0"
 
 
+}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.cubiit'
+                artifactId = 'Ads-Manager'
+                version = '6.8.10'
+            }
+        }
+    }
 }
