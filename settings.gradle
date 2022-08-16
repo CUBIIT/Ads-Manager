@@ -1,3 +1,3 @@
 include ':adhelper'
 include ':app'
-rootProject.name = "AdsMediationManager"
+rootProject.name = "Ads-Manager"
