@@ -2,7 +2,7 @@ plugins {
     id 'com.android.library'
     id 'com.github.dcendents.android-maven'
 }
-group = 'com.github.cubiit'
+group = 'com.github.CUBIIT'
 
 android {
     compileSdkVersion 30
@@ -31,7 +31,7 @@ android {
         repositories {
             google()
             mavenCentral()
-            maven { url "https://www.jitpack.io" }
+
         }
     }
 
