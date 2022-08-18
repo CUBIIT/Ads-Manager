@@ -114,6 +114,7 @@
             }</value>
     </entry>
     <entry>
+<!--        values may be false, 0,no,off,False, true, yes,1,on,-->
         <key>is_admob_limit</key>
         <value>false</value>
     </entry>
