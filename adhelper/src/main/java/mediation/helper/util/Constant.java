@@ -132,7 +132,7 @@ public class Constant {
         } else {
             for (Map.Entry<String, Integer> entry : map.entrySet()) {
                 Log.i("Constant", "findValueInMap: " + entry.getKey());
-                if (entry.getKey().equals(key.toUpperCase(Locale.ROOT))) {
+                if (entry.getKey().equals(key.toLowerCase(Locale.ROOT))) {
                     value = entry.getValue();
                     Log.d("Constant", "findValueInMap:find " + value);
                     break;

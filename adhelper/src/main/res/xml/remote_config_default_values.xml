@@ -114,6 +114,10 @@
             }</value>
     </entry>
     <entry>
+        <key>is_admob_limit</key>
+        <value>false</value>
+    </entry>
+    <entry>
         <key>sessions</key>
         <value>
             {

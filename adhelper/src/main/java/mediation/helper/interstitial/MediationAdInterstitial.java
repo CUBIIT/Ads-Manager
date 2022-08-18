@@ -1,5 +1,6 @@
 package mediation.helper.interstitial;
 
+import static mediation.helper.AdHelperApplication.applyLimitOnAdmob;
 import static mediation.helper.AdHelperApplication.canShowInterstitial;
 import static mediation.helper.AdHelperApplication.getCubiInterstitialAd;
 import static mediation.helper.AdHelperApplication.getGeneralInfo;
@@ -145,7 +146,7 @@ public class MediationAdInterstitial {
         } else {
             if (AdHelperApplication.placeholderConfig != null) {
                 Integer[] rearrange = new Integer[3];
-                String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.interstitial);
+                String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.interstitial).toLowerCase(Locale.ROOT);
 
                 if (value.equals("admob") || value.equals("1") || value.equals("01")) {
                     rearrange[0] = MediationAdHelper.AD_ADMOB;
@@ -166,7 +167,7 @@ public class MediationAdInterstitial {
         }
     }
     public static  boolean isAddOff(String value) {
-        if (value.equals("off") || value.equals("OFF") || value.equals("Off") || value.equals("of") || value.equals("0")) {
+        if (value.equals("off") || value.equals("OFF") || value.equals("Off") || value.equals("of") || value.equals("0") || value.equals("FALSE")) {
             return true;
         } else {
             return false;
@@ -557,6 +558,13 @@ public class MediationAdInterstitial {
                 MediationAdInterstitial.onError("Admob blocked whole session due to request failed equals to give attempt.");
                 return;
             }
+            //check in limit
+            if(AdHelperApplication.isAdmobInLimit()){
+                if(applyLimitOnAdmob){
+                    onError("Interstial add banned in current due to admob limint ");
+                    return;
+                }
+            }
             if (admobKey.isEmpty() || admobKey.equals(TEST_ADMOB_INTERSTITIAL_ID)) {
                 if (!AdHelperApplication.getTestMode()) {
                     Log.e(MediationAdHelper.TAG, "[ADMOB FRONT AD]Error: NULL OR TEST IDS FOUND");
@@ -586,6 +594,9 @@ public class MediationAdInterstitial {
                         canShowInterstitial = false;
                     } else
                         AdHelperApplication.admobRequestInterFaild++;
+                    if(AdHelperApplication.isAdmobInLimit()){
+                        applyLimitOnAdmob = true;
+                    }
                     admobInterstitialAD = null;
                 }
 

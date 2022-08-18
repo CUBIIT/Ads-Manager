@@ -1,6 +1,7 @@
 package mediation.helper.nativead;
 
 import static mediation.helper.AdHelperApplication.adTimeLimits;
+import static mediation.helper.AdHelperApplication.applyLimitOnAdmob;
 import static mediation.helper.AdHelperApplication.fbRequestNativeFaild;
 import static mediation.helper.AdHelperApplication.getCubiNativeAd;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_NATIVE_ID;
@@ -203,7 +204,7 @@ public class MediationNativeAd {
         } else {
             if(AdHelperApplication.placeholderConfig!=null) {
                 Integer[] rearrange = new Integer[3];
-                String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.native_placeholder);
+                String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.native_placeholder).toLowerCase(Locale.ROOT);
 
                 if (value.equals("admob") || value.equals("1") || value.equals("01")) {
                     rearrange[0] = MediationAdHelper.AD_ADMOB;
@@ -466,6 +467,7 @@ public class MediationNativeAd {
         if (adPriorityList.size() > 0) {
             selectAd();
         } else {
+           // containerView.setVisibility(View.GONE);
             Log.d(Constant.TAG, "onLoadAdError: ");
             if (onNativeAdListener != null) {
                 MediationEvents.onNativeAdErrorEvents();
@@ -476,7 +478,7 @@ public class MediationNativeAd {
     }
 
     public static  boolean isAddOff(String value) {
-        if (value.equals("off") || value.equals("OFF") || value.equals("Off") || value.equals("of") || value.equals("0")) {
+        if (value.equals("off") || value.equals("OFF") || value.equals("Off") || value.equals("of") || value.equals("0") || value.equals("false") || value.equals("FALSE")) {
             return true;
         } else {
             return false;
@@ -492,12 +494,22 @@ public class MediationNativeAd {
                 return;
             }
         }
+
+        //check adlimit
+        if(AdHelperApplication.isAdmobInLimit()){
+            if(applyLimitOnAdmob){
+                onLoadAdError("Native admob banned due to admob in limit");
+                return;
+            }
+        }
+        Log.d(Constant.TAG, "loadAdmobAdvanceAD: " + AdHelperApplication.admobRequestNativeFaild + "  : "+ Constant.findIntegerValueInMap(AdSessions.native_session.name(), AdHelperApplication.sessionConfig.admob_sessions));
         if(AdHelperApplication.admobRequestNativeFaild >= Constant.findIntegerValueInMap(AdSessions.native_session.name(), AdHelperApplication.sessionConfig.admob_sessions)){
             onLoadAdError("Native admob Sesssion out");
             AdHelperApplication.admobRequestNativeFaild++;
             admobNativeAd = null;
             return;
         }
+
         AdLoader.Builder builder = new AdLoader.Builder(context, admob_ad_key);
         builder.forNativeAd(new com.google.android.gms.ads.nativead.NativeAd.OnNativeAdLoadedListener() {
             @Override
@@ -526,6 +538,9 @@ public class MediationNativeAd {
                 Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE EXPRESS AD]errorMessage: " + errorMessage);
                 onLoadAdError(errorMessage);
                 AdHelperApplication.admobRequestNativeFaild++;
+                if(AdHelperApplication.isAdmobInLimit()){
+                    applyLimitOnAdmob  = true;
+                }
 
             }
 
@@ -544,6 +559,7 @@ public class MediationNativeAd {
             public void onAdOpened() {
                 super.onAdOpened();
                 Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE EXPRESS AD]Opend");
+
                 if (onNativeAdListener != null) {
                     MediationEvents.onNativeAdAdClickedEvents();
                     onNativeAdListener.onAdClicked(MediationAdHelper.AD_ADMOB);

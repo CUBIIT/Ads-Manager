@@ -74,6 +74,7 @@ import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Handler;
@@ -126,7 +127,7 @@ public class AdHelperApplication extends Application {
     public static boolean adMobNativeSession = true;
     public static boolean adMobNativeBannerSession = true;
     public static boolean adMobInterstialSession = true;
-    public static int     interstitialClickAdCounter = 0;
+    public static int interstitialClickAdCounter = 0;
     public static long INTERSTITIAL_CLICK_LIMIT = 3;//DEFAULT
 
     public static void initMediation(Context context) {
@@ -208,7 +209,9 @@ public class AdHelperApplication extends Application {
 
         });
     }
-   public static PlaceholderConfig placeholderConfig = null;
+
+    public static PlaceholderConfig placeholderConfig = null;
+
     private static void fetchPlaceholder(FirebaseRemoteConfig firebaseRemoteConfig) {
         String TAG = "de_place";
         String val = firebaseRemoteConfig.getString("placeholders");
@@ -218,17 +221,33 @@ public class AdHelperApplication extends Application {
         //Log.d(TAG, "fetchPlaceholder: banner "+ placeholderConfig.interstitial.MAIN_ACTIVITY);
 
 
-
     }
-   public static SessionConfig sessionConfig;
+
+    public static SessionConfig sessionConfig;
+    private static String admobLimit = "false";
+    public static boolean applyLimitOnAdmob = false;
+
+    public static boolean isAdmobInLimit() {
+        if (admobLimit.equals("true") || admobLimit.equals("on") || admobLimit.equals("1") || admobLimit.equals("yes")  ||admobLimit.equals("TRUE") ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     private static void fetchSessions(FirebaseRemoteConfig firebaseRemoteConfig) {
         String TAG = Constant.TAG;
         String val = firebaseRemoteConfig.getString("sessions");
         Log.d(TAG, "fetchPlaceholder: " + val);
         sessionConfig = new Gson().fromJson(val, SessionConfig.class);
-        Log.d(TAG, "fetchPlaceholder:after " + sessionConfig.fb_sessions.size() );
+        Collection<Integer> d = sessionConfig.admob_sessions.values();
+        for( int i : d){
+            Log.d(TAG, "fetchSessions: i "+ i);
+        }
+        Log.d(TAG, "fetchPlaceholder:after " + sessionConfig.admob_sessions.values().size());
+        admobLimit = firebaseRemoteConfig.getString("is_admob_limit");
+        Log.d(TAG, "fetchSessions: " + admobLimit);
         //Log.d(TAG, "fetchPlaceholder: banner "+ placeholderConfig.interstitial.MAIN_ACTIVITY);
-
 
 
     }

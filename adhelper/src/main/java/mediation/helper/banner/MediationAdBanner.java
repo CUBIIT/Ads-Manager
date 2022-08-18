@@ -1,5 +1,6 @@
 package mediation.helper.banner;
 
+import static mediation.helper.AdHelperApplication.applyLimitOnAdmob;
 import static mediation.helper.AdHelperApplication.fbRequestBannerFaild;
 import static mediation.helper.AdHelperApplication.getCubiBannerAd;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_BANNER_ID;
@@ -156,7 +157,7 @@ static String TAG_ = "de_banner";
         } else {
             if(AdHelperApplication.placeholderConfig!=null) {
                 Integer[] rearrange = new Integer[3];
-                String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.banner);
+                String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.banner).toLowerCase(Locale.ROOT);
 
                 if (value.equals("admob") || value.equals("1") || value.equals("01")) {
                     rearrange[0] = MediationAdHelper.AD_ADMOB;
@@ -201,7 +202,7 @@ static String TAG_ = "de_banner";
             //check if add is off
 
 
-            if(isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.banner))){
+            if(isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.banner).toLowerCase(Locale.ROOT))){
                 Log.d(Constant.TAG, "showBanner: is off on this place holder");
                 onBannerAdListener.onError("showBanner: is off on this place holder");
                 MediationEvents.onBannerAdErrorEvents();
@@ -465,7 +466,7 @@ static String TAG_ = "de_banner";
 
     }
     public static  boolean isAddOff(String value) {
-        if (value.equals("off") || value.equals("OFF") || value.equals("Off") || value.equals("of") || value.equals("0")) {
+        if (value.equals("off") || value.equals("OFF") || value.equals("Off") || value.equals("of") || value.equals("0") || value.equals("FALSE")) {
             return true;
         } else {
             return false;
@@ -478,6 +479,15 @@ static String TAG_ = "de_banner";
             MediationAdBanner.onError("NULL OR TEST IDS FOUND");
             AdHelperApplication.admobRequestBannerFaild++;
             return;
+        }
+        //check if admob in limit or not
+        if(AdHelperApplication.isAdmobInLimit()){
+            if(applyLimitOnAdmob){
+                MediationEvents.onBannerAdErrorEvents();
+                onBannerAdListener.onError("Admob in limit & ads limited in current session");
+                MediationAdBanner.onError("Admob in limit & ads limited in current session");
+                return;
+            }
         }
         if(admobKey.isEmpty() || admobKey.equals(TEST_ADMOB_BANNER_ID)){
             if(!AdHelperApplication.getTestMode()) {
@@ -503,6 +513,10 @@ static String TAG_ = "de_banner";
                 MediationEvents.onBannerAdErrorEvents();
                 Log.d(MediationAdHelper.TAG, "[ADMOB BANNER]ERROR: " + adError.getMessage());
                 AdHelperApplication.admobRequestBannerFaild++;
+                // when admob in limit don't show next ad after one is failed
+                if(AdHelperApplication.isAdmobInLimit()){
+                    applyLimitOnAdmob = true;
+                }
             }
 
             @Override
