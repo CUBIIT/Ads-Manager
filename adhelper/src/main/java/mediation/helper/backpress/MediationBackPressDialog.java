@@ -96,7 +96,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
         } else {
             if (AdHelperApplication.placeholderConfig != null) {
                 Integer[] rearrange = new Integer[3];
-                String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.exit_dialog);
+                String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.exit_dialog).toLowerCase(Locale.ROOT);
 
                 if (value.equals("admob") || value.equals("1") || value.equals("01")) {
                     rearrange[0] = MediationAdHelper.AD_ADMOB;
@@ -170,7 +170,7 @@ public static  boolean checkAdSwithIsOff(String value){
         intent.putExtra(EXTRA_FACEBOOK_KEY, TEST_FB_NATIVE_ID);
         intent.putExtra(EXTRA_ADMOB_KEY, TEST_ADMOB_NATIVE_ID);
         intent.putExtra(EXTRA_SHOW_REVIEW_BUTTON, showReviewButton);
-        intent.putExtra(EXTRA_AD_SWITCH,checkAdSwithIsOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.exit_dialog)));
+        intent.putExtra(EXTRA_AD_SWITCH,checkAdSwithIsOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.exit_dialog).toLowerCase(Locale.ROOT)));
         intent.putExtra(EXTRA_AD_PRIORITY_LIST, new ArrayList<>(Arrays.asList(getPriorityAgainstPlaceHolder(placeholder, adPriorityList))));
         intent.putExtra(EXTRA_IS_PURCHASE, b);
 
