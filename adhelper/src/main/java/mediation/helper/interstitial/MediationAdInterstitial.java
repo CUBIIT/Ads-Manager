@@ -41,7 +41,9 @@ import mediation.helper.AdTimeLimits;
 import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
+import mediation.helper.config.AdSessions;
 import mediation.helper.config.PLACEHOLDER;
+import mediation.helper.config.SessionConfig;
 import mediation.helper.cubiad.NativeAdView.CubiInterstitialAd;
 import mediation.helper.util.Constant;
 import mediation.helper.util.PrefManager;
@@ -163,12 +165,25 @@ public class MediationAdInterstitial {
             }
         }
     }
-
+    public static  boolean isAddOff(String value) {
+        if (value.equals("off") || value.equals("OFF") || value.equals("Off") || value.equals("of") || value.equals("0")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     //for cubiads
     public static void showInterstitialAd(boolean isPurchased, PLACEHOLDER placeholder, Activity activity, Integer[] tempAdPriorityList, OnInterstitialAdListener onInterstitialAdListener) {
         prefManager = new PrefManager(activity);
         if (isPurchased) {
             onInterstitialAdListener.onError("You have pro version!");
+            return;
+        }
+        if(isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.interstitial))){
+            MediationAdInterstitial.onError("showInterstitialAd: is off by remote " );
+            onInterstitialAdListener.onError("showInterstitialAd: is off by remote " );
+
+            Log.d(Constant.TAG, "showInterstitialAd: is off by remote");
             return;
         }
         Log.d(TAG, "showInterstitialAd: counter " + interstitialClickAdCounter);
@@ -438,6 +453,14 @@ public class MediationAdInterstitial {
                 return;
             }
         }
+        //check sesssion
+        // 0>=1
+        if(AdHelperApplication.fbRequestInterFaild >= Constant.findIntegerValueInMap(AdSessions.interstitial_session.name(),AdHelperApplication.sessionConfig.fb_sessions)){
+            Log.e(MediationAdHelper.TAG, "Facebook interstial session out");
+            MediationAdInterstitial.onLoadError("Facebook interstial session out");
+            facebookInterstitialAD = null;
+            AdHelperApplication.fbRequestInterFaild++;
+        }
         facebookInterstitialAD = new com.facebook.ads.InterstitialAd(activityRef.get(), facebookKey);
 
         if (onInterstitialAdListener != null) {
@@ -466,6 +489,7 @@ public class MediationAdInterstitial {
                 Log.e(MediationAdHelper.TAG, "[FACEBOOK FRONT AD]Error: " + adError.getErrorMessage());
                 MediationAdInterstitial.onLoadError(adError.getErrorMessage());
                 facebookInterstitialAD = null;
+                AdHelperApplication.fbRequestInterFaild++;
             }
 
             @Override
@@ -558,10 +582,10 @@ public class MediationAdInterstitial {
                     Log.e(MediationAdHelper.TAG, "[ADMOB FRONT AD]Error: " + loadAdError.getMessage());
                     MediationAdInterstitial.onLoadError(loadAdError.getMessage());
                     MediationEvents.onInterstitialAdErrorEvent();
-                    if (AdHelperApplication.admobRequestFaild > 2) {
+                    if (AdHelperApplication.admobRequestInterFaild >= Constant.findIntegerValueInMap(AdSessions.interstitial_session.name().toString(),AdHelperApplication.sessionConfig.admob_sessions)) {
                         canShowInterstitial = false;
                     } else
-                        AdHelperApplication.admobRequestFaild++;
+                        AdHelperApplication.admobRequestInterFaild++;
                     admobInterstitialAD = null;
                 }
 
@@ -622,6 +646,7 @@ public class MediationAdInterstitial {
     }
 
     private static void onError(String errorMessage) {
+        Log.d(Constant.TAG, "onError: "+ errorMessage);
         if (adPriorityList != null && adPriorityList.size() > 0) {
             showSelectedAd();
         } else {

@@ -81,17 +81,28 @@ import java.util.logging.LogRecord;
 
 import mediation.helper.callbacks.OnFetchRemoteCallback;
 import mediation.helper.config.PlaceholderConfig;
+import mediation.helper.config.SessionConfig;
 import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
 import mediation.helper.cubiad.NativeAdView.CubiInterstitialAd;
 import mediation.helper.cubiad.NativeAdView.CubiNativeAd;
 import mediation.helper.cubiad.NativeAdView.GeneralInfo;
+import mediation.helper.util.Constant;
 import mediation.helper.util.PrefManager;
 
 public class AdHelperApplication extends Application {
 
     public static boolean isCATEnable = true;
     public static boolean isInit = false;
-    public static int admobRequestFaild = 0;
+    public static int admobRequestInterFaild = 0;
+    public static int admobRequestBannerFaild = 0;
+    public static int admobRequestNativeFaild = 0;
+    public static int admobRequestNativeBannerFaild = 0;
+    public static int admobRequestExitFaild = 0;
+    public static int fbRequestInterFaild = 0;
+    public static int fbRequestBannerFaild = 0;
+    public static int fbRequestNativeFaild = 0;
+    public static int fbRequestNativeBannerFaild = 0;
+    public static int fbRequestExitFaild = 0;
     //    @Override
 //    public void onCreate() {
 //        super.onCreate();
@@ -111,6 +122,10 @@ public class AdHelperApplication extends Application {
     private static AdIDs adIDs;
     static android.os.Handler handler = new android.os.Handler();
     public static boolean canShowInterstitial = true;
+    public static boolean adMobBannerSession = true;
+    public static boolean adMobNativeSession = true;
+    public static boolean adMobNativeBannerSession = true;
+    public static boolean adMobInterstialSession = true;
     public static int     interstitialClickAdCounter = 0;
     public static long INTERSTITIAL_CLICK_LIMIT = 3;//DEFAULT
 
@@ -205,10 +220,24 @@ public class AdHelperApplication extends Application {
 
 
     }
+   public static SessionConfig sessionConfig;
+    private static void fetchSessions(FirebaseRemoteConfig firebaseRemoteConfig) {
+        String TAG = Constant.TAG;
+        String val = firebaseRemoteConfig.getString("sessions");
+        Log.d(TAG, "fetchPlaceholder: " + val);
+        sessionConfig = new Gson().fromJson(val, SessionConfig.class);
+        Log.d(TAG, "fetchPlaceholder:after " + sessionConfig.fb_sessions.size() );
+        //Log.d(TAG, "fetchPlaceholder: banner "+ placeholderConfig.interstitial.MAIN_ACTIVITY);
+
+
+
+    }
 
     private static void updateData(FirebaseRemoteConfig mFirebaseConfig, Context context) {
         //PLACEHOLDERS
         fetchPlaceholder(mFirebaseConfig);
+        //sessions
+        fetchSessions(mFirebaseConfig);
         //CLICK LIMIT
         INTERSTITIAL_CLICK_LIMIT = mFirebaseConfig.getLong("inter_click_limit");
         //GENERAL INFO

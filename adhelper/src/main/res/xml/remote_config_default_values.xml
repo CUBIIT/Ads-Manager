@@ -28,7 +28,7 @@
             "DEFAULT": "default"
             },
             "native_placeholder": {
-            "MAIN_ACTIVITY": "default",
+            "MAIN_ACTIVITY": "admob",
             "SUBSCRIPTION_ACTIVITY":"default",
             "PRIVACY_ACTIVITY":"default",
             "DOWNLOAD_ACTIVITY":"default",
@@ -112,6 +112,27 @@
             "DEFAULT": "default"
             }
             }</value>
+    </entry>
+    <entry>
+        <key>sessions</key>
+        <value>
+            {
+            "fb_sessions": {
+            "banner_session": 1,
+            "native_session":1,
+            "interstitial_session":1,
+            "exit_session":1,
+            "native_banner_session":1
+            },
+            "admob_sessions": {
+            "banner_session": 1,
+            "native_session":1,
+            "interstitial_session":1,
+            "exit_session":1,
+            "native_banner_session":1
+            }
+            }
+        </value>
     </entry>
     <entry>
         <key>inter_click_limit</key>

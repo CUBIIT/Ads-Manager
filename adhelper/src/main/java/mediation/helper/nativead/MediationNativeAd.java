@@ -1,6 +1,7 @@
 package mediation.helper.nativead;
 
 import static mediation.helper.AdHelperApplication.adTimeLimits;
+import static mediation.helper.AdHelperApplication.fbRequestNativeFaild;
 import static mediation.helper.AdHelperApplication.getCubiNativeAd;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_NATIVE_ID;
 import static mediation.helper.TestAdIDs.TEST_FB_NATIVE_ID;
@@ -51,6 +52,8 @@ import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
+import mediation.helper.banner.MediationAdBanner;
+import mediation.helper.config.AdSessions;
 import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.cubiad.NativeAdView.CubiNativeAd;
 import mediation.helper.cubiad.NativeAdView.NativeCubiAd;
@@ -137,7 +140,7 @@ public class MediationNativeAd {
         loadAD(tempAdPriorityList, onNativeAdListener);
     }
 
-    public static void loadAD(Integer[] tempAdPriorityList, OnNativeAdListener onNativeAdListener) {
+    public static void loadAD(final Integer[] tempAdPriorityList, final OnNativeAdListener onNativeAdListener) {
         if (isPurchase) {
             onNativeAdListener.onError("You have pro version!");
             return;
@@ -148,6 +151,21 @@ public class MediationNativeAd {
                 MediationEvents.onNativeAdErrorEvents();
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/TNK");
             }
+            return;
+        }
+        if(!AdHelperApplication.isInit){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadAD(tempAdPriorityList,onNativeAdListener);
+                }
+            },1500);
+            return;
+        }
+        if(isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.native_placeholder))){
+            MediationEvents.onNativeAdErrorEvents();
+            onNativeAdListener.onError("native ad is off from remote");
+            Log.d(Constant.TAG, "native ad is off from remote");
             return;
         }
         ArrayList resultTempAdPriorityList = new ArrayList <>(Arrays.asList(getPriorityAgainstPlaceHolder(placeholder,tempAdPriorityList)));
@@ -300,6 +318,7 @@ public class MediationNativeAd {
             Log.e(TAG, "selectAd: Native can skip first time" );
             return;
         }
+        Log.d(Constant.TAG, "selectAd: another");
         int adPriority = adPriorityList.remove(0);
         switch (adPriority) {
             case MediationAdHelper.AD_FACEBOOK:
@@ -443,9 +462,11 @@ public class MediationNativeAd {
     }
 
     private static void onLoadAdError(String errorMessage) {
+        Log.d(Constant.TAG, "onLoadAdError: "+ errorMessage);
         if (adPriorityList.size() > 0) {
             selectAd();
         } else {
+            Log.d(Constant.TAG, "onLoadAdError: ");
             if (onNativeAdListener != null) {
                 MediationEvents.onNativeAdErrorEvents();
                 onNativeAdListener.onError(errorMessage);
@@ -454,15 +475,28 @@ public class MediationNativeAd {
         }
     }
 
-
+    public static  boolean isAddOff(String value) {
+        if (value.equals("off") || value.equals("OFF") || value.equals("Off") || value.equals("of") || value.equals("0")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     private static void loadAdmobAdvanceAD() {
         Log.d(TAG, "lOADaDmOBAdvancedAD");
         if(admob_ad_key.isEmpty() || admob_ad_key.equals(TEST_ADMOB_NATIVE_ID)){
             if(!AdHelperApplication.getTestMode()) {
                 Log.e(TAG, "[lOADaDmOBAdvancedAD NATIVE AD]Error: empty id found ");
                 onLoadAdError("Empty id found");
+
                 return;
             }
+        }
+        if(AdHelperApplication.admobRequestNativeFaild >= Constant.findIntegerValueInMap(AdSessions.native_session.name(), AdHelperApplication.sessionConfig.admob_sessions)){
+            onLoadAdError("Native admob Sesssion out");
+            AdHelperApplication.admobRequestNativeFaild++;
+            admobNativeAd = null;
+            return;
         }
         AdLoader.Builder builder = new AdLoader.Builder(context, admob_ad_key);
         builder.forNativeAd(new com.google.android.gms.ads.nativead.NativeAd.OnNativeAdLoadedListener() {
@@ -491,6 +525,7 @@ public class MediationNativeAd {
                 String errorMessage = errorCode.getMessage();
                 Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE EXPRESS AD]errorMessage: " + errorMessage);
                 onLoadAdError(errorMessage);
+                AdHelperApplication.admobRequestNativeFaild++;
 
             }
 
@@ -546,6 +581,15 @@ public class MediationNativeAd {
             }
         }
 
+        //check session
+        if(AdHelperApplication.fbRequestNativeFaild >= Constant.findIntegerValueInMap(AdSessions.native_session.name(), AdHelperApplication.sessionConfig.fb_sessions)){
+            facebookAd = null;
+            onLoadAdError("fb Native Session out");
+
+            AdHelperApplication.fbRequestNativeFaild++;
+            return;
+        }
+        Log.d(Constant.TAG, "loadFacebookAD: passing after out session");
         facebookAd = new com.facebook.ads.NativeAd(context, facebook_ad_key);
         NativeAdListener nativeAdListener = new com.facebook.ads.NativeAdListener() {
             @Override
@@ -554,11 +598,12 @@ public class MediationNativeAd {
 
             @Override
             public void onError(Ad ad, AdError adError) {
-                Log.e(MediationAdHelper.TAG, "[FACEBOOK NATIVE AD]Error: " + adError.getErrorMessage());
+                Log.d(Constant.TAG, "[FACEBOOK NATIVE AD]Error: " + adError.getErrorMessage());
                 if (!fbOnErrorCalled) {
                     onLoadAdError(adError.getErrorMessage());
                     fbOnErrorCalled = true;
                 }
+                fbRequestNativeFaild++;
             }
 
             @Override

@@ -1,5 +1,6 @@
 package mediation.helper.banner;
 
+import static mediation.helper.AdHelperApplication.fbRequestBannerFaild;
 import static mediation.helper.AdHelperApplication.getCubiBannerAd;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_BANNER_ID;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_NATIVE_ID;
@@ -40,7 +41,9 @@ import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
+import mediation.helper.config.AdSessions;
 import mediation.helper.config.PLACEHOLDER;
+import mediation.helper.config.SessionConfig;
 import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
 import mediation.helper.util.Constant;
 
@@ -195,7 +198,15 @@ static String TAG_ = "de_banner";
 
     public static void showBanner(ViewGroup bannerContainer,PLACEHOLDER placeholder, Integer[] tempAdPriorityList, final OnBannerAdListener onBannerAdListener) {
         try {
+            //check if add is off
 
+
+            if(isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.banner))){
+                Log.d(Constant.TAG, "showBanner: is off on this place holder");
+                onBannerAdListener.onError("showBanner: is off on this place holder");
+                MediationEvents.onBannerAdErrorEvents();
+                return;
+            }
             MediationAdBanner.adPriorityList = new ArrayList <>(Arrays.asList(getPriorityAgainstPlaceHolder(placeholder,tempAdPriorityList)));
 
             MediationAdBanner.onBannerAdListener = onBannerAdListener;
@@ -393,6 +404,13 @@ static String TAG_ = "de_banner";
                 return;
             }
         }
+        if(AdHelperApplication.fbRequestBannerFaild >= Constant.findIntegerValueInMap(AdSessions.banner_session.name(), AdHelperApplication.sessionConfig.fb_sessions)){
+            MediationEvents.onBannerAdErrorEvents();
+            onBannerAdListener.onError("Banner Sesssion out");
+            MediationAdBanner.onError("Banner Sesssion out");
+            AdHelperApplication.fbRequestBannerFaild++;
+            return;
+        }
 
 
         final com.facebook.ads.AdView facebookBanner = new com.facebook.ads.AdView(bannerContainer.getContext(), facebookKey, AdSize.BANNER_HEIGHT_50);
@@ -407,6 +425,7 @@ static String TAG_ = "de_banner";
                 MediationEvents.onBannerAdErrorEvents();
                 MediationAdBanner.onError(adError.getErrorMessage());
                 Log.d(MediationAdHelper.TAG, "[FACEBOOK BANNER]error: " + adError.getErrorMessage());
+                fbRequestBannerFaild++;
             }
 
             @Override
@@ -445,8 +464,21 @@ static String TAG_ = "de_banner";
         facebookBanner.loadAd(facebookBanner.buildLoadAdConfig().withAdListener(adListener).build());
 
     }
-
+    public static  boolean isAddOff(String value) {
+        if (value.equals("off") || value.equals("OFF") || value.equals("Off") || value.equals("of") || value.equals("0")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     private static void showAdmobBanner() {
+        if(AdHelperApplication.admobRequestBannerFaild >= Constant.findIntegerValueInMap(AdSessions.banner_session.name(), AdHelperApplication.sessionConfig.admob_sessions)){
+            MediationEvents.onBannerAdErrorEvents();
+            onBannerAdListener.onError("NULL OR TEST IDS FOUND");
+            MediationAdBanner.onError("NULL OR TEST IDS FOUND");
+            AdHelperApplication.admobRequestBannerFaild++;
+            return;
+        }
         if(admobKey.isEmpty() || admobKey.equals(TEST_ADMOB_BANNER_ID)){
             if(!AdHelperApplication.getTestMode()) {
                 Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load");
@@ -470,6 +502,7 @@ static String TAG_ = "de_banner";
                 MediationAdBanner.onError(adError.getMessage());
                 MediationEvents.onBannerAdErrorEvents();
                 Log.d(MediationAdHelper.TAG, "[ADMOB BANNER]ERROR: " + adError.getMessage());
+                AdHelperApplication.admobRequestBannerFaild++;
             }
 
             @Override
@@ -503,6 +536,7 @@ static String TAG_ = "de_banner";
 
 
     private static void onError(String errorMessage) {
+        Log.d(Constant.TAG, "onError: "+ errorMessage);
         if (adPriorityList != null && adPriorityList.size() > 0) {
             selectAd();
         } else {

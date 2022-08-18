@@ -1,5 +1,10 @@
 package mediation.helper.util;
 
+import android.util.Log;
+
+import java.util.Locale;
+import java.util.Map;
+
 import mediation.helper.MediationAdHelper;
 
 /**
@@ -9,6 +14,7 @@ import mediation.helper.MediationAdHelper;
 public class Constant {
     public static final String FACEBOOK_PACKAGE_NAME = "com.facebook.katana";
     public static final String ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED = "Facebook app not installed";
+    public static final String TAG = "SESSIONS_";
 
 
     //make theme constans
@@ -93,6 +99,51 @@ public class Constant {
     public static String NEW_APP_VERSION="new_app_version";
     public static String TEST_MODE_KEY="test_mode";
     public static String RELEASE_KEY="release";
+
+
+
+    public static String findValueInMap(String key, Map<String, String> map) {
+        key = key.toUpperCase(Locale.ROOT);
+        Log.d("Constant", "findValueInMap: key " + key);
+        String value = "default";
+        if (map == null) {
+            Log.e("Constant", "findValueInMapInterstitial: map is null");
+        } else {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                Log.i("Constant", "findValueInMap: " + entry.getKey());
+                if (entry.getKey().equals(key.toUpperCase(Locale.ROOT))) {
+                    value = entry.getValue();
+                    Log.d("Constant", "findValueInMap:find " + value);
+                    break;
+
+                }
+            }
+        }
+        Log.d("Constant", "findValueInMap:value  " + value);
+        return value;
+
+    }
+  public static Integer findIntegerValueInMap(String key, Map<String, Integer> map) {
+        key = key.toUpperCase(Locale.ROOT);
+        Log.d("Constant", "findValueInMap: key " + key);
+        int value = 1;
+        if (map == null) {
+            Log.e("Constant", "findValueInMapInterstitial: map is null");
+        } else {
+            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+                Log.i("Constant", "findValueInMap: " + entry.getKey());
+                if (entry.getKey().equals(key.toUpperCase(Locale.ROOT))) {
+                    value = entry.getValue();
+                    Log.d("Constant", "findValueInMap:find " + value);
+                    break;
+
+                }
+            }
+        }
+        Log.d("Constant", "findValueInMap:value  " + value);
+        return value;
+
+    }
 
 
 

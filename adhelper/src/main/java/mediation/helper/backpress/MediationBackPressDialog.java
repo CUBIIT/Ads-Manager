@@ -43,6 +43,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
     private static final String EXTRA_ADMOB_KEY = "admob_key";
     private static final String EXTRA_AD_PRIORITY_LIST = "ad_priority_list";
     private static final String EXTRA_SHOW_REVIEW_BUTTON = "show_review_button";
+    private static final String EXTRA_AD_SWITCH = "show_ad_switch";
     private static final String EXTRA_ADMOB_NATIVE_TYPE = "admob_native_type";
     private static final String EXTRA_IS_PURCHASE = "is_purchase";
 
@@ -148,7 +149,13 @@ public class MediationBackPressDialog extends AppCompatActivity {
         }
         return true;
     }
-
+public static  boolean checkAdSwithIsOff(String value){
+        if(value.equals("off") || value.equals("OFF") || value.equals("Off")|| value.equals("of") || value.equals("0")){
+            return  true ;
+        }else{
+            return false;
+        }
+}
     public static void startDialog(boolean b, PLACEHOLDER placeholder, Activity activity, String appName, Integer[] adPriorityList, boolean showReviewButton, OnBackPressListener onBackPressListener, MediationAdHelper.ImageProvider imageProvider) {
        /* if (!AdHelperApplication.getTestMode()) {
             //check if ids or test skip
@@ -163,6 +170,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
         intent.putExtra(EXTRA_FACEBOOK_KEY, TEST_FB_NATIVE_ID);
         intent.putExtra(EXTRA_ADMOB_KEY, TEST_ADMOB_NATIVE_ID);
         intent.putExtra(EXTRA_SHOW_REVIEW_BUTTON, showReviewButton);
+        intent.putExtra(EXTRA_AD_SWITCH,checkAdSwithIsOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.exit_dialog)));
         intent.putExtra(EXTRA_AD_PRIORITY_LIST, new ArrayList<>(Arrays.asList(getPriorityAgainstPlaceHolder(placeholder, adPriorityList))));
         intent.putExtra(EXTRA_IS_PURCHASE, b);
 
@@ -213,6 +221,10 @@ public class MediationBackPressDialog extends AppCompatActivity {
         showReviewButton();
         checkReview();
         //provide null overads
+        //adswitch true means off
+        if(adSwitch){
+            return;
+        }
         adViewNativeAd = new MediationNativeAd(isPurchase, placeholder, adViewContainer, this, appName, imageProvider);
 
         MediationNativeAd.loadAD(adPriorityList, new OnNativeAdListener() {
@@ -241,6 +253,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
             }
         });
     }
+    boolean adSwitch ;
 
     private void showReviewButton() {
         if (!showReviewButton) {
@@ -265,6 +278,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
             adPriorityList = savedInstanceState.getIntegerArrayList(EXTRA_AD_PRIORITY_LIST);
             showReviewButton = savedInstanceState.getBoolean(EXTRA_SHOW_REVIEW_BUTTON);
             isPurchase = savedInstanceState.getBoolean(EXTRA_IS_PURCHASE);
+            adSwitch = savedInstanceState.getBoolean(EXTRA_AD_SWITCH);
         } else {
             appName = getIntent().getStringExtra(EXTRA_APP_NAME);
             facebookKey = getIntent().getStringExtra(EXTRA_FACEBOOK_KEY);
@@ -272,6 +286,7 @@ public class MediationBackPressDialog extends AppCompatActivity {
             adPriorityList = getIntent().getIntegerArrayListExtra(EXTRA_AD_PRIORITY_LIST);
             showReviewButton = getIntent().getBooleanExtra(EXTRA_SHOW_REVIEW_BUTTON, false);
             isPurchase = getIntent().getBooleanExtra(EXTRA_IS_PURCHASE, false);
+            adSwitch = getIntent().getBooleanExtra(EXTRA_AD_SWITCH, false);
         }
     }
 
