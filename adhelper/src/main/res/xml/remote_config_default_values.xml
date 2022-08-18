@@ -28,7 +28,7 @@
             "DEFAULT": "default"
             },
             "native_placeholder": {
-            "MAIN_ACTIVITY": "admob",
+            "MAIN_ACTIVITY": "default",
             "SUBSCRIPTION_ACTIVITY":"default",
             "PRIVACY_ACTIVITY":"default",
             "DOWNLOAD_ACTIVITY":"default",
