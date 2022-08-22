@@ -89,6 +89,8 @@ public class Constant {
     public static String ADMOB_INTERSTITIAL_ID_KEY="admob_interstitial_id";
     public static String ADMOB_NATIVE_ID_KEY="admob_native_id";
     public static String ADMOB_APP_ID_KEY="admob_app_id";
+    public static String ADMOB_OPEN_AD_ID_KEY="admob_open_ad_id";
+
     public static String NEW_FB_BANNER_ID_KEY="new_fb_banner_id";
     public static String NEW_FB_NATIVE_ID_KEY="new_fb_native_id";
     public static String NEW_FB_INTERSTITIAL_ID_KEY="new_fb_interstitial_id";
@@ -99,6 +101,114 @@ public class Constant {
     public static String NEW_APP_VERSION="new_app_version";
     public static String TEST_MODE_KEY="test_mode";
     public static String RELEASE_KEY="release";
+    public static String DEFUALT_PLACEHOLDER_JSON = "\n" +
+            "            {\n" +
+            "            \"banner\": {\n" +
+            "            \"MAIN_ACTIVITY\": \"default\",\n" +
+            "            \"SUBSCRIPTION_ACTIVITY\":\"default\",\n" +
+            "            \"PRIVACY_ACTIVITY\":\"default\",\n" +
+            "            \"DOWNLOAD_ACTIVITY\":\"default\",\n" +
+            "            \"VIEW_ACTIVITY\":\"default\",\n" +
+            "            \"DATA_ACTIVITY\":\"default\",\n" +
+            "            \"HELP_ACTIVITY\":\"default\",\n" +
+            "            \"ABOUT_ACTIVITY\": \"default\",\n" +
+            "            \"EXIT_ACTIVITY\": \"default\",\n" +
+            "            \"ACTIVITY_1\": \"default\",\n" +
+            "            \"ACTIVITY_2\": \"default\",\n" +
+            "            \"ACTIVITY_3\": \"default\",\n" +
+            "            \"ACTIVITY_4\": \"default\",\n" +
+            "            \"ACTIVITY_5\": \"default\",\n" +
+            "            \"ACTIVITY_6\": \"default\",\n" +
+            "            \"ACTIVITY_7\": \"default\",\n" +
+            "            \"ACTIVITY_8\": \"default\",\n" +
+            "            \"SPLASH_ACTIVITY\": \"default\",\n" +
+            "            \"DEFAULT\": \"default\"\n" +
+            "            },\n" +
+            "            \"native_placeholder\": {\n" +
+            "            \"MAIN_ACTIVITY\": \"default\",\n" +
+            "            \"SUBSCRIPTION_ACTIVITY\":\"default\",\n" +
+            "            \"PRIVACY_ACTIVITY\":\"default\",\n" +
+            "            \"DOWNLOAD_ACTIVITY\":\"default\",\n" +
+            "            \"VIEW_ACTIVITY\":\"default\",\n" +
+            "            \"DATA_ACTIVITY\":\"default\",\n" +
+            "            \"HELP_ACTIVITY\":\"default\",\n" +
+            "            \"ABOUT_ACTIVITY\": \"default\",\n" +
+            "            \"EXIT_ACTIVITY\": \"default\",\n" +
+            "            \"ACTIVITY_1\": \"default\",\n" +
+            "            \"ACTIVITY_2\": \"default\",\n" +
+            "            \"ACTIVITY_3\": \"default\",\n" +
+            "            \"ACTIVITY_4\": \"default\",\n" +
+            "            \"ACTIVITY_5\": \"default\",\n" +
+            "            \"ACTIVITY_6\": \"default\",\n" +
+            "            \"ACTIVITY_7\": \"default\",\n" +
+            "            \"ACTIVITY_8\": \"default\",\n" +
+            "            \"SPLASH_ACTIVITY\": \"default\",\n" +
+            "            \"DEFAULT\": \"default\"\n" +
+            "            },\n" +
+            "            \"native_banner\": {\n" +
+            "            \"MAIN_ACTIVITY\": \"default\",\n" +
+            "            \"SUBSCRIPTION_ACTIVITY\":\"default\",\n" +
+            "            \"PRIVACY_ACTIVITY\":\"default\",\n" +
+            "            \"DOWNLOAD_ACTIVITY\":\"default\",\n" +
+            "            \"VIEW_ACTIVITY\":\"default\",\n" +
+            "            \"DATA_ACTIVITY\":\"default\",\n" +
+            "            \"HELP_ACTIVITY\":\"default\",\n" +
+            "            \"ABOUT_ACTIVITY\": \"default\",\n" +
+            "            \"EXIT_ACTIVITY\": \"default\",\n" +
+            "            \"ACTIVITY_1\": \"default\",\n" +
+            "            \"ACTIVITY_2\": \"default\",\n" +
+            "            \"ACTIVITY_3\": \"default\",\n" +
+            "            \"ACTIVITY_4\": \"default\",\n" +
+            "            \"ACTIVITY_5\": \"default\",\n" +
+            "            \"ACTIVITY_6\": \"default\",\n" +
+            "            \"ACTIVITY_7\": \"default\",\n" +
+            "            \"ACTIVITY_8\": \"default\",\n" +
+            "            \"SPLASH_ACTIVITY\": \"default\",\n" +
+            "            \"DEFAULT\": \"default\"\n" +
+            "            },\n" +
+            "            \"interstitial\": {\n" +
+            "            \"MAIN_ACTIVITY\": \"default\",\n" +
+            "            \"SUBSCRIPTION_ACTIVITY\":\"default\",\n" +
+            "            \"PRIVACY_ACTIVITY\":\"default\",\n" +
+            "            \"DOWNLOAD_ACTIVITY\":\"default\",\n" +
+            "            \"VIEW_ACTIVITY\":\"default\",\n" +
+            "            \"DATA_ACTIVITY\":\"default\",\n" +
+            "            \"HELP_ACTIVITY\":\"default\",\n" +
+            "            \"ABOUT_ACTIVITY\": \"default\",\n" +
+            "            \"EXIT_ACTIVITY\": \"default\",\n" +
+            "            \"ACTIVITY_1\": \"default\",\n" +
+            "            \"ACTIVITY_2\": \"default\",\n" +
+            "            \"ACTIVITY_3\": \"default\",\n" +
+            "            \"ACTIVITY_4\": \"default\",\n" +
+            "            \"ACTIVITY_5\": \"default\",\n" +
+            "            \"ACTIVITY_6\": \"default\",\n" +
+            "            \"ACTIVITY_7\": \"default\",\n" +
+            "            \"ACTIVITY_8\": \"default\",\n" +
+            "            \"SPLASH_ACTIVITY\": \"default\",\n" +
+            "            \"DEFAULT\": \"default\"\n" +
+            "            },\n" +
+            "            \"exit_dialog\": {\n" +
+            "            \"MAIN_ACTIVITY\": \"default\",\n" +
+            "            \"SUBSCRIPTION_ACTIVITY\":\"default\",\n" +
+            "            \"PRIVACY_ACTIVITY\":\"default\",\n" +
+            "            \"DOWNLOAD_ACTIVITY\":\"default\",\n" +
+            "            \"VIEW_ACTIVITY\":\"default\",\n" +
+            "            \"DATA_ACTIVITY\":\"default\",\n" +
+            "            \"HELP_ACTIVITY\":\"default\",\n" +
+            "            \"ABOUT_ACTIVITY\": \"default\",\n" +
+            "            \"EXIT_ACTIVITY\": \"default\",\n" +
+            "            \"ACTIVITY_1\": \"default\",\n" +
+            "            \"ACTIVITY_2\": \"default\",\n" +
+            "            \"ACTIVITY_3\": \"default\",\n" +
+            "            \"ACTIVITY_4\": \"default\",\n" +
+            "            \"ACTIVITY_5\": \"default\",\n" +
+            "            \"ACTIVITY_6\": \"default\",\n" +
+            "            \"ACTIVITY_7\": \"default\",\n" +
+            "            \"ACTIVITY_8\": \"default\",\n" +
+            "            \"SPLASH_ACTIVITY\": \"default\",\n" +
+            "            \"DEFAULT\": \"default\"\n" +
+            "            }\n" +
+            "            }";
 
 
 

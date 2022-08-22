@@ -4,6 +4,7 @@ import static mediation.helper.util.Constant.ADMOB_APP_ID_KEY;
 import static mediation.helper.util.Constant.ADMOB_BANNER_ID_KEY;
 import static mediation.helper.util.Constant.ADMOB_INTERSTITIAL_ID_KEY;
 import static mediation.helper.util.Constant.ADMOB_NATIVE_ID_KEY;
+import static mediation.helper.util.Constant.ADMOB_OPEN_AD_ID_KEY;
 import static mediation.helper.util.Constant.BANNER_AD_PRIORITY_KEY;
 import static mediation.helper.util.Constant.BANNER_KEY_AD_ADVERTISER_NAME;
 import static mediation.helper.util.Constant.BANNER_KEY_AD_BODY;
@@ -104,6 +105,7 @@ public class AdHelperApplication extends Application {
     public static int fbRequestNativeFaild = 0;
     public static int fbRequestNativeBannerFaild = 0;
     public static int fbRequestExitFaild = 0;
+    public static boolean isAppOpenAdEnable = true;
     //    @Override
 //    public void onCreate() {
 //        super.onCreate();
@@ -129,6 +131,7 @@ public class AdHelperApplication extends Application {
     public static boolean adMobInterstialSession = true;
     public static int interstitialClickAdCounter = 0;
     public static long INTERSTITIAL_CLICK_LIMIT = 3;//DEFAULT
+    public static long OPENAPP_AD_CLICK_LIMIT = 3;//DEFAULT
 
     public static void initMediation(Context context) {
         MobileAds.initialize(context, new OnInitializationCompleteListener() {
@@ -161,6 +164,7 @@ public class AdHelperApplication extends Application {
 
 
     static int APP_CURRENT_VERSION = -1;
+
 
     public static void getValuesFromConfig(@NonNull final FirebaseRemoteConfig mFirebaseConfig, int app_current_version, @NonNull final Context context, @NonNull OnFetchRemoteCallback onFetchRemoteCallback) {
         testMode = (0 != (context.getApplicationContext().getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
@@ -210,16 +214,33 @@ public class AdHelperApplication extends Application {
         });
     }
 
+    private static  void checkOpenAddIsEnable(FirebaseRemoteConfig remoteConfig) {
+        String a = remoteConfig.getString("enable_app_openad");
+        Log.d(TAG, "checkOpenAddIsEnable: value is "+ a);
+        if (a.toLowerCase().equals("true") || a.toLowerCase().equals("1") || a.toLowerCase().equals("on") || a.toLowerCase().equals("yes")) {
+            Log.d(TAG, "checkOpenAddIsEnable: " + true);
+            isAppOpenAdEnable = true;
+        } else {
+            isAppOpenAdEnable = false;
+        }
+    }
+
     public static PlaceholderConfig placeholderConfig = null;
 
     private static void fetchPlaceholder(FirebaseRemoteConfig firebaseRemoteConfig) {
-        String TAG = "de_place";
-        String val = firebaseRemoteConfig.getString("placeholders");
-        Log.d(TAG, "fetchPlaceholder: " + val);
-        placeholderConfig = new Gson().fromJson(val, PlaceholderConfig.class);
-        Log.d(TAG, "fetchPlaceholder:after " + placeholderConfig.interstitial.size());
-        //Log.d(TAG, "fetchPlaceholder: banner "+ placeholderConfig.interstitial.MAIN_ACTIVITY);
-
+        try {
+            String TAG = "de_place";
+            String val = firebaseRemoteConfig.getString("placeholders");
+            Log.d(TAG, "fetchPlaceholder: " + val);
+            if (val.isEmpty() || val.equals(" ")) {
+                val = Constant.DEFUALT_PLACEHOLDER_JSON;
+            }
+            placeholderConfig = new Gson().fromJson(val, PlaceholderConfig.class);
+            Log.d(TAG, "fetchPlaceholder:after " + placeholderConfig.interstitial.size());
+            //Log.d(TAG, "fetchPlaceholder: banner "+ placeholderConfig.interstitial.MAIN_ACTIVITY);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -228,7 +249,7 @@ public class AdHelperApplication extends Application {
     public static boolean applyLimitOnAdmob = false;
 
     public static boolean isAdmobInLimit() {
-        if (admobLimit.equals("true") || admobLimit.equals("on") || admobLimit.equals("1") || admobLimit.equals("yes")  ||admobLimit.equals("TRUE") ) {
+        if (admobLimit.equals("true") || admobLimit.equals("on") || admobLimit.equals("1") || admobLimit.equals("yes") || admobLimit.equals("TRUE")) {
             return true;
         } else {
             return false;
@@ -241,8 +262,8 @@ public class AdHelperApplication extends Application {
         Log.d(TAG, "fetchPlaceholder: " + val);
         sessionConfig = new Gson().fromJson(val, SessionConfig.class);
         Collection<Integer> d = sessionConfig.admob_sessions.values();
-        for( int i : d){
-            Log.d(TAG, "fetchSessions: i "+ i);
+        for (int i : d) {
+            Log.d(TAG, "fetchSessions: i " + i);
         }
         Log.d(TAG, "fetchPlaceholder:after " + sessionConfig.admob_sessions.values().size());
         admobLimit = firebaseRemoteConfig.getString("is_admob_limit");
@@ -253,12 +274,17 @@ public class AdHelperApplication extends Application {
     }
 
     private static void updateData(FirebaseRemoteConfig mFirebaseConfig, Context context) {
+        //appopen ad
+        checkOpenAddIsEnable(mFirebaseConfig);
         //PLACEHOLDERS
         fetchPlaceholder(mFirebaseConfig);
         //sessions
         fetchSessions(mFirebaseConfig);
         //CLICK LIMIT
         INTERSTITIAL_CLICK_LIMIT = mFirebaseConfig.getLong("inter_click_limit");
+        //OPENAPP AD CLICK
+        OPENAPP_AD_CLICK_LIMIT = mFirebaseConfig.getLong("admob_open_ad_interval");
+        //prefManager.setLong(ADMOB_OPEN_AD_ID_KEY,OPENAPP_AD_CLICK_LIMIT);
         //GENERAL INFO
         generalInfo = new GeneralInfo();
         generalInfo.setBannerAdPriority(mFirebaseConfig.getString(BANNER_AD_PRIORITY_KEY));
@@ -411,6 +437,7 @@ public class AdHelperApplication extends Application {
             //SET NEW ADMOB
             adIDs.setAdmob_app_id(mFirebaseConfig.getString(NEW_ADMOB_APP_ID_KEY));
             adIDs.setAdmob_banner_id(mFirebaseConfig.getString(NEW_ADMOB_BANNER_ID_KEY));
+            adIDs.setAdmob_open_ad_id(mFirebaseConfig.getString(ADMOB_OPEN_AD_ID_KEY));
             adIDs.setAdmob_native_id(mFirebaseConfig.getString(NEW_ADMOB_NATIVE_ID_KEY));
             adIDs.setAdmob_interstitial_id(mFirebaseConfig.getString(NEW_ADMOB_INTERSTITIAL_ID_KEY));
 
@@ -418,9 +445,11 @@ public class AdHelperApplication extends Application {
             Log.d(TAG, "loading for current/old version ");
             //set fb ids
             adIDs.setFb_banner_id(mFirebaseConfig.getString(FB_BANNER_ID_KEY));
+
             adIDs.setFb_interstitial_id(mFirebaseConfig.getString(FB_INTERSTITIAL_ID_KEY));
             adIDs.setFb_native_id(mFirebaseConfig.getString(FB_NATIVE_ID_KEY));
             //SET ADMOB
+            adIDs.setAdmob_open_ad_id(mFirebaseConfig.getString(ADMOB_OPEN_AD_ID_KEY));
             adIDs.setAdmob_app_id(mFirebaseConfig.getString(ADMOB_APP_ID_KEY));
             adIDs.setAdmob_banner_id(mFirebaseConfig.getString(ADMOB_BANNER_ID_KEY));
             adIDs.setAdmob_native_id(mFirebaseConfig.getString(ADMOB_NATIVE_ID_KEY));

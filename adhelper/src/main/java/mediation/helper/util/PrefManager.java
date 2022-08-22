@@ -40,6 +40,10 @@ public class PrefManager {
         editor.putLong(PREF_NAME, VAL);
         editor.commit();
     }
+    public long getLong(String PREF_NAME) {
+        return pref.getLong(PREF_NAME, 0);
+
+    }
     public boolean getBoolean(String PREF_NAME) {
         return pref.getBoolean(PREF_NAME,false);
     }

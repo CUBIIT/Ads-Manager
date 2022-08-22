@@ -20,6 +20,7 @@ public class AdIDs implements Parcelable {
         fb_interstitial_id = in.readString();
         admob_interstitial_id = in.readString();
         admob_native_id = in.readString();
+        admob_open_ad_id = in.readString();
         admob_app_id = in.readString();
         admob_banner_id = in.readString();
 
@@ -29,6 +30,7 @@ public class AdIDs implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
 
         dest.writeString(fb_banner_id);
+        dest.writeString(admob_open_ad_id);
         dest.writeString(fb_native_id);
         dest.writeString(fb_interstitial_id);
         dest.writeString(admob_interstitial_id);
@@ -69,7 +71,7 @@ public class AdIDs implements Parcelable {
         this.fb_interstitial_id = fb_interstitial_id;
     }
 
-    public AdIDs(String fb_banner_id, String fb_native_id, String fb_interstitial_id, String admob_interstitial_id, String admob_native_id, String admob_app_id, String admob_banner_id) {
+    public AdIDs(String fb_banner_id, String fb_native_id, String fb_interstitial_id, String admob_interstitial_id, String admob_native_id, String admob_app_id, String admob_banner_id,String admob_open_ad_id) {
         this.fb_banner_id = fb_banner_id;
         this.fb_native_id = fb_native_id;
         this.fb_interstitial_id = fb_interstitial_id;
@@ -77,6 +79,7 @@ public class AdIDs implements Parcelable {
         this.admob_native_id = admob_native_id;
         this.admob_app_id = admob_app_id;
         this.admob_banner_id = admob_banner_id;
+        this.admob_open_ad_id = admob_open_ad_id;
     }
 
     public AdIDs(String admob_interstitial_id, String admob_native_id, String admob_app_id, String admob_banner_id) {
@@ -150,6 +153,16 @@ public class AdIDs implements Parcelable {
     String admob_native_id;
     String admob_app_id;
     String admob_banner_id;
+
+    public String getAdmob_open_ad_id() {
+        return admob_open_ad_id;
+    }
+
+    public void setAdmob_open_ad_id(String admob_open_ad_id) {
+        this.admob_open_ad_id = admob_open_ad_id;
+    }
+
+    String admob_open_ad_id;
 
     public AdIDs() {
     }

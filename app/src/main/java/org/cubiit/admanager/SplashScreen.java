@@ -22,6 +22,8 @@ import mediation.helper.interstitial.MediationAdInterstitial;
 import mediation.helper.interstitial.OnInterstitialAdListener;
 import mediation.helper.nativead.MediationNativeAd;
 import mediation.helper.nativead.OnNativeAdListener;
+import mediation.helper.openad.OpenAdManager;
+import mediation.helper.openad.OpenAddCallback;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -46,6 +48,20 @@ public class SplashScreen extends AppCompatActivity {
         findViewById(R.id.getstarted).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(SplashScreen.this,MainActivity.class));
+                finish();
+            }
+        });
+        new OpenAdManager(this, new OpenAddCallback() {
+            @Override
+            public void onDismissClick() {
+                startActivity(new Intent(SplashScreen.this,MainActivity.class));
+                finish();
+            }
+
+            @Override
+            public void onErrorToShow(String error) {
+                Log.d("de_opspl", "onErrorToShow: " + error);
                 startActivity(new Intent(SplashScreen.this,MainActivity.class));
                 finish();
             }

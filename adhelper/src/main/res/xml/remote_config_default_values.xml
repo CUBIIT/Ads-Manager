@@ -143,6 +143,18 @@
         <key>inter_click_limit</key>
         <value>3</value>
     </entry>
+    <entry>
+        <key>admob_open_ad_id</key>
+        <value>ca-app-pub-3940256099942544/3419835294</value>
+    </entry>
+    <entry>
+        <key>enable_app_openad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>admob_open_ad_interval</key>
+        <value>3</value>
+    </entry>
 <!--  new admob app id  -->
     <entry>
         <key>new_admob_app_id</key>
@@ -150,7 +162,7 @@
     </entry>
     <entry>
         <key>new_app_version</key>
-        <value>3</value>
+        <value>-1</value>
     </entry>
     <entry>
         <key>new_admob_banner_id</key>
