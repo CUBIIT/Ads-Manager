@@ -34,7 +34,7 @@ import mediation.helper.util.PrefManager;
 /**
  * Prefetches App Open Ads.
  */
-public class OpenAdManager {
+public class MediationOpenAdManager {
     private AppOpenAd appOpenAd = null;
     private String admob_open_id_key;
 
@@ -53,7 +53,7 @@ private FirebaseAnalytics analytics;
     /**
      * Constructor
      */
-    public OpenAdManager(Activity activity, OpenAddCallback appOpenAdCallBack) {
+    public MediationOpenAdManager(Activity activity, OpenAddCallback appOpenAdCallBack) {
         Log.d("de_op", "OpenAdManager: --------------------");
         this.currentActivity = activity;
         this.openAddCallBack = appOpenAdCallBack;

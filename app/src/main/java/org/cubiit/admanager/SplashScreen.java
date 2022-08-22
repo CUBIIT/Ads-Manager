@@ -1,7 +1,6 @@
 package org.cubiit.admanager;
 
 import static mediation.helper.util.Constant.KEY_PRIORITY_INTERSTITIAL_AD;
-import static mediation.helper.util.Constant.KEY_PRIORITY_NATIVE_AD;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +21,7 @@ import mediation.helper.interstitial.MediationAdInterstitial;
 import mediation.helper.interstitial.OnInterstitialAdListener;
 import mediation.helper.nativead.MediationNativeAd;
 import mediation.helper.nativead.OnNativeAdListener;
-import mediation.helper.openad.OpenAdManager;
+import mediation.helper.openad.MediationOpenAdManager;
 import mediation.helper.openad.OpenAddCallback;
 
 public class SplashScreen extends AppCompatActivity {
@@ -52,7 +51,7 @@ public class SplashScreen extends AppCompatActivity {
                 finish();
             }
         });
-        new OpenAdManager(this, new OpenAddCallback() {
+        new MediationOpenAdManager(this, new OpenAddCallback() {
             @Override
             public void onDismissClick() {
                 startActivity(new Intent(SplashScreen.this,MainActivity.class));

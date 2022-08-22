@@ -228,7 +228,7 @@ public class AdHelperApplication extends Application {
     public static PlaceholderConfig placeholderConfig = null;
 
     private static void fetchPlaceholder(FirebaseRemoteConfig firebaseRemoteConfig) {
-        try {
+//        try {
             String TAG = "de_place";
             String val = firebaseRemoteConfig.getString("placeholders");
             Log.d(TAG, "fetchPlaceholder: " + val);
@@ -238,9 +238,9 @@ public class AdHelperApplication extends Application {
             placeholderConfig = new Gson().fromJson(val, PlaceholderConfig.class);
             Log.d(TAG, "fetchPlaceholder:after " + placeholderConfig.interstitial.size());
             //Log.d(TAG, "fetchPlaceholder: banner "+ placeholderConfig.interstitial.MAIN_ACTIVITY);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
     }
 
