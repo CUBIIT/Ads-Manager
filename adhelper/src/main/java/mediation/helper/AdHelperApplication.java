@@ -214,9 +214,9 @@ public class AdHelperApplication extends Application {
         });
     }
 
-    private static  void checkOpenAddIsEnable(FirebaseRemoteConfig remoteConfig) {
+    private static void checkOpenAddIsEnable(FirebaseRemoteConfig remoteConfig) {
         String a = remoteConfig.getString("enable_app_openad");
-        Log.d(TAG, "checkOpenAddIsEnable: value is "+ a);
+        Log.d(TAG, "checkOpenAddIsEnable: value is " + a);
         if (a.toLowerCase().equals("true") || a.toLowerCase().equals("1") || a.toLowerCase().equals("on") || a.toLowerCase().equals("yes")) {
             Log.d(TAG, "checkOpenAddIsEnable: " + true);
             isAppOpenAdEnable = true;
@@ -227,20 +227,33 @@ public class AdHelperApplication extends Application {
 
     public static PlaceholderConfig placeholderConfig = null;
 
-    private static void fetchPlaceholder(FirebaseRemoteConfig firebaseRemoteConfig) {
-//        try {
-            String TAG = "de_place";
-            String val = firebaseRemoteConfig.getString("placeholders");
-            Log.d(TAG, "fetchPlaceholder: " + val);
+    private static void loadPlaceholderData(FirebaseRemoteConfig firebaseRemoteConfig) {
+
+        try {
+            String val = null;
+            if (firebaseRemoteConfig == null)
+                val = Constant.DEFUALT_PLACEHOLDER_JSON;
+            else
+                val = firebaseRemoteConfig.getString("placeholders");
+            if (val == null) {
+                val = Constant.DEFUALT_PLACEHOLDER_JSON;
+            }
             if (val.isEmpty() || val.equals(" ")) {
                 val = Constant.DEFUALT_PLACEHOLDER_JSON;
             }
             placeholderConfig = new Gson().fromJson(val, PlaceholderConfig.class);
-            Log.d(TAG, "fetchPlaceholder:after " + placeholderConfig.interstitial.size());
-            //Log.d(TAG, "fetchPlaceholder: banner "+ placeholderConfig.interstitial.MAIN_ACTIVITY);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        } catch (Exception e) {
+
+            if (e instanceof NullPointerException) {
+                try {
+                    String val = Constant.DEFUALT_PLACEHOLDER_JSON;
+                    placeholderConfig = new Gson().fromJson(val, PlaceholderConfig.class);
+                } catch (Exception ed) {
+                    ed.printStackTrace();
+                }
+            }
+            e.printStackTrace();
+        }
 
     }
 
@@ -259,15 +272,11 @@ public class AdHelperApplication extends Application {
     private static void fetchSessions(FirebaseRemoteConfig firebaseRemoteConfig) {
         String TAG = Constant.TAG;
         String val = firebaseRemoteConfig.getString("sessions");
-        Log.d(TAG, "fetchPlaceholder: " + val);
         sessionConfig = new Gson().fromJson(val, SessionConfig.class);
         Collection<Integer> d = sessionConfig.admob_sessions.values();
-        for (int i : d) {
-            Log.d(TAG, "fetchSessions: i " + i);
-        }
-        Log.d(TAG, "fetchPlaceholder:after " + sessionConfig.admob_sessions.values().size());
+
         admobLimit = firebaseRemoteConfig.getString("is_admob_limit");
-        Log.d(TAG, "fetchSessions: " + admobLimit);
+
         //Log.d(TAG, "fetchPlaceholder: banner "+ placeholderConfig.interstitial.MAIN_ACTIVITY);
 
 
@@ -277,7 +286,7 @@ public class AdHelperApplication extends Application {
         //appopen ad
         checkOpenAddIsEnable(mFirebaseConfig);
         //PLACEHOLDERS
-        fetchPlaceholder(mFirebaseConfig);
+        loadPlaceholderData(mFirebaseConfig);
         //sessions
         fetchSessions(mFirebaseConfig);
         //CLICK LIMIT
