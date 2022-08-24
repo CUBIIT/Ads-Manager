@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap xmlns:tools="http://schemas.android.com/tools">
+    <!--SET APP IDS FOR NEW VERSION-->
+<!--    placholder values-->
+    <entry>
+        <key>placeholders</key>
+        <value>
+            {
+            "banner": {
+            "MAIN_ACTIVITY": "default",
+            "SUBSCRIPTION_ACTIVITY":"default",
+            "PRIVACY_ACTIVITY":"default",
+            "DOWNLOAD_ACTIVITY":"default",
+            "VIEW_ACTIVITY":"default",
+            "DATA_ACTIVITY":"default",
+            "HELP_ACTIVITY":"default",
+            "ABOUT_ACTIVITY": "default",
+            "EXIT_ACTIVITY": "default",
+            "ACTIVITY_1": "default",
+            "ACTIVITY_2": "default",
+            "ACTIVITY_3": "default",
+            "ACTIVITY_4": "default",
+            "ACTIVITY_5": "default",
+            "ACTIVITY_6": "default",
+            "ACTIVITY_7": "default",
+            "ACTIVITY_8": "default",
+            "SPLASH_ACTIVITY": "default",
+            "DEFAULT": "default"
+            },
+            "native_placeholder": {
+            "MAIN_ACTIVITY": "default",
+            "SUBSCRIPTION_ACTIVITY":"default",
+            "PRIVACY_ACTIVITY":"default",
+            "DOWNLOAD_ACTIVITY":"default",
+            "VIEW_ACTIVITY":"default",
+            "DATA_ACTIVITY":"default",
+            "HELP_ACTIVITY":"default",
+            "ABOUT_ACTIVITY": "default",
+            "EXIT_ACTIVITY": "default",
+            "ACTIVITY_1": "default",
+            "ACTIVITY_2": "default",
+            "ACTIVITY_3": "default",
+            "ACTIVITY_4": "default",
+            "ACTIVITY_5": "default",
+            "ACTIVITY_6": "default",
+            "ACTIVITY_7": "default",
+            "ACTIVITY_8": "default",
+            "SPLASH_ACTIVITY": "default",
+            "DEFAULT": "default"
+            },
+            "native_banner": {
+            "MAIN_ACTIVITY": "default",
+            "SUBSCRIPTION_ACTIVITY":"default",
+            "PRIVACY_ACTIVITY":"default",
+            "DOWNLOAD_ACTIVITY":"default",
+            "VIEW_ACTIVITY":"default",
+            "DATA_ACTIVITY":"default",
+            "HELP_ACTIVITY":"default",
+            "ABOUT_ACTIVITY": "default",
+            "EXIT_ACTIVITY": "default",
+            "ACTIVITY_1": "default",
+            "ACTIVITY_2": "default",
+            "ACTIVITY_3": "default",
+            "ACTIVITY_4": "default",
+            "ACTIVITY_5": "default",
+            "ACTIVITY_6": "default",
+            "ACTIVITY_7": "default",
+            "ACTIVITY_8": "default",
+            "SPLASH_ACTIVITY": "default",
+            "DEFAULT": "default"
+            },
+            "interstitial": {
+            "MAIN_ACTIVITY": "default",
+            "SUBSCRIPTION_ACTIVITY":"default",
+            "PRIVACY_ACTIVITY":"default",
+            "DOWNLOAD_ACTIVITY":"default",
+            "VIEW_ACTIVITY":"default",
+            "DATA_ACTIVITY":"default",
+            "HELP_ACTIVITY":"default",
+            "ABOUT_ACTIVITY": "default",
+            "EXIT_ACTIVITY": "default",
+            "ACTIVITY_1": "default",
+            "ACTIVITY_2": "default",
+            "ACTIVITY_3": "default",
+            "ACTIVITY_4": "default",
+            "ACTIVITY_5": "default",
+            "ACTIVITY_6": "default",
+            "ACTIVITY_7": "default",
+            "ACTIVITY_8": "default",
+            "SPLASH_ACTIVITY": "default",
+            "DEFAULT": "default"
+            },
+            "exit_dialog": {
+            "MAIN_ACTIVITY": "default",
+            "SUBSCRIPTION_ACTIVITY":"default",
+            "PRIVACY_ACTIVITY":"default",
+            "DOWNLOAD_ACTIVITY":"default",
+            "VIEW_ACTIVITY":"default",
+            "DATA_ACTIVITY":"default",
+            "HELP_ACTIVITY":"default",
+            "ABOUT_ACTIVITY": "default",
+            "EXIT_ACTIVITY": "default",
+            "ACTIVITY_1": "default",
+            "ACTIVITY_2": "default",
+            "ACTIVITY_3": "default",
+            "ACTIVITY_4": "default",
+            "ACTIVITY_5": "default",
+            "ACTIVITY_6": "default",
+            "ACTIVITY_7": "default",
+            "ACTIVITY_8": "default",
+            "SPLASH_ACTIVITY": "default",
+            "DEFAULT": "default"
+            }
+            }</value>
+    </entry>
+    <entry>
+<!--        values may be false, 0,no,off,False, true, yes,1,on,-->
+        <key>is_admob_limit</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>sessions</key>
+        <value>
+            {
+            "fb_sessions": {
+            "banner_session": 1,
+            "native_session":1,
+            "interstitial_session":1,
+            "exit_session":1,
+            "native_banner_session":1
+            },
+            "admob_sessions": {
+            "banner_session": 1,
+            "native_session":1,
+            "interstitial_session":1,
+            "exit_session":1,
+            "native_banner_session":1
+            }
+            }
+        </value>
+    </entry>
+    <entry>
+        <key>inter_click_limit</key>
+        <value>3</value>
+    </entry>
+    <entry>
+        <key>admob_open_ad_id</key>
+        <value>ca-app-pub-3940256099942544/3419835294</value>
+    </entry>
+    <entry>
+        <key>enable_app_openad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>admob_open_ad_interval</key>
+        <value>3</value>
+    </entry>
+<!--  new admob app id  -->
+    <entry>
+        <key>new_admob_app_id</key>
+        <value>ca-app-pub-3940256099942544~3347511713</value>
+    </entry>
+    <entry>
+        <key>new_app_version</key>
+        <value>-1</value>
+    </entry>
+    <entry>
+        <key>new_admob_banner_id</key>
+        <value>ca-app-pub-3940256099942544/6300978111</value>
+    </entry>
+    <entry>
+        <key>new_admob_native_id</key>
+        <value>ca-app-pub-3940256099942544/2247696110</value>
+    </entry>
+    <entry>
+        <key>new_admob_interstitial_id</key>
+        <value>ca-app-pub-3940256099942544/1033173712</value>
+    </entry>
+    <!--    by default test fb ids-->
+    <entry>
+        <key>new_fb_banner_id</key>
+        <value>IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</value>
+    </entry>
+    <entry>
+        <key>new_fb_interstitial_id</key>
+        <value>IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</value>
+    </entry>
+    <entry>
+        <key>new_fb_native_id</key>
+        <value>IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</value>
+    </entry>
+   <!-- //by defualt CAT: call to action button is enable
+    //if we pass value 0 then it off automatically-->
+    <entry>
+        <key>enable_CAT</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>can_skip</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>banner_ad_time</key>
+        <value>60</value>
+    </entry>
+    <entry>
+
+        <key>native_ad_time</key>
+        <value>60</value>
+    </entry>
+    <entry>
+
+        <key>interstitial_ad_time</key>
+        <value>60</value>
+    </entry>
+    <entry>
+
+        <key>native_banner_ad_time</key>
+        <value>60</value>
+    </entry>
+
+    <entry>
+        <key>admob_app_id</key>
+        <value>ca-app-pub-3940256099942544~3347511713</value>
+    </entry>
+    <entry>
+        <key>admob_banner_id</key>
+        <value>ca-app-pub-3940256099942544/6300978111</value>
+    </entry>
+    <entry>
+        <key>admob_native_id</key>
+        <value>ca-app-pub-3940256099942544/2247696110</value>
+    </entry>
+    <entry>
+        <key>admob_interstitial_id</key>
+        <value>ca-app-pub-3940256099942544/1033173712</value>
+    </entry>
+    <!--    by default test fb ids-->
+    <entry>
+        <key>fb_banner_id</key>
+        <value>IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</value>
+    </entry>
+    <entry>
+        <key>fb_interstitial_id</key>
+        <value>IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</value>
+    </entry>
+    <entry>
+        <key>fb_native_id</key>
+        <value>IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID</value>
+    </entry>
+    <!--    entries for general info-->
+    <entry>
+        <key>banner_ad_priority</key>
+        <value>FACEBOOK</value>
+    </entry>
+    <entry>
+        <key>interstitial_ad_priority</key>
+        <value>FACEBOOK</value>
+    </entry>
+    <entry>
+        <key>native_ad_priority</key>
+        <value>FACEBOOK</value>
+    </entry>
+    <entry>
+        <key>interstitial_ad_frequency</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>interstitial_ad_timer</key>
+        <value>24</value>
+    </entry>
+
+    <!--    entries for banner ads-->
+    <entry>
+        <key>banner_ad_title</key>
+        <value>QR &amp; Barcode Scanner</value>
+    </entry>
+    <entry>
+        <key>banner_ad_body_text</key>
+        <value>Scan QR &amp; Barcode now!</value>
+    </entry>
+    <entry>
+        <key>banner_square_icon_url</key>
+        <value>https://i.imgur.com/BXfPlcp.png</value>
+    </entry>
+    <entry>
+        <key>banner_ad_url</key>
+        <value>
+            https://play.google.com/store/apps/details?id=free.qr.code.scanner.generator</value>
+    </entry>
+    <entry>
+        <key>banner_ad_advertiser_name</key>
+        <value>CUBI-IT</value>
+    </entry>
+    <entry>
+        <key>banner_ad_call_to_action</key>
+        <value>install</value>
+    </entry>
+    <entry>
+        <key>banner_ad_rating</key>
+        <value>4.9</value>
+    </entry>
+    <entry>
+        <key>banner_ad_feedbacks</key>
+        <value>56,443</value>
+    </entry>
+
+    <!--    entries for interstitial ads-->
+    <entry>
+        <key>interstitial_ad_title</key>
+        <value>QR &amp; Barcode Scanner</value>
+    </entry>
+    <entry>
+        <key>interstitial_ad_body_text</key>
+        <value>Scan QR &amp; Barcode now!</value>
+    </entry>
+    <entry>
+        <key>interstitial_square_icon_url</key>
+        <value>https://i.imgur.com/BXfPlcp.png</value>
+    </entry>
+    <entry>
+        <key>interstitial_feature_icon_url</key>
+        <value>https://i.imgur.com/ydl9dLv.png</value>
+    </entry>
+    <entry>
+        <key>interstitial_ad_url</key>
+        <value>
+            https://play.google.com/store/apps/details?id=free.qr.code.scanner.generator</value>
+    </entry>
+    <entry>
+        <key>interstitial_ad_advertiser_name</key>
+        <value>CUBI-IT</value>
+    </entry>
+    <entry>
+        <key>interstitial_ad_call_to_action</key>
+        <value>install</value>
+    </entry>
+    <entry>
+        <key>interstitial_ad_rating</key>
+        <value>4</value>
+    </entry>
+    <entry>
+        <key>interstitial_ad_feedbacks</key>
+        <value>56,443</value>
+    </entry>
+
+    <!--    entries for native ads-->
+
+    <entry>
+        <key>native_ad_title</key>
+        <value>QR &amp; Barcode Scanner</value>
+    </entry>
+    <entry>
+        <key>native_ad_body_text</key>
+        <value>Scan QR &amp; Barcode now!</value>
+    </entry>
+    <entry>
+        <key>native_ad_icon_url</key>
+        <value>https://i.imgur.com/BXfPlcp.png</value>
+    </entry>
+    <entry>
+        <key>native_ad_image_url</key>
+        <value>https://i.imgur.com/6UNRDcP.jpg</value>
+    </entry>
+    <entry>
+        <key>native_ad_url</key>
+        <value>https://play.google.com/store/apps/details?id=free.qr.code.scanner.generator</value>
+    </entry>
+    <entry>
+        <key>native_ad_advertiser_name</key>
+        <value>CUBI-IT</value>
+    </entry>
+    <entry>
+        <key>native_ad_call_to_action</key>
+        <value>install</value>
+    </entry>
+    <entry>
+        <key>native_ad_rating</key>
+        <value>4.9</value>
+    </entry>
+    <entry>
+        <key>native_ad_feedbacks</key>
+        <value>56,443</value>
+    </entry>
+</defaultsMap>

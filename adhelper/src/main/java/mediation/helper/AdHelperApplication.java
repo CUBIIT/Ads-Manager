@@ -251,7 +251,15 @@ public class AdHelperApplication extends Application {
                 } catch (Exception ed) {
                     ed.printStackTrace();
                 }
+            }else{
+                try {
+                    String val = Constant.DEFUALT_PLACEHOLDER_JSON;
+                    placeholderConfig = new Gson().fromJson(val, PlaceholderConfig.class);
+                } catch (Exception ed) {
+                    ed.printStackTrace();
+                }
             }
+
             e.printStackTrace();
         }
 

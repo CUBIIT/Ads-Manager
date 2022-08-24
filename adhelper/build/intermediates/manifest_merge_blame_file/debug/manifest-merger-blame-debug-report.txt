@@ -1,0 +1,66 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="mediation.helper" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="19"
+6-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml
+7        android:targetSdkVersion="30" />
+7-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+9-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:4:5-79
+9-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:4:22-76
+10    <uses-permission android:name="android.permission.INTERNET" />
+10-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:5:5-67
+10-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:5:22-64
+11
+12    <application>
+12-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:7:5-34:19
+13        <activity android:name="mediation.helper.backpress.MediationBackPressDialog" />
+13-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:8:9-9:82
+13-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:9:13-79
+14
+15        <!-- for ads -->
+16
+17        <activity
+17-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:13:9-16:50
+18            android:name="com.facebook.ads.AudienceNetworkActivity"
+18-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:14:13-68
+19            android:configChanges="keyboardHidden|orientation|screenSize"
+19-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:15:13-74
+20            android:hardwareAccelerated="true" />
+20-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:16:13-47
+21
+22        <meta-data
+22-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:18:9-20:36
+23            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+23-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:19:13-69
+24            android:value="true" />
+24-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:20:13-33
+25        <meta-data
+25-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:23:9-25:69
+26            android:name="com.google.android.gms.version"
+26-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:24:13-58
+27            android:value="@integer/google_play_services_version" />
+27-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:25:13-66
+28
+29        <activity
+29-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:27:9-31:41
+30            android:name="com.google.android.gms.ads.AdActivity"
+30-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:28:13-65
+31            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+31-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:29:13-122
+32            android:multiprocess="true"
+32-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:30:13-40
+33            android:process=":remote" />
+33-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:31:13-38
+34        <activity
+34-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:32:9-33:53
+35            android:name="mediation.helper.interstitial.CubiInterstitialAdActivity"
+35-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:32:19-74
+36            android:theme="@style/FullscreenTheme" />
+36-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\src\main\AndroidManifest.xml:33:13-51
+37    </application>
+38
+39</manifest>
