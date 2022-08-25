@@ -228,7 +228,7 @@ public class AdHelperApplication extends Application {
     public static PlaceholderConfig placeholderConfig = null;
 
     private static void loadPlaceholderData(FirebaseRemoteConfig firebaseRemoteConfig) {
-
+        Log.d(TAG, "loadPlaceholderData: "+firebaseRemoteConfig.getString("placeholders").toString());
         try {
             String val = null;
             if (firebaseRemoteConfig == null)

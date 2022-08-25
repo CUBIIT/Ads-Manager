@@ -1,15 +1,16 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.firebase:firebase-config:21.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b934626839c21f5e75f1c31375b9dc7b/jetified-firebase-config-21.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b934626839c21f5e75f1c31375b9dc7b/jetified-firebase-config-21.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b934626839c21f5e75f1c31375b9dc7b/jetified-firebase-config-21.0.0/AndroidManifest.xml" />
+      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/b934626839c21f5e75f1c31375b9dc7b/jetified-firebase-config-21.0.0/jars/classes.jar!/" />
+      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/b934626839c21f5e75f1c31375b9dc7b/jetified-firebase-config-21.0.0/AndroidManifest.xml" />
+      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/b934626839c21f5e75f1c31375b9dc7b/jetified-firebase-config-21.0.0/res" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-config/21.0.0/de31eb6f86138a9b445d92704d375fccd4bfb2fa/firebase-config-21.0.0-javadoc.jar!/" />
+      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/modules-2/files-2.1/com.google.firebase/firebase-config/21.0.0/de31eb6f86138a9b445d92704d375fccd4bfb2fa/firebase-config-21.0.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-config/21.0.0/6c12478f255d0e6beaf74eae2c8c7e9b17cbf09d/firebase-config-21.0.0-sources.jar!/" />
+      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/modules-2/files-2.1/com.google.firebase/firebase-config/21.0.0/6c12478f255d0e6beaf74eae2c8c7e9b17cbf09d/firebase-config-21.0.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

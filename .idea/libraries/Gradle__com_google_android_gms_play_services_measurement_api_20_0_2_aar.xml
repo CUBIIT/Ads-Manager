@@ -1,14 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.gms:play-services-measurement-api:20.0.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5c58fab876c7b0f2345ac134cd50c7f/jetified-play-services-measurement-api-20.0.2/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5c58fab876c7b0f2345ac134cd50c7f/jetified-play-services-measurement-api-20.0.2/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5c58fab876c7b0f2345ac134cd50c7f/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5c58fab876c7b0f2345ac134cd50c7f/jetified-play-services-measurement-api-20.0.2/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5c58fab876c7b0f2345ac134cd50c7f/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml" />
+      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/d5c58fab876c7b0f2345ac134cd50c7f/jetified-play-services-measurement-api-20.0.2/res" />
+      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/d5c58fab876c7b0f2345ac134cd50c7f/jetified-play-services-measurement-api-20.0.2/jars/classes.jar!/" />
+      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/d5c58fab876c7b0f2345ac134cd50c7f/jetified-play-services-measurement-api-20.0.2/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-measurement-api/20.0.2/d9fa6f35328a64f32f2606643124f206db82aa35/play-services-measurement-api-20.0.2-javadoc.jar!/" />
+      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/modules-2/files-2.1/com.google.android.gms/play-services-measurement-api/20.0.2/d9fa6f35328a64f32f2606643124f206db82aa35/play-services-measurement-api-20.0.2-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES />
   </library>

@@ -1,16 +1,17 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.ads.mediation:facebook:6.8.0.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e9270d40ca1b32ed3cf72e1364024dd6/jetified-facebook-6.8.0.0/annotations.zip!/" />
+      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/e9270d40ca1b32ed3cf72e1364024dd6/jetified-facebook-6.8.0.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e9270d40ca1b32ed3cf72e1364024dd6/jetified-facebook-6.8.0.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e9270d40ca1b32ed3cf72e1364024dd6/jetified-facebook-6.8.0.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e9270d40ca1b32ed3cf72e1364024dd6/jetified-facebook-6.8.0.0/AndroidManifest.xml" />
+      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/e9270d40ca1b32ed3cf72e1364024dd6/jetified-facebook-6.8.0.0/jars/classes.jar!/" />
+      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/e9270d40ca1b32ed3cf72e1364024dd6/jetified-facebook-6.8.0.0/AndroidManifest.xml" />
+      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/e9270d40ca1b32ed3cf72e1364024dd6/jetified-facebook-6.8.0.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.ads.mediation/facebook/6.8.0.0/a036142ea5054187e67c3fb0252d84bd268b7233/facebook-6.8.0.0-sources.jar!/" />
+      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/modules-2/files-2.1/com.google.ads.mediation/facebook/6.8.0.0/a036142ea5054187e67c3fb0252d84bd268b7233/facebook-6.8.0.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
