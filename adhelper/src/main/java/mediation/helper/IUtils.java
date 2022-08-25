@@ -3,7 +3,6 @@ package mediation.helper;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import android.util.Log;
 
 public class IUtils {
 

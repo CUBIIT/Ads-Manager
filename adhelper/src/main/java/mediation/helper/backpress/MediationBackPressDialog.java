@@ -26,7 +26,6 @@ import java.util.Locale;
 import java.util.Map;
 
 import mediation.helper.AdHelperApplication;
-import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
 import mediation.helper.config.PLACEHOLDER;
@@ -164,7 +163,7 @@ public static  boolean checkAdSwithIsOff(String value){
                     return;
             }
         }*/
-        MediationEvents.onDialogAdCalledEvent();
+
         Intent intent = new Intent(activity, MediationBackPressDialog.class);
         intent.putExtra(EXTRA_APP_NAME, appName);
         intent.putExtra(EXTRA_FACEBOOK_KEY, TEST_FB_NATIVE_ID);
@@ -231,7 +230,7 @@ public static  boolean checkAdSwithIsOff(String value){
             @Override
             public void onError(String errorMessage) {
                 if (onBackPressListener != null) {
-                    MediationEvents.onDialogAdErrorEvent();
+
                     onBackPressListener.onError(errorMessage);
                 }
             }
@@ -240,7 +239,7 @@ public static  boolean checkAdSwithIsOff(String value){
             public void onLoaded(int adType) {
                 if (onBackPressListener != null) {
                     onBackPressListener.onLoaded(adType);
-                    MediationEvents.onDialogAdSuccessEvent(adType);
+
                 }
             }
 
@@ -248,7 +247,7 @@ public static  boolean checkAdSwithIsOff(String value){
             public void onAdClicked(int adType) {
                 if (onBackPressListener != null) {
                     onBackPressListener.onAdClicked(adType);
-                    MediationEvents.onDialogAdClickedEvent();
+
                 }
             }
         });

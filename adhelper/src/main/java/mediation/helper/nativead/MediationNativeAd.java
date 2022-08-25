@@ -49,11 +49,9 @@ import java.util.Locale;
 import java.util.Map;
 
 import mediation.helper.AdHelperApplication;
-import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
-import mediation.helper.banner.MediationAdBanner;
 import mediation.helper.config.AdSessions;
 import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.cubiad.NativeAdView.CubiNativeAd;
@@ -146,10 +144,10 @@ public class MediationNativeAd {
             onNativeAdListener.onError("You have pro version!");
             return;
         }
-        MediationEvents.onNativeAdCalledEvents();
+
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             if (onNativeAdListener != null) {
-                MediationEvents.onNativeAdErrorEvents();
+
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/TNK");
             }
             return;
@@ -164,7 +162,7 @@ public class MediationNativeAd {
             return;
         }
         if(isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.native_placeholder))){
-            MediationEvents.onNativeAdErrorEvents();
+
             onNativeAdListener.onError("native ad is off from remote");
             Log.d(Constant.TAG, "native ad is off from remote");
             return;
@@ -262,7 +260,7 @@ public class MediationNativeAd {
 
         if (tempAdPriorityList == null || tempAdPriorityList.size() == 0) {
             if (onNativeAdListener != null) {
-                MediationEvents.onNativeAdErrorEvents();
+
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/CUBI-IT");
             }
             return;
@@ -288,7 +286,7 @@ public class MediationNativeAd {
         } catch (Exception e) {
             e.printStackTrace();
             if (onNativeAdListener != null) {
-                MediationEvents.onNativeAdErrorEvents();
+
                 onNativeAdListener.onError(e.toString());
             }
         }
@@ -314,7 +312,7 @@ public class MediationNativeAd {
     private static void selectAd() {
         if(adTimeLimits.isCan_skip()){
             adTimeLimits.setCan_skip(false);
-            MediationEvents.onNativeAdErrorEvents();
+
             onNativeAdListener.onError("Native can skip firstly");
             Log.e(TAG, "selectAd: Native can skip first time" );
             return;
@@ -336,7 +334,7 @@ public class MediationNativeAd {
                 Log.d(TAG, "selectAd: cbui-it");
                 bindCubiAd();
             default:
-                MediationEvents.onNativeAdErrorEvents();
+
                 onNativeAdListener.onError("You have to select priority type ADMOB or FACEBOOK");
         }
     }
@@ -394,7 +392,7 @@ public class MediationNativeAd {
         adIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MediationEvents.onNativeAdAdClickedEvents();
+
                 onNativeAdListener.onAdClicked(3);
                 actionOnCubiAdClicked();
             }
@@ -402,7 +400,7 @@ public class MediationNativeAd {
         calltoAction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MediationEvents.onNativeAdAdClickedEvents();
+
                 onNativeAdListener.onAdClicked(3);
                 actionOnCubiAdClicked();
             }
@@ -410,19 +408,18 @@ public class MediationNativeAd {
         medicontent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MediationEvents.onNativeAdAdClickedEvents();
+
                 onNativeAdListener.onAdClicked(3);
                 actionOnCubiAdClicked();
             }
         });
-        MediationEvents.onNativeAdSuccessEvents(3);
         onNativeAdListener.onLoaded(3);
     }
 
     public static void actionOnCubiAdClicked() {
         String url = cubiNativeAd.getNativeAdUrlLink();
         if (url.isEmpty()) {
-            MediationEvents.onNativeAdErrorEvents();
+
             onNativeAdListener.onError("Url is empty");
             return;
         }
@@ -452,7 +449,7 @@ public class MediationNativeAd {
 //            context.startActivity(new Intent(Intent.ACTION_VIEW,
 //                    Uri.parse("https://play.google.com/store/apps/details?id=" + packageName)));
         } catch (ActivityNotFoundException e) {
-            MediationEvents.onNativeAdErrorEvents();
+
             onNativeAdListener.onError("onClick:" + e.getMessage());
             e.printStackTrace();
         }
@@ -470,7 +467,7 @@ public class MediationNativeAd {
            // containerView.setVisibility(View.GONE);
             Log.d(Constant.TAG, "onLoadAdError: ");
             if (onNativeAdListener != null) {
-                MediationEvents.onNativeAdErrorEvents();
+
                 onNativeAdListener.onError(errorMessage);
             }
 
@@ -550,7 +547,7 @@ public class MediationNativeAd {
                 Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE EXPRESS AD]Loaded");
 
                 if (onNativeAdListener != null) {
-                    MediationEvents.onNativeAdSuccessEvents(2);
+
                     onNativeAdListener.onLoaded(MediationAdHelper.AD_ADMOB);
                 }
             }
@@ -561,7 +558,7 @@ public class MediationNativeAd {
                 Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE EXPRESS AD]Opend");
 
                 if (onNativeAdListener != null) {
-                    MediationEvents.onNativeAdAdClickedEvents();
+
                     onNativeAdListener.onAdClicked(MediationAdHelper.AD_ADMOB);
                 }
             }
@@ -571,7 +568,7 @@ public class MediationNativeAd {
                 super.onAdClicked();
                 Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE AD]Clicked");
                 if (onNativeAdListener != null) {
-                    MediationEvents.onNativeAdAdClickedEvents();
+
                     onNativeAdListener.onAdClicked(MediationAdHelper.AD_ADMOB);
                 }
             }
@@ -628,7 +625,7 @@ public class MediationNativeAd {
                 bindFacebookAD(ad);
 
                 if (onNativeAdListener != null) {
-                    MediationEvents.onNativeAdSuccessEvents(1);
+
                     onNativeAdListener.onLoaded(MediationAdHelper.AD_FACEBOOK);
                 }
             }
@@ -637,7 +634,7 @@ public class MediationNativeAd {
             public void onAdClicked(Ad ad) {
                 Log.d(MediationAdHelper.TAG, "[FACEBOOK NATIVE AD]Clicked");
                 if (onNativeAdListener != null) {
-                    MediationEvents.onNativeAdAdClickedEvents();
+
                     onNativeAdListener.onAdClicked(MediationAdHelper.AD_FACEBOOK);
                 }
             }

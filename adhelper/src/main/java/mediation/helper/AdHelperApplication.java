@@ -56,7 +56,6 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -71,15 +70,12 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
 
 import mediation.helper.callbacks.OnFetchRemoteCallback;
 import mediation.helper.config.PlaceholderConfig;

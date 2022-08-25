@@ -1,10 +1,7 @@
 package mediation.helper.openad;
 
 import static mediation.helper.AdHelperApplication.applyLimitOnAdmob;
-import static mediation.helper.TestAdIDs.TEST_ADMOB_BANNER_ID;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_OPEN_APP_ID;
-import static mediation.helper.TestAdIDs.TEST_FB_BANNER_ID;
-import static mediation.helper.util.Constant.ADMOB_OPEN_AD_ID_KEY;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,7 +9,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.facebook.ads.Ad;
 import com.google.android.gms.ads.AdError;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.FullScreenContentCallback;
@@ -23,12 +19,6 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import java.util.Date;
 
 import mediation.helper.AdHelperApplication;
-import mediation.helper.AnalyticsEvents.MediationEvents;
-import mediation.helper.MediationAdHelper;
-import mediation.helper.R;
-import mediation.helper.TestAdIDs;
-import mediation.helper.banner.MediationAdBanner;
-import mediation.helper.banner.OnBannerAdListener;
 import mediation.helper.util.PrefManager;
 
 /**

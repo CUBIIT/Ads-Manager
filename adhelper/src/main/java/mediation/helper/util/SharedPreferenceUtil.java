@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import mediation.helper.AdIDs;
-
 public class SharedPreferenceUtil {
     public static final String REVIEW = "review";
 

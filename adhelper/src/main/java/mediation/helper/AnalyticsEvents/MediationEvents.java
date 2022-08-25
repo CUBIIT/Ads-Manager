@@ -1,6 +1,5 @@
 package mediation.helper.AnalyticsEvents;
 
-import android.os.Bundle;
 import android.util.Log;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
@@ -42,9 +41,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "onBannerAdCalledEvents");
-        analytics.logEvent(EVENT_BANNER_CALLED, bundle);
+
     }
 
     public static void onBannerAdSuccessEvents(int type) {
@@ -53,10 +50,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putInt("type", type);
-        bundle.putString("name", "onBannerAdSuccessEvents");
-        analytics.logEvent(EVENT_BANNER_SUCCESS, bundle);
+
     }
 
     public static void onBannerAdErrorEvents() {
@@ -65,9 +59,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "onBannerAdErrorEvents");
-        analytics.logEvent(EVENT_BANNER_ERROR, bundle);
+
     }
 
     public static void onBannerAdAdClickedEvents() {
@@ -76,9 +68,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "onBannerAdAdClickedEvents");
-        analytics.logEvent(EVENT_BANNER_CLICKED, bundle);
+
     }
 
     public static void onNativeAdAdClickedEvents() {
@@ -87,9 +77,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "onNativeAdAdClickedEvents");
-        analytics.logEvent(EVENT_NATIVE_CLICKED, bundle);
+
     }
 
     public static void onNativeAdCalledEvents() {
@@ -98,9 +86,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "onNativeAdCalledEvents");
-        analytics.logEvent(EVENT_NATIVE_CALLED, bundle);
+
     }
 
     public static void onNativeAdSuccessEvents(int type) {
@@ -109,10 +95,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putInt("type", type);
-        bundle.putString("name", "EVENT_NATIVE_SUCCESS");
-        analytics.logEvent(EVENT_NATIVE_SUCCESS, bundle);
+
     }
 
     public static void onNativeAdErrorEvents() {
@@ -121,9 +104,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "EVENT_NATIVE_ERROR");
-        analytics.logEvent(EVENT_NATIVE_ERROR, bundle);
+
     }
 
     //    NATIVE BANNER
@@ -133,9 +114,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "EVENT_NATIVE_BANNER_CLICKED");
-        analytics.logEvent(EVENT_NATIVE_BANNER_CLICKED, bundle);
+
     }
 
     public static void onNativeBannerAdCalledEvents() {
@@ -144,9 +123,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "EVENT_NATIVE_CALLED");
-        analytics.logEvent(EVENT_NATIVE_BANNER_CALLED, bundle);
+
     }
 
     public static void onNativeBannerAdSuccessEvents(int type) {
@@ -155,10 +132,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "EVENT_NATIVE_BANNER_SUCCESS");
-        bundle.putInt("type", type);
-        analytics.logEvent(EVENT_NATIVE_BANNER_SUCCESS, bundle);
+
     }
 
     public static void onNativeBannerAdErrorEvents() {
@@ -167,9 +141,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "EVENT_NATIVE_BANNER_ERROR");
-        analytics.logEvent(EVENT_NATIVE_BANNER_ERROR, bundle);
+
     }
 
     public static void onInterstitialAdCalledEvent() {
@@ -178,9 +150,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "EVENT_INTERSTITIAL_CALLED");
-        analytics.logEvent(EVENT_INTERSTITIAL_CALLED, bundle);
+
     }
 
     public static void onInterstitialAdSuccessEvent(int type) {
@@ -189,10 +159,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putInt("type", type);
-        bundle.putString("name", "EVENT_INTERSTITIAL_SUCCESS");
-        analytics.logEvent(EVENT_INTERSTITIAL_SUCCESS, bundle);
+
     }
 
     public static void onInterstitialAdErrorEvent() {
@@ -201,9 +168,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "EVENT_INTERSTITIAL_ERROR");
-        analytics.logEvent(EVENT_INTERSTITIAL_ERROR, bundle);
+
     }
 
     public static void onInterstitialAdClickedEvent() {
@@ -212,9 +177,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "EVENT_INTERSTITIAL_CLICKED");
-        analytics.logEvent(EVENT_INTERSTITIAL_CLICKED, bundle);
+
     }
 //
 
@@ -224,9 +187,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "EVENT_EXIT_DIALOG_AD_CLICKED");
-        analytics.logEvent(EVENT_EXIT_DIALOG_AD_CLICKED, bundle);
+
     }
 
     public static void onDialogAdCalledEvent() {
@@ -235,9 +196,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "EVENT_EXIT_DIALOG_AD_CALLED");
-        analytics.logEvent(EVENT_EXIT_DIALOG_AD_CALLED, bundle);
+
     }
 
     public static void onDialogAdSuccessEvent(int type) {
@@ -246,10 +205,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putInt("type", type);
-        bundle.putString("name", "EVENT_EXIT_DIALOG_AD_SUCCESS");
-        analytics.logEvent(EVENT_EXIT_DIALOG_AD_SUCCESS, bundle);
+
     }
 
     public static void onDialogAdErrorEvent() {
@@ -258,9 +214,7 @@ public class MediationEvents {
             Log.d(TAG, "Unable to log events! FirebaseAnalytics object is null");
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("name", "EVENT_EXIT_DIALOG_AD_ERROR");
-        analytics.logEvent(EVENT_EXIT_DIALOG_AD_ERROR, bundle);
+
     }
 
 }

@@ -1,8 +1,5 @@
 package mediation.helper.config;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class BannerPlaceHolder {
             private String MAIN_ACTIVITY="default";
             private String ABOUT_ACTIVITY="default";

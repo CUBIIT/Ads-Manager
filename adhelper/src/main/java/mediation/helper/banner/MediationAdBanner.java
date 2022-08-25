@@ -4,7 +4,6 @@ import static mediation.helper.AdHelperApplication.applyLimitOnAdmob;
 import static mediation.helper.AdHelperApplication.fbRequestBannerFaild;
 import static mediation.helper.AdHelperApplication.getCubiBannerAd;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_BANNER_ID;
-import static mediation.helper.TestAdIDs.TEST_ADMOB_NATIVE_ID;
 import static mediation.helper.TestAdIDs.TEST_FB_BANNER_ID;
 
 import android.annotation.SuppressLint;
@@ -38,13 +37,11 @@ import java.util.Locale;
 import java.util.Map;
 
 import mediation.helper.AdHelperApplication;
-import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.R;
 import mediation.helper.config.AdSessions;
 import mediation.helper.config.PLACEHOLDER;
-import mediation.helper.config.SessionConfig;
 import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
 import mediation.helper.util.Constant;
 
@@ -74,10 +71,10 @@ public class MediationAdBanner {
     public static void showBanner(boolean isPurchased,PLACEHOLDER placeholder, ViewGroup bannerContainer, int adPriority, OnBannerAdListener onBannerAdListener) {
         if (isPurchased) {
             onBannerAdListener.onError("You have pro version");
-            MediationEvents.onBannerAdErrorEvents();
+          
             return;
         }
-        MediationEvents.onBannerAdCalledEvents();
+       
         MediationAdBanner.cubiBannerAd = getCubiBannerAd();
         Integer[] tempAdPriorityList = new Integer[3];
         tempAdPriorityList[0] = adPriority;
@@ -103,10 +100,10 @@ public class MediationAdBanner {
     public static void showBanner(boolean isPurchased,PLACEHOLDER placeholder, Activity activity, ViewGroup bannerContainer, Integer[] tempAdPriorityList, OnBannerAdListener onBannerAdListener) {
         if (isPurchased) {
             onBannerAdListener.onError("You have pro version");
-            MediationEvents.onBannerAdErrorEvents();
+           
             return;
         }
-        MediationEvents.onBannerAdCalledEvents();
+         
         mActivity = activity;
         MediationAdBanner.facebookKey = TEST_FB_BANNER_ID;
         MediationAdBanner.admobKey = TEST_ADMOB_BANNER_ID;
@@ -184,13 +181,13 @@ static String TAG_ = "de_banner";
         {
             if (AdHelperApplication.getAdIDs().getFb_banner_id().equals(TEST_FB_BANNER_ID) && AdHelperApplication.getAdIDs().getAdmob_banner_id().equals(TEST_ADMOB_BANNER_ID)) {
                 onBannerAdListener.onError("Found Test IDS..");
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 return false;
             }else {
                 return true;
             }
         }else{
-            MediationEvents.onBannerAdErrorEvents();
+             
             onBannerAdListener.onError("No ids found");
             return false;
         }
@@ -205,7 +202,7 @@ static String TAG_ = "de_banner";
             if(isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.banner).toLowerCase(Locale.ROOT))){
                 Log.d(Constant.TAG, "showBanner: is off on this place holder");
                 onBannerAdListener.onError("showBanner: is off on this place holder");
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 return;
             }
             MediationAdBanner.adPriorityList = new ArrayList <>(Arrays.asList(getPriorityAgainstPlaceHolder(placeholder,tempAdPriorityList)));
@@ -214,14 +211,14 @@ static String TAG_ = "de_banner";
             MediationAdBanner.bannerContainer = bannerContainer;
             if (bannerContainer == null) {
                 onBannerAdListener.onError("BannerContainer can not null");
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 return;
             }
             Log.d("de_banner", String.format("Banner Ids:----Facebook: %s -------Admob: %s",facebookKey,admobKey));
             selectAd();
         } catch (Exception e) {
             if (onBannerAdListener != null) {
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 onBannerAdListener.onError("");
             }
 
@@ -242,7 +239,7 @@ static String TAG_ = "de_banner";
                 selectCubiAd();
                 break;
             default: {
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 onBannerAdListener.onError("You have to select priority type ADMOB or FACEBOOK");
             }
 
@@ -277,7 +274,7 @@ static String TAG_ = "de_banner";
         //for test
         try {
             if (isPkgInstalledAlready()) {
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 onBannerAdListener.onError("CubiBannerAd already installed");
                 MediationAdBanner.onError("CubiBannerAd already installed");
                 Log.d("TAG1_banner", "selectCubiAdBanner:  pkg already installed");
@@ -299,7 +296,7 @@ static String TAG_ = "de_banner";
             if (cubiBannerAd == null || cubiBannerAd.getBannerAdUrlLink() == null || cubiBannerAd.getBannerAdUrlLink().isEmpty()) {
                 parentConstraintView.setVisibility(View.GONE);
                 MediationAdBanner.onError("CubiAd is null");
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 onBannerAdListener.onError("CubiAd is null");
                 return;
             }
@@ -314,7 +311,7 @@ static String TAG_ = "de_banner";
             native_banner_ad_calltoaction.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {try{
-                    MediationEvents.onBannerAdAdClickedEvents();
+                   
                     onBannerAdListener.onAdClicked(3);
                     actionOnCubiAdClicked();}catch (Exception e){
                     e.printStackTrace();
@@ -325,7 +322,7 @@ static String TAG_ = "de_banner";
                 @Override
                 public void onClick(View v) {
                     try {
-                        MediationEvents.onBannerAdAdClickedEvents();
+                        
                         onBannerAdListener.onAdClicked(3);
                         actionOnCubiAdClicked();
                     }catch (Exception e){
@@ -335,7 +332,7 @@ static String TAG_ = "de_banner";
             });
             native_banner_ad_sponser_label.setText(cubiBannerAd.getBannerAdadvertiserName());
             onBannerAdListener.onLoaded(3);
-            MediationEvents.onBannerAdSuccessEvents(3);
+           
 
         } catch (Exception e) {
             MediationAdBanner.onError(e.getMessage());
@@ -347,7 +344,7 @@ static String TAG_ = "de_banner";
     private static void actionOnCubiAdClicked() {
         String url = cubiBannerAd.getBannerAdUrlLink();
         if (url.isEmpty()) {
-            MediationEvents.onBannerAdErrorEvents();
+             
             onBannerAdListener.onError("Url is empty");
             return;
         }
@@ -390,7 +387,7 @@ static String TAG_ = "de_banner";
     private static void showFacebookBanner() {
         Log.d(MediationAdHelper.TAG, "show faaceboookBanner");
         if (MediationAdHelper.isSkipFacebookAd(bannerContainer.getContext())) {
-            MediationEvents.onBannerAdErrorEvents();
+             
             onBannerAdListener.onError(Constant.ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED);
             MediationAdBanner.onError(Constant.ERROR_MESSAGE_FACEBOOK_NOT_INSTALLED);
             return;
@@ -399,14 +396,14 @@ static String TAG_ = "de_banner";
             if(!AdHelperApplication.getTestMode()) {
                 Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load");
                 Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]Error:  IDS null or test found");
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 onBannerAdListener.onError("NULL OR TEST IDS FOUND");
                 MediationAdBanner.onError("NULL OR TEST IDS FOUND");
                 return;
             }
         }
         if(AdHelperApplication.fbRequestBannerFaild >= Constant.findIntegerValueInMap(AdSessions.banner_session.name(), AdHelperApplication.sessionConfig.fb_sessions)){
-            MediationEvents.onBannerAdErrorEvents();
+             
             onBannerAdListener.onError("Banner Sesssion out");
             MediationAdBanner.onError("Banner Sesssion out");
             AdHelperApplication.fbRequestBannerFaild++;
@@ -423,7 +420,7 @@ static String TAG_ = "de_banner";
         AdListener adListener = new AdListener() {
             @Override
             public void onError(Ad ad, AdError adError) {
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 MediationAdBanner.onError(adError.getErrorMessage());
                 Log.d(MediationAdHelper.TAG, "[FACEBOOK BANNER]error: " + adError.getErrorMessage());
                 fbRequestBannerFaild++;
@@ -441,7 +438,7 @@ static String TAG_ = "de_banner";
                 bannerContainer.addView(facebookBanner);
 
                 if (onBannerAdListener != null) {
-                    MediationEvents.onBannerAdSuccessEvents(MediationAdHelper.AD_FACEBOOK);
+                  
                     onBannerAdListener.onLoaded(MediationAdHelper.AD_FACEBOOK);
                 }
 
@@ -451,7 +448,7 @@ static String TAG_ = "de_banner";
             public void onAdClicked(Ad ad) {
                 Log.d(MediationAdHelper.TAG, "[FACEBOOK BANNER]Clicked");
                 if (onBannerAdListener != null) {
-                    MediationEvents.onBannerAdAdClickedEvents();
+                   
                     onBannerAdListener.onAdClicked(MediationAdHelper.AD_FACEBOOK);
                 }
             }
@@ -474,7 +471,7 @@ static String TAG_ = "de_banner";
     }
     private static void showAdmobBanner() {
         if(AdHelperApplication.admobRequestBannerFaild >= Constant.findIntegerValueInMap(AdSessions.banner_session.name(), AdHelperApplication.sessionConfig.admob_sessions)){
-            MediationEvents.onBannerAdErrorEvents();
+             
             onBannerAdListener.onError("NULL OR TEST IDS FOUND");
             MediationAdBanner.onError("NULL OR TEST IDS FOUND");
             AdHelperApplication.admobRequestBannerFaild++;
@@ -483,7 +480,7 @@ static String TAG_ = "de_banner";
         //check if admob in limit or not
         if(AdHelperApplication.isAdmobInLimit()){
             if(applyLimitOnAdmob){
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 onBannerAdListener.onError("Admob in limit & ads limited in current session");
                 MediationAdBanner.onError("Admob in limit & ads limited in current session");
                 return;
@@ -493,7 +490,7 @@ static String TAG_ = "de_banner";
             if(!AdHelperApplication.getTestMode()) {
                 Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]InstallAd Load");
                 Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE BANNER AD]Error:  IDS null or test found");
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 onBannerAdListener.onError("NULL OR TEST IDS FOUND");
                 MediationAdBanner.onError("NULL OR TEST IDS FOUND");
                 return;
@@ -510,7 +507,7 @@ static String TAG_ = "de_banner";
             @Override
             public void onAdFailedToLoad(LoadAdError adError) {
                 MediationAdBanner.onError(adError.getMessage());
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 Log.d(MediationAdHelper.TAG, "[ADMOB BANNER]ERROR: " + adError.getMessage());
                 AdHelperApplication.admobRequestBannerFaild++;
                 // when admob in limit don't show next ad after one is failed
@@ -530,9 +527,9 @@ static String TAG_ = "de_banner";
                 bannerContainer.addView(admobBanner);
 
                 if (onBannerAdListener != null) {
-                    MediationEvents.onBannerAdSuccessEvents(2);
+                  
                     onBannerAdListener.onLoaded(MediationAdHelper.AD_ADMOB);
-                    MediationEvents.onBannerAdSuccessEvents(MediationAdHelper.AD_ADMOB);
+                  
                 }
             }
 
@@ -540,7 +537,7 @@ static String TAG_ = "de_banner";
             public void onAdOpened() {
                 super.onAdOpened();
                 if (onBannerAdListener != null) {
-                    MediationEvents.onBannerAdAdClickedEvents();
+                    
                     onBannerAdListener.onAdClicked(MediationAdHelper.AD_ADMOB);
                 }
             }
@@ -555,7 +552,7 @@ static String TAG_ = "de_banner";
             selectAd();
         } else {
             if (onBannerAdListener != null) {
-                MediationEvents.onBannerAdErrorEvents();
+                 
                 onBannerAdListener.onError(errorMessage);
             }
             finishAd();

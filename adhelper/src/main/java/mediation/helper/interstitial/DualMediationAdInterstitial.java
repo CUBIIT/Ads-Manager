@@ -1,5 +1,9 @@
 package mediation.helper.interstitial;
 
+import static mediation.helper.MediationAdHelper.timer;
+import static mediation.helper.TestAdIDs.TEST_ADMOB_INTERSTITIAL_ID;
+import static mediation.helper.TestAdIDs.TEST_FB_INTERSTITIAL_ID;
+
 import android.app.Activity;
 import android.os.Handler;
 import android.util.Log;
@@ -19,16 +23,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import mediation.helper.AdHelperApplication;
-import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.MediationAdHelper;
-import mediation.helper.bannerNativeAd.OnNativeBannerListener;
 import mediation.helper.util.Constant;
-
-import static mediation.helper.MediationAdHelper.timer;
-import static mediation.helper.TestAdIDs.TEST_ADMOB_INTERSTITIAL_ID;
-import static mediation.helper.TestAdIDs.TEST_ADMOB_NATIVE_ID;
-import static mediation.helper.TestAdIDs.TEST_FB_INTERSTITIAL_ID;
-import static mediation.helper.TestAdIDs.TEST_FB_NATIVE_ID;
 
 
 /**
@@ -88,7 +84,7 @@ public class DualMediationAdInterstitial {
             onInterstitialAdListener.onError("You have pro version!");
             return;
         }
-        MediationEvents.onInterstitialAdCalledEvent();
+         
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             throw new RuntimeException("You have to select priority type ADMOB/FACEBOOK/TNK");
         }
@@ -120,7 +116,7 @@ public class DualMediationAdInterstitial {
                 public void run() {
                     Log.d(MediationAdHelper.TAG, "Delay Time is Finished!");
                     if (showAds && DualMediationAdInterstitial.onInterstitialAdListener != null) {
-                        MediationEvents.onInterstitialAdErrorEvent();
+                         
                         DualMediationAdInterstitial.onInterstitialAdListener.onError("Delay Time is Finished!");
                         showAds = false;
                     }
@@ -129,7 +125,7 @@ public class DualMediationAdInterstitial {
         } catch (Exception e) {
             e.printStackTrace();
             if (onInterstitialAdListener != null) {
-                MediationEvents.onInterstitialAdErrorEvent();
+                 
                 onInterstitialAdListener.onError(e.toString());
             }
             finishAd();
@@ -147,7 +143,7 @@ public class DualMediationAdInterstitial {
                 showAdmobInterstitialAd();
                 break;
             default:
-                MediationEvents.onInterstitialAdErrorEvent();
+                 
                 onInterstitialAdListener.onError("You have to select priority type ADMOB or FACEBOOK");
                 finishAd();
         }
@@ -203,7 +199,7 @@ public class DualMediationAdInterstitial {
                     }
 
                     if (onInterstitialAdListener != null) {
-                        MediationEvents.onInterstitialAdSuccessEvent(2);
+
                         onInterstitialAdListener.onLoaded(MediationAdHelper.AD_FACEBOOK);
                     }
                 }
@@ -268,7 +264,7 @@ public class DualMediationAdInterstitial {
                     admobInterstitialAD.show(activityRef.get());
 
                     if (onInterstitialAdListener != null) {
-                        MediationEvents.onInterstitialAdSuccessEvent(1);
+
                         onInterstitialAdListener.onLoaded(MediationAdHelper.AD_ADMOB);
                     }
                 }
@@ -292,7 +288,7 @@ public class DualMediationAdInterstitial {
             selectAd();
         } else {
             if (onInterstitialAdListener != null) {
-                MediationEvents.onInterstitialAdErrorEvent();
+                 
                 onInterstitialAdListener.onError(errorMessage);
             }
             finishAd();

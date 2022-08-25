@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import mediation.helper.MediationAdHelper;
 import mediation.helper.config.PLACEHOLDER;
-import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
 import mediation.helper.cubiad.NativeAdView.CubiNativeAd;
 
 
