@@ -79,441 +79,440 @@
 43-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:12:9-45
 44        android:supportsRtl="true"
 44-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:14:9-35
-45        android:testOnly="true"
-46        android:theme="@style/Theme.AdManager" >
-46-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:15:9-47
-47        <activity
-47-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:16:9-18:67
-48            android:name="org.cubiit.admanager.AdsActivity"
-48-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:17:13-40
-49            android:parentActivityName="org.cubiit.admanager.MainActivity" />
-49-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:18:13-55
-50        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
-51        <meta-data
-51-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:20:9-22:70
-52            android:name="com.google.android.gms.ads.APPLICATION_ID"
-52-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:21:13-69
-53            android:value="ca-app-pub-9579400493638621~6906548884" />
-53-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:22:13-67
-54
-55        <activity android:name="org.cubiit.admanager.SplashScreen" >
-55-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:24:9-30:20
-55-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:24:19-47
-56            <intent-filter>
-56-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:25:13-29:29
-57                <action android:name="android.intent.action.MAIN" />
-57-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:26:17-69
-57-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:26:25-66
-58
-59                <category android:name="android.intent.category.LAUNCHER" />
-59-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:28:17-77
-59-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:28:27-74
-60            </intent-filter>
-61        </activity>
-62        <activity android:name="org.cubiit.admanager.MainActivity" />
-62-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:31:9-59
-62-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:31:19-47
-63        <activity android:name="mediation.helper.backpress.MediationBackPressDialog" /> <!-- for ads -->
-63-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-88
-63-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:19-85
-64        <activity
-64-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-20:50
-65            android:name="com.facebook.ads.AudienceNetworkActivity"
-65-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-68
-66            android:configChanges="keyboardHidden|orientation|screenSize"
-66-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-74
-67            android:exported="false"
-67-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:22:13-37
-68            android:hardwareAccelerated="true"
-68-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-47
-69            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-69-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:23:13-72
-70
-71        <meta-data
-71-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:9-24:36
-72            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-72-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-69
-73            android:value="true" />
-73-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-33
-74        <meta-data
-74-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:9-27:69
-75            android:name="com.google.android.gms.version"
-75-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:13-58
-76            android:value="@integer/google_play_services_version" />
-76-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:13-66
-77
-78        <activity
-78-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:9-33:41
-79            android:name="com.google.android.gms.ads.AdActivity"
-79-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-65
-80            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-80-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:13-122
-81            android:exported="false"
-81-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:52:13-37
-82            android:multiprocess="true"
-82-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:32:13-40
-83            android:process=":remote"
-83-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:33:13-38
-84            android:theme="@android:style/Theme.Translucent" />
-84-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:53:13-61
-85        <activity
-85-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:9-36:54
-86            android:name="mediation.helper.interstitial.CubiInterstitialAdActivity"
-86-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:35:13-84
-87            android:theme="@style/FullscreenTheme" />
-87-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:13-51
-88
-89        <provider
-89-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:25:9-28:40
-90            android:name="com.facebook.ads.AudienceNetworkContentProvider"
-90-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:26:13-75
-91            android:authorities="org.cubiit.admanager.AudienceNetworkContentProvider"
-91-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:27:13-82
-92            android:exported="false" />
-92-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:28:13-37
-93
-94        <receiver
-94-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:28:9-35:20
-95            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-95-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:29:13-78
-96            android:exported="true"
-96-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:30:13-36
-97            android:permission="com.google.android.c2dm.permission.SEND" >
-97-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:31:13-73
-98            <intent-filter>
-98-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:32:13-34:29
-99                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-99-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:17-81
-99-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:25-78
-100            </intent-filter>
-101        </receiver>
-102        <!--
-103             FirebaseMessagingService performs security checks at runtime,
-104             but set to not exported to explicitly avoid allowing another app to call it.
-105        -->
-106        <service
-106-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:41:9-48:19
-107            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-107-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:42:13-82
-108            android:directBootAware="true"
-108-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:43:13-43
-109            android:exported="false" >
-109-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:44:13-37
-110            <intent-filter android:priority="-500" >
-110-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:13-47:29
-110-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:28-51
-111                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-111-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:17-78
-111-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:25-75
-112            </intent-filter>
-113        </service>
-114        <service
-114-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:49:9-55:19
-115            android:name="com.google.firebase.components.ComponentDiscoveryService"
-115-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:50:13-84
-116            android:directBootAware="true"
-116-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
-117            android:exported="false" >
-117-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:51:13-37
-118            <meta-data
-118-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:52:13-54:85
-119                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-119-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:53:17-119
-120                android:value="com.google.firebase.components.ComponentRegistrar" />
-120-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:54:17-82
-121            <meta-data
-121-->[com.google.firebase:firebase-config:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b934626839c21f5e75f1c31375b9dc7b\jetified-firebase-config-21.0.0\AndroidManifest.xml:32:13-34:85
-122                android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar"
-122-->[com.google.firebase:firebase-config:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b934626839c21f5e75f1c31375b9dc7b\jetified-firebase-config-21.0.0\AndroidManifest.xml:33:17-117
-123                android:value="com.google.firebase.components.ComponentRegistrar" />
-123-->[com.google.firebase:firebase-config:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b934626839c21f5e75f1c31375b9dc7b\jetified-firebase-config-21.0.0\AndroidManifest.xml:34:17-82
-124            <meta-data
-124-->[com.google.firebase:firebase-datatransport:18.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\da9e16e0a8fc848d3920c944e240f95e\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:28:13-30:85
-125                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-125-->[com.google.firebase:firebase-datatransport:18.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\da9e16e0a8fc848d3920c944e240f95e\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:29:17-115
-126                android:value="com.google.firebase.components.ComponentRegistrar" />
-126-->[com.google.firebase:firebase-datatransport:18.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\da9e16e0a8fc848d3920c944e240f95e\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:30:17-82
-127            <meta-data
-127-->[com.google.firebase:firebase-abt:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1e46104146f3268a64d212e6b0729168\jetified-firebase-abt-21.0.0\AndroidManifest.xml:13:13-15:85
-128                android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar"
-128-->[com.google.firebase:firebase-abt:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1e46104146f3268a64d212e6b0729168\jetified-firebase-abt-21.0.0\AndroidManifest.xml:14:17-109
-129                android:value="com.google.firebase.components.ComponentRegistrar" />
-129-->[com.google.firebase:firebase-abt:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1e46104146f3268a64d212e6b0729168\jetified-firebase-abt-21.0.0\AndroidManifest.xml:15:17-82
-130            <meta-data
-130-->[com.google.android.gms:play-services-measurement-api:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\d5c58fab876c7b0f2345ac134cd50c7f\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:30:13-32:85
-131                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-131-->[com.google.android.gms:play-services-measurement-api:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\d5c58fab876c7b0f2345ac134cd50c7f\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:31:17-139
-132                android:value="com.google.firebase.components.ComponentRegistrar" />
-132-->[com.google.android.gms:play-services-measurement-api:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\d5c58fab876c7b0f2345ac134cd50c7f\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:32:17-82
-133            <meta-data
-133-->[com.google.firebase:firebase-installations:17.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1635f7189471ea49c48f3e8f272faad3\jetified-firebase-installations-17.0.0\AndroidManifest.xml:18:13-20:85
-134                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-134-->[com.google.firebase:firebase-installations:17.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1635f7189471ea49c48f3e8f272faad3\jetified-firebase-installations-17.0.0\AndroidManifest.xml:19:17-127
-135                android:value="com.google.firebase.components.ComponentRegistrar" />
-135-->[com.google.firebase:firebase-installations:17.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1635f7189471ea49c48f3e8f272faad3\jetified-firebase-installations-17.0.0\AndroidManifest.xml:20:17-82
-136        </service>
-137        <service
-137-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:29:9-35:19
-138            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-138-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:30:13-103
-139            android:exported="false" >
-139-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:31:13-37
-140            <meta-data
-140-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:32:13-34:39
-141                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-141-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:33:17-94
-142                android:value="cct" />
-142-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:34:17-36
-143        </service>
-144
-145        <provider
-145-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
-146            android:name="com.google.firebase.provider.FirebaseInitProvider"
-146-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
-147            android:authorities="org.cubiit.admanager.firebaseinitprovider"
-147-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
-148            android:directBootAware="true"
-148-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
-149            android:exported="false"
-149-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
-150            android:initOrder="100" />
-150-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
-151
-152        <receiver
-152-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:29:9-33:20
-153            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-153-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:30:13-85
-154            android:enabled="true"
-154-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:31:13-35
-155            android:exported="false" >
-155-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:32:13-37
-156        </receiver>
-157
-158        <service
-158-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:35:9-38:40
-159            android:name="com.google.android.gms.measurement.AppMeasurementService"
-159-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:36:13-84
-160            android:enabled="true"
-160-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:37:13-35
-161            android:exported="false" />
-161-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:38:13-37
-162        <service
-162-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:39:9-43:72
-163            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-163-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:40:13-87
-164            android:enabled="true"
-164-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:41:13-35
-165            android:exported="false"
-165-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:42:13-37
-166            android:permission="android.permission.BIND_JOB_SERVICE" />
-166-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:43:13-69
-167
-168        <provider
-168-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:55:9-59:39
-169            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
-169-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:56:13-76
-170            android:authorities="org.cubiit.admanager.mobileadsinitprovider"
-170-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:57:13-73
-171            android:exported="false"
-171-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:58:13-37
-172            android:initOrder="100" />
-172-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:59:13-36
-173
-174        <service
-174-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:61:9-64:40
-175            android:name="com.google.android.gms.ads.AdService"
-175-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:62:13-64
-176            android:enabled="true"
-176-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:63:13-35
-177            android:exported="false" />
-177-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:64:13-37
-178
-179        <provider
-179-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:30:9-36:35
-180            android:name="androidx.work.impl.WorkManagerInitializer"
-180-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:31:13-69
-181            android:authorities="org.cubiit.admanager.workmanager-init"
-181-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:32:13-68
-182            android:directBootAware="false"
-182-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:33:13-44
-183            android:exported="false"
-183-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:34:13-37
-184            android:multiprocess="true" />
-184-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:35:13-40
-185
-186        <service
-186-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:38:9-43:35
-187            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
-187-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:39:13-88
-188            android:directBootAware="false"
-188-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:40:13-44
-189            android:enabled="@bool/enable_system_alarm_service_default"
-189-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:41:13-72
-190            android:exported="false" />
-190-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:42:13-37
-191        <service
-191-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:44:9-50:35
-192            android:name="androidx.work.impl.background.systemjob.SystemJobService"
-192-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:45:13-84
-193            android:directBootAware="false"
-193-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:46:13-44
-194            android:enabled="@bool/enable_system_job_service_default"
-194-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:47:13-70
-195            android:exported="true"
-195-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:48:13-36
-196            android:permission="android.permission.BIND_JOB_SERVICE" />
-196-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:49:13-69
-197
-198        <receiver
-198-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:52:9-57:35
-199            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
-199-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:53:13-88
-200            android:directBootAware="false"
-200-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:54:13-44
-201            android:enabled="true"
-201-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:55:13-35
-202            android:exported="false" />
-202-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:56:13-37
-203        <receiver
-203-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:58:9-68:20
-204            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
-204-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:59:13-106
-205            android:directBootAware="false"
-205-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:60:13-44
-206            android:enabled="false"
-206-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:61:13-36
-207            android:exported="false" >
-207-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:62:13-37
-208            <intent-filter>
-208-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:64:13-67:29
-209                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
-209-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:65:17-87
-209-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:65:25-84
-210                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
-210-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:66:17-90
-210-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:66:25-87
-211            </intent-filter>
-212        </receiver>
-213        <receiver
-213-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:69:9-79:20
-214            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
-214-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:70:13-104
-215            android:directBootAware="false"
-215-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:71:13-44
-216            android:enabled="false"
-216-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:72:13-36
-217            android:exported="false" >
-217-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:73:13-37
-218            <intent-filter>
-218-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:75:13-78:29
-219                <action android:name="android.intent.action.BATTERY_OKAY" />
-219-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:76:17-77
-219-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:76:25-74
-220                <action android:name="android.intent.action.BATTERY_LOW" />
-220-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:77:17-76
-220-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:77:25-73
-221            </intent-filter>
-222        </receiver>
-223        <receiver
-223-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:80:9-90:20
-224            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
-224-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:81:13-104
-225            android:directBootAware="false"
-225-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:82:13-44
-226            android:enabled="false"
-226-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:83:13-36
-227            android:exported="false" >
-227-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:84:13-37
-228            <intent-filter>
-228-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:86:13-89:29
-229                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
-229-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:87:17-83
-229-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:87:25-80
-230                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
-230-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:88:17-82
-230-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:88:25-79
-231            </intent-filter>
-232        </receiver>
-233        <receiver
-233-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:91:9-100:20
-234            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
-234-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:92:13-103
-235            android:directBootAware="false"
-235-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:93:13-44
-236            android:enabled="false"
-236-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:94:13-36
-237            android:exported="false" >
-237-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:95:13-37
-238            <intent-filter>
-238-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:97:13-99:29
-239                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-239-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:98:17-79
-239-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:98:25-76
-240            </intent-filter>
-241        </receiver>
-242        <receiver
-242-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:101:9-112:20
-243            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
-243-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:102:13-88
-244            android:directBootAware="false"
-244-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:103:13-44
-245            android:enabled="false"
-245-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:104:13-36
-246            android:exported="false" >
-246-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:105:13-37
-247            <intent-filter>
-247-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:107:13-111:29
-248                <action android:name="android.intent.action.BOOT_COMPLETED" />
-248-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:108:17-79
-248-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:108:25-76
-249                <action android:name="android.intent.action.TIME_SET" />
-249-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:109:17-73
-249-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:109:25-70
-250                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
-250-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:110:17-81
-250-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:110:25-78
-251            </intent-filter>
-252        </receiver>
-253        <receiver
-253-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:113:9-122:20
-254            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
-254-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:114:13-99
-255            android:directBootAware="false"
-255-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:115:13-44
-256            android:enabled="@bool/enable_system_alarm_service_default"
-256-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:116:13-72
-257            android:exported="false" >
-257-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:117:13-37
-258            <intent-filter>
-258-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:119:13-121:29
-259                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
-259-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:120:17-98
-259-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:120:25-95
-260            </intent-filter>
-261        </receiver>
-262
-263        <service
-263-->[androidx.room:room-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9ff9132c4878b849ed7897bbed2c1029\room-runtime-2.1.0\AndroidManifest.xml:25:9-27:40
-264            android:name="androidx.room.MultiInstanceInvalidationService"
-264-->[androidx.room:room-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9ff9132c4878b849ed7897bbed2c1029\room-runtime-2.1.0\AndroidManifest.xml:26:13-74
-265            android:exported="false" />
-265-->[androidx.room:room-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9ff9132c4878b849ed7897bbed2c1029\room-runtime-2.1.0\AndroidManifest.xml:27:13-37
-266        <service
-266-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:26:9-30:19
-267            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-267-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:27:13-117
-268            android:exported="false"
-268-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:28:13-37
-269            android:permission="android.permission.BIND_JOB_SERVICE" >
-269-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:29:13-69
-270        </service>
-271
-272        <receiver
-272-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:32:9-34:40
-273            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-273-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:33:13-132
-274            android:exported="false" />
-274-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:34:13-37
-275    </application>
-276
-277</manifest>
+45        android:theme="@style/Theme.AdManager" >
+45-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:15:9-47
+46        <activity
+46-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:16:9-18:67
+47            android:name="org.cubiit.admanager.AdsActivity"
+47-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:17:13-40
+48            android:parentActivityName="org.cubiit.admanager.MainActivity" />
+48-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:18:13-55
+49        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+50        <meta-data
+50-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:20:9-22:70
+51            android:name="com.google.android.gms.ads.APPLICATION_ID"
+51-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:21:13-69
+52            android:value="ca-app-pub-9579400493638621~6906548884" />
+52-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:22:13-67
+53
+54        <activity android:name="org.cubiit.admanager.SplashScreen" >
+54-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:24:9-30:20
+54-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:24:19-47
+55            <intent-filter>
+55-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:25:13-29:29
+56                <action android:name="android.intent.action.MAIN" />
+56-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:26:17-69
+56-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:26:25-66
+57
+58                <category android:name="android.intent.category.LAUNCHER" />
+58-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:28:17-77
+58-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:28:27-74
+59            </intent-filter>
+60        </activity>
+61        <activity android:name="org.cubiit.admanager.MainActivity" />
+61-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:31:9-59
+61-->C:\Users\HP\AndroidStudioProjects\Ads-Manager\app\src\main\AndroidManifest.xml:31:19-47
+62        <activity android:name="mediation.helper.backpress.MediationBackPressDialog" /> <!-- for ads -->
+62-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:9-88
+62-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:19-85
+63        <activity
+63-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-20:50
+64            android:name="com.facebook.ads.AudienceNetworkActivity"
+64-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-68
+65            android:configChanges="keyboardHidden|orientation|screenSize"
+65-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-74
+66            android:exported="false"
+66-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:22:13-37
+67            android:hardwareAccelerated="true"
+67-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-47
+68            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+68-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:23:13-72
+69
+70        <meta-data
+70-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:9-24:36
+71            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+71-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-69
+72            android:value="true" />
+72-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-33
+73        <meta-data
+73-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:9-27:69
+74            android:name="com.google.android.gms.version"
+74-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:13-58
+75            android:value="@integer/google_play_services_version" />
+75-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:13-66
+76
+77        <activity
+77-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:9-33:41
+78            android:name="com.google.android.gms.ads.AdActivity"
+78-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:13-65
+79            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+79-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:13-122
+80            android:exported="false"
+80-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:52:13-37
+81            android:multiprocess="true"
+81-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:32:13-40
+82            android:process=":remote"
+82-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:33:13-38
+83            android:theme="@android:style/Theme.Translucent" />
+83-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:53:13-61
+84        <activity
+84-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:9-36:54
+85            android:name="mediation.helper.interstitial.CubiInterstitialAdActivity"
+85-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:35:13-84
+86            android:theme="@style/FullscreenTheme" />
+86-->[:adhelper] C:\Users\HP\AndroidStudioProjects\Ads-Manager\adhelper\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:13-51
+87
+88        <provider
+88-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:25:9-28:40
+89            android:name="com.facebook.ads.AudienceNetworkContentProvider"
+89-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:26:13-75
+90            android:authorities="org.cubiit.admanager.AudienceNetworkContentProvider"
+90-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:27:13-82
+91            android:exported="false" />
+91-->[com.facebook.android:audience-network-sdk:6.8.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\cecffe34cb6b8d7b59318e85a8f2829f\jetified-audience-network-sdk-6.8.0\AndroidManifest.xml:28:13-37
+92
+93        <receiver
+93-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:28:9-35:20
+94            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+94-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:29:13-78
+95            android:exported="true"
+95-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:30:13-36
+96            android:permission="com.google.android.c2dm.permission.SEND" >
+96-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:31:13-73
+97            <intent-filter>
+97-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:32:13-34:29
+98                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+98-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:17-81
+98-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:33:25-78
+99            </intent-filter>
+100        </receiver>
+101        <!--
+102             FirebaseMessagingService performs security checks at runtime,
+103             but set to not exported to explicitly avoid allowing another app to call it.
+104        -->
+105        <service
+105-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:41:9-48:19
+106            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+106-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:42:13-82
+107            android:directBootAware="true"
+107-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:43:13-43
+108            android:exported="false" >
+108-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:44:13-37
+109            <intent-filter android:priority="-500" >
+109-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:13-47:29
+109-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:45:28-51
+110                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+110-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:17-78
+110-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:46:25-75
+111            </intent-filter>
+112        </service>
+113        <service
+113-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:49:9-55:19
+114            android:name="com.google.firebase.components.ComponentDiscoveryService"
+114-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:50:13-84
+115            android:directBootAware="true"
+115-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:35:13-43
+116            android:exported="false" >
+116-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:51:13-37
+117            <meta-data
+117-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:52:13-54:85
+118                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+118-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:53:17-119
+119                android:value="com.google.firebase.components.ComponentRegistrar" />
+119-->[com.google.firebase:firebase-messaging:22.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b2711f3e7f68484de5dabbec63d5f8a8\jetified-firebase-messaging-22.0.0\AndroidManifest.xml:54:17-82
+120            <meta-data
+120-->[com.google.firebase:firebase-config:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b934626839c21f5e75f1c31375b9dc7b\jetified-firebase-config-21.0.0\AndroidManifest.xml:32:13-34:85
+121                android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar"
+121-->[com.google.firebase:firebase-config:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b934626839c21f5e75f1c31375b9dc7b\jetified-firebase-config-21.0.0\AndroidManifest.xml:33:17-117
+122                android:value="com.google.firebase.components.ComponentRegistrar" />
+122-->[com.google.firebase:firebase-config:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\b934626839c21f5e75f1c31375b9dc7b\jetified-firebase-config-21.0.0\AndroidManifest.xml:34:17-82
+123            <meta-data
+123-->[com.google.firebase:firebase-datatransport:18.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\da9e16e0a8fc848d3920c944e240f95e\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:28:13-30:85
+124                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+124-->[com.google.firebase:firebase-datatransport:18.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\da9e16e0a8fc848d3920c944e240f95e\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:29:17-115
+125                android:value="com.google.firebase.components.ComponentRegistrar" />
+125-->[com.google.firebase:firebase-datatransport:18.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\da9e16e0a8fc848d3920c944e240f95e\jetified-firebase-datatransport-18.0.0\AndroidManifest.xml:30:17-82
+126            <meta-data
+126-->[com.google.firebase:firebase-abt:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1e46104146f3268a64d212e6b0729168\jetified-firebase-abt-21.0.0\AndroidManifest.xml:13:13-15:85
+127                android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar"
+127-->[com.google.firebase:firebase-abt:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1e46104146f3268a64d212e6b0729168\jetified-firebase-abt-21.0.0\AndroidManifest.xml:14:17-109
+128                android:value="com.google.firebase.components.ComponentRegistrar" />
+128-->[com.google.firebase:firebase-abt:21.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1e46104146f3268a64d212e6b0729168\jetified-firebase-abt-21.0.0\AndroidManifest.xml:15:17-82
+129            <meta-data
+129-->[com.google.android.gms:play-services-measurement-api:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\d5c58fab876c7b0f2345ac134cd50c7f\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:30:13-32:85
+130                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+130-->[com.google.android.gms:play-services-measurement-api:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\d5c58fab876c7b0f2345ac134cd50c7f\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:31:17-139
+131                android:value="com.google.firebase.components.ComponentRegistrar" />
+131-->[com.google.android.gms:play-services-measurement-api:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\d5c58fab876c7b0f2345ac134cd50c7f\jetified-play-services-measurement-api-20.0.2\AndroidManifest.xml:32:17-82
+132            <meta-data
+132-->[com.google.firebase:firebase-installations:17.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1635f7189471ea49c48f3e8f272faad3\jetified-firebase-installations-17.0.0\AndroidManifest.xml:18:13-20:85
+133                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+133-->[com.google.firebase:firebase-installations:17.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1635f7189471ea49c48f3e8f272faad3\jetified-firebase-installations-17.0.0\AndroidManifest.xml:19:17-127
+134                android:value="com.google.firebase.components.ComponentRegistrar" />
+134-->[com.google.firebase:firebase-installations:17.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\1635f7189471ea49c48f3e8f272faad3\jetified-firebase-installations-17.0.0\AndroidManifest.xml:20:17-82
+135        </service>
+136        <service
+136-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:29:9-35:19
+137            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+137-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:30:13-103
+138            android:exported="false" >
+138-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:31:13-37
+139            <meta-data
+139-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:32:13-34:39
+140                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+140-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:33:17-94
+141                android:value="cct" />
+141-->[com.google.android.datatransport:transport-backend-cct:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\ca2375a48060c2d0116ac49f5c54e343\jetified-transport-backend-cct-3.0.0\AndroidManifest.xml:34:17-36
+142        </service>
+143
+144        <provider
+144-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:26:9-31:39
+145            android:name="com.google.firebase.provider.FirebaseInitProvider"
+145-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:27:13-77
+146            android:authorities="org.cubiit.admanager.firebaseinitprovider"
+146-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:28:13-72
+147            android:directBootAware="true"
+147-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:29:13-43
+148            android:exported="false"
+148-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:30:13-37
+149            android:initOrder="100" />
+149-->[com.google.firebase:firebase-common:20.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\8c2cf52c9e68d2591498c613dcb00da0\jetified-firebase-common-20.0.0\AndroidManifest.xml:31:13-36
+150
+151        <receiver
+151-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:29:9-33:20
+152            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+152-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:30:13-85
+153            android:enabled="true"
+153-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:31:13-35
+154            android:exported="false" >
+154-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:32:13-37
+155        </receiver>
+156
+157        <service
+157-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:35:9-38:40
+158            android:name="com.google.android.gms.measurement.AppMeasurementService"
+158-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:36:13-84
+159            android:enabled="true"
+159-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:37:13-35
+160            android:exported="false" />
+160-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:38:13-37
+161        <service
+161-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:39:9-43:72
+162            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+162-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:40:13-87
+163            android:enabled="true"
+163-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:41:13-35
+164            android:exported="false"
+164-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:42:13-37
+165            android:permission="android.permission.BIND_JOB_SERVICE" />
+165-->[com.google.android.gms:play-services-measurement:20.0.2] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\4de00f4f4db559c8670a77b795592e1a\jetified-play-services-measurement-20.0.2\AndroidManifest.xml:43:13-69
+166
+167        <provider
+167-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:55:9-59:39
+168            android:name="com.google.android.gms.ads.MobileAdsInitProvider"
+168-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:56:13-76
+169            android:authorities="org.cubiit.admanager.mobileadsinitprovider"
+169-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:57:13-73
+170            android:exported="false"
+170-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:58:13-37
+171            android:initOrder="100" />
+171-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:59:13-36
+172
+173        <service
+173-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:61:9-64:40
+174            android:name="com.google.android.gms.ads.AdService"
+174-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:62:13-64
+175            android:enabled="true"
+175-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:63:13-35
+176            android:exported="false" />
+176-->[com.google.android.gms:play-services-ads-lite:20.4.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9c5b6137132db52af4823629d679a88c\jetified-play-services-ads-lite-20.4.0\AndroidManifest.xml:64:13-37
+177
+178        <provider
+178-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:30:9-36:35
+179            android:name="androidx.work.impl.WorkManagerInitializer"
+179-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:31:13-69
+180            android:authorities="org.cubiit.admanager.workmanager-init"
+180-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:32:13-68
+181            android:directBootAware="false"
+181-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:33:13-44
+182            android:exported="false"
+182-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:34:13-37
+183            android:multiprocess="true" />
+183-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:35:13-40
+184
+185        <service
+185-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:38:9-43:35
+186            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+186-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:39:13-88
+187            android:directBootAware="false"
+187-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:40:13-44
+188            android:enabled="@bool/enable_system_alarm_service_default"
+188-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:41:13-72
+189            android:exported="false" />
+189-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:42:13-37
+190        <service
+190-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:44:9-50:35
+191            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+191-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:45:13-84
+192            android:directBootAware="false"
+192-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:46:13-44
+193            android:enabled="@bool/enable_system_job_service_default"
+193-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:47:13-70
+194            android:exported="true"
+194-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:48:13-36
+195            android:permission="android.permission.BIND_JOB_SERVICE" />
+195-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:49:13-69
+196
+197        <receiver
+197-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:52:9-57:35
+198            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+198-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:53:13-88
+199            android:directBootAware="false"
+199-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:54:13-44
+200            android:enabled="true"
+200-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:55:13-35
+201            android:exported="false" />
+201-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:56:13-37
+202        <receiver
+202-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:58:9-68:20
+203            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+203-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:59:13-106
+204            android:directBootAware="false"
+204-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:60:13-44
+205            android:enabled="false"
+205-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:61:13-36
+206            android:exported="false" >
+206-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:62:13-37
+207            <intent-filter>
+207-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:64:13-67:29
+208                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+208-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:65:17-87
+208-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:65:25-84
+209                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+209-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:66:17-90
+209-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:66:25-87
+210            </intent-filter>
+211        </receiver>
+212        <receiver
+212-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:69:9-79:20
+213            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+213-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:70:13-104
+214            android:directBootAware="false"
+214-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:71:13-44
+215            android:enabled="false"
+215-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:72:13-36
+216            android:exported="false" >
+216-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:73:13-37
+217            <intent-filter>
+217-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:75:13-78:29
+218                <action android:name="android.intent.action.BATTERY_OKAY" />
+218-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:76:17-77
+218-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:76:25-74
+219                <action android:name="android.intent.action.BATTERY_LOW" />
+219-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:77:17-76
+219-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:77:25-73
+220            </intent-filter>
+221        </receiver>
+222        <receiver
+222-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:80:9-90:20
+223            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+223-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:81:13-104
+224            android:directBootAware="false"
+224-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:82:13-44
+225            android:enabled="false"
+225-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:83:13-36
+226            android:exported="false" >
+226-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:84:13-37
+227            <intent-filter>
+227-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:86:13-89:29
+228                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+228-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:87:17-83
+228-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:87:25-80
+229                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+229-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:88:17-82
+229-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:88:25-79
+230            </intent-filter>
+231        </receiver>
+232        <receiver
+232-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:91:9-100:20
+233            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+233-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:92:13-103
+234            android:directBootAware="false"
+234-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:93:13-44
+235            android:enabled="false"
+235-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:94:13-36
+236            android:exported="false" >
+236-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:95:13-37
+237            <intent-filter>
+237-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:97:13-99:29
+238                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+238-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:98:17-79
+238-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:98:25-76
+239            </intent-filter>
+240        </receiver>
+241        <receiver
+241-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:101:9-112:20
+242            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+242-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:102:13-88
+243            android:directBootAware="false"
+243-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:103:13-44
+244            android:enabled="false"
+244-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:104:13-36
+245            android:exported="false" >
+245-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:105:13-37
+246            <intent-filter>
+246-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:107:13-111:29
+247                <action android:name="android.intent.action.BOOT_COMPLETED" />
+247-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:108:17-79
+247-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:108:25-76
+248                <action android:name="android.intent.action.TIME_SET" />
+248-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:109:17-73
+248-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:109:25-70
+249                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+249-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:110:17-81
+249-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:110:25-78
+250            </intent-filter>
+251        </receiver>
+252        <receiver
+252-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:113:9-122:20
+253            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+253-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:114:13-99
+254            android:directBootAware="false"
+254-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:115:13-44
+255            android:enabled="@bool/enable_system_alarm_service_default"
+255-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:116:13-72
+256            android:exported="false" >
+256-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:117:13-37
+257            <intent-filter>
+257-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:119:13-121:29
+258                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+258-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:120:17-98
+258-->[androidx.work:work-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\e1876974b919aa68805c7cd3acd2460d\work-runtime-2.1.0\AndroidManifest.xml:120:25-95
+259            </intent-filter>
+260        </receiver>
+261
+262        <service
+262-->[androidx.room:room-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9ff9132c4878b849ed7897bbed2c1029\room-runtime-2.1.0\AndroidManifest.xml:25:9-27:40
+263            android:name="androidx.room.MultiInstanceInvalidationService"
+263-->[androidx.room:room-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9ff9132c4878b849ed7897bbed2c1029\room-runtime-2.1.0\AndroidManifest.xml:26:13-74
+264            android:exported="false" />
+264-->[androidx.room:room-runtime:2.1.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\9ff9132c4878b849ed7897bbed2c1029\room-runtime-2.1.0\AndroidManifest.xml:27:13-37
+265        <service
+265-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:26:9-30:19
+266            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+266-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:27:13-117
+267            android:exported="false"
+267-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:28:13-37
+268            android:permission="android.permission.BIND_JOB_SERVICE" >
+268-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:29:13-69
+269        </service>
+270
+271        <receiver
+271-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:32:9-34:40
+272            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+272-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:33:13-132
+273            android:exported="false" />
+273-->[com.google.android.datatransport:transport-runtime:3.0.0] D:\Song HD Download\Compressed\MusicPlayer-master\MusicPlayer-master\.gradle\7.4.2\caches\transforms-2\files-2.1\3f1a357af9ae212de317bfd13f2601f0\jetified-transport-runtime-3.0.0\AndroidManifest.xml:34:13-37
+274    </application>
+275
+276</manifest>

@@ -298,9 +298,17 @@ public class AdHelperApplication extends Application {
         //sessions
         fetchSessions(mFirebaseConfig);
         //CLICK LIMIT
-        INTERSTITIAL_CLICK_LIMIT = mFirebaseConfig.getLong("inter_click_limit");
-        //OPENAPP AD CLICK
-        OPENAPP_AD_CLICK_LIMIT = mFirebaseConfig.getLong("admob_open_ad_interval");
+        try {
+            INTERSTITIAL_CLICK_LIMIT = mFirebaseConfig.getLong("inter_click_limit");
+        }catch (Exception e){
+            INTERSTITIAL_CLICK_LIMIT = 3;
+        } //OPENAPP AD CLICK
+        try {
+            OPENAPP_AD_CLICK_LIMIT = mFirebaseConfig.getLong("admob_open_ad_interval");
+        }catch (Exception e ){
+            OPENAPP_AD_CLICK_LIMIT = 3;
+            e.printStackTrace();
+        }
         //prefManager.setLong(ADMOB_OPEN_AD_ID_KEY,OPENAPP_AD_CLICK_LIMIT);
         //GENERAL INFO
         generalInfo = new GeneralInfo();
