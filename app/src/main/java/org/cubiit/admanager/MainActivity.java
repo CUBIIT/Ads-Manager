@@ -1,5 +1,8 @@
 package org.cubiit.admanager;
 
+import static mediation.helper.AdHelperApplication.applyLimitOnAdmob;
+import static mediation.helper.AdHelperApplication.canShowInterstitial;
+import static mediation.helper.interstitial.MediationAdInterstitial.onInterstitialAdListener;
 import static mediation.helper.util.Constant.KEY_PRIORITY_INTERSTITIAL_AD;
 import static mediation.helper.util.Constant.KEY_PRIORITY_NATIVE_AD;
 
@@ -17,17 +20,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.facebook.ads.Ad;
+import com.facebook.ads.InterstitialAdListener;
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import mediation.helper.AdHelperApplication;
+import mediation.helper.AdTimeLimits;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.backpress.MediationBackPressDialog;
 import mediation.helper.backpress.OnBackPressListener;
+import mediation.helper.config.AdSessions;
 import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.interstitial.MediationAdInterstitial;
 import mediation.helper.interstitial.OnInterstitialAdListener;
+import mediation.helper.util.Constant;
 
 public class MainActivity extends AppCompatActivity {
     OnItemClickListener onItemClickListener;
@@ -50,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static Integer[] KEY_PRIORITY_INTERSTITIAL_AD_test = new Integer[]{
+            MediationAdHelper.AD_ADMOB,
+            MediationAdHelper.AD_FACEBOOK,
+
             MediationAdHelper.AD_CUBI_IT
     };
     FirebaseAnalytics firebaseAnalytics;
@@ -82,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
                 switch (id) {
                     case interstitial:
                         showDialog();
-                        showInterstitalAds();
+                       // loadAdmob();
+                          showInterstitalAds();
                         break;
                     case nativeAds:
                         startActivity(item, "Native Ad");
@@ -150,12 +169,131 @@ public class MainActivity extends AppCompatActivity {
     }
 
     String TAG = "de_main";
+    private InterstitialAd mInterstitialAd;
+
+    private void showAd() {
+        mInterstitialAd.setFullScreenContentCallback(new FullScreenContentCallback() {
+            @Override
+            public void onAdClicked() {
+                // Called when a click is recorded for an ad.
+                Log.d(TAG, "Ad was clicked.");
+            }
+
+            @Override
+            public void onAdDismissedFullScreenContent() {
+                // Called when ad is dismissed.
+                // Set the ad reference to null so you don't show the ad a second time.
+                Log.d(TAG, "Ad dismissed fullscreen content.");
+                mInterstitialAd = null;
+            }
+
+            @Override
+            public void onAdFailedToShowFullScreenContent(AdError adError) {
+                // Called when ad fails to show.
+                Log.e(TAG, "Ad failed to show fullscreen content.");
+                mInterstitialAd = null;
+            }
+
+            @Override
+            public void onAdImpression() {
+                // Called when an impression is recorded for an ad.
+                Log.d(TAG, "Ad recorded an impression.");
+            }
+
+            @Override
+            public void onAdShowedFullScreenContent() {
+                // Called when ad is shown.
+                Log.d(TAG, "Ad showed fullscreen content.");
+            }
+        });
+    }
+
+    private void loadAdmob() {
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        Log.i("de_ad", "loadAdmob: " + adRequest.isTestDevice(this));
+
+
+        InterstitialAd.load(this, "ca-app-pub-3940256099942544/1033173712", adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        // The mInterstitialAd reference will be null until
+                        // an ad is loaded.
+                        mInterstitialAd = interstitialAd;
+                        showAd();
+                        mInterstitialAd.show(MainActivity.this);
+                        Log.i("de_ad", "onAdLoaded");
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        // Handle the error
+                        Log.i("de_ad", loadAdError.toString());
+                        mInterstitialAd = null;
+                    }
+                });
+
+
+    }
+
+    com.facebook.ads.InterstitialAd facebookInterstitialAD;
+
+    private void showFb() {
+        facebookInterstitialAD = new com.facebook.ads.InterstitialAd(this, "IMG_16_9_APP_INSTALL#YOUR_PLACEMENT_ID");
+        InterstitialAdListener interstitialAdListener = new com.facebook.ads.InterstitialAdListener() {
+            @Override
+            public void onInterstitialDisplayed(Ad ad) {
+                // Interstitial displayed callback
+                Log.d("de_adf", "[FACEBOOK FRONT AD]Displayed");
+            }
+
+            @Override
+            public void onInterstitialDismissed(Ad ad) {
+                Log.d(MediationAdHelper.TAG, "[FACEBOOK FRONT AD]Dismissed");
+                // Interstitial dismissed callback
+
+            }
+
+            @Override
+            public void onError(Ad ad, com.facebook.ads.AdError adError) {
+                Log.i("de_adf", "onError: " + adError.getErrorMessage());
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                Log.d(TAG, "onAdLoaded: ");
+                long dif = System.currentTimeMillis() - currentTimeStap;
+                Log.i("de_fb", "onAdLoaded: " + dif);
+                facebookInterstitialAD.show();
+
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                Log.i(TAG, "onAdClicked: ");
+
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+            }
+        };
+        currentTimeStap = System.currentTimeMillis();
+        facebookInterstitialAD.loadAd(
+                facebookInterstitialAD.buildLoadAdConfig()
+                        .withAdListener(interstitialAdListener)
+                        .build());
+    }
+
+    long currentTimeStap = 0;
 
     private void showInterstitalAds() {
 
         try {
+
             MediationAdInterstitial.showInterstitialAd(false, PLACEHOLDER.ACTIVITY_1, this,
-                    KEY_PRIORITY_NATIVE_AD,
+                    KEY_PRIORITY_INTERSTITIAL_AD_test,
                     new OnInterstitialAdListener() {
                         @Override
                         public void onDismissed(int adType) {

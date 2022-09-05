@@ -644,6 +644,9 @@ public class MediationNativeAd {
 
             }
         };
+
+        AdHelperApplication.nativeAdLoad++;
+        Log.d("load_n", "SendNativeRequest: " + AdHelperApplication.nativeAdLoad);
         facebookAd.loadAd(
                 facebookAd.buildLoadAdConfig()
                         .withAdListener(nativeAdListener)

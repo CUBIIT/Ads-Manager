@@ -3,6 +3,10 @@
     <!--SET APP IDS FOR NEW VERSION-->
 <!--    placholder values-->
     <entry>
+        <key>enable_preload</key>
+        <value>0</value>
+    </entry>
+    <entry>
         <key>placeholders</key>
         <value>
             {
@@ -141,7 +145,7 @@
     </entry>
     <entry>
         <key>inter_click_limit</key>
-        <value>3</value>
+        <value>1</value>
     </entry>
     <entry>
         <key>admob_open_ad_id</key>
@@ -233,7 +237,7 @@
     </entry>
     <entry>
         <key>admob_interstitial_id</key>
-        <value>ca-app-pub-3940256099942544/1033173712</value>
+        <value>ca-app-pub-3940256099942544/8691691433</value>
     </entry>
     <!--    by default test fb ids-->
     <entry>

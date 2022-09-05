@@ -26,6 +26,9 @@ org/cubiit/admanager/MainActivity.java
  org.cubiit.admanager.MainActivity$1
  org.cubiit.admanager.MainActivity$2
  org.cubiit.admanager.MainActivity$3
+ org.cubiit.admanager.MainActivity$4
+ org.cubiit.admanager.MainActivity$5
+ org.cubiit.admanager.MainActivity$6
  org.cubiit.admanager.MainActivity$AdsAdapter
  org.cubiit.admanager.MainActivity$AdsAdapter$1
  org.cubiit.admanager.MainActivity$AdsAdapter$AdsHolder

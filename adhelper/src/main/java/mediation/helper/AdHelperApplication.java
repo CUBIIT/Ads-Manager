@@ -61,6 +61,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
 import com.google.android.gms.ads.initialization.AdapterStatus;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
@@ -102,6 +103,9 @@ public class AdHelperApplication extends Application {
     public static int fbRequestNativeBannerFaild = 0;
     public static int fbRequestExitFaild = 0;
     public static boolean isAppOpenAdEnable = true;
+    public static int testFBLoad = 0;
+    public static int nativeAdLoad = 0;
+    public static int loadAdmobInters=0;
     //    @Override
 //    public void onCreate() {
 //        super.onCreate();
@@ -128,8 +132,13 @@ public class AdHelperApplication extends Application {
     public static int interstitialClickAdCounter = 0;
     public static long INTERSTITIAL_CLICK_LIMIT = 3;//DEFAULT
     public static long OPENAPP_AD_CLICK_LIMIT = 3;//DEFAULT
+    public static boolean isAdPreloadEnable = false;//DEFAULT
 
     public static void initMediation(Context context) {
+        List<String> testDeviceIds = Arrays.asList("49CB5184DFD9ACB6581265EA7DF47D8A");
+        RequestConfiguration configuration =
+                new RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build();
+        MobileAds.setRequestConfiguration(configuration);
         MobileAds.initialize(context, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
@@ -144,6 +153,7 @@ public class AdHelperApplication extends Application {
                 // Start loading ads here...
             }
         });
+
     }
 
     public static FirebaseAnalytics getFirebaseAnalytics() {
@@ -285,7 +295,13 @@ public class AdHelperApplication extends Application {
 
 
     }
-
+private static boolean checkAddPreload(String val){
+        String lcVal = val.toLowerCase();
+        if(lcVal.equals("0") || lcVal.equals("off") || lcVal.equals("no")){
+            return false;
+        }else
+            return true;
+}
     private static void updateData(FirebaseRemoteConfig mFirebaseConfig, Context context) {
         //appopen ad
         checkOpenAddIsEnable(mFirebaseConfig);
@@ -293,6 +309,12 @@ public class AdHelperApplication extends Application {
         loadPlaceholderData(mFirebaseConfig);
         //sessions
         fetchSessions(mFirebaseConfig);
+        //check preload
+        String preload  = mFirebaseConfig.getString("enable_preload");
+        isAdPreloadEnable = checkAddPreload(preload);
+        if(preload==null || preload.isEmpty()){
+            preload = "0";
+        }
         //CLICK LIMIT
         try {
             INTERSTITIAL_CLICK_LIMIT = mFirebaseConfig.getLong("inter_click_limit");
