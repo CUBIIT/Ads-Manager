@@ -468,8 +468,12 @@ private static boolean checkAddPreload(String val){
         adTimeLimits.setInterstitial_ad_time(Long.parseLong(native_banner_ad_time));
         //IDS
         adIDs = new AdIDs();
+        String version = mFirebaseConfig.getString(NEW_APP_VERSION);
+        if (version.isEmpty())
+            version = "-1";
 
-        int newAppVersion = Integer.parseInt(mFirebaseConfig.getString(NEW_APP_VERSION));
+        int newAppVersion = APP_CURRENT_VERSION;
+        try{newAppVersion= Integer.parseInt(version);}catch(Exception e){e.printStackTrace();}
         Log.d(TAG, "newAppVersion: " + newAppVersion);
         Log.d(TAG, "CurrentVersion: " + APP_CURRENT_VERSION);
         if ((newAppVersion != -1 && APP_CURRENT_VERSION != -1) && (newAppVersion > APP_CURRENT_VERSION)) {
