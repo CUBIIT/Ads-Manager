@@ -20,7 +20,7 @@ import mediation.helper.util.Constant;
 
 public class MediationAdHelper {
 
-    public static int timer = 5000;
+    public static int timer = 3000;
     public static final String TAG = "MediationAdHelper";
     public static final int AD_FACEBOOK = 1;
     public static final int AD_ADMOB = 2;

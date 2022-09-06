@@ -105,6 +105,7 @@ public class AdHelperApplication extends Application {
     public static boolean isAppOpenAdEnable = true;
     public static int testFBLoad = 0;
     public static int nativeAdLoad = 0;
+    public static int adMobnativeAdLoad = 0;//test
     public static int loadAdmobInters=0;
     //    @Override
 //    public void onCreate() {

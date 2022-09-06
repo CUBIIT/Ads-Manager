@@ -1,5 +1,7 @@
 package org.cubiit.admanager;
 
+import static org.cubiit.admanager.SplashScreen.KEY_PRIORITY_NATIVE_AD_TEST;
+
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +25,8 @@ import mediation.helper.nativead.OnNativeAdListener;
 
 import static mediation.helper.util.Constant.KEY_PRIORITY_BANNER_AD;
 import static mediation.helper.util.Constant.KEY_PRIORITY_NATIVE_AD;
+
+import org.cubiit.admanager.dev.R;
 
 public class AdsActivity extends AppCompatActivity {
     ConstraintLayout ad_container;
@@ -59,7 +63,10 @@ public class AdsActivity extends AppCompatActivity {
     public static Integer[] KEY_PRIORITY_BANNER_AD_TEST = new Integer[]{
 
             MediationAdHelper.AD_CUBI_IT};
+    public static Integer[] KEY_PRIORITY_NATIVE_AD_TEST = new Integer[]{
+            MediationAdHelper.AD_ADMOB, MediationAdHelper.AD_FACEBOOK,
 
+            MediationAdHelper.AD_CUBI_IT};
 
     private void loadBannerAds() {
 
@@ -99,7 +106,7 @@ public class AdsActivity extends AppCompatActivity {
                 (imageView, imageUrl) -> Glide.with(getApplicationContext())
                         .load(imageUrl)
                         .into(imageView));
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeAdListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD_TEST, new OnNativeAdListener() {
             @Override
             public void onError(String errorMessage) {
                 Log.e("ads_act", "onError: "+ errorMessage);

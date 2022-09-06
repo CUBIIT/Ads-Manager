@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDDDDD"
-    tools:context=".AdsActivity">
+    android:background="#DDDDDD">
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/blue"
         android:id="@+id/ad_container"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.7"
-        android:layout_margin="16dp"
+        app:layout_constraintHeight_percent="0.4"
+        android:layout_margin="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 

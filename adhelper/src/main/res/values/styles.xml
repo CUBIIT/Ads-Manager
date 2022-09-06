@@ -14,11 +14,12 @@
     <style name="AdAttribution" parent="Theme.AppCompat.Light">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">4dp</item>
         <item name="android:layout_gravity">left</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textColor">@color/green</item>
         <item name="android:textSize">12sp</item>
         <item name="android:text">@string/ad_text</item>
-        <item name="android:background">#FFCC66</item>
+        <item name="android:background">@drawable/bg_ad_broder</item>
         <item name="android:width">15dp</item>
         <item name="android:height">15dp</item>
     </style>

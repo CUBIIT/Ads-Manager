@@ -4,7 +4,7 @@
     "type": "MERGED_MANIFESTS",
     "kind": "Directory"
   },
-  "applicationId": "org.cubiit.admanager",
+  "applicationId": "org.cubiit.admanager.dev",
   "variantName": "debug",
   "elements": [
     {

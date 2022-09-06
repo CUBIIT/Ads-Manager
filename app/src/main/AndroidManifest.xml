@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.cubiit.admanager">
+    package="org.cubiit.admanager.dev">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".AdManager"
+        android:name="org.cubiit.admanager.AdManager"
         android:allowBackup="true"
         android:icon="@drawable/cubiit_logo"
         android:logo="@drawable/cubiit_logo"
@@ -14,21 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AdManager">
         <activity
-            android:name=".AdsActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:name="org.cubiit.admanager.AdsActivity"
+            android:parentActivityName="org.cubiit.admanager.MainActivity"></activity>
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
+        <meta-data android:name="com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED"
+            android:value="true" />
 
-        <activity android:name=".SplashScreen">
+        <activity android:name="org.cubiit.admanager.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name="org.cubiit.admanager.MainActivity"></activity>
     </application>
 
 </manifest>

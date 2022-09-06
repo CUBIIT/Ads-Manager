@@ -17,6 +17,7 @@ import static mediation.helper.util.SharedPreferenceUtil.putSharedPreference;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -216,7 +217,7 @@ public class MediationAdInterstitial {
 
     //for cubiads
     public static void showInterstitialAd(boolean isPurchased, PLACEHOLDER placeholder, Activity activity, Integer[] tempAdPriorityList, OnInterstitialAdListener onInterstitialAdListener) {
-        Log.d(TAG, "showintisAdPreloadEnable: "+ isAdPreloadEnable);
+        Log.d(TAG, "showintisAdPreloadEnable: " + isAdPreloadEnable);
         if (!isAdPreloadEnable) {
             showInterstitialAdOnTime(isPurchased, placeholder, activity, tempAdPriorityList, onInterstitialAdListener);
             return;
@@ -382,6 +383,11 @@ public class MediationAdInterstitial {
             showAds = true;
             Log.d(TAG, String.format("Interstitial Ad Ids----facebook: %s ----Admob: %s", MediationAdInterstitial.facebookKey, MediationAdInterstitial.admobKey));
             // showSelectedAd();
+            Log.d(TAG, "showInterstitialAdOnTime: "+ admobInterstitialAD + facebookInterstitialAD);
+            if (admobInterstitialAD != null || facebookInterstitialAD != null) {
+                showSelectedAd();
+                return;
+            }
             initInterstitalOnTimeLoad(isPurchased, activity, tempAdPriorityList, null);
             //only run looper  if we show admob and facebook ad
 
@@ -399,7 +405,7 @@ public class MediationAdInterstitial {
                             e.printStackTrace();
                         }
                         showAds = false;
-                        timer = 20000;
+                        timer = 2000;//3second
                     }
                 }
             }, timer);
@@ -428,7 +434,7 @@ public class MediationAdInterstitial {
             }, 1500);
             return;
         }
-        Log.d(TAG, "isAdPreloadEnable: "+ isAdPreloadEnable);
+        Log.d(TAG, "isAdPreloadEnable: " + isAdPreloadEnable);
         if (!AdHelperApplication.isAdPreloadEnable)
             return;
         Log.d(TAG, "pass success");
@@ -634,7 +640,7 @@ public class MediationAdInterstitial {
                 MediationAdInterstitial.onLoadError(adError.getErrorMessage());
                 facebookInterstitialAD = null;
                 AdHelperApplication.fbRequestInterFaild++;
-                if(!isAdPreloadEnable)
+                if (!isAdPreloadEnable)
                     initSelectedAd();
             }
 
@@ -723,7 +729,13 @@ public class MediationAdInterstitial {
             }
             AdHelperApplication.loadAdmobInters++;
             Log.d("de_load", "load admob: " + AdHelperApplication.loadAdmobInters);
+            /*events*/
 
+            Bundle bundle = new Bundle();
+            bundle.putString("admb_req","Send interstitial admob request");
+            if(AdHelperApplication.getFirebaseAnalytics()!=null) {
+                AdHelperApplication.getFirebaseAnalytics().logEvent("SendAdmobRequest", bundle);
+            }
             InterstitialAd.load(activityRef.get(), admobKey, MediationAdHelper.getAdRequest(), new InterstitialAdLoadCallback() {
                 @Override
                 public void onAdLoaded(@NonNull com.google.android.gms.ads.interstitial.InterstitialAd interstitialAd) {
@@ -737,6 +749,11 @@ public class MediationAdInterstitial {
 
                         onInterstitialAdListener.onLoaded(MediationAdHelper.AD_ADMOB);
                     }
+                    Bundle bundle = new Bundle();
+                    bundle.putString("admob_loaded","Inters admob ad loaded");
+                    if(AdHelperApplication.getFirebaseAnalytics()!=null) {
+                        AdHelperApplication.getFirebaseAnalytics().logEvent("OnInterstitialAdMobLoaded", bundle);
+                    }
                     //ifpreload off means show ad when loaded
                     if (!isAdPreloadEnable)
                         showSelectedAd();
@@ -745,8 +762,13 @@ public class MediationAdInterstitial {
                 @Override
                 public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                     Log.e(MediationAdHelper.TAG, "[ADMOB FRONT AD]Error: " + loadAdError.getMessage());
+                    Bundle bundle = new Bundle();
+                    bundle.putString("amb_failtedtoload","Inters admob ad failedToload");
+                    if(AdHelperApplication.getFirebaseAnalytics()!=null) {
+                        AdHelperApplication.getFirebaseAnalytics().logEvent("OnIntersAMBFailedToLoad", bundle);
+                    }
                     MediationAdInterstitial.onLoadError(loadAdError.getMessage());
-                    if(!isAdPreloadEnable)
+                    if (!isAdPreloadEnable)
                         initSelectedAd();
 
                     if (AdHelperApplication.admobRequestInterFaild >= Constant.findIntegerValueInMap(AdSessions.interstitial_session.name().toString(), AdHelperApplication.sessionConfig.admob_sessions)) {
@@ -780,6 +802,11 @@ public class MediationAdInterstitial {
                     @Override
                     public void onAdFailedToShowFullScreenContent(com.google.android.gms.ads.AdError var1) {
                         MediationAdInterstitial.onError(var1.getMessage());
+                        Bundle bundle = new Bundle();
+                        bundle.putString("amb_failedToShow","Inters admob ad failedtoShowAd");
+                        if(AdHelperApplication.getFirebaseAnalytics()!=null) {
+                            AdHelperApplication.getFirebaseAnalytics().logEvent("OnIntersAMBFailedToShowFlScrn", bundle);
+                        }
                     }
 
                     @Override
@@ -797,6 +824,11 @@ public class MediationAdInterstitial {
                         // Called when fullscreen content is shown.
                         // Make sure to set your reference to null so you don't
                         // show it a second time.
+                        Bundle bundle = new Bundle();
+                        bundle.putString("amb_AdShowdFlScr","Inters admob ad showFullScrn");
+                        if(AdHelperApplication.getFirebaseAnalytics()!=null) {
+                            AdHelperApplication.getFirebaseAnalytics().logEvent("OnIntersAMBShowedFlScreen", bundle);
+                        }
                         admobInterstitialAD = null;
                         //set interstitial time
                         prefManager.setTime(activityRef.get(), AdTimeLimits.INTERSTITIAL_KEY);

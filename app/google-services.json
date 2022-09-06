@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:888787246278:android:cc679952b80b3d9cf68bc7",
         "android_client_info": {
-          "package_name": "org.cubiit.admanager"
+          "package_name": "org.cubiit.admanager.dev"
         }
       },
       "oauth_client": [

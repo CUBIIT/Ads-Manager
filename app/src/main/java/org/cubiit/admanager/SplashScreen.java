@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 
+import org.cubiit.admanager.dev.R;
+
 import mediation.helper.MediationAdHelper;
 import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.interstitial.MediationAdInterstitial;

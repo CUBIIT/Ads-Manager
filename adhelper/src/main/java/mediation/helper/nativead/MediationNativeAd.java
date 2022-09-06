@@ -1,5 +1,6 @@
 package mediation.helper.nativead;
 
+import static mediation.helper.AdHelperApplication.adMobnativeAdLoad;
 import static mediation.helper.AdHelperApplication.adTimeLimits;
 import static mediation.helper.AdHelperApplication.applyLimitOnAdmob;
 import static mediation.helper.AdHelperApplication.fbRequestNativeFaild;
@@ -40,6 +41,7 @@ import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MediaContent;
 import com.google.android.gms.ads.VideoController;
 import com.google.android.gms.ads.VideoOptions;
+import com.google.android.gms.ads.nativead.AdChoicesView;
 import com.google.android.gms.ads.nativead.NativeAdOptions;
 
 import java.util.ArrayList;
@@ -69,7 +71,7 @@ public class MediationNativeAd {
     static NativeCubiAd nativeCubiAd;
     static CubiNativeAd cubiNativeAd;
 
-    static ArrayList <Integer> adPriorityList;
+    static ArrayList<Integer> adPriorityList;
     static String app_name;
     static String facebook_ad_key;
     static String admob_ad_key;
@@ -80,12 +82,13 @@ public class MediationNativeAd {
     static boolean isPurchase = false;
 
     static ViewGroup containerView;
- static PLACEHOLDER placeholder;
-    public MediationNativeAd(boolean isPurchase,PLACEHOLDER placeholder, ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
-        this(isPurchase,placeholder, containerView, context, app_name, null);
+    static PLACEHOLDER placeholder;
+
+    public MediationNativeAd(boolean isPurchase, PLACEHOLDER placeholder, ViewGroup containerView, Context context, String app_name, String facebook_ad_key, String admob_ad_key) {
+        this(isPurchase, placeholder, containerView, context, app_name, null);
     }
 
-    public MediationNativeAd(boolean isPurchase, PLACEHOLDER placeholder,ViewGroup itemView, Context context, String app_name, MediationAdHelper.ImageProvider imageProvider) {
+    public MediationNativeAd(boolean isPurchase, PLACEHOLDER placeholder, ViewGroup itemView, Context context, String app_name, MediationAdHelper.ImageProvider imageProvider) {
         this.isPurchase = isPurchase;
         this.placeholder = placeholder;
         MediationNativeAd.containerView = itemView;
@@ -152,38 +155,40 @@ public class MediationNativeAd {
             }
             return;
         }
-        if(!AdHelperApplication.isInit){
+        if (!AdHelperApplication.isInit) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadAD(tempAdPriorityList,onNativeAdListener);
+                    loadAD(tempAdPriorityList, onNativeAdListener);
                 }
-            },1500);
+            }, 1500);
             return;
         }
-        if(isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.native_placeholder))){
+        if (isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.native_placeholder))) {
 
             onNativeAdListener.onError("native ad is off from remote");
             Log.d(Constant.TAG, "native ad is off from remote");
             return;
         }
-        ArrayList resultTempAdPriorityList = new ArrayList <>(Arrays.asList(getPriorityAgainstPlaceHolder(placeholder,tempAdPriorityList)));
+        ArrayList resultTempAdPriorityList = new ArrayList<>(Arrays.asList(getPriorityAgainstPlaceHolder(placeholder, tempAdPriorityList)));
         loadAD(resultTempAdPriorityList, onNativeAdListener);
 
     }
-    static String TAG_= "de_native";
+
+    static String TAG_ = "de_native";
+
     private static String findValueInMap(String key, Map<String, String> map) {
         key = key.toUpperCase(Locale.ROOT);
-        Log.d(TAG_, "findValueInMap: key "+ key);
+        Log.d(TAG_, "findValueInMap: key " + key);
         String value = "default";
-        if(map==null){
-            Log.e(TAG_, "findValueInMapInterstitial: map is null" );
-        }else {
+        if (map == null) {
+            Log.e(TAG_, "findValueInMapInterstitial: map is null");
+        } else {
             for (Map.Entry<String, String> entry : map.entrySet()) {
-                Log.i(TAG_, "findValueInMap: "+ entry.getKey());
+                Log.i(TAG_, "findValueInMap: " + entry.getKey());
                 if (entry.getKey().equals(key.toUpperCase(Locale.ROOT))) {
                     value = entry.getValue();
-                    Log.d(TAG_, "findValueInMap:find "+ value);
+                    Log.d(TAG_, "findValueInMap:find " + value);
                     break;
 
                 }
@@ -200,7 +205,7 @@ public class MediationNativeAd {
             Log.d(TAG, "getPriorityAgainstPlaceHolder: find default");
             return tempAdPriorityList;
         } else {
-            if(AdHelperApplication.placeholderConfig!=null) {
+            if (AdHelperApplication.placeholderConfig != null) {
                 Integer[] rearrange = new Integer[3];
                 String value = findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.native_placeholder).toLowerCase(Locale.ROOT);
 
@@ -212,20 +217,21 @@ public class MediationNativeAd {
                     rearrange[0] = MediationAdHelper.AD_FACEBOOK;
                     rearrange[1] = MediationAdHelper.AD_ADMOB;
                     rearrange[2] = MediationAdHelper.AD_CUBI_IT;
-                } else if(value.equals("default") || value.equals("DEFAULT") || value.equals("-1")){
+                } else if (value.equals("default") || value.equals("DEFAULT") || value.equals("-1")) {
                     rearrange = tempAdPriorityList;
                 }
                 // Log.d(TAG_, "getPriorityAgainstPlaceHolder: " + rearrange);
                 return rearrange;
-            }else{
+            } else {
                 return tempAdPriorityList;
             }
         }
     }
+
     private static boolean checkTestIds(OnNativeAdListener onBannerAdListener) {
         Log.d("de_ch", "checkTestIds: ad" + AdHelperApplication.getAdIDs().getAdmob_native_id() + " Fac: " + AdHelperApplication.getAdIDs().getFb_native_id());
 
-        if(!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()) {
+        if (!AdHelperApplication.getAdIDs().getAdmob_native_id().isEmpty() || AdHelperApplication.getAdIDs().getFb_native_id().isEmpty()) {
             if (AdHelperApplication.getAdIDs().getAdmob_native_id().equals(TEST_ADMOB_NATIVE_ID) || AdHelperApplication.getAdIDs().getFb_native_id().equals(TEST_FB_NATIVE_ID)) {
                 onBannerAdListener.onError("Found Test IDS..");
                 return false;
@@ -233,7 +239,7 @@ public class MediationNativeAd {
 
                 return true;
             }
-        }else{
+        } else {
             onBannerAdListener.onError("No ID found..");
             return false;
         }
@@ -245,12 +251,12 @@ public class MediationNativeAd {
             return;
         }
         Log.d(TAG, "loadAD: before check");
-        if(!AdHelperApplication.isInit){
+        if (!AdHelperApplication.isInit) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     Log.d(TAG, "not init ads");
-                    loadAD(tempAdPriorityList,onNativeAdListener);
+                    loadAD(tempAdPriorityList, onNativeAdListener);
                 }
             }, 2000);
             return;
@@ -278,7 +284,7 @@ public class MediationNativeAd {
                 MediationNativeAd.admob_ad_key = AdHelperApplication.getAdIDs().getAdmob_native_id();
             }
         }
-        Log.d("de_native",String.format("Native ids:------Facebook: %s -----Admob: %s",facebook_ad_key,admob_ad_key));
+        Log.d("de_native", String.format("Native ids:------Facebook: %s -----Admob: %s", facebook_ad_key, admob_ad_key));
         try {
             Log.d(TAG, "loadAD: selec ads");
             fbOnErrorCalled = false;
@@ -310,11 +316,11 @@ public class MediationNativeAd {
     }
 
     private static void selectAd() {
-        if(adTimeLimits.isCan_skip()){
+        if (adTimeLimits.isCan_skip()) {
             adTimeLimits.setCan_skip(false);
 
             onNativeAdListener.onError("Native can skip firstly");
-            Log.e(TAG, "selectAd: Native can skip first time" );
+            Log.e(TAG, "selectAd: Native can skip first time");
             return;
         }
         Log.d(Constant.TAG, "selectAd: another");
@@ -460,11 +466,11 @@ public class MediationNativeAd {
     }
 
     private static void onLoadAdError(String errorMessage) {
-        Log.d(Constant.TAG, "onLoadAdError: "+ errorMessage);
+        Log.d(Constant.TAG, "onLoadAdError: " + errorMessage);
         if (adPriorityList.size() > 0) {
             selectAd();
         } else {
-           // containerView.setVisibility(View.GONE);
+            // containerView.setVisibility(View.GONE);
             Log.d(Constant.TAG, "onLoadAdError: ");
             if (onNativeAdListener != null) {
 
@@ -474,17 +480,18 @@ public class MediationNativeAd {
         }
     }
 
-    public static  boolean isAddOff(String value) {
+    public static boolean isAddOff(String value) {
         if (value.equals("off") || value.equals("OFF") || value.equals("Off") || value.equals("of") || value.equals("0") || value.equals("false") || value.equals("FALSE")) {
             return true;
         } else {
             return false;
         }
     }
+
     private static void loadAdmobAdvanceAD() {
         Log.d(TAG, "lOADaDmOBAdvancedAD");
-        if(admob_ad_key.isEmpty() || admob_ad_key.equals(TEST_ADMOB_NATIVE_ID)){
-            if(!AdHelperApplication.getTestMode()) {
+        if (admob_ad_key.isEmpty() || admob_ad_key.equals(TEST_ADMOB_NATIVE_ID)) {
+            if (!AdHelperApplication.getTestMode()) {
                 Log.e(TAG, "[lOADaDmOBAdvancedAD NATIVE AD]Error: empty id found ");
                 onLoadAdError("Empty id found");
 
@@ -493,14 +500,14 @@ public class MediationNativeAd {
         }
 
         //check adlimit
-        if(AdHelperApplication.isAdmobInLimit()){
-            if(applyLimitOnAdmob){
+        if (AdHelperApplication.isAdmobInLimit()) {
+            if (applyLimitOnAdmob) {
                 onLoadAdError("Native admob banned due to admob in limit");
                 return;
             }
         }
-        Log.d(Constant.TAG, "loadAdmobAdvanceAD: " + AdHelperApplication.admobRequestNativeFaild + "  : "+ Constant.findIntegerValueInMap(AdSessions.native_session.name(), AdHelperApplication.sessionConfig.admob_sessions));
-        if(AdHelperApplication.admobRequestNativeFaild >= Constant.findIntegerValueInMap(AdSessions.native_session.name(), AdHelperApplication.sessionConfig.admob_sessions)){
+        Log.d(Constant.TAG, "loadAdmobAdvanceAD: " + AdHelperApplication.admobRequestNativeFaild + "  : " + Constant.findIntegerValueInMap(AdSessions.native_session.name(), AdHelperApplication.sessionConfig.admob_sessions));
+        if (AdHelperApplication.admobRequestNativeFaild >= Constant.findIntegerValueInMap(AdSessions.native_session.name(), AdHelperApplication.sessionConfig.admob_sessions)) {
             onLoadAdError("Native admob Sesssion out");
             AdHelperApplication.admobRequestNativeFaild++;
             admobNativeAd = null;
@@ -535,8 +542,8 @@ public class MediationNativeAd {
                 Log.e(MediationAdHelper.TAG, "[ADMOB NATIVE EXPRESS AD]errorMessage: " + errorMessage);
                 onLoadAdError(errorMessage);
                 AdHelperApplication.admobRequestNativeFaild++;
-                if(AdHelperApplication.isAdmobInLimit()){
-                    applyLimitOnAdmob  = true;
+                if (AdHelperApplication.isAdmobInLimit()) {
+                    applyLimitOnAdmob = true;
                 }
 
             }
@@ -573,8 +580,11 @@ public class MediationNativeAd {
                 }
             }
         }).build();
+        AdHelperApplication.adMobnativeAdLoad++;
+        Log.d("load_n", "loadAdmobAdvanceAD: " + adMobnativeAdLoad);
         AdRequest.Builder requestBuilder = new AdRequest.Builder();
         adLoader.loadAd(requestBuilder.build());
+
     }
 
     private static boolean fbOnErrorCalled = false;
@@ -586,8 +596,8 @@ public class MediationNativeAd {
             return;
         }
         //individual check to empty ids
-        if(facebook_ad_key.isEmpty() || facebook_ad_key.equals(TEST_FB_NATIVE_ID)){
-            if(!AdHelperApplication.getTestMode()) {
+        if (facebook_ad_key.isEmpty() || facebook_ad_key.equals(TEST_FB_NATIVE_ID)) {
+            if (!AdHelperApplication.getTestMode()) {
                 Log.e(TAG, "[lOADaDmOBAdvancedAD NATIVE AD]Error: empty id found ");
                 onLoadAdError("Empty id found");
                 return;
@@ -595,7 +605,7 @@ public class MediationNativeAd {
         }
 
         //check session
-        if(AdHelperApplication.fbRequestNativeFaild >= Constant.findIntegerValueInMap(AdSessions.native_session.name(), AdHelperApplication.sessionConfig.fb_sessions)){
+        if (AdHelperApplication.fbRequestNativeFaild >= Constant.findIntegerValueInMap(AdSessions.native_session.name(), AdHelperApplication.sessionConfig.fb_sessions)) {
             facebookAd = null;
             onLoadAdError("fb Native Session out");
 
@@ -686,12 +696,12 @@ public class MediationNativeAd {
             sponsoredLabel.setText(facebookAd.getSponsoredTranslation());
 
             // Create a list of clickable views
-            List <View> clickableViews = new ArrayList <>();
-           // clickableViews.add(nativeAdTitle);
-            if(AdHelperApplication.isCATEnable){
+            List<View> clickableViews = new ArrayList<>();
+            // clickableViews.add(nativeAdTitle);
+            if (AdHelperApplication.isCATEnable) {
                 nativeAdCallToAction.setEnabled(true);
 
-            }else{
+            } else {
                 nativeAdCallToAction.setEnabled(false);
                 Log.d(TAG, "bindFacebookAD: CAT is not Enable");
             }
@@ -702,7 +712,7 @@ public class MediationNativeAd {
             facebookAd.registerViewForInteraction(
                     nativeView, nativeAdMedia, nativeAdIcon, clickableViews);
         } catch (Exception e) {
-            onLoadAdError(e.getMessage());
+            // onLoadAdError(e.getMessage());
             e.printStackTrace();
         }
     }
@@ -722,14 +732,14 @@ public class MediationNativeAd {
 
             // Set the media view.
             nativeView.setMediaView((com.google.android.gms.ads.nativead.MediaView) nativeView.findViewById(R.id.ad_media));
-                //DISABLE CLICK ON
+            //DISABLE CLICK ON
             nativeView.findViewById(R.id.ad_headline).setEnabled(false);
             nativeView.findViewById(R.id.ad_body).setEnabled(false);
             nativeView.findViewById(R.id.cubi_interstitial_square_icon).setEnabled(false);
             nativeView.findViewById(R.id.ad_media).setEnabled(false);
-            if(AdHelperApplication.isCATEnable){
+            if (AdHelperApplication.isCATEnable) {
                 nativeView.findViewById(R.id.ad_call_to_action).setEnabled(true);
-            }else{
+            } else {
                 nativeView.findViewById(R.id.ad_call_to_action).setEnabled(false);
             }
 
@@ -742,8 +752,8 @@ public class MediationNativeAd {
             nativeView.setStarRatingView(nativeView.findViewById(R.id.ad_stars));
             nativeView.setStoreView(nativeView.findViewById(R.id.ad_store));
             nativeView.setAdvertiserView(nativeView.findViewById(R.id.ad_advertiser));
+            nativeView.setAdChoicesView(nativeView.<AdChoicesView>findViewById(R.id.ad_choices_container));
 
-            // The headline and mediaContent are guaranteed to be in every NativeAd.
             ((TextView) nativeView.getHeadlineView()).setText(admobNativeAd.getHeadline());
             nativeView.getMediaView().setMediaContent(admobNativeAd.getMediaContent());
 

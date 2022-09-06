@@ -9,6 +9,8 @@ import android.util.Log;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
+import org.cubiit.admanager.dev.BuildConfig;
+
 import mediation.helper.AdHelperApplication;
 import mediation.helper.callbacks.OnFetchRemoteCallback;
 

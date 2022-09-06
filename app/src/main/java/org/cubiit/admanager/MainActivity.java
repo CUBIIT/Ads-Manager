@@ -1,5 +1,6 @@
 package org.cubiit.admanager;
 
+import static org.cubiit.admanager.AdsActivity.KEY_PRIORITY_NATIVE_AD_TEST;
 import static mediation.helper.AdHelperApplication.applyLimitOnAdmob;
 import static mediation.helper.AdHelperApplication.canShowInterstitial;
 import static mediation.helper.interstitial.MediationAdInterstitial.onInterstitialAdListener;
@@ -29,6 +30,8 @@ import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
 import com.google.firebase.analytics.FirebaseAnalytics;
+
+import org.cubiit.admanager.dev.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -127,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         MediationBackPressDialog.startDialog(false, PLACEHOLDER.EXIT_ACTIVITY, MainActivity.this, getResources().getString(R.string.app_name)
-                , KEY_PRIORITY_NATIVE_AD
+                , KEY_PRIORITY_NATIVE_AD_TEST
                 , false
                 , new OnBackPressListener() {
                     @Override

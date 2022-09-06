@@ -10,7 +10,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "org.cubiit.admanager"
+        applicationId "org.cubiit.admanager.dev"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 2

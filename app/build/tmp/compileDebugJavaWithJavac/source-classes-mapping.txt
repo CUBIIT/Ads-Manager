@@ -4,8 +4,6 @@ org/cubiit/admanager/AdsActivity.java
  org.cubiit.admanager.AdsActivity$2
  org.cubiit.admanager.AdsActivity$3
  org.cubiit.admanager.AdsActivity$4
-org/cubiit/admanager/BuildConfig.java
- org.cubiit.admanager.BuildConfig
 org/cubiit/admanager/AdManager.java
  org.cubiit.admanager.AdManager
  org.cubiit.admanager.AdManager$1
@@ -13,6 +11,8 @@ org/cubiit/admanager/Item.java
  org.cubiit.admanager.Item
 org/cubiit/admanager/DummyFile.java
  org.cubiit.admanager.DummyFile
+org/cubiit/admanager/dev/BuildConfig.java
+ org.cubiit.admanager.dev.BuildConfig
 org/cubiit/admanager/SplashScreen.java
  org.cubiit.admanager.SplashScreen
  org.cubiit.admanager.SplashScreen$1

@@ -1,4 +1,4 @@
-org.cubiit.admanager
+org.cubiit.admanager.dev
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -1056,6 +1056,7 @@ color foreground_material_dark
 color foreground_material_light
 color grayWhite
 color grayWhite1
+color green
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color lightGray
@@ -1677,6 +1678,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bg_ad_broder
 drawable bg_border
 drawable bg_calltoaction
 drawable bg_floating_button
@@ -2001,6 +2003,7 @@ id linear
 id linear_layout_rating_feedback
 id listMode
 id list_item
+id ll_stars
 id logo
 id masked
 id material_clock_display

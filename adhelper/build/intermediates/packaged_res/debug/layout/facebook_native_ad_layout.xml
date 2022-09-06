@@ -10,7 +10,7 @@
         android:id="@+id/parent_constraint_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="10dp">
+        android:padding="5dp">
 
 
         <androidx.cardview.widget.CardView
@@ -35,7 +35,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:padding="5dp">
+                    android:padding="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -122,16 +122,15 @@
 
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/adEtc"
-                android:padding="4dp"
-                android:layout_weight="3"
+                android:padding="2dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/native_ad_call_to_action"
                 android:orientation="vertical"
-                app:layout_constraintBottom_toTopOf="@+id/native_ad_call_to_action"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/native_ad_call_to_action">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/native_ad_social_context"
@@ -140,7 +139,7 @@
                     android:ellipsize="end"
                     android:lines="1"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="12sp" />
+                    android:textSize="11sp" />
 
                 <TextView
                     android:id="@+id/native_ad_body"
@@ -150,25 +149,24 @@
                     android:gravity="center_vertical"
                     android:lines="2"
                     android:textColor="@android:color/black"
-                    android:textSize="12sp" />
+                    android:textSize="11sp" />
 
             </LinearLayout>
 
             <Button
                 android:id="@+id/native_ad_call_to_action"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
                 android:background="@drawable/bg_calltoaction"
-                android:padding="6dp"
-                android:paddingStart="8dp"
+               android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/adEtc" />
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

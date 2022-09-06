@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.cubiit.admanager"
+    package="org.cubiit.admanager.dev"
     android:versionCode="2"
     android:versionName="0.2" >
 
@@ -51,6 +51,9 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
+        <meta-data
+            android:name="com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED"
+            android:value="true" />
 
         <activity android:name="org.cubiit.admanager.SplashScreen" >
             <intent-filter>
@@ -88,7 +91,7 @@
 
         <provider
             android:name="com.facebook.ads.AudienceNetworkContentProvider"
-            android:authorities="org.cubiit.admanager.AudienceNetworkContentProvider"
+            android:authorities="org.cubiit.admanager.dev.AudienceNetworkContentProvider"
             android:exported="false" />
 
         <receiver
@@ -144,7 +147,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="org.cubiit.admanager.firebaseinitprovider"
+            android:authorities="org.cubiit.admanager.dev.firebaseinitprovider"
             android:directBootAware="true"
             android:exported="false"
             android:initOrder="100" />
@@ -167,7 +170,7 @@
 
         <provider
             android:name="com.google.android.gms.ads.MobileAdsInitProvider"
-            android:authorities="org.cubiit.admanager.mobileadsinitprovider"
+            android:authorities="org.cubiit.admanager.dev.mobileadsinitprovider"
             android:exported="false"
             android:initOrder="100" />
 
@@ -178,7 +181,7 @@
 
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"
-            android:authorities="org.cubiit.admanager.workmanager-init"
+            android:authorities="org.cubiit.admanager.dev.workmanager-init"
             android:directBootAware="false"
             android:exported="false"
             android:multiprocess="true" />
