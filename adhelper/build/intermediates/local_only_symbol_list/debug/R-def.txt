@@ -8,6 +8,7 @@ color blue
 color blueTransparent
 color grayWhite
 color grayWhite1
+color green
 color lightGray
 color tedBtnHighlight
 color tedBtnPrimary
@@ -34,6 +35,7 @@ dimen list_item_text_margin
 dimen recommend_icon_size
 dimen tool_bar_height
 dimen toolbar_elevation
+drawable bg_ad_broder
 drawable bg_border
 drawable bg_calltoaction
 drawable bg_floating_button
@@ -81,6 +83,7 @@ id iv_image
 id iv_logo
 id left_constraint
 id linear_layout_rating_feedback
+id ll_stars
 id media_facebook
 id media_layout
 id native_ad_body

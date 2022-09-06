@@ -1056,6 +1056,7 @@ int color foreground_material_dark 0x0
 int color foreground_material_light 0x0
 int color grayWhite 0x0
 int color grayWhite1 0x0
+int color green 0x0
 int color highlighted_text_material_dark 0x0
 int color highlighted_text_material_light 0x0
 int color lightGray 0x0
@@ -1684,6 +1685,7 @@ int drawable abc_textfield_search_material 0x0
 int drawable abc_vector_test 0x0
 int drawable avd_hide_password 0x0
 int drawable avd_show_password 0x0
+int drawable bg_ad_broder 0x0
 int drawable bg_border 0x0
 int drawable bg_calltoaction 0x0
 int drawable bg_floating_button 0x0
@@ -1964,6 +1966,7 @@ int id linear 0x0
 int id linear_layout_rating_feedback 0x0
 int id listMode 0x0
 int id list_item 0x0
+int id ll_stars 0x0
 int id masked 0x0
 int id material_clock_display 0x0
 int id material_clock_face 0x0
