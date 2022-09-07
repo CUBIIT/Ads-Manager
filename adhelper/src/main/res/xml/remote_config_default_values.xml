@@ -145,7 +145,7 @@
     </entry>
     <entry>
         <key>inter_click_limit</key>
-        <value>1</value>
+        <value>3</value>
     </entry>
     <entry>
         <key>admob_open_ad_id</key>
