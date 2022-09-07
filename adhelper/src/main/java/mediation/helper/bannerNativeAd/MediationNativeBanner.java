@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -304,7 +305,16 @@ public class MediationNativeBanner {
         }
     }
 
-    public void loadAD(Integer[] tempAdPriorityList, OnNativeBannerListener onNativeAdListener) {
+    public void loadAD(final Integer[] tempAdPriorityList, final OnNativeBannerListener onNativeAdListener) {
+        if(!AdHelperApplication.isInit){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadAD(tempAdPriorityList,onNativeAdListener);
+                }
+            }, 1500);
+            return;
+        }
         if (purchase) {
             if (parentConstraintView != null) {
                 parentConstraintView.setVisibility(View.GONE);
