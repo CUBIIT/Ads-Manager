@@ -5,6 +5,7 @@ import static mediation.helper.TestAdIDs.TEST_ADMOB_OPEN_APP_ID;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -43,13 +44,14 @@ private FirebaseAnalytics analytics;
     /**
      * Constructor
      */
-    public MediationOpenAdManager(Activity activity, OpenAddCallback appOpenAdCallBack) {
+    public MediationOpenAdManager(final Activity activity, OpenAddCallback appOpenAdCallBack) {
         Log.d("de_op", "OpenAdManager: --------------------");
         this.currentActivity = activity;
         this.openAddCallBack = appOpenAdCallBack;
         analytics =AdHelperApplication.getFirebaseAnalytics();
         prefManager = new PrefManager(activity);
         this.admob_open_id_key = TEST_ADMOB_OPEN_APP_ID;
+
         if(!AdHelperApplication.isAppOpenAdEnable){
             appOpenAdCallBack.onErrorToShow("App open ad disable from remote");
             return;
@@ -59,6 +61,15 @@ private FirebaseAnalytics analytics;
                 appOpenAdCallBack.onErrorToShow("admob limit is applied");
                 return;
             }
+        }
+        if(!AdHelperApplication.isInit){
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                   new MediationOpenAdManager(activity,openAddCallBack);
+                }
+            }, 1000);
+            return;
         }
         if (!checkIfAdCanBeShow(appOpenAdCallBack)) {
             return;

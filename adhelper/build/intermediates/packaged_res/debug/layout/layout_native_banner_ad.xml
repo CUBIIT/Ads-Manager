@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_margin="3dp"
+    android:layout_height="90dp"
 
-    android:layout_height="90dp">
+    android:layout_margin="3dp">
 
     <com.google.android.gms.ads.nativead.NativeAdView
         android:id="@+id/ad_mob_banner_native_ad_view"
@@ -19,11 +19,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/parent_native_banner_constraint_layout"
             android:layout_width="match_parent"
-            android:background="@drawable/bg_border"
             android:layout_height="match_parent"
-           >
+            android:background="@drawable/bg_border">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
+
                 android:id="@+id/adchoses_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,24 +33,36 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <RelativeLayout
-                    android:layout_gravity="center_vertical"
                     android:id="@+id/ad_choices_container"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:gravity="center_horizontal"
-                    android:padding="2dp" />
+                    android:padding="2dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/native_ad_sponsored_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="2dp"
                     android:ellipsize="end"
                     android:lines="1"
-                    android:paddingStart="2dp"
+                    android:paddingStart="3dp"
+                    android:paddingTop="1dp"
+                    android:paddingEnd="3dp"
+                    android:textStyle="bold"
+                    android:paddingBottom="1dp"
                     android:textColor="@android:color/darker_gray"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/view_container_native_banner"
@@ -101,7 +113,7 @@
                         android:layout_height="50dp"
                         android:contentDescription="@string/imageview"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <com.facebook.ads.MediaView
                         android:id="@+id/fb_ad_media_view"
@@ -114,8 +126,8 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/center_constraint"
                     android:layout_width="0dp"
-                    android:layout_marginEnd="8dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toStartOf="@+id/right_constriant"
                     app:layout_constraintStart_toEndOf="@+id/left_constraint"
                     app:layout_constraintTop_toTopOf="parent">
@@ -126,8 +138,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:ellipsize="end"
-                        android:textColor="@color/black87"
                         android:maxLines="1"
+                        android:textColor="@color/black87"
                         android:textSize="12sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -140,8 +152,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:ellipsize="end"
-                        android:textColor="@color/black54"
                         android:maxLines="2"
+                        android:textColor="@color/black54"
                         android:textSize="10sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/native_ad_title"
