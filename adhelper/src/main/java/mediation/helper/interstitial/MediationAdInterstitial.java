@@ -363,7 +363,7 @@ public class MediationAdInterstitial {
 
         }
         interstitialAdDialog = new ProgressDialog(activity);
-        interstitialAdDialog.setTitle("Loading");
+       // interstitialAdDialog.setTitle("Loading");
         interstitialAdDialog.setMessage("Wait while ad is loading...");
         interstitialAdDialog.setCancelable(false); // disable dismiss by tapping outside of the dialog
         try {
@@ -847,10 +847,22 @@ public class MediationAdInterstitial {
             if (isAdPreloadEnable)
                 initSelectedAd();
         }
+        try {
+            if(interstitialAdDialog.isShowing())
+                  interstitialAdDialog.dismiss();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static void onError(String errorMessage) {
         Log.d(Constant.TAG, "onError: " + errorMessage);
+        try {
+            if(interstitialAdDialog.isShowing())
+                interstitialAdDialog.dismiss();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (adPriorityList != null && adPriorityList.size() > 0) {
             showSelectedAd();
         } else {
