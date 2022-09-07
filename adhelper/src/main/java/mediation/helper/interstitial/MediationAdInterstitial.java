@@ -622,6 +622,7 @@ public class MediationAdInterstitial {
             public void onInterstitialDisplayed(Ad ad) {
                 // Interstitial displayed callback
                 Log.d(MediationAdHelper.TAG, "[FACEBOOK FRONT AD]Displayed");
+                facebookInterstitialAD = null;//ad consoume
             }
 
             @Override
