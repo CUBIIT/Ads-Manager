@@ -72,7 +72,7 @@ public class AdsActivity extends AppCompatActivity {
 
 
         MediationAdBanner.showBanner(false, PLACEHOLDER.MAIN_ACTIVITY, AdsActivity.this, ad_container,
-                KEY_PRIORITY_NATIVE_AD,
+                KEY_PRIORITY_NATIVE_AD_TEST,
                 new OnBannerAdListener() {
                     @Override
                     public void onError(String errorMessage) {

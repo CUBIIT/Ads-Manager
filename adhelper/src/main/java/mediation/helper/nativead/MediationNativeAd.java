@@ -754,6 +754,7 @@ public class MediationNativeAd {
             nativeView.setAdvertiserView(nativeView.findViewById(R.id.ad_advertiser));
             nativeView.setAdChoicesView(nativeView.<AdChoicesView>findViewById(R.id.ad_choices_container));
 
+
             ((TextView) nativeView.getHeadlineView()).setText(admobNativeAd.getHeadline());
             nativeView.getMediaView().setMediaContent(admobNativeAd.getMediaContent());
 

@@ -828,7 +828,9 @@ public class MediationNativeBanner {
 
         String sponserLabel = myNativeAd.getSponserLabel();
         if (TextUtils.isEmpty(sponserLabel)) {
-            sponserLabel = app_name;
+            sponserLabel = "Ad";
+            native_banner_ad_sponser_label.setBackgroundResource(R.drawable.bg_ad_broder);
+            native_banner_ad_sponser_label.setTextColor(context.getResources().getColor(R.color.green));
         }
 
         native_banner_ad_sponser_label.setText(sponserLabel);
