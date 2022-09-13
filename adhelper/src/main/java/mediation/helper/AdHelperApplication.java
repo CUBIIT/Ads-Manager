@@ -106,7 +106,9 @@ public class AdHelperApplication extends Application {
     public static int testFBLoad = 0;
     public static int nativeAdLoad = 0;
     public static int adMobnativeAdLoad = 0;//test
-    public static int loadAdmobInters=0;
+    public static int loadAdmobInters = 0;
+    public static boolean enableBorder = false;//default
+    public static boolean enableDarkMode = true;//default
     //    @Override
 //    public void onCreate() {
 //        super.onCreate();
@@ -235,7 +237,7 @@ public class AdHelperApplication extends Application {
     public static PlaceholderConfig placeholderConfig = null;
 
     private static void loadPlaceholderData(FirebaseRemoteConfig firebaseRemoteConfig) {
-        Log.d(TAG, "loadPlaceholderData: "+firebaseRemoteConfig.getString("placeholders").toString());
+        Log.d(TAG, "loadPlaceholderData: " + firebaseRemoteConfig.getString("placeholders").toString());
         try {
             String val = null;
             if (firebaseRemoteConfig == null)
@@ -258,7 +260,7 @@ public class AdHelperApplication extends Application {
                 } catch (Exception ed) {
                     ed.printStackTrace();
                 }
-            }else{
+            } else {
                 try {
                     String val = Constant.DEFUALT_PLACEHOLDER_JSON;
                     placeholderConfig = new Gson().fromJson(val, PlaceholderConfig.class);
@@ -296,13 +298,41 @@ public class AdHelperApplication extends Application {
 
 
     }
-private static boolean checkAddPreload(String val){
+
+    private static void getAdsThemeValues(FirebaseRemoteConfig remoteConfig) {
+        if (remoteConfig == null)
+            return;
+        String borderVal = remoteConfig.getString("enable_border").toLowerCase();
+        String theme = remoteConfig.getString("enable_dark_mode");
+        if (!borderVal.isEmpty()) {
+            if (borderVal.equals("1") || borderVal.equals("true") || borderVal.equals("yes")) {
+                enableBorder = true;
+            } else {
+                enableBorder = false;
+            }
+        } else {
+            enableBorder = false;
+        }
+        //theme
+        if (!theme.isEmpty()) {
+            if (theme.equals("1") || theme.equals("true") || theme.equals("yes")) {
+                enableDarkMode = true;
+            } else {
+                enableDarkMode = false;
+            }
+        } else {
+            enableDarkMode = false;
+        }
+    }
+
+    private static boolean checkAddPreload(String val) {
         String lcVal = val.toLowerCase();
-        if(lcVal.equals("0") || lcVal.equals("off") || lcVal.equals("no")){
+        if (lcVal.equals("0") || lcVal.equals("off") || lcVal.equals("no") || lcVal.equals("false")) {
             return false;
-        }else
+        } else
             return true;
-}
+    }
+
     private static void updateData(FirebaseRemoteConfig mFirebaseConfig, Context context) {
         //appopen ad
         checkOpenAddIsEnable(mFirebaseConfig);
@@ -310,21 +340,23 @@ private static boolean checkAddPreload(String val){
         loadPlaceholderData(mFirebaseConfig);
         //sessions
         fetchSessions(mFirebaseConfig);
+        //fetch theme
+        getAdsThemeValues(mFirebaseConfig);
         //check preload
-        String preload  = mFirebaseConfig.getString("enable_preload");
+        String preload = mFirebaseConfig.getString("enable_preload");
         isAdPreloadEnable = checkAddPreload(preload);
-        if(preload==null || preload.isEmpty()){
+        if (preload == null || preload.isEmpty()) {
             preload = "0";
         }
         //CLICK LIMIT
         try {
             INTERSTITIAL_CLICK_LIMIT = mFirebaseConfig.getLong("inter_click_limit");
-        }catch (Exception e){
+        } catch (Exception e) {
             INTERSTITIAL_CLICK_LIMIT = 3;
         } //OPENAPP AD CLICK
         try {
             OPENAPP_AD_CLICK_LIMIT = mFirebaseConfig.getLong("admob_open_ad_interval");
-        }catch (Exception e ){
+        } catch (Exception e) {
             OPENAPP_AD_CLICK_LIMIT = 3;
             e.printStackTrace();
         }
@@ -473,7 +505,11 @@ private static boolean checkAddPreload(String val){
             version = "-1";
 
         int newAppVersion = APP_CURRENT_VERSION;
-        try{newAppVersion= Integer.parseInt(version);}catch(Exception e){e.printStackTrace();}
+        try {
+            newAppVersion = Integer.parseInt(version);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Log.d(TAG, "newAppVersion: " + newAppVersion);
         Log.d(TAG, "CurrentVersion: " + APP_CURRENT_VERSION);
         if ((newAppVersion != -1 && APP_CURRENT_VERSION != -1) && (newAppVersion > APP_CURRENT_VERSION)) {

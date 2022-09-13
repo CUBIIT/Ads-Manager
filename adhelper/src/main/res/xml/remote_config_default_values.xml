@@ -3,6 +3,15 @@
     <!--SET APP IDS FOR NEW VERSION-->
 <!--    placholder values-->
     <entry>
+        <key>enable_border</key>
+        <value>false</value>
+    </entry>
+    //apply ads dark
+    <entry>
+        <key>enable_dark_mod</key>
+        <value>true</value>
+    </entry>
+    <entry>
         <key>enable_preload</key>
         <value>0</value>
     </entry>
