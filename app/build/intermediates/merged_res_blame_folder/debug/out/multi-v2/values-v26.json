@@ -4,7 +4,7 @@
             "outputFile": "C:\\Users\\HP\\AndroidStudioProjects\\Ads-Manager\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v26\\values-v26.xml",
             "map": [
                 {
-                    "source": "D:\\Song HD Download\\Compressed\\MusicPlayer-master\\MusicPlayer-master\\.gradle\\7.4.2\\caches\\transforms-2\\files-2.1\\75ba2bdc366e6fac3b14b90fb13b9e6d\\appcompat-1.3.0\\res\\values-v26\\values-v26.xml",
+                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\911d47c049d08ae623ab8b677c8c79e5\\appcompat-1.3.0\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

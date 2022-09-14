@@ -6,13 +6,14 @@ plugins {
 
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "org.cubiit.admanager.dev"
         minSdkVersion 19
-        targetSdkVersion 32
+        targetSdkVersion 31
+
         versionCode 2
         versionName "0.2"
         multiDexEnabled true
@@ -29,6 +30,7 @@ android {
     }
     repositories{
         mavenCentral();
+
     }
 
 

@@ -728,6 +728,14 @@ public class MediationNativeAd {
             containerView.removeAllViews();
             com.google.android.gms.ads.nativead.NativeAdView nativeView = (com.google.android.gms.ads.nativead.NativeAdView) LayoutInflater.from(context).inflate(R.layout.admob_native_ad_layout, containerView, false);
             containerView.addView(nativeView);
+          if(AdHelperApplication.enableBorder){
+              nativeView.setBackgroundResource(R.drawable.bg_border);
+          }
+          if(AdHelperApplication.enableDarkMode){
+              nativeView.setBackgroundResource(R.drawable.bg_black_theme);
+              nativeView.findViewById(R.id.ad_headline).setEnabled(false);
+              nativeView.findViewById(R.id.ad_body).setEnabled(false);
+          }
 
 
             // Set the media view.
