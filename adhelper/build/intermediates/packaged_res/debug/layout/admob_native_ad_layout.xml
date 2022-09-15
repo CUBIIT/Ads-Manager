@@ -5,8 +5,7 @@
     android:id="@+id/admobAppInstallRootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="3dp"
-    android:background="@drawable/bg_border">
+    android:layout_margin="3dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/parent_constraint_layout"
@@ -102,11 +101,12 @@
                             android:layout_marginStart="4dp"
                             android:paddingStart="4dp"
                             android:paddingEnd="4dp"
+                            android:id="@+id/tvAd"
                             android:layout_gravity="center_vertical"
                             android:background="@drawable/bg_ad_broder"
                             android:text="Ad"
                             android:textColor="@color/green"
-                            android:textSize="11sp"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
                         <RatingBar

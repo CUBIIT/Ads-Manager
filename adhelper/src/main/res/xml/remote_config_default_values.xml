@@ -4,12 +4,12 @@
 <!--    placholder values-->
     <entry>
         <key>enable_border</key>
-        <value>false</value>
+        <value>true</value>
     </entry>
     //apply ads dark
     <entry>
-        <key>enable_dark_mod</key>
-        <value>true</value>
+        <key>enable_dark_mode</key>
+        <value>false</value>
     </entry>
     <entry>
         <key>enable_preload</key>

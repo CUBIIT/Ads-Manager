@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.gms:play-services-ads-lite:20.4.0@aar">
     <CLASSES>
-      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/9c5b6137132db52af4823629d679a88c/jetified-play-services-ads-lite-20.4.0/AndroidManifest.xml" />
-      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/9c5b6137132db52af4823629d679a88c/jetified-play-services-ads-lite-20.4.0/jars/classes.jar!/" />
-      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/9c5b6137132db52af4823629d679a88c/jetified-play-services-ads-lite-20.4.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ae3f5f84c2096ba4394b3b0c408f4e01/jetified-play-services-ads-lite-20.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ae3f5f84c2096ba4394b3b0c408f4e01/jetified-play-services-ads-lite-20.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ae3f5f84c2096ba4394b3b0c408f4e01/jetified-play-services-ads-lite-20.4.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/modules-2/files-2.1/com.google.android.gms/play-services-ads-lite/20.4.0/f91e470c3db254f6820b3b54d450981f4b7dfa08/play-services-ads-lite-20.4.0-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.android.gms/play-services-ads-lite/20.4.0/f91e470c3db254f6820b3b54d450981f4b7dfa08/play-services-ads-lite-20.4.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES />
   </library>

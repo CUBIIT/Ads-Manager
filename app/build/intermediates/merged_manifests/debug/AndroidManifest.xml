@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVersion="30" />
+        android:targetSdkVersion="31" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -46,6 +46,7 @@
         android:theme="@style/Theme.AdManager" >
         <activity
             android:name="org.cubiit.admanager.AdsActivity"
+            android:exported="true"
             android:parentActivityName="org.cubiit.admanager.MainActivity" />
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
@@ -55,7 +56,9 @@
             android:name="com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED"
             android:value="true" />
 
-        <activity android:name="org.cubiit.admanager.SplashScreen" >
+        <activity
+            android:name="org.cubiit.admanager.SplashScreen"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

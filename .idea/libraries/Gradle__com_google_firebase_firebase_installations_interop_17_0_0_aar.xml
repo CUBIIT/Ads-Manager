@@ -3,11 +3,12 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cfbcf25365bff2292e38dbd1ded8ea3f/jetified-firebase-installations-interop-17.0.0/res" />
       <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/cfbcf25365bff2292e38dbd1ded8ea3f/jetified-firebase-installations-interop-17.0.0/res" />
-      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/cfbcf25365bff2292e38dbd1ded8ea3f/jetified-firebase-installations-interop-17.0.0/jars/classes.jar!/" />
-      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/cfbcf25365bff2292e38dbd1ded8ea3f/jetified-firebase-installations-interop-17.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b8e3efc9b8ad9a120161df576cb0d3a9/jetified-firebase-installations-interop-17.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b8e3efc9b8ad9a120161df576cb0d3a9/jetified-firebase-installations-interop-17.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b8e3efc9b8ad9a120161df576cb0d3a9/jetified-firebase-installations-interop-17.0.0/res" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/modules-2/files-2.1/com.google.firebase/firebase-installations-interop/17.0.0/ac6ab4866e0eefc2f4aa88b449b5c615939c3545/firebase-installations-interop-17.0.0-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-installations-interop/17.0.0/ac6ab4866e0eefc2f4aa88b449b5c615939c3545/firebase-installations-interop-17.0.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES />
   </library>

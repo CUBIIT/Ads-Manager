@@ -1,10 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.facebook.android:audience-network-sdk:6.8.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cecffe34cb6b8d7b59318e85a8f2829f/jetified-audience-network-sdk-6.8.0/res" />
-      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/cecffe34cb6b8d7b59318e85a8f2829f/jetified-audience-network-sdk-6.8.0/jars/classes.jar!/" />
-      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/cecffe34cb6b8d7b59318e85a8f2829f/jetified-audience-network-sdk-6.8.0/AndroidManifest.xml" />
-      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/cecffe34cb6b8d7b59318e85a8f2829f/jetified-audience-network-sdk-6.8.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/14d96ed3b38b073ac3018efb07e33375/jetified-audience-network-sdk-6.8.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/14d96ed3b38b073ac3018efb07e33375/jetified-audience-network-sdk-6.8.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/14d96ed3b38b073ac3018efb07e33375/jetified-audience-network-sdk-6.8.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

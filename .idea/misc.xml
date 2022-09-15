@@ -8,7 +8,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/drawable/bg__ye_ad_broder.xml" value="0.1585" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/drawable/bg_ad_broder.xml" value="0.1585" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/drawable/bg_black_theme.xml" value="0.1455" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/drawable/bg_border.xml" value="0.187" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/drawable/bg_border_black_theme.xml" value="0.1585" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/drawable/bg_no_border.xml" value="0.1445" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/drawable/ic_ad_01_01.xml" value="0.1585" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/drawable/ic_ad_01__1_.xml" value="0.1585" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/drawable/ic_ads_view.xml" value="0.1585" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/layout/admob_native_ad_layout.xml" value="0.25" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/layout/dialog_backpress.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/Ads-Manager/adhelper/src/main/res/layout/facebook_native_ad_layout.xml" value="0.33" />
@@ -39,7 +47,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

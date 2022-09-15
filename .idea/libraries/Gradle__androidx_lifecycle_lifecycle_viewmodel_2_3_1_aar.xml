@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.lifecycle:lifecycle-viewmodel:2.3.1@aar">
     <CLASSES>
-      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/085431241d14213e16ee6d5921b59d7f/lifecycle-viewmodel-2.3.1/res" />
-      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/085431241d14213e16ee6d5921b59d7f/lifecycle-viewmodel-2.3.1/jars/classes.jar!/" />
-      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/085431241d14213e16ee6d5921b59d7f/lifecycle-viewmodel-2.3.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83254f54b7f5b3de82297edb275857b8/lifecycle-viewmodel-2.3.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83254f54b7f5b3de82297edb275857b8/lifecycle-viewmodel-2.3.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83254f54b7f5b3de82297edb275857b8/lifecycle-viewmodel-2.3.1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
-      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-viewmodel/2.3.1/55d6fa3541ca02167b0bd62a16fbdaec2a71622/lifecycle-viewmodel-2.3.1-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.lifecycle/lifecycle-viewmodel/2.3.1/55d6fa3541ca02167b0bd62a16fbdaec2a71622/lifecycle-viewmodel-2.3.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

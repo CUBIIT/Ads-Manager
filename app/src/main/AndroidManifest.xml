@@ -15,6 +15,7 @@
         android:theme="@style/Theme.AdManager">
         <activity
             android:name="org.cubiit.admanager.AdsActivity"
+            android:exported="true"
             android:parentActivityName="org.cubiit.admanager.MainActivity"></activity>
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
@@ -23,7 +24,8 @@
         <meta-data android:name="com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED"
             android:value="true" />
 
-        <activity android:name="org.cubiit.admanager.SplashScreen">
+        <activity android:name="org.cubiit.admanager.SplashScreen"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

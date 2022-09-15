@@ -1176,6 +1176,7 @@ int color tooltip_background_dark 0x0
 int color tooltip_background_light 0x0
 int color transparent 0x0
 int color white 0x0
+int color yellow 0x0
 int dimen abc_action_bar_content_inset_material 0x0
 int dimen abc_action_bar_content_inset_with_nav 0x0
 int dimen abc_action_bar_default_height_material 0x0
@@ -1685,11 +1686,15 @@ int drawable abc_textfield_search_material 0x0
 int drawable abc_vector_test 0x0
 int drawable avd_hide_password 0x0
 int drawable avd_show_password 0x0
+int drawable bg__ye_ad_broder 0x0
 int drawable bg_ad_broder 0x0
+int drawable bg_black_theme 0x0
 int drawable bg_border 0x0
+int drawable bg_border_black_theme 0x0
 int drawable bg_calltoaction 0x0
 int drawable bg_floating_button 0x0
 int drawable bg_native_layout 0x0
+int drawable bg_no_border 0x0
 int drawable btn_checkbox_checked_mtrl 0x0
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x0
 int drawable btn_checkbox_unchecked_mtrl 0x0
@@ -2166,6 +2171,7 @@ int id transition_position 0x0
 int id transition_scene_layoutid_cache 0x0
 int id transition_transform 0x0
 int id triangle 0x0
+int id tvAd 0x0
 int id tv_body 0x0
 int id tv_call_to_action 0x0
 int id tv_etc 0x0

@@ -16,4 +16,5 @@
     <color name="blueTransparent">#921E88E5</color>
     <color name="lightGray">#EFEFEF</color>
     <color name="green">#036D07</color>
+    <color name="yellow">#FFC107</color>
 </resources>

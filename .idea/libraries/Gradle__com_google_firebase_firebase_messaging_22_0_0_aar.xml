@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.firebase:firebase-messaging:22.0.0@aar">
     <CLASSES>
-      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/b2711f3e7f68484de5dabbec63d5f8a8/jetified-firebase-messaging-22.0.0/res" />
-      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/b2711f3e7f68484de5dabbec63d5f8a8/jetified-firebase-messaging-22.0.0/jars/classes.jar!/" />
-      <root url="file://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/transforms-2/files-2.1/b2711f3e7f68484de5dabbec63d5f8a8/jetified-firebase-messaging-22.0.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9b1c3cb9d0c010b3af346bf0696fec5c/jetified-firebase-messaging-22.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9b1c3cb9d0c010b3af346bf0696fec5c/jetified-firebase-messaging-22.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9b1c3cb9d0c010b3af346bf0696fec5c/jetified-firebase-messaging-22.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://D:/Song HD Download/Compressed/MusicPlayer-master/MusicPlayer-master/.gradle/7.4.2/caches/modules-2/files-2.1/com.google.firebase/firebase-messaging/22.0.0/afa090c79eabeb362da6948c4cc926f3803f8d4e/firebase-messaging-22.0.0-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-messaging/22.0.0/afa090c79eabeb362da6948c4cc926f3803f8d4e/firebase-messaging-22.0.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES />
   </library>

@@ -728,14 +728,33 @@ public class MediationNativeAd {
             containerView.removeAllViews();
             com.google.android.gms.ads.nativead.NativeAdView nativeView = (com.google.android.gms.ads.nativead.NativeAdView) LayoutInflater.from(context).inflate(R.layout.admob_native_ad_layout, containerView, false);
             containerView.addView(nativeView);
-          if(AdHelperApplication.enableBorder){
-              nativeView.setBackgroundResource(R.drawable.bg_border);
-          }
-          if(AdHelperApplication.enableDarkMode){
-              nativeView.setBackgroundResource(R.drawable.bg_black_theme);
-              nativeView.findViewById(R.id.ad_headline).setEnabled(false);
-              nativeView.findViewById(R.id.ad_body).setEnabled(false);
-          }
+            Log.d(TAG, "bindAdmobContentAD:enableBorder " + AdHelperApplication.enableBorder);
+            Log.d(TAG, "bindAdmobContentAD:enableDarkMode " + AdHelperApplication.enableDarkMode);
+            if (AdHelperApplication.enableBorder) {
+                nativeView.setBackgroundResource(R.drawable.bg_border);
+            } else {
+                nativeView.setBackgroundResource(R.drawable.bg_no_border);
+            }
+            if (AdHelperApplication.enableDarkMode) {
+                nativeView.setBackgroundResource(R.drawable.bg_black_theme);
+                TextView tv = (TextView) nativeView.findViewById(R.id.ad_headline);
+                tv.setTextColor(context.getResources().getColor(R.color.white));
+                ((TextView) nativeView.findViewById(R.id.ad_body)).setTextColor(context.getResources().getColor(R.color.white));
+                ((TextView) nativeView.findViewById(R.id.ad_advertiser)).setTextColor(context.getResources().getColor(R.color.grayWhite));
+                ((TextView) nativeView.findViewById(R.id.tvAd)).setTextColor(context.getResources().getColor(R.color.yellow));
+
+                ((TextView) nativeView.findViewById(R.id.tvAd)).setBackgroundResource(R.drawable.bg__ye_ad_broder);
+            }
+            if( AdHelperApplication.enableBorder && AdHelperApplication.enableDarkMode){
+                nativeView.setBackgroundResource(R.drawable.bg_border_black_theme);
+                TextView tv = (TextView) nativeView.findViewById(R.id.ad_headline);
+                tv.setTextColor(context.getResources().getColor(R.color.white));
+                ((TextView) nativeView.findViewById(R.id.ad_body)).setTextColor(context.getResources().getColor(R.color.white));
+                ((TextView) nativeView.findViewById(R.id.ad_advertiser)).setTextColor(context.getResources().getColor(R.color.grayWhite));
+                ((TextView) nativeView.findViewById(R.id.tvAd)).setTextColor(context.getResources().getColor(R.color.yellow));
+
+                ((TextView) nativeView.findViewById(R.id.tvAd)).setBackgroundResource(R.drawable.bg__ye_ad_broder);
+            }
 
 
             // Set the media view.

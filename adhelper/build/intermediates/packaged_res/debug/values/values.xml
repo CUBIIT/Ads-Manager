@@ -14,6 +14,7 @@
     <color name="tedBtnPrimary">#3F51B5</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
+    <color name="yellow">#FFC107</color>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="btn_padding_left_right">15dp</dimen>
@@ -67,7 +68,7 @@
     </style>
     <style name="AppTheme.DialogTheme" parent="Theme.AppCompat.Light.Dialog">
 
-        <!-- app abar color in Activties Task manager -->
+        
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsFloating">true</item>
         <item name="android:windowCloseOnTouchOutside">false</item>

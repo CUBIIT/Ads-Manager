@@ -49,21 +49,21 @@ public class SplashScreen extends AppCompatActivity {
         findViewById(R.id.getstarted).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SplashScreen.this,MainActivity.class));
+                startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 finish();
             }
         });
         new MediationOpenAdManager(this, new OpenAddCallback() {
             @Override
             public void onDismissClick() {
-                startActivity(new Intent(SplashScreen.this,MainActivity.class));
+                startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 finish();
             }
 
             @Override
             public void onErrorToShow(String error) {
                 Log.d("de_opspl", "onErrorToShow: " + error);
-                startActivity(new Intent(SplashScreen.this,MainActivity.class));
+                startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 finish();
             }
         });
@@ -121,10 +121,12 @@ public class SplashScreen extends AppCompatActivity {
         MediationAdInterstitial.initInterstitialAd(false, this,
                 KEY_PRIORITY_INTERSTITIAL_AD, null);
     }
+
     public static Integer[] KEY_PRIORITY_NATIVE_AD_TEST = new Integer[]{
             MediationAdHelper.AD_ADMOB};
+
     private void loadNative() {
-        MediationNativeAd nativeAd = new MediationNativeAd(false,PLACEHOLDER.SPLASH_ACTIVITY, (FrameLayout) findViewById(R.id.native_fram), this, getString(R.string.app_name),
+        MediationNativeAd nativeAd = new MediationNativeAd(false, PLACEHOLDER.SPLASH_ACTIVITY, (FrameLayout) findViewById(R.id.native_fram), this, getString(R.string.app_name),
                 new MediationAdHelper.ImageProvider() {
                     @Override
                     public void onProvideImage(ImageView imageView, String imageUrl) {

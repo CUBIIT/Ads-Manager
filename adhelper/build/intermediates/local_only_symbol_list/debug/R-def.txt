@@ -14,6 +14,7 @@ color tedBtnHighlight
 color tedBtnPrimary
 color transparent
 color white
+color yellow
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
 dimen btn_padding_left_right
@@ -35,11 +36,15 @@ dimen list_item_text_margin
 dimen recommend_icon_size
 dimen tool_bar_height
 dimen toolbar_elevation
+drawable bg__ye_ad_broder
 drawable bg_ad_broder
+drawable bg_black_theme
 drawable bg_border
+drawable bg_border_black_theme
 drawable bg_calltoaction
 drawable bg_floating_button
 drawable bg_native_layout
+drawable bg_no_border
 drawable btn_primary
 drawable btn_square_stroke_primary
 drawable btn_white
@@ -99,6 +104,7 @@ id parent_native_banner_constraint_layout
 id progressView
 id relative_layout
 id right_constriant
+id tvAd
 id tv_body
 id tv_call_to_action
 id tv_etc

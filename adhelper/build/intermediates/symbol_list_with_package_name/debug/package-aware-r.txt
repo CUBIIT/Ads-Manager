@@ -1177,6 +1177,7 @@ color tooltip_background_dark
 color tooltip_background_light
 color transparent
 color white
+color yellow
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -1686,11 +1687,15 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable bg__ye_ad_broder
 drawable bg_ad_broder
+drawable bg_black_theme
 drawable bg_border
+drawable bg_border_black_theme
 drawable bg_calltoaction
 drawable bg_floating_button
 drawable bg_native_layout
+drawable bg_no_border
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -2167,6 +2172,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvAd
 id tv_body
 id tv_call_to_action
 id tv_etc
