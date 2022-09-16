@@ -287,12 +287,21 @@ public class AdHelperApplication extends Application {
     }
 
     private static void fetchSessions(FirebaseRemoteConfig firebaseRemoteConfig) {
-        String TAG = Constant.TAG;
-        String val = firebaseRemoteConfig.getString("sessions");
-        sessionConfig = new Gson().fromJson(val, SessionConfig.class);
-        Collection<Integer> d = sessionConfig.admob_sessions.values();
+        try {
+            String TAG = Constant.TAG;
+            String val = firebaseRemoteConfig.getString("sessions");
+            Log.d(TAG, "fetchSessions: "+ val);
+            if(val.isEmpty())
+                val = Constant.DEFUALT_SESSIONS;
 
-        admobLimit = firebaseRemoteConfig.getString("is_admob_limit");
+            sessionConfig = new Gson().fromJson(val, SessionConfig.class);
+            Collection<Integer> d = sessionConfig.admob_sessions.values();
+            Log.d(TAG, "fetchSessions: "+ d);
+
+            admobLimit = firebaseRemoteConfig.getString("is_admob_limit");
+        }catch (Exception e){
+            Log.d(TAG, "fetchSessions: "+ e.getMessage());
+        }
 
         //Log.d(TAG, "fetchPlaceholder: banner "+ placeholderConfig.interstitial.MAIN_ACTIVITY);
 
@@ -300,28 +309,32 @@ public class AdHelperApplication extends Application {
     }
 
     private static void getAdsThemeValues(FirebaseRemoteConfig remoteConfig) {
-        if (remoteConfig == null)
-            return;
-        String borderVal = remoteConfig.getString("enable_border").toLowerCase();
-        String theme = remoteConfig.getString("enable_dark_mode");
-        if (!borderVal.isEmpty()) {
-            if (borderVal.equals("1") || borderVal.equals("true") || borderVal.equals("yes")) {
-                enableBorder = true;
+        try {
+            if (remoteConfig == null)
+                return;
+            String borderVal = remoteConfig.getString("enable_border").toLowerCase();
+            String theme = remoteConfig.getString("enable_dark_mode");
+            if (!borderVal.isEmpty()) {
+                if (borderVal.equals("1") || borderVal.equals("true") || borderVal.equals("yes")) {
+                    enableBorder = true;
+                } else {
+                    enableBorder = false;
+                }
             } else {
                 enableBorder = false;
             }
-        } else {
-            enableBorder = false;
-        }
-        //theme
-        if (!theme.isEmpty()) {
-            if (theme.equals("1") || theme.equals("true") || theme.equals("yes")) {
-                enableDarkMode = true;
+            //theme
+            if (!theme.isEmpty()) {
+                if (theme.equals("1") || theme.equals("true") || theme.equals("yes")) {
+                    enableDarkMode = true;
+                } else {
+                    enableDarkMode = false;
+                }
             } else {
                 enableDarkMode = false;
             }
-        } else {
-            enableDarkMode = false;
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
 

@@ -101,6 +101,22 @@ public class Constant {
     public static String NEW_APP_VERSION="new_app_version";
     public static String TEST_MODE_KEY="test_mode";
     public static String RELEASE_KEY="release";
+    public static String DEFUALT_SESSIONS="  {\n" +
+            "            \"fb_sessions\": {\n" +
+            "            \"banner_session\": 1,\n" +
+            "            \"native_session\":1,\n" +
+            "            \"interstitial_session\":1,\n" +
+            "            \"exit_session\":1,\n" +
+            "            \"native_banner_session\":1\n" +
+            "            },\n" +
+            "            \"admob_sessions\": {\n" +
+            "            \"banner_session\": 1,\n" +
+            "            \"native_session\":1,\n" +
+            "            \"interstitial_session\":1,\n" +
+            "            \"exit_session\":1,\n" +
+            "            \"native_banner_session\":1\n" +
+            "            }\n" +
+            "            }";
     public static String DEFUALT_PLACEHOLDER_JSON = "\n" +
             "            {\n" +
             "            \"banner\": {\n" +
