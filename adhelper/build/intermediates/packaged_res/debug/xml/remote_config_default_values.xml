@@ -13,7 +13,7 @@
     </entry>
     <entry>
         <key>enable_preload</key>
-        <value>0</value>
+        <value>1</value>
     </entry>
     <entry>
         <key>placeholders</key>
@@ -154,7 +154,7 @@
     </entry>
     <entry>
         <key>inter_click_limit</key>
-        <value>3</value>
+        <value>1</value>
     </entry>
     <entry>
         <key>admob_open_ad_id</key>
@@ -210,7 +210,7 @@
     </entry>
     <entry>
         <key>can_skip</key>
-        <value>1</value>
+        <value>0</value>
     </entry>
     <entry>
         <key>banner_ad_time</key>

@@ -169,7 +169,13 @@ public static  boolean checkAdSwithIsOff(String value){
         intent.putExtra(EXTRA_FACEBOOK_KEY, TEST_FB_NATIVE_ID);
         intent.putExtra(EXTRA_ADMOB_KEY, TEST_ADMOB_NATIVE_ID);
         intent.putExtra(EXTRA_SHOW_REVIEW_BUTTON, showReviewButton);
-        intent.putExtra(EXTRA_AD_SWITCH,checkAdSwithIsOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.exit_dialog).toLowerCase(Locale.ROOT)));
+        boolean isAdSwitch = false;
+        try{
+            isAdSwitch = checkAdSwithIsOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.exit_dialog).toLowerCase(Locale.ROOT));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        intent.putExtra(EXTRA_AD_SWITCH,isAdSwitch);
         intent.putExtra(EXTRA_AD_PRIORITY_LIST, new ArrayList<>(Arrays.asList(getPriorityAgainstPlaceHolder(placeholder, adPriorityList))));
         intent.putExtra(EXTRA_IS_PURCHASE, b);
 
