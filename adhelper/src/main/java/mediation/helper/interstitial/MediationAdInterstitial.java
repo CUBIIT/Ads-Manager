@@ -295,14 +295,14 @@ public class MediationAdInterstitial {
                         //on cubi ad error listener called already
                         if (num != 3)
 
-                            MediationAdInterstitial.onInterstitialAdListener.onError("Delay Time is Finished!");
+                           MediationAdInterstitial.onInterstitialAdListener.onError("Delay Time is Finished!");
                         try {
                             if (interstitialAdDialog.isShowing()) interstitialAdDialog.dismiss();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                         showAds = false;
-                        timer = 2000;
+                        timer = 5000;//5 second delay time
                     }
                 }
             }, timer);
@@ -397,7 +397,7 @@ public class MediationAdInterstitial {
                     if (showAds && MediationAdInterstitial.onInterstitialAdListener != null) {
                         //on cubi ad error listener called already
                         if (num != 3)
-
+                            Log.d("test_", "run: ");
                             MediationAdInterstitial.onInterstitialAdListener.onError("Delay Time is Finished!");
                         try {
                             if (interstitialAdDialog.isShowing()) interstitialAdDialog.dismiss();
@@ -405,7 +405,7 @@ public class MediationAdInterstitial {
                             e.printStackTrace();
                         }
                         showAds = false;
-                        timer = 2000;//3second
+                        timer = 5000;//5second
                     }
                 }
             }, timer);
