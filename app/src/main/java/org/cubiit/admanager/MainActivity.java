@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -301,6 +302,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onDismissed(int adType) {
                             hideDialog();
+                            Toast.makeText(MainActivity.this, "OnDismiss", Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -308,6 +310,8 @@ public class MainActivity extends AppCompatActivity {
                         public void onError(String errorMessage) {
                             Log.e(TAG, "onError: " + errorMessage);
                             hideDialog();
+                            Toast.makeText(MainActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
+
 
 
                         }

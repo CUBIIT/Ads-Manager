@@ -25,31 +25,29 @@ import mediation.helper.util.PrefManager;
 /**
  * Prefetches App Open Ads.
  */
-public class MediationOpenAdManager {
+public class MediationOpenAdManageWithLifeCycles {
     private AppOpenAd appOpenAd = null;
     private String admob_open_id_key;
-
     private AppOpenAd.AppOpenAdLoadCallback loadCallback;
-
     private Activity currentActivity;
-
     private FirebaseAnalytics analytics;
     private static boolean isShowingAd = false;
-
     private long loadTime = 0;
     private static final String LOG_TAG = "de_openAdd";
     private OpenAddCallback openAddCallBack;
     private PrefManager prefManager;
+    private String ignoreActivity;
 
     /**
      * Constructor
      */
-    public MediationOpenAdManager(final Activity activity, OpenAddCallback appOpenAdCallBack) {
+    public MediationOpenAdManageWithLifeCycles(final Activity activity, OpenAddCallback appOpenAdCallBack, final String ignore) {
         Log.d("de_op", "OpenAdManager: --------------------");
         this.currentActivity = activity;
         this.openAddCallBack = appOpenAdCallBack;
+        ignoreActivity = ignore;
         analytics = AdHelperApplication.getFirebaseAnalytics();
-        prefManager = new PrefManager(activity);
+        prefManager = new PrefManager(activity.getApplicationContext());
         this.admob_open_id_key = TEST_ADMOB_OPEN_APP_ID;
 
         if (!AdHelperApplication.isAppOpenAdEnable) {
@@ -68,9 +66,9 @@ public class MediationOpenAdManager {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    new MediationOpenAdManager(activity, openAddCallBack);
+                    new MediationOpenAdManageWithLifeCycles(activity, openAddCallBack, ignore);
                 }
-            }, 2000);
+            }, 1000);
             return;
         }
         if (!checkIfAdCanBeShow(appOpenAdCallBack)) {
@@ -87,7 +85,15 @@ public class MediationOpenAdManager {
                 openAddCallBack.onErrorToShow("Open ad id failed");
             }
         }
-        Log.d("de_open", "OpenAdManager: can show");
+        String currentActName = currentActivity.getClass().getSimpleName();
+        Log.d("de_open", "fetchAd:classname " + currentActName);
+        Log.d("de_open", "fetchAd:ignoreActivity " + ignoreActivity);
+
+        if (currentActName.equals(ignoreActivity)) {
+            openAddCallBack.onErrorToShow("Not Allow on Splash");
+            Log.d("de_open", "MediationOpenAdManagerCallBacks: not show");
+            return;
+        }
         fetchAd();
 
     }
@@ -183,7 +189,6 @@ public class MediationOpenAdManager {
      */
     public void fetchAd() {
         // Have unused ad, no need to fetch another.
-
         if (isAdAvailable()) {
             return;
         }
@@ -211,13 +216,13 @@ public class MediationOpenAdManager {
                         Log.d("alam_", "onAdLoaded: ");
                         Bundle bundle = new Bundle();
                         bundle.putString("openAdLoaded", "onAddLoadedCalled ");
-                        if (analytics != null)
-                            analytics.logEvent("OpenApponAdLoaded", bundle);
+                        if (analytics != null) analytics.logEvent("OpenApponAdLoaded", bundle);
                         showAdIfAvailable();
                     }
 
 
                 };
+
         AdRequest request = getAdRequest();
         Log.d("de_open", "fetchAd:admobkey " + admob_open_id_key);
         AppOpenAd.load(
@@ -225,8 +230,7 @@ public class MediationOpenAdManager {
                 AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT, loadCallback);
         Bundle bundle = new Bundle();
         bundle.putString("openRequestAd", "On Request sent for ad ");
-        if (analytics != null)
-            analytics.logEvent("OpenAppAdRequestSend", bundle);
+        if (analytics != null) analytics.logEvent("OpenAppAdRequestSend", bundle);
     }
 
     /**
