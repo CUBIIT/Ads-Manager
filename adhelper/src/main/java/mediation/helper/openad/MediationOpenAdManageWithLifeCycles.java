@@ -41,11 +41,11 @@ public class MediationOpenAdManageWithLifeCycles {
     /**
      * Constructor
      */
-    public MediationOpenAdManageWithLifeCycles(final Activity activity, OpenAddCallback appOpenAdCallBack, final String ignore) {
+    public MediationOpenAdManageWithLifeCycles(final Activity activity, OpenAddCallback appOpenAdCallBack, final String onlyShowOnActivity) {
         Log.d("de_op", "OpenAdManager: --------------------");
         this.currentActivity = activity;
         this.openAddCallBack = appOpenAdCallBack;
-        ignoreActivity = ignore;
+        ignoreActivity = onlyShowOnActivity;
         analytics = AdHelperApplication.getFirebaseAnalytics();
         prefManager = new PrefManager(activity.getApplicationContext());
         this.admob_open_id_key = TEST_ADMOB_OPEN_APP_ID;
@@ -66,7 +66,7 @@ public class MediationOpenAdManageWithLifeCycles {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    new MediationOpenAdManageWithLifeCycles(activity, openAddCallBack, ignore);
+                    new MediationOpenAdManageWithLifeCycles(activity, openAddCallBack, onlyShowOnActivity);
                 }
             }, 1000);
             return;
@@ -90,11 +90,12 @@ public class MediationOpenAdManageWithLifeCycles {
         Log.d("de_open", "fetchAd:ignoreActivity " + ignoreActivity);
 
         if (currentActName.equals(ignoreActivity)) {
+         fetchAd();
+        }else{
             openAddCallBack.onErrorToShow("Not Allow on Splash");
             Log.d("de_open", "MediationOpenAdManagerCallBacks: not show");
             return;
         }
-        fetchAd();
 
     }
 
