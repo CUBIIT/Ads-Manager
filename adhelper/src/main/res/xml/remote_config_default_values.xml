@@ -13,7 +13,7 @@
     </entry>
     <entry>
         <key>enable_preload</key>
-        <value>0</value>
+        <value>1</value>
     </entry>
     <entry>
         <key>placeholders</key>

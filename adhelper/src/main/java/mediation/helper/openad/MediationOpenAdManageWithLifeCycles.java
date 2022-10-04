@@ -238,7 +238,7 @@ public class MediationOpenAdManageWithLifeCycles {
      * Creates and returns ad request.
      */
     private AdRequest getAdRequest() {
-        return new AdRequest.Builder().build();
+        return new AdRequest.Builder().setHttpTimeoutMillis(5000).build();
     }
 
     /**

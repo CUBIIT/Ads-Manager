@@ -409,7 +409,7 @@ public class MediationAdInterstitial {
                             e.printStackTrace();
                         }
                         showAds = false;
-                        timer = 5000;//5second
+                        timer = 2000;//5second
                     }
                 }
             }, timer);

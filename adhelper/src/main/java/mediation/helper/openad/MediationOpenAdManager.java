@@ -219,6 +219,7 @@ public class MediationOpenAdManager {
 
                 };
         AdRequest request = getAdRequest();
+
         Log.d("de_open", "fetchAd:admobkey " + admob_open_id_key);
         AppOpenAd.load(
                 currentActivity.getApplicationContext(), admob_open_id_key, request,
@@ -233,7 +234,7 @@ public class MediationOpenAdManager {
      * Creates and returns ad request.
      */
     private AdRequest getAdRequest() {
-        return new AdRequest.Builder().build();
+        return new AdRequest.Builder().setHttpTimeoutMillis(5000).build();
     }
 
     /**
