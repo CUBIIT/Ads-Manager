@@ -297,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
         try {
 
             MediationAdInterstitial.showInterstitialAd(false, PLACEHOLDER.ACTIVITY_1, this,
-                    KEY_PRIORITY_INTERSTITIAL_AD_test,
+                    KEY_PRIORITY_INTERSTITIAL_AD,
                     new OnInterstitialAdListener() {
                         @Override
                         public void onDismissed(int adType) {

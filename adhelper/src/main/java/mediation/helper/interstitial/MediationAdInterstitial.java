@@ -294,7 +294,7 @@ public class MediationAdInterstitial {
             new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                 public void run() {
                     Log.d(MediationAdHelper.TAG, "Delay Time is Finished!");
-                    if (showAds && MediationAdInterstitial.onInterstitialAdListener != null) {
+                    if (!showAds && MediationAdInterstitial.onInterstitialAdListener != null) {
                         //on cubi ad error listener called already
                         if (num != 3)
 
@@ -494,6 +494,8 @@ public class MediationAdInterstitial {
             return;
         }
 
+
+
         int adPriority = adPriorityList.remove(0);
         num = adPriority;
         Log.d(TAG, "showSelectedAd: " + adPriority);
@@ -636,6 +638,8 @@ public class MediationAdInterstitial {
                     onInterstitialAdListener.onDismissed(MediationAdHelper.AD_FACEBOOK);
 //                    finishAd();
                 }
+                if (isAdPreloadEnable)
+                    initSelectedAd();
             }
 
             @Override
@@ -644,7 +648,7 @@ public class MediationAdInterstitial {
                 MediationAdInterstitial.onLoadError(adError.getErrorMessage());
                 facebookInterstitialAD = null;
                 AdHelperApplication.fbRequestInterFaild++;
-                if (!isAdPreloadEnable)
+                if (isAdPreloadEnable)
                     initSelectedAd();
             }
 
@@ -655,6 +659,7 @@ public class MediationAdInterstitial {
 
                     onInterstitialAdListener.onLoaded(MediationAdHelper.AD_FACEBOOK);
                 }
+                showAds = true;
                 if (!isAdPreloadEnable)
                     showSelectedAd();
                 //set interstitial time
@@ -708,6 +713,8 @@ public class MediationAdInterstitial {
             }
             if (isAdPreloadEnable)
                 initSelectedAd();
+        } else {
+            Log.d(TAG, "showFacebookInterstitialAd: show ad is off " + showAds);
         }
     }
 
@@ -868,7 +875,8 @@ public class MediationAdInterstitial {
             e.printStackTrace();
         }
         if (adPriorityList != null && adPriorityList.size() > 0) {
-            showSelectedAd();
+
+                showSelectedAd();
         } else {
             if (onInterstitialAdListener != null) {
 
