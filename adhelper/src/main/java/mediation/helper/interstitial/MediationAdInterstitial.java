@@ -40,6 +40,7 @@ import java.util.Map;
 
 import mediation.helper.AdHelperApplication;
 import mediation.helper.AdTimeLimits;
+import mediation.helper.AnalyticsEvents.MediationEvents;
 import mediation.helper.IUtils;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.config.AdSessions;
@@ -67,6 +68,8 @@ public class MediationAdInterstitial {
     private static int num = -1;
     private static com.facebook.ads.InterstitialAd facebookInterstitialAD = null;
     private static com.google.android.gms.ads.interstitial.InterstitialAd admobInterstitialAD = null;
+    private static boolean timeOut = false;
+    private static boolean isAdInProgress = true;
 
     public static void showFacebookInterstitialAd(boolean isPurchased, Activity activity, String facebookKey, OnInterstitialAdListener onInterstitialAdListener) {
         showInterstitialAd(isPurchased, PLACEHOLDER.DEFAULT, activity, MediationAdHelper.AD_FACEBOOK, onInterstitialAdListener);
@@ -295,14 +298,14 @@ public class MediationAdInterstitial {
                         //on cubi ad error listener called already
                         if (num != 3)
 
-                           MediationAdInterstitial.onInterstitialAdListener.onError("Delay Time is Finished!");
+                            MediationAdInterstitial.onInterstitialAdListener.onError("Delay Time is Finished!");
                         try {
                             if (interstitialAdDialog.isShowing()) interstitialAdDialog.dismiss();
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
                         showAds = false;
-                        timer = 5000;//5 second delay time
+                        timer = 2000;//5 second delay time
                     }
                 }
             }, timer);
@@ -363,7 +366,7 @@ public class MediationAdInterstitial {
 
         }
         interstitialAdDialog = new ProgressDialog(activity);
-       // interstitialAdDialog.setTitle("Loading");
+        // interstitialAdDialog.setTitle("Loading");
         interstitialAdDialog.setMessage("Wait while ad is loading...");
         interstitialAdDialog.setCancelable(false); // disable dismiss by tapping outside of the dialog
         try {
@@ -383,7 +386,7 @@ public class MediationAdInterstitial {
             showAds = true;
             Log.d(TAG, String.format("Interstitial Ad Ids----facebook: %s ----Admob: %s", MediationAdInterstitial.facebookKey, MediationAdInterstitial.admobKey));
             // showSelectedAd();
-            Log.d(TAG, "showInterstitialAdOnTime: "+ admobInterstitialAD + facebookInterstitialAD);
+            Log.d(TAG, "showInterstitialAdOnTime: " + admobInterstitialAD + facebookInterstitialAD);
             if (admobInterstitialAD != null || facebookInterstitialAD != null) {
                 showSelectedAd();
                 return;
@@ -398,7 +401,8 @@ public class MediationAdInterstitial {
                         //on cubi ad error listener called already
                         if (num != 3)
                             Log.d("test_", "run: ");
-                            MediationAdInterstitial.onInterstitialAdListener.onError("Delay Time is Finished!");
+                        MediationEvents.onInterstitialAdErrorEvent();
+                        MediationAdInterstitial.onInterstitialAdListener.onError("Delay Time is Finished!");
                         try {
                             if (interstitialAdDialog.isShowing()) interstitialAdDialog.dismiss();
                         } catch (Exception e) {
@@ -464,7 +468,6 @@ public class MediationAdInterstitial {
     }
 
     private static void initSelectedAd() {
-
         int adPriority = initAdPriorityList.remove(0);
         Log.e(TAG, "showSelectedAd: " + adPriority);
         switch (adPriority) {
@@ -733,8 +736,8 @@ public class MediationAdInterstitial {
             /*events*/
 
             Bundle bundle = new Bundle();
-            bundle.putString("admb_req","Send interstitial admob request");
-            if(AdHelperApplication.getFirebaseAnalytics()!=null) {
+            bundle.putString("admb_req", "Send interstitial admob request");
+            if (AdHelperApplication.getFirebaseAnalytics() != null) {
                 AdHelperApplication.getFirebaseAnalytics().logEvent("SendAdmobRequest", bundle);
             }
             InterstitialAd.load(activityRef.get(), admobKey, MediationAdHelper.getAdRequest(), new InterstitialAdLoadCallback() {
@@ -751,8 +754,8 @@ public class MediationAdInterstitial {
                         onInterstitialAdListener.onLoaded(MediationAdHelper.AD_ADMOB);
                     }
                     Bundle bundle = new Bundle();
-                    bundle.putString("admob_loaded","Inters admob ad loaded");
-                    if(AdHelperApplication.getFirebaseAnalytics()!=null) {
+                    bundle.putString("admob_loaded", "Inters admob ad loaded");
+                    if (AdHelperApplication.getFirebaseAnalytics() != null) {
                         AdHelperApplication.getFirebaseAnalytics().logEvent("OnInterstitialAdMobLoaded", bundle);
                     }
                     //ifpreload off means show ad when loaded
@@ -764,8 +767,8 @@ public class MediationAdInterstitial {
                 public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                     Log.e(MediationAdHelper.TAG, "[ADMOB FRONT AD]Error: " + loadAdError.getMessage());
                     Bundle bundle = new Bundle();
-                    bundle.putString("amb_failtedtoload","Inters admob ad failedToload");
-                    if(AdHelperApplication.getFirebaseAnalytics()!=null) {
+                    bundle.putString("amb_failtedtoload", "Inters admob ad failedToload");
+                    if (AdHelperApplication.getFirebaseAnalytics() != null) {
                         AdHelperApplication.getFirebaseAnalytics().logEvent("OnIntersAMBFailedToLoad", bundle);
                     }
                     MediationAdInterstitial.onLoadError(loadAdError.getMessage());
@@ -804,8 +807,8 @@ public class MediationAdInterstitial {
                     public void onAdFailedToShowFullScreenContent(com.google.android.gms.ads.AdError var1) {
                         MediationAdInterstitial.onError(var1.getMessage());
                         Bundle bundle = new Bundle();
-                        bundle.putString("amb_failedToShow","Inters admob ad failedtoShowAd");
-                        if(AdHelperApplication.getFirebaseAnalytics()!=null) {
+                        bundle.putString("amb_failedToShow", "Inters admob ad failedtoShowAd");
+                        if (AdHelperApplication.getFirebaseAnalytics() != null) {
                             AdHelperApplication.getFirebaseAnalytics().logEvent("OnIntersAMBFailedToShowFlScrn", bundle);
                         }
                     }
@@ -826,8 +829,8 @@ public class MediationAdInterstitial {
                         // Make sure to set your reference to null so you don't
                         // show it a second time.
                         Bundle bundle = new Bundle();
-                        bundle.putString("amb_AdShowdFlScr","Inters admob ad showFullScrn");
-                        if(AdHelperApplication.getFirebaseAnalytics()!=null) {
+                        bundle.putString("amb_AdShowdFlScr", "Inters admob ad showFullScrn");
+                        if (AdHelperApplication.getFirebaseAnalytics() != null) {
                             AdHelperApplication.getFirebaseAnalytics().logEvent("OnIntersAMBShowedFlScreen", bundle);
                         }
                         admobInterstitialAD = null;
@@ -849,8 +852,8 @@ public class MediationAdInterstitial {
                 initSelectedAd();
         }
         try {
-            if(interstitialAdDialog.isShowing())
-                  interstitialAdDialog.dismiss();
+            if (interstitialAdDialog.isShowing())
+                interstitialAdDialog.dismiss();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -859,7 +862,7 @@ public class MediationAdInterstitial {
     private static void onError(String errorMessage) {
         Log.d(Constant.TAG, "onError: " + errorMessage);
         try {
-            if(interstitialAdDialog.isShowing())
+            if (interstitialAdDialog.isShowing())
                 interstitialAdDialog.dismiss();
         } catch (Exception e) {
             e.printStackTrace();
