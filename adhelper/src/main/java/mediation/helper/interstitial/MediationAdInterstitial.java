@@ -464,7 +464,9 @@ public class MediationAdInterstitial {
         MediationAdInterstitial.initAdPriorityList = new ArrayList<>(Arrays.asList(tempAdPriorityList));
         Log.d(TAG, "showInterstitialAd: " + initAdPriorityList.size());
         MediationAdInterstitial.activityRef = new WeakReference<>(activity);
-        initSelectedAd();
+        if (initAdPriorityList != null && initAdPriorityList.size() > 0) {
+            initSelectedAd();
+        }
     }
 
     private static void initSelectedAd() {
@@ -493,7 +495,6 @@ public class MediationAdInterstitial {
             finishAd();
             return;
         }
-
 
 
         int adPriority = adPriorityList.remove(0);
@@ -638,8 +639,10 @@ public class MediationAdInterstitial {
                     onInterstitialAdListener.onDismissed(MediationAdHelper.AD_FACEBOOK);
 //                    finishAd();
                 }
-                if (isAdPreloadEnable)
-                    initSelectedAd();
+                if (initAdPriorityList != null && initAdPriorityList.size() > 0) {
+                    if (isAdPreloadEnable)
+                        initSelectedAd();
+                }
             }
 
             @Override
@@ -648,8 +651,10 @@ public class MediationAdInterstitial {
                 MediationAdInterstitial.onLoadError(adError.getErrorMessage());
                 facebookInterstitialAD = null;
                 AdHelperApplication.fbRequestInterFaild++;
-                if (isAdPreloadEnable)
-                    initSelectedAd();
+                if (initAdPriorityList != null && initAdPriorityList.size() > 0) {
+                    if (isAdPreloadEnable)
+                        initSelectedAd();
+                }
             }
 
             @Override
@@ -711,8 +716,10 @@ public class MediationAdInterstitial {
             } catch (Exception e) {
                 MediationAdInterstitial.onError(e.getMessage());
             }
-            if (isAdPreloadEnable)
-                initSelectedAd();
+            if (initAdPriorityList != null && initAdPriorityList.size() > 0) {
+                if (isAdPreloadEnable)
+                    initSelectedAd();
+            }
         } else {
             Log.d(TAG, "showFacebookInterstitialAd: show ad is off " + showAds);
         }
@@ -779,8 +786,10 @@ public class MediationAdInterstitial {
                         AdHelperApplication.getFirebaseAnalytics().logEvent("OnIntersAMBFailedToLoad", bundle);
                     }
                     MediationAdInterstitial.onLoadError(loadAdError.getMessage());
-                    if (!isAdPreloadEnable)
-                        initSelectedAd();
+                    if (initAdPriorityList != null && initAdPriorityList.size() > 0) {
+                        if (!isAdPreloadEnable)
+                            initSelectedAd();
+                    }
 
                     if (AdHelperApplication.admobRequestInterFaild >= Constant.findIntegerValueInMap(AdSessions.interstitial_session.name().toString(), AdHelperApplication.sessionConfig.admob_sessions)) {
                         canShowInterstitial = false;
@@ -847,8 +856,10 @@ public class MediationAdInterstitial {
                     }
                 });
                 admobInterstitialAD.show(activityRef.get());
-                if (isAdPreloadEnable)
-                    initSelectedAd();
+                if (initAdPriorityList != null && initAdPriorityList.size() > 0) {
+                    if (isAdPreloadEnable)
+                        initSelectedAd();
+                }
             }
         }
     }
@@ -876,7 +887,7 @@ public class MediationAdInterstitial {
         }
         if (adPriorityList != null && adPriorityList.size() > 0) {
 
-                showSelectedAd();
+            showSelectedAd();
         } else {
             if (onInterstitialAdListener != null) {
 
