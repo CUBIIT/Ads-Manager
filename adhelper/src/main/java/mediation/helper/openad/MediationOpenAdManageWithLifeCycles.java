@@ -90,11 +90,11 @@ public class MediationOpenAdManageWithLifeCycles {
         Log.d("de_open", "fetchAd:ignoreActivity " + ignoreActivity);
 
         if (currentActName.equals(ignoreActivity)) {
-         fetchAd();
-        }else{
+           showAdIfAvailable();
+        } else {
             openAddCallBack.onErrorToShow("Not Allow on Splash");
             Log.d("de_open", "MediationOpenAdManagerCallBacks: not show");
-            return;
+
         }
 
     }
@@ -138,67 +138,80 @@ public class MediationOpenAdManageWithLifeCycles {
     /**
      * Shows the ad if one isn't already showing.
      */
+
+
     public void showAdIfAvailable() {
         // Only show ad if there is not already an app open ad currently showing
         // and an ad is available.
-        if (!isShowingAd && isAdAvailable()) {
-            Log.d(LOG_TAG, "Will show ad.");
-
-            FullScreenContentCallback fullScreenContentCallback =
-                    new FullScreenContentCallback() {
-                        @Override
-                        public void onAdDismissedFullScreenContent() {
-                            // Set the reference to null so isAdAvailable() returns false.
-                            appOpenAd = null;
-                            isShowingAd = false;
-                            openAddCallBack.onDismissClick();
-                            // fetchAd();
-                        }
-
-                        @Override
-                        public void onAdFailedToShowFullScreenContent(AdError adError) {
-                            openAddCallBack.onErrorToShow(adError.getMessage());
-                            Bundle bundle = new Bundle();
-                            bundle.putString("failedToShowFullScn", adError.getMessage());
-                            if (analytics != null)
-                                analytics.logEvent("OpenAppOnAdFailedToShowFullScreen", bundle);
-
-                        }
-
-                        @Override
-                        public void onAdShowedFullScreenContent() {
-                            isShowingAd = true;
-                            Bundle bundle = new Bundle();
-                            bundle.putString("show_success", "onAdShowedFullScreenContent");
-                            if (analytics != null)
-                                analytics.logEvent("OpenAppOnAdShowFullScreen", bundle);
-                        }
-                    };
-
-            // appOpenAd.show(currentActivity, fullScreenContentCallback);
-            appOpenAd.setFullScreenContentCallback(fullScreenContentCallback);
-            appOpenAd.show(currentActivity);
-
-        } else {
-            Log.d(LOG_TAG, "Can not show ad.");
-            //  fetchAd();
+        if (isShowingAd) {
+            Log.d("de_", "showAdIfAvailable:  ad is showing..");
+            return;
         }
+        if (!isAdAvailable()) {
+            openAddCallBack.onDismissClick();
+            Log.d(LOG_TAG, "Can not show ad.");
+            fetchAd();
+            return;
+        }
+        Log.d(LOG_TAG, "Will show ad.");
+        FullScreenContentCallback fullScreenContentCallback =
+                new FullScreenContentCallback() {
+                    @Override
+                    public void onAdDismissedFullScreenContent() {
+                        // Set the reference to null so isAdAvailable() returns false.
+                        appOpenAd = null;
+                        isShowingAd = false;
+                        openAddCallBack.onDismissClick();
+                        fetchAd();
+                    }
+
+                    @Override
+                    public void onAdFailedToShowFullScreenContent(AdError adError) {
+                        openAddCallBack.onErrorToShow(adError.getMessage());
+                        appOpenAd = null;
+                        isShowingAd = false;
+                        Bundle bundle = new Bundle();
+                        bundle.putString("failedToShowFullScn", adError.getMessage());
+                        if (analytics != null)
+                            analytics.logEvent("OpenAppOnAdFailedToShowFullScreen", bundle);
+                        fetchAd();
+                    }
+
+                    @Override
+                    public void onAdShowedFullScreenContent() {
+                        // isShowingAd = true;
+                        Bundle bundle = new Bundle();
+                        bundle.putString("show_success", "onAdShowedFullScreenContent");
+                        if (analytics != null)
+                            analytics.logEvent("OpenAppOnAdShowFullScreen", bundle);
+                    }
+                };
+
+        // appOpenAd.show(currentActivity, fullScreenContentCallback);
+        appOpenAd.setFullScreenContentCallback(fullScreenContentCallback);
+        isShowingAd = true;
+        appOpenAd.show(currentActivity);
+
+
     }
 
     /**
      * Request an ad
      */
+    boolean isLoadingAd = false;
+
     public void fetchAd() {
         // Have unused ad, no need to fetch another.
         if (isAdAvailable()) {
             return;
         }
-
+        isLoadingAd = true;
         loadCallback =
                 new AppOpenAd.AppOpenAdLoadCallback() {
                     @Override
                     public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                         super.onAdFailedToLoad(loadAdError);
+                        isLoadingAd = false;
                         openAddCallBack.onErrorToShow(loadAdError.getMessage());
                         if (AdHelperApplication.isAdmobInLimit()) {
                             applyLimitOnAdmob = true;
@@ -213,12 +226,13 @@ public class MediationOpenAdManageWithLifeCycles {
                     @Override
                     public void onAdLoaded(@NonNull AppOpenAd ad) {
                         appOpenAd = ad;
+                        isLoadingAd = false;
                         loadTime = (new Date()).getTime();
                         Log.d("alam_", "onAdLoaded: ");
                         Bundle bundle = new Bundle();
                         bundle.putString("openAdLoaded", "onAddLoadedCalled ");
                         if (analytics != null) analytics.logEvent("OpenApponAdLoaded", bundle);
-                        showAdIfAvailable();
+                        // showAdIfAvailable();
                     }
 
 
