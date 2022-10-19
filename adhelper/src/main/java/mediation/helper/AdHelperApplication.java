@@ -159,6 +159,7 @@ public class AdHelperApplication extends Application {
 
     }
 
+
     public static FirebaseAnalytics getFirebaseAnalytics() {
         return firebaseAnalytics;
     }
@@ -384,12 +385,12 @@ public class AdHelperApplication extends Application {
         Log.d("De_AdManager", String.format("Ads Priorities: Banner: %s -- Native:%s -- Interstitial: %s", mFirebaseConfig.getString(BANNER_AD_PRIORITY_KEY), mFirebaseConfig.getString(NATIVE_AD_PRIORITY_KEY), mFirebaseConfig.getString(INTERSTITIAL_AD_PRIORITY_KEY)));
         if (verifyInstallerId(context)) {
             if (generalInfo.getBannerAdPriority() != null || !generalInfo.getBannerAdPriority().isEmpty()) {
-                if (generalInfo.getBannerAdPriority().equals("FACEBOOK")) {
+                if (generalInfo.getBannerAdPriority().equalsIgnoreCase("facebook")) {
                     KEY_PRIORITY_BANNER_AD = new Integer[]{
                             MediationAdHelper.AD_FACEBOOK,
                             MediationAdHelper.AD_ADMOB,
                             MediationAdHelper.AD_CUBI_IT};
-                } else if (generalInfo.getBannerAdPriority().equals("ADMOB")) {
+                } else if (generalInfo.getBannerAdPriority().equalsIgnoreCase("admob")) {
                     KEY_PRIORITY_BANNER_AD = new Integer[]{
                             MediationAdHelper.AD_ADMOB,
                             MediationAdHelper.AD_FACEBOOK,

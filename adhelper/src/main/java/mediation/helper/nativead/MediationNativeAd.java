@@ -61,7 +61,7 @@ import mediation.helper.cubiad.NativeAdView.NativeCubiAd;
 import mediation.helper.util.Constant;
 
 /**
- * Created by CUBI-IT
+ * Created by CUBI-IT@Alam
  */
 
 public class MediationNativeAd {

@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 
 /**
- * Created by CUBI-IT
+ * Created by CUBI-IT@Alam
  */
 public class AppUtil {
 

@@ -8,7 +8,7 @@ import java.util.Map;
 import mediation.helper.MediationAdHelper;
 
 /**
- * Created by CUBI-IT
+ * Created by CUBI-IT@Alam
  */
 
 public class Constant {

@@ -46,7 +46,7 @@ import mediation.helper.cubiad.NativeAdView.CubiBannerAd;
 import mediation.helper.util.Constant;
 
 /**
- * Created by CUBI-IT
+ * Created by CUBI-IT@Alam
  */
 
 public class MediationAdBanner {
