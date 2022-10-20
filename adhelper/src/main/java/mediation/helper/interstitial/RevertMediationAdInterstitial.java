@@ -557,7 +557,11 @@ public class RevertMediationAdInterstitial {
 //                if (!isAdPreloadEnable)
 //                    showSelectedAd();
                 //set interstitial time
-                prefManager.setTime(activityRef.get(), AdTimeLimits.INTERSTITIAL_KEY);
+               try {
+                   prefManager.setTime(activityRef.get(), AdTimeLimits.INTERSTITIAL_KEY);
+               } catch (Exception e) {
+                   e.printStackTrace();
+               }
             }
 
             @Override
@@ -789,9 +793,9 @@ public class RevertMediationAdInterstitial {
 
     private static void finishAd() {
         onInterstitialAdListener = null;
-        facebookKey = null;
-        admobKey = null;
-        activityRef = null;
+        // facebookKey = null;
+        // admobKey = null;
+        // activityRef = null;
         initAdPriorityList = null;
         adPriorityList = null;
         cubiInterstitialAd = null;
