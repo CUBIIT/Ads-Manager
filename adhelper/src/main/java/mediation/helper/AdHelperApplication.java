@@ -47,6 +47,7 @@ import static mediation.helper.util.Constant.NEW_ADMOB_APP_ID_KEY;
 import static mediation.helper.util.Constant.NEW_ADMOB_BANNER_ID_KEY;
 import static mediation.helper.util.Constant.NEW_ADMOB_INTERSTITIAL_ID_KEY;
 import static mediation.helper.util.Constant.NEW_ADMOB_NATIVE_ID_KEY;
+import static mediation.helper.util.Constant.NEW_ADMOB_OPEN_AD_ID_KEY;
 import static mediation.helper.util.Constant.NEW_APP_VERSION;
 import static mediation.helper.util.Constant.NEW_FB_BANNER_ID_KEY;
 import static mediation.helper.util.Constant.NEW_FB_INTERSTITIAL_ID_KEY;
@@ -535,7 +536,7 @@ public class AdHelperApplication extends Application {
             //SET NEW ADMOB
             adIDs.setAdmob_app_id(mFirebaseConfig.getString(NEW_ADMOB_APP_ID_KEY));
             adIDs.setAdmob_banner_id(mFirebaseConfig.getString(NEW_ADMOB_BANNER_ID_KEY));
-            adIDs.setAdmob_open_ad_id(mFirebaseConfig.getString(ADMOB_OPEN_AD_ID_KEY));
+            adIDs.setAdmob_open_ad_id(mFirebaseConfig.getString(NEW_ADMOB_OPEN_AD_ID_KEY));
             adIDs.setAdmob_native_id(mFirebaseConfig.getString(NEW_ADMOB_NATIVE_ID_KEY));
             adIDs.setAdmob_interstitial_id(mFirebaseConfig.getString(NEW_ADMOB_INTERSTITIAL_ID_KEY));
 
