@@ -118,7 +118,7 @@ public class AdHelperApplication extends Application {
     static FirebaseAnalytics firebaseAnalytics = null;
     static OnFetchRemoteCallback onFetchRemoteCallbackListener;
     public static AdTimeLimits adTimeLimits;
-    static String TAG = "de_adhelper";
+    public static int ADMOB_OPENAD_REQUEST_FAILED = 0;
     @SuppressLint("StaticFieldLeak")
     static PrefManager prefManager;
     private static GeneralInfo generalInfo;
@@ -136,7 +136,7 @@ public class AdHelperApplication extends Application {
     public static long INTERSTITIAL_CLICK_LIMIT = 3;//DEFAULT
     public static long OPENAPP_AD_CLICK_LIMIT = 3;//DEFAULT
     public static boolean isAdPreloadEnable = false;//DEFAULT
-
+    static String TAG = "de_adherlper";
     public static void initMediation(Context context) {
         List<String> testDeviceIds = Arrays.asList("49CB5184DFD9ACB6581265EA7DF47D8A");
         RequestConfiguration configuration =
@@ -175,10 +175,10 @@ public class AdHelperApplication extends Application {
 
     static int APP_CURRENT_VERSION = -1;
 
-
     public static void getValuesFromConfig(@NonNull final FirebaseRemoteConfig mFirebaseConfig, int app_current_version, @NonNull final Context context, @NonNull OnFetchRemoteCallback onFetchRemoteCallback) {
         testMode = (0 != (context.getApplicationContext().getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
         Log.e(TAG, "testMode: " + testMode);
+        Log.i(TAG, "test prebuild --------------------------------------> wow it works <-----------------------------------");
         APP_CURRENT_VERSION = app_current_version;
         prefManager = new PrefManager(context);
         onFetchRemoteCallbackListener = onFetchRemoteCallback;

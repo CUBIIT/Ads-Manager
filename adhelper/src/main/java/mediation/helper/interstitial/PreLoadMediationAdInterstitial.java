@@ -894,9 +894,9 @@ public class PreLoadMediationAdInterstitial {
 
     private static void finishAd() {
         onInterstitialAdListener = null;
-        facebookKey = null;
-        admobKey = null;
-        activityRef = null;
+//        facebookKey = null;
+//        admobKey = null;
+//        activityRef = null;
         initAdPriorityList = null;
         adPriorityList = null;
         cubiInterstitialAd = null;

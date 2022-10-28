@@ -1,5 +1,6 @@
 package mediation.helper.openad;
 
+import static mediation.helper.AdHelperApplication.ADMOB_OPENAD_REQUEST_FAILED;
 import static mediation.helper.AdHelperApplication.applyLimitOnAdmob;
 import static mediation.helper.TestAdIDs.TEST_ADMOB_OPEN_APP_ID;
 
@@ -62,6 +63,10 @@ public class MediationOpenAdManageWithLifeCycles {
                 return;
             }
         }
+        if (canBlockRequestAfterFailedExceed()) {
+            appOpenAdCallBack.onErrorToShow("ADMOB REQUEST FAILED EXCEED: " + ADMOB_OPENAD_REQUEST_FAILED);
+            return;
+        }
         if (!AdHelperApplication.isInit) {
             new Handler().postDelayed(new Runnable() {
                 @Override
@@ -72,8 +77,10 @@ public class MediationOpenAdManageWithLifeCycles {
             return;
         }
         if (!checkIfAdCanBeShow(appOpenAdCallBack)) {
+
             return;
         }
+
         if (!AdHelperApplication.getTestMode()) {
 //        if (true) {
             //check if ids or test skip
@@ -90,13 +97,17 @@ public class MediationOpenAdManageWithLifeCycles {
         Log.d("de_open", "fetchAd:ignoreActivity " + ignoreActivity);
 
         if (currentActName.equals(ignoreActivity)) {
-           showAdIfAvailable();
+            showAdIfAvailable();
         } else {
             openAddCallBack.onErrorToShow("Not Allow on Splash");
             Log.d("de_open", "MediationOpenAdManagerCallBacks: not show");
 
         }
 
+    }
+
+    private boolean canBlockRequestAfterFailedExceed() {
+        return AdHelperApplication.ADMOB_OPENAD_REQUEST_FAILED > 3;
     }
 
     private boolean checkIfAdCanBeShow(OpenAddCallback openAddCallBack) {
