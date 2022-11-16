@@ -229,12 +229,18 @@ public class PreLoadMediationAdInterstitial {
             onInterstitialAdListener.onError("You have pro version!");
             return;
         }
-        if (isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.interstitial))) {
-            PreLoadMediationAdInterstitial.onError("showInterstitialAd: is off by remote ");
-            onInterstitialAdListener.onError("showInterstitialAd: is off by remote ");
+        try {
+            if (AdHelperApplication.placeholderConfig == null)
+                AdHelperApplication.getPlaceholderConfig();
+            if (isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.interstitial))) {
+                PreLoadMediationAdInterstitial.onError("showInterstitialAd: is off by remote ");
+                onInterstitialAdListener.onError("showInterstitialAd: is off by remote ");
 
-            Log.d(Constant.TAG, "showInterstitialAd: is off by remote");
-            return;
+                Log.d(Constant.TAG, "showInterstitialAd: is off by remote");
+                return;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
       /*  Log.d(TAG, "showInterstitialAd: counter " + interstitialClickAdCounter);
         if (AdHelperApplication.interstitialClickAdCounter > 0 && AdHelperApplication.interstitialClickAdCounter < AdHelperApplication.INTERSTITIAL_CLICK_LIMIT) {
@@ -326,12 +332,19 @@ public class PreLoadMediationAdInterstitial {
             onInterstitialAdListener.onError("You have pro version!");
             return;
         }
-        if (isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.interstitial))) {
-            PreLoadMediationAdInterstitial.onError("showInterstitialAd: is off by remote ");
-            onInterstitialAdListener.onError("showInterstitialAd: is off by remote ");
+        try {
+            if (AdHelperApplication.placeholderConfig == null) {
+                AdHelperApplication.getPlaceholderConfig();
+            }
+            if (isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.interstitial))) {
+                PreLoadMediationAdInterstitial.onError("showInterstitialAd: is off by remote ");
+                onInterstitialAdListener.onError("showInterstitialAd: is off by remote ");
 
-            Log.d(Constant.TAG, "showInterstitialAd: is off by remote");
-            return;
+                Log.d(Constant.TAG, "showInterstitialAd: is off by remote");
+                return;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
       /*  Log.d(TAG, "showInterstitialAd: counter " + interstitialClickAdCounter);
         if (AdHelperApplication.interstitialClickAdCounter > 0 && AdHelperApplication.interstitialClickAdCounter < AdHelperApplication.INTERSTITIAL_CLICK_LIMIT) {

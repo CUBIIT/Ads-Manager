@@ -238,6 +238,21 @@ public class AdHelperApplication extends Application {
 
     public static PlaceholderConfig placeholderConfig = null;
 
+    public static PlaceholderConfig getPlaceholderConfig() {
+        if (placeholderConfig == null) {
+            try {
+                String val = Constant.DEFUALT_PLACEHOLDER_JSON;
+                placeholderConfig = new Gson().fromJson(val, PlaceholderConfig.class);
+                return placeholderConfig;
+            } catch (Exception ed) {
+                ed.printStackTrace();
+                return null;
+            }
+        } else {
+            return placeholderConfig;
+        }
+    }
+
     private static void loadPlaceholderData(FirebaseRemoteConfig firebaseRemoteConfig) {
         Log.d(TAG, "loadPlaceholderData: " + firebaseRemoteConfig.getString("placeholders").toString());
         try {
