@@ -1,7 +1,7 @@
 # Introduction
 AdManager is an Admob and Facebook and custom ads mediation library. AdManager supports Interstitial ad, native ad, Banner ad, icon ad, and exit dialog ad.AdManager support custom ad using firebase remote config.
 AdManager is a fast, smooth, reliable, and easy-to-use ads mediation library.
-# Version 1.6.8 (Stable Release)
+# Version 2.0.1.2 (Stable Release)
   This version is more stable and error free. Also support new Ads IDs only for latest version of android app.
   (Optional ) You can also skip native ad first time on splash screen to avoid violation of Ads Policy.
 # Version 1.6
@@ -32,7 +32,7 @@ Add dependency in your build.gradle(App level) file.
 
 ```gradle
 dependencies {
-  implementation 'com.github.CUBIIT:Ads-Manager:1.6.8'
+  implementation 'com.github.CUBIIT:Ads-Manager:2.0.1.2'
 }
 ```
 ### Step3: Connect App to Firebase
