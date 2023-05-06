@@ -142,28 +142,13 @@ public class AdManager extends Application {
          /* always called,get default or last update values 
            */
                 Log.d(TAG, "onUpdateSuccess: ");
-                updateManifest(appid);
+               
             }
         });
   //to support events
   AdHelperApplication.setFirebaseAnalytics(FirebaseAnalytics.getInstance(this));
     }
-   //add this method to update the admob app id in manifest
-    private void updateManifest(String app_id) {
-        try {
-            ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
-            Bundle bundle = ai.metaData;
-            String myApiKey = bundle.getString("com.google.android.gms.ads.APPLICATION_ID");
-            Log.d(TAG, "Name Found: " + myApiKey);
-            ai.metaData.putString("com.google.android.gms.ads.APPLICATION_ID", app_id);
-            String ApiKey = bundle.getString("com.google.android.gms.ads.APPLICATION_ID");
-            Log.d(TAG, "ReNamed Found: " + ApiKey);
-        } catch (PackageManager.NameNotFoundException e) {
-            Log.e(TAG, "Failed to load meta-data, NameNotFound: " + e.getMessage());
-        } catch (NullPointerException e) {
-            Log.e(TAG, "Failed to load meta-data, NullPointer: " + e.getMessage());
-        }
-    }
+ 
 }
 ```
 ### Initialize the Interstitial ads.
