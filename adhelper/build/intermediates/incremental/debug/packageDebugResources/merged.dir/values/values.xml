@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black20">#14000000</color>
+    <color name="black30">#1d000000</color>
+    <color name="black54">#8a000000</color>
+    <color name="black87">#de000000</color>
+    <color name="blue">#036CBF</color>
+    <color name="blueTransparent">#921E88E5</color>
+    <color name="grayWhite">#fdfdfd</color>
+    <color name="grayWhite1">#f5f5f5</color>
+    <color name="green">#036D07</color>
+    <color name="lightGray">#EFEFEF</color>
+    <color name="tedBtnHighlight">#1F3195</color>
+    <color name="tedBtnPrimary">#3F51B5</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="yellow">#FFC107</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="btn_padding_left_right">15dp</dimen>
+    <dimen name="btn_padding_top_bottom">10dp</dimen>
+    <dimen name="default_elevation">8dp</dimen>
+    <dimen name="default_padding">16dp</dimen>
+    <dimen name="default_padding_large">24dp</dimen>
+    <dimen name="default_padding_small">8dp</dimen>
+    <dimen name="default_padding_xlarge">40dp</dimen>
+    <dimen name="default_radius">3dp</dimen>
+    <dimen name="dp8">8dp</dimen>
+    <dimen name="list_item_avatar_size">40dp</dimen>
+    <dimen name="list_item_avatar_size_large">56dp</dimen>
+    <dimen name="list_item_avatar_size_small">24dp</dimen>
+    <dimen name="list_item_avatar_size_xlarge">72dp</dimen>
+    <dimen name="list_item_container_padding">16dp</dimen>
+    <dimen name="list_item_container_padding_small">8dp</dimen>
+    <dimen name="list_item_text_margin">3dp</dimen>
+    <dimen name="recommend_icon_size">48dp</dimen>
+    <dimen name="tool_bar_height">56dp</dimen>
+    <dimen name="toolbar_elevation">0dp</dimen>
+    <item name="media_facebook" type="id"/>
+    <string name="ad_button">Install</string>
+    <string name="ad_native">Ad type</string>
+    <string name="ad_text">Ad</string>
+    <string name="advertiser_name">advertiser name</string>
+    <string name="advertiser_title">CUBI-IT Apps</string>
+    <string name="app_name">TedAdHelper</string>
+    <string name="body_text">Testad_DualSapce for everyone. Click to install it</string>
+    <string name="exit">exit</string>
+    <string name="finish">Exit</string>
+    <string name="google_play">Google Play</string>
+    <string name="imageview">ad image</string>
+    <string name="install_calltoaction">Install</string>
+    <string name="install_desc">Install app</string>
+    <string name="review_cancel">Do not disturb</string>
+    <string name="review_go">Go review</string>
+    <string name="test_feedback_num">(53,434)</string>
+    <string name="title">Testad-DualSpace</string>
+    <style name="AdAttribution" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:text">@string/ad_text</item>
+        <item name="android:background">@drawable/bg_ad_broder</item>
+        <item name="android:width">15dp</item>
+        <item name="android:height">15dp</item>
+    </style>
+    <style name="AppTheme.DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+
+        
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="CustomText" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black87</item>
+    </style>
+    <style name="CustomText_Body" parent="@style/CustomText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/black87</item>
+    </style>
+    <style name="CustomText_Caption" parent="@style/CustomText">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/black54</item>
+    </style>
+    <style name="CustomText_Display" parent="@style/CustomText">
+        <item name="android:textSize">34sp</item>
+        <item name="android:textColor">@color/black54</item>
+    </style>
+    <style name="CustomText_Headline" parent="@style/CustomText">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/black87</item>
+    </style>
+    <style name="CustomText_Subhead" parent="@style/CustomText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black87</item>
+    </style>
+    <style name="CustomText_Title" parent="@style/CustomText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black87</item>
+    </style>
+    <style name="FullscreenTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="PrimaryButton" parent="Theme.AppCompat">
+        <item name="colorButtonNormal">@color/tedBtnPrimary</item>
+        <item name="colorControlHighlight">@color/tedBtnHighlight</item>
+    </style>
+    <style name="PrimaryFlatButton" parent="Theme.AppCompat.Light">
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
+        <item name="colorControlHighlight">@color/tedBtnHighlight</item>
+        <item name="colorAccent">@color/tedBtnPrimary</item>
+    </style>
+</resources>

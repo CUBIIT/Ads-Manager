@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.cubiit.admanager.dev">
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:name="org.cubiit.admanager.AdManager"
         android:allowBackup="true"
@@ -16,8 +14,8 @@
         <activity
             android:name="org.cubiit.admanager.AdsActivity"
             android:exported="true"
-            android:parentActivityName="org.cubiit.admanager.MainActivity"></activity>
-        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+            android:parentActivityName="org.cubiit.admanager.MainActivity" />
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713" />
@@ -32,7 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="org.cubiit.admanager.MainActivity"></activity>
+        <activity android:name="org.cubiit.admanager.MainActivity" />
     </application>
 
 </manifest>

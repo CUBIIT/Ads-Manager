@@ -3,16 +3,12 @@ plugins {
     id 'com.google.gms.google-services'
 }
 
-
-
 android {
     compileSdkVersion 33
-
     defaultConfig {
         applicationId "org.cubiit.admanager.dev"
         minSdkVersion 19
         targetSdkVersion 33
-
         versionCode 3
         versionName "0.3"
         multiDexEnabled true
@@ -32,17 +28,11 @@ android {
 
     }
 
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-
-
-
     dependencies {
-
         implementation 'androidx.appcompat:appcompat:1.6.1'
         implementation 'com.google.android.material:material:1.9.0'
         implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -53,27 +43,11 @@ android {
         implementation('com.github.bumptech.glide:glide:4.14.2') {
             exclude(group: "com.android.support")
         }
-        //facebook audience
         implementation 'com.facebook.android:audience-network-sdk:6.13.7'
-        implementation platform('com.google.firebase:firebase-bom:28.2.0')
+        implementation platform('com.google.firebase:firebase-bom:31.1.0')
         implementation 'com.google.firebase:firebase-messaging'
         implementation 'com.google.firebase:firebase-analytics'
         implementation 'com.google.firebase:firebase-config'
     }
-
-//    task sourcesJar(type: Jar, dependsOn: classes) {
-//        classifier = 'sources'
-//        from sourceSets.main.allSource
-//    }
-//
-//    task javadocJar(type: Jar, dependsOn: javadoc) {
-//        classifier = 'javadoc'
-//        from javadoc.destinationDir
-//    }
-//
-//    artifacts {
-//        archives sourcesJar
-//        archives javadocJar
-//    }
 
 }
