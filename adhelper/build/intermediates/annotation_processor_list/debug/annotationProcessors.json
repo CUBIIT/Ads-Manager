@@ -1,1 +1,1 @@
-{"jetified-compiler-4.11.0.jar (com.github.bumptech.glide:compiler:4.11.0)":true,"databinding-compiler-4.1.0.jar (androidx.databinding:databinding-compiler:4.1.0)":true}
+{"compiler-4.11.0.jar (com.github.bumptech.glide:compiler:4.11.0)":"INCREMENTAL_AP","databinding-compiler-7.4.2.jar (androidx.databinding:databinding-compiler:7.4.2)":"INCREMENTAL_AP"}

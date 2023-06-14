@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mediation.helper" >
 
-    <uses-sdk
-        android:minSdkVersion="19"
-        android:targetSdkVersion="30" />
+    <uses-sdk android:minSdkVersion="19" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />

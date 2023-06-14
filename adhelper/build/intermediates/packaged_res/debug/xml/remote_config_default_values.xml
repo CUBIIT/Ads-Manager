@@ -13,7 +13,7 @@
     </entry>
     <entry>
         <key>enable_preload</key>
-        <value>0</value>
+        <value>1</value>
     </entry>
     <entry>
         <key>placeholders</key>
@@ -243,6 +243,10 @@
     <entry>
         <key>admob_native_id</key>
         <value>ca-app-pub-3940256099942544/2247696110</value>
+    </entry>
+    <entry>
+        <key>new_admob_open_ad_id</key>
+        <value>ca-app-pub-3940256099942544/3419835294</value>
     </entry>
     <entry>
         <key>admob_interstitial_id</key>

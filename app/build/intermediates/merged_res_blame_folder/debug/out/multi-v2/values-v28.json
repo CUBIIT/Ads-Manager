@@ -1,35 +1,44 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\HP\\AndroidStudioProjects\\Ads-Manager\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v28\\values-v28.xml",
+            "outputFile": "org.cubiit.admanager.dev.app-mergeDebugResources-41:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\911d47c049d08ae623ab8b677c8c79e5\\appcompat-1.3.0\\res\\values-v28\\values-v28.xml",
+                    "source": "E:\\.gradle\\caches\\transforms-3\\63ab0ed5272d1085299eeb6c0c2e07d1\\transformed\\material-1.9.0\\res\\values-v28\\values-v28.xml",
                     "from": {
-                        "startLines": "2,3,4,8",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,130,217,447",
-                        "endLines": "2,3,7,11",
-                        "endColumns": "74,86,12,12",
-                        "endOffsets": "125,212,442,684"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,153,248,343,441,529,617,705,793,880,967,1054,1141",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,17",
+                        "endColumns": "97,94,94,97,87,87,87,87,86,86,86,86,10",
+                        "endOffsets": "148,243,338,436,524,612,700,788,875,962,1049,1136,1423"
                     },
                     "to": {
-                        "startLines": "10,11,12,16",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "755,830,917,1147",
-                        "endLines": "10,11,15,19",
-                        "endColumns": "74,86,12,12",
-                        "endOffsets": "825,912,1142,1384"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,24",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,153,248,343,441,529,617,705,793,880,967,1054,1675",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,12,13,27",
+                        "endColumns": "97,94,94,97,87,87,87,87,86,86,86,86,10",
+                        "endOffsets": "148,243,338,436,524,612,700,788,875,962,1049,1136,1957"
                     }
                 },
                 {
-                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-2\\files-2.1\\2434370e1dd26cf9b9fa847cd5ce9a5f\\material-1.3.0\\res\\values-v28\\values-v28.xml",
+                    "source": "E:\\.gradle\\caches\\transforms-3\\b93455f870afed08faf4272b0e92f118\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,143,231,319,407,494,581,668",
-                        "endColumns": "87,87,87,87,86,86,86,86",
-                        "endOffsets": "138,226,314,402,489,576,663,750"
+                        "startLines": "2,3,4,8",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,130,217,397",
+                        "endLines": "2,3,7,11",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "125,212,392,584"
+                    },
+                    "to": {
+                        "startLines": "14,15,16,20",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "1141,1216,1303,1483",
+                        "endLines": "14,15,19,23",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "1211,1298,1478,1670"
                     }
                 }
             ]

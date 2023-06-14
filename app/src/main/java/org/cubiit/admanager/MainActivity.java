@@ -1,11 +1,8 @@
 package org.cubiit.admanager;
 
 import static org.cubiit.admanager.AdsActivity.KEY_PRIORITY_NATIVE_AD_TEST;
-import static mediation.helper.AdHelperApplication.applyLimitOnAdmob;
-import static mediation.helper.AdHelperApplication.canShowInterstitial;
 import static mediation.helper.interstitial.MediationAdInterstitial.onInterstitialAdListener;
 import static mediation.helper.util.Constant.KEY_PRIORITY_INTERSTITIAL_AD;
-import static mediation.helper.util.Constant.KEY_PRIORITY_NATIVE_AD;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -37,16 +34,12 @@ import org.cubiit.admanager.dev.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import mediation.helper.AdHelperApplication;
-import mediation.helper.AdTimeLimits;
 import mediation.helper.MediationAdHelper;
 import mediation.helper.backpress.MediationBackPressDialog;
 import mediation.helper.backpress.OnBackPressListener;
-import mediation.helper.config.AdSessions;
 import mediation.helper.config.PLACEHOLDER;
 import mediation.helper.interstitial.MediationAdInterstitial;
 import mediation.helper.interstitial.OnInterstitialAdListener;
-import mediation.helper.util.Constant;
 
 public class MainActivity extends AppCompatActivity {
     OnItemClickListener onItemClickListener;
