@@ -140,7 +140,7 @@ public class AdsActivity extends AppCompatActivity {
                         .into(imageView);
             }
         });
-        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD, new OnNativeBannerListener() {
+        nativeAd.loadAD(KEY_PRIORITY_NATIVE_AD_TEST, new OnNativeBannerListener() {
             @Override
             public void onError(String errorMessage) {
                 hideDialog();

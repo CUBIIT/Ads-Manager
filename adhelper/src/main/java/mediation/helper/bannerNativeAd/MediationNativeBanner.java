@@ -36,6 +36,7 @@ import com.facebook.ads.NativeAdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MediaContent;
 import com.google.android.gms.ads.VideoOptions;
 import com.google.android.gms.ads.nativead.NativeAdOptions;
 import com.google.android.gms.ads.nativead.NativeAdView;
@@ -93,7 +94,7 @@ public class MediationNativeBanner {
     PLACEHOLDER placeholder;
 
     public MediationNativeBanner(boolean purchased, PLACEHOLDER placeholder, ViewGroup itemView, Context context, String app_name, MediationAdHelper.ImageProvider imageProvider) {
-         
+
         this.purchase = purchased;
         this.placeholder = placeholder;
         this.containerView = itemView;
@@ -107,7 +108,7 @@ public class MediationNativeBanner {
     }
 
     public MediationNativeBanner(boolean purchased, PLACEHOLDER placeholder, ViewGroup itemView, Context context, String app_name, CubiNativeAd cubiNativeAd, MediationAdHelper.ImageProvider imageProvider) {
-         
+
         this.purchase = purchased;
         this.containerView = itemView;
         this.placeholder = placeholder;
@@ -121,7 +122,7 @@ public class MediationNativeBanner {
     }
 
     public MediationNativeBanner(boolean purchased, PLACEHOLDER placeholder, ViewGroup itemView, Context context, String app_name, boolean showIconAds, MediationAdHelper.ImageProvider imageProvider) {
-         
+
         this.purchase = purchased;
         this.containerView = itemView;
         this.context = context;
@@ -186,6 +187,7 @@ public class MediationNativeBanner {
         View nativeView = LayoutInflater.from(context).inflate(R.layout.layout_native_banner_ad, containerView, false);
         parentConstraintView = (ConstraintLayout) nativeView.findViewById(R.id.parent_native_banner_constraint_layout);
         admobAppInstallRootView = (NativeAdView) nativeView.findViewById(R.id.ad_mob_banner_native_ad_view);
+        admobmediaView = (com.google.android.gms.ads.nativead.MediaView) nativeView.findViewById(R.id.admob_media);
         view_container = (ConstraintLayout) nativeView.findViewById(R.id.view_container_native_banner);
         // Create native UI using the ad metadata.
         native_banner_ad_calltoaction = (Button) nativeView.findViewById(R.id.ad_call_to_action);
@@ -231,7 +233,7 @@ public class MediationNativeBanner {
             if (parentConstraintView != null) {
                 parentConstraintView.setVisibility(View.GONE);
             }
-             
+
             onNativeAdListener.onError("You have pro version");
             return;
         }
@@ -306,11 +308,11 @@ public class MediationNativeBanner {
     }
 
     public void loadAD(final Integer[] tempAdPriorityList, final OnNativeBannerListener onNativeAdListener) {
-        if(!AdHelperApplication.isInit){
+        if (!AdHelperApplication.isInit) {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadAD(tempAdPriorityList,onNativeAdListener);
+                    loadAD(tempAdPriorityList, onNativeAdListener);
                 }
             }, 1500);
             return;
@@ -319,20 +321,20 @@ public class MediationNativeBanner {
             if (parentConstraintView != null) {
                 parentConstraintView.setVisibility(View.GONE);
             }
-             
+
             onNativeAdListener.onError("You have pro version");
             return;
         }
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             if (onNativeAdListener != null) {
-                 
+
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/TNK");
             }
             return;
         }
         if (isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.native_banner).toLowerCase(Locale.ROOT))) {
             Log.d(Constant.TAG, "loadAD: nativebanner is off");
-             
+
 
             onNativeAdListener.onError("oadAD: nativebanner is off");
             return;
@@ -345,13 +347,13 @@ public class MediationNativeBanner {
     //for cubiBanner ads
     public void loadAD(Integer[] tempAdPriorityList, CubiNativeAd CubiNativeAd, OnNativeBannerListener onNativeAdListener) {
         if (purchase) {
-             
+
             onNativeAdListener.onError("You have pro version");
             return;
         }
         if (tempAdPriorityList == null || tempAdPriorityList.length == 0) {
             if (onNativeAdListener != null) {
-                 
+
 
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/TNK");
             }
@@ -360,7 +362,7 @@ public class MediationNativeBanner {
         //check
         if (isAddOff(findValueInMap(placeholder.name().toLowerCase(Locale.ROOT).toString(), AdHelperApplication.placeholderConfig.native_banner))) {
             Log.d(Constant.TAG, "loadAD: nativebanner is off");
-             
+
             onNativeAdListener.onError("oadAD: nativebanner is off");
             return;
         }
@@ -384,7 +386,7 @@ public class MediationNativeBanner {
 
         if (tempAdPriorityList == null || tempAdPriorityList.size() == 0) {
             if (onNativeAdListener != null) {
-                 
+
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/TNK");
             }
             return;
@@ -409,7 +411,7 @@ public class MediationNativeBanner {
         } catch (Exception e) {
             e.printStackTrace();
             if (onNativeAdListener != null) {
-                 
+
                 onNativeAdListener.onError(e.toString());
             }
         }
@@ -422,7 +424,7 @@ public class MediationNativeBanner {
         this.cubiNativeAd = CubiNativeAd;
         if (tempAdPriorityList == null || tempAdPriorityList.size() == 0) {
             if (onNativeAdListener != null) {
-                 
+
                 onNativeAdListener.onError("You have to select priority type ADMOB/FACEBOOK/TNK");
             }
             return;
@@ -434,7 +436,7 @@ public class MediationNativeBanner {
         } catch (Exception e) {
             e.printStackTrace();
             if (onNativeAdListener != null) {
-                 
+
                 onNativeAdListener.onError(e.toString());
             }
         }
@@ -456,7 +458,7 @@ public class MediationNativeBanner {
                 selectCubiAd();
                 break;
             default:
-                 
+
                 onNativeAdListener.onError("You have to select priority type ADMOB or FACEBOOK");
         }
     }
@@ -482,7 +484,7 @@ public class MediationNativeBanner {
             //for testing
             if (cubiNativeAd == null) {
                 parentConstraintView.setVisibility(View.GONE);
-                 
+
                 onNativeAdListener.onError("CubiAd is null");
                 onLoadAdError("CubiAd is null");
                 return;
@@ -493,7 +495,7 @@ public class MediationNativeBanner {
             if (isPkgInstalledAlready()) {
                 Log.d("TAG1_banner_ad", "selectCubiAd: app already installed");
                 parentConstraintView.setVisibility(View.GONE);
-                 
+
                 onNativeAdListener.onError("CubiAd pkg already installed");
                 onLoadAdError("CubiAd pkg already installed");
                 return;
@@ -512,7 +514,7 @@ public class MediationNativeBanner {
                 @Override
                 public void onClick(View v) {
                     onNativeAdListener.onAdClicked(3);
-                     
+
                     actionOnCubiAdClicked();
                 }
             });
@@ -520,7 +522,7 @@ public class MediationNativeBanner {
                 @Override
                 public void onClick(View v) {
                     onNativeAdListener.onAdClicked(3);
-                     
+
                     actionOnCubiAdClicked();
                 }
             });
@@ -538,7 +540,7 @@ public class MediationNativeBanner {
     private void actionOnCubiAdClicked() {
         String url = cubiNativeAd.getNativeAdUrlLink();
         if (url.isEmpty()) {
-             
+
             onNativeAdListener.onError("Url is empty");
             return;
         }
@@ -584,7 +586,7 @@ public class MediationNativeBanner {
         } else {
             parentConstraintView.setVisibility(View.GONE);
             if (onNativeAdListener != null) {
-                 
+
                 onNativeAdListener.onError(errorMessage);
             }
 
@@ -670,7 +672,7 @@ public class MediationNativeBanner {
                 super.onAdOpened();
                 Log.d(MediationAdHelper.TAG, "[ADMOB NATIVE EXPRESS AD]Opend");
                 if (onNativeAdListener != null) {
-                     
+
                     onNativeAdListener.onAdClicked(MediationAdHelper.AD_ADMOB);
                 }
             }
@@ -680,7 +682,7 @@ public class MediationNativeBanner {
                 super.onAdClicked();
                 Log.d(MediationAdHelper.TAG, "[FACEBOOK NATIVE AD]Clicked");
                 if (onNativeAdListener != null) {
-                     
+
                     onNativeAdListener.onAdClicked(MediationAdHelper.AD_FACEBOOK);
                 }
             }
@@ -747,7 +749,7 @@ public class MediationNativeBanner {
             public void onAdClicked(Ad ad) {
                 Log.d(MediationAdHelper.TAG, "[FACEBOOK NATIVE AD]Clicked");
                 if (onNativeAdListener != null) {
-                     
+
                     onNativeAdListener.onAdClicked(MediationAdHelper.AD_FACEBOOK);
                 }
             }
@@ -776,7 +778,8 @@ public class MediationNativeBanner {
         myNativeAd.setAdBody(facebookAd.getAdBodyText());
         myNativeAd.setAdCallToAction(facebookAd.getAdCallToAction());
 //        myNativeAd.set(facebookAd.getAdSocialContext());
-
+        native_banner_fb_media_view.setVisibility(View.VISIBLE);
+        admobmediaView.setVisibility(View.GONE);
         bindNativeAd(myNativeAd);
 
         NativeAdLayout nativeAdLayout = new NativeAdLayout(context);
@@ -793,7 +796,7 @@ public class MediationNativeBanner {
             native_banner_ad_calltoaction.setEnabled(false);
             Log.d("log_d", "bindFacebookAD: cat not enable");
         }
-        // clickableViews.add(native_banner_fb_media_view);
+        clickableViews.add(native_banner_fb_media_view);
         clickableViews.add(native_banner_ad_calltoaction);
         facebookAd.unregisterView();
         facebookAd.registerViewForInteraction(parentConstraintView, native_banner_fb_media_view, native_banner_icon_view, clickableViews);
@@ -889,14 +892,14 @@ public class MediationNativeBanner {
         if (TextUtils.isEmpty(callToAction)) {
             native_banner_ad_calltoaction.setVisibility(View.GONE);
         } else {
-            native_banner_ad_calltoaction.setVisibility(View.VISIBLE);
+           // native_banner_ad_calltoaction.setVisibility(View.VISIBLE);
             native_banner_ad_calltoaction.setText(callToAction);
         }
         parentConstraintView.setVisibility(View.VISIBLE);
 
     }
 
-
+com.google.android.gms.ads.nativead.MediaView admobmediaView;
     private void bindAdmobContentAD(com.google.android.gms.ads.nativead.NativeAd nativeAd, NativeAdView nativeContentAd) {
 
         if (nativeContentAd == null) {
@@ -905,7 +908,7 @@ public class MediationNativeBanner {
         }
         MyNativeBannerAds myNativeAd = new MyNativeBannerAds();
         //disable other view to click
-        native_banner_icon_view.setEnabled(false);
+        native_banner_icon_view.setEnabled(true);
         native_banner_ad_title.setEnabled(false);
         native_banner_ad_sponser_label.setEnabled(false);
         native_banner_ad_body.setEnabled(false);
@@ -914,15 +917,18 @@ public class MediationNativeBanner {
         } else {
             native_banner_ad_calltoaction.setEnabled(false);
         }
-
+        native_banner_fb_media_view.setVisibility(View.GONE);
         if (nativeAd.getIcon() != null) {
             myNativeAd.setAdImageIcon(nativeAd.getIcon().getDrawable());
             nativeContentAd.setIconView(native_banner_icon_view);
         }
-//        if (nativeAd.getMediaContent() != null) {
-//            myNativeAd.setMediaContent(nativeAd.getMediaContent());
-//            nativeContentAd.setMediaView(admobNativeAdMediaView);
-//        }
+        if (nativeAd.getMediaContent() != null) {
+            admobmediaView.setVisibility(View.VISIBLE);
+            native_banner_icon_view.setVisibility(View.INVISIBLE);
+            native_banner_ad_calltoaction.setVisibility(View.INVISIBLE);
+            myNativeAd.setMediaContent(nativeAd.getMediaContent());
+            nativeContentAd.setMediaView(admobmediaView);
+        }
         if (nativeAd.getHeadline() != null) {
             myNativeAd.setAdTitle(nativeAd.getHeadline());
             nativeContentAd.setHeadlineView(native_banner_ad_title);
@@ -1016,6 +1022,15 @@ public class MediationNativeBanner {
             this.adCallToAction = adCallToAction;
         }
 
+        MediaContent mediaContent;
+
+        public MediaContent getMediaContent() {
+            return mediaContent;
+        }
+
+        public void setMediaContent(MediaContent mediaContent) {
+            this.mediaContent = mediaContent;
+        }
     }
 
 }

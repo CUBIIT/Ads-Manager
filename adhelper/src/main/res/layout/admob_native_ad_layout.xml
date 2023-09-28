@@ -154,6 +154,7 @@
                 android:id="@+id/ad_media"
                 android:layout_width="match_parent"
                 android:minHeight="122dp"
+
                 android:layout_height="match_parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
